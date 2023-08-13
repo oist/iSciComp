@@ -1,0 +1,17 @@
+# Table of contents
+format: jb-book
+root: iSciComp
+#  numbered: false
+chapters:
+- file: 01_Introduction
+  sections:
+  - file: 01_Introduction_Ex
+- file: 02_Visualization
+  sections:
+  - file: 02_Visualization_Ex
+- file: Solutions
+  sections:
+  - file: 01_Introduction_Sol
+  - file: 02_Visualization_Sol
+
+
