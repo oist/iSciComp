@@ -139,11 +139,28 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="Solutions.html">
-   Sample Solutions of Exercises
+  <a class="reference internal" href="03_Matrix.html">
+   3. Vectors and Matrices
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_Matrix_Ex.html">
+     3. Vectors and Matrices: Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Solutions.html">
+   Sample Solutions of Exercises
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -156,6 +173,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="02_Visualization_Sol.html">
      2. Visualization: Exercise Solution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_Matrix_Sol.html">
+     3. Vectors and Matrices: Exercise
     </a>
    </li>
   </ul>
@@ -655,7 +677,7 @@ To install and setup a variety of packages, it is the best to install a curated 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;exp&#39; is not defined
@@ -1482,7 +1504,7 @@ From Python 3.5, <code class="docutils literal notranslate"><span class="pre">&#
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true
