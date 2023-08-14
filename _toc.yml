@@ -9,9 +9,12 @@ chapters:
 - file: 02_Visualization
   sections:
   - file: 02_Visualization_Ex
+- file: 03_Matrix
+  sections:
+  - file: 03_Matrix_Ex
 - file: Solutions
   sections:
   - file: 01_Introduction_Sol
   - file: 02_Visualization_Sol
-
+  - file: 03_Matrix_Sol
 

@@ -137,11 +137,28 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="Solutions.html">
-   Sample Solutions of Exercises
+  <a class="reference internal" href="03_Matrix.html">
+   3. Vectors and Matrices
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_Matrix_Ex.html">
+     3. Vectors and Matrices: Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Solutions.html">
+   Sample Solutions of Exercises
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -154,6 +171,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="02_Visualization_Sol.html">
      2. Visualization: Exercise Solution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_Matrix_Sol.html">
+     3. Vectors and Matrices: Exercise
     </a>
    </li>
   </ul>
@@ -628,7 +650,7 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1131336d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1143fe5e0&gt;]
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_8_1.png" src="_images/02_Visualization_8_1.png" />
@@ -649,7 +671,7 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x113237190&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1145034c0&gt;]
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_10_1.png" src="_images/02_Visualization_10_1.png" />
@@ -671,8 +693,8 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1132a46a0&gt;,
- &lt;matplotlib.lines.Line2D at 0x1132a4700&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x114572910&gt;,
+ &lt;matplotlib.lines.Line2D at 0x114572970&gt;]
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_12_1.png" src="_images/02_Visualization_12_1.png" />
@@ -785,7 +807,7 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x116bd2970&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x11474fb80&gt;
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_24_1.png" src="_images/02_Visualization_24_1.png" />
@@ -844,7 +866,7 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11341ae20&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x114c92460&gt;]
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_30_1.png" src="_images/02_Visualization_30_1.png" />
@@ -877,10 +899,10 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 2.,  5., 13., 15., 17., 18., 10., 14.,  3.,  3.]),
- array([-2.46266478, -1.99470776, -1.52675074, -1.05879372, -0.5908367 ,
-        -0.12287969,  0.34507733,  0.81303435,  1.28099137,  1.74894839,
-         2.21690541]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 3.,  8.,  8., 22., 18., 25.,  8.,  2.,  3.,  3.]),
+ array([-2.14831238, -1.67305434, -1.1977963 , -0.72253827, -0.24728023,
+         0.22797781,  0.70323585,  1.17849389,  1.65375192,  2.12900996,
+         2.604268  ]),
  &lt;BarContainer object of 10 artists&gt;)
 </pre></div>
 </div>
@@ -906,7 +928,7 @@ It uses a MATLAB legacy for index starting from 1.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x116ee75e0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1144db190&gt;]
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_38_1.png" src="_images/02_Visualization_38_1.png" />
@@ -930,19 +952,19 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     alpha = None
     animated = False
     axes = [&lt;AxesSubplot:&gt;]
-    children = [&lt;matplotlib.patches.Rectangle object at 0x116f29e...
+    children = [&lt;matplotlib.patches.Rectangle object at 0x11460fd...
     clip_box = None
     clip_on = True
     clip_path = None
     constrained_layout = False
     constrained_layout_pads = (0.04167, 0.04167, 0.02, 0.02)
     default_bbox_extra_artists = [&lt;AxesSubplot:&gt;, &lt;matplotlib.lines.Line2D object a...
-    dpi = 72.0
-    edgecolor = (1.0, 1.0, 1.0, 0.0)
-    facecolor = (1.0, 1.0, 1.0, 0.0)
-    figheight = 4.0
-    figure = Figure(432x288)
-    figwidth = 6.0
+    dpi = 100.0
+    edgecolor = (1.0, 1.0, 1.0, 1.0)
+    facecolor = (1.0, 1.0, 1.0, 1.0)
+    figheight = 4.8
+    figure = Figure(640x480)
+    figwidth = 6.4
     frameon = True
     gid = None
     in_layout = True
@@ -951,7 +973,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     path_effects = []
     picker = None
     rasterized = False
-    size_inches = [6. 4.]
+    size_inches = [6.4 4.8]
     sketch_params = None
     snap = None
     tight_layout = False
@@ -959,7 +981,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     transformed_clip_path_and_affine = (None, None)
     url = None
     visible = True
-    window_extent = TransformedBbox(     Bbox(x0=0.0, y0=0.0, x1=6.0, ...
+    window_extent = TransformedBbox(     Bbox(x0=0.0, y0=0.0, x1=6.4, ...
     zorder = 0
 </pre></div>
 </div>
@@ -1003,14 +1025,14 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     axes_locator = None
     axisbelow = line
     box_aspect = None
-    children = [&lt;matplotlib.lines.Line2D object at 0x11704bbb0&gt;, ...
+    children = [&lt;matplotlib.lines.Line2D object at 0x114cf7460&gt;, ...
     clip_box = None
     clip_on = True
     clip_path = None
     data_ratio = 1.3355391378951056
-    default_bbox_extra_artists = [&lt;matplotlib.lines.Line2D object at 0x11704bbb0&gt;, ...
+    default_bbox_extra_artists = [&lt;matplotlib.lines.Line2D object at 0x114cf7460&gt;, ...
     facecolor or fc = (1.0, 1.0, 1.0, 1.0)
-    figure = Figure(432x288)
+    figure = Figure(640x480)
     frame_on = True
     geometry = (1, 1, 1)
     gid = None
@@ -1025,12 +1047,12 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     navigate_mode = None
     path_effects = []
     picker = None
-    position = Bbox(x0=0.125, y0=0.125, x1=0.9, y1=0.88)
+    position = Bbox(x0=0.125, y0=0.10999999999999999, x1=0.9, y1=...
     rasterization_zorder = None
     rasterized = False
     renderer_cache = None
-    shared_x_axes = &lt;matplotlib.cbook.Grouper object at 0x112f03be0&gt;
-    shared_y_axes = &lt;matplotlib.cbook.Grouper object at 0x112f3f7c0&gt;
+    shared_x_axes = &lt;matplotlib.cbook.Grouper object at 0x1141cf880&gt;
+    shared_y_axes = &lt;matplotlib.cbook.Grouper object at 0x11420a430&gt;
     sketch_params = None
     snap = None
     subplotspec = GridSpec(1, 1)[0:1, 0:1]
@@ -1039,8 +1061,8 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     transformed_clip_path_and_affine = (None, None)
     url = None
     visible = True
-    window_extent = TransformedBbox(     Bbox(x0=0.125, y0=0.125, x1=0...
-    xaxis = XAxis(54.0,36.0)
+    window_extent = TransformedBbox(     Bbox(x0=0.125, y0=0.109999999...
+    xaxis = XAxis(80.0,52.8)
     xaxis_transform = BlendedGenericTransform(     CompositeGenericTrans...
     xbound = (-0.5, 10.5)
     xgridlines = &lt;a list of 8 Line2D gridline objects&gt;
@@ -1052,7 +1074,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     xticklabels = [Text(0, 0, &#39;&#39;), Text(0, 0, &#39;&#39;), Text(0, 0, &#39;&#39;), T...
     xticklines = &lt;a list of 16 Line2D ticklines objects&gt;
     xticks = [-2.  0.  2.  4.  6.  8.]...
-    yaxis = YAxis(54.0,36.0)
+    yaxis = YAxis(80.0,52.8)
     yaxis_transform = BlendedGenericTransform(     BboxTransformTo(     ...
     ybound = (-6.10798067784125, 8.582949839004911)
     ygridlines = &lt;a list of 10 Line2D gridline objects&gt;
@@ -1087,7 +1109,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x116f8e820&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x114d5be80&gt;]
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_46_1.png" src="_images/02_Visualization_46_1.png" />
@@ -1105,7 +1127,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x11335ca30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x114d0c1f0&gt;
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_48_1.png" src="_images/02_Visualization_48_1.png" />
@@ -1163,7 +1185,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
  [ 48.  27.  12.   3.   0.   3.  12.  27.  48.]]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1134fc490&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x116f9c1c0&gt;
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_54_2.png" src="_images/02_Visualization_54_2.png" />
@@ -1178,7 +1200,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1170e7790&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x11470f730&gt;
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_55_1.png" src="_images/02_Visualization_55_1.png" />
@@ -1194,7 +1216,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x11716fa30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1241524c0&gt;
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_57_1.png" src="_images/02_Visualization_57_1.png" />
@@ -1238,7 +1260,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x11736bb80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x124249bb0&gt;
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_61_1.png" src="_images/02_Visualization_61_1.png" />
@@ -1271,7 +1293,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;mpl_toolkits.mplot3d.art3d.Line3D at 0x11740a2e0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;mpl_toolkits.mplot3d.art3d.Line3D at 0x1242de250&gt;]
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_66_1.png" src="_images/02_Visualization_66_1.png" />
@@ -1286,7 +1308,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x1174a1700&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x124378b50&gt;
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_67_1.png" src="_images/02_Visualization_67_1.png" />
@@ -1313,7 +1335,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x117533160&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x124406f10&gt;
 </pre></div>
 </div>
 <img alt="_images/02_Visualization_71_1.png" src="_images/02_Visualization_71_1.png" />
@@ -2296,7 +2318,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='7d1fc382-f8ca-4138-9537-48dcd9f9d904'></div></div></div>
+</script><div class="output text_html"><div id='b834bebb-742b-4e6f-95fb-9b8d0ceb49b4'></div></div></div>
 </div>
 </section>
 <section id="surface-by-wire-frame">
@@ -3265,7 +3287,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='4a6a3083-8685-4b1d-aa0c-8f5db5fc11e5'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Line3DCollection at 0x11708b460&gt;
+</script><div class="output text_html"><div id='1de40288-8613-4b74-b0cb-127256235714'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Line3DCollection at 0x1245a32b0&gt;
 </pre></div>
 </div>
 </div>
@@ -4246,7 +4268,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='1d77ce73-1ca5-4b0b-a31b-55df1fdf4b27'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Line3DCollection at 0x116fc7370&gt;
+</script><div class="output text_html"><div id='ebe7d678-5867-496c-8ecd-ffb4f90c0ffe'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Line3DCollection at 0x1245eac70&gt;
 </pre></div>
 </div>
 </div>
@@ -4268,7 +4290,7 @@ The simplest way is to repeat computing, drawing, and a short pause.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Available matplotlib backends: [&#39;tk&#39;, &#39;gtk&#39;, &#39;gtk3&#39;, &#39;gtk4&#39;, &#39;wx&#39;, &#39;qt4&#39;, &#39;qt5&#39;, &#39;qt6&#39;, &#39;qt&#39;, &#39;osx&#39;, &#39;nbagg&#39;, &#39;notebook&#39;, &#39;agg&#39;, &#39;svg&#39;, &#39;pdf&#39;, &#39;ps&#39;, &#39;inline&#39;, &#39;ipympl&#39;, &#39;widget&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Available matplotlib backends: [&#39;tk&#39;, &#39;gtk&#39;, &#39;gtk3&#39;, &#39;gtk4&#39;, &#39;wx&#39;, &#39;qt4&#39;, &#39;qt5&#39;, &#39;qt6&#39;, &#39;qt&#39;, &#39;osx&#39;, &#39;nbagg&#39;, &#39;webagg&#39;, &#39;notebook&#39;, &#39;agg&#39;, &#39;svg&#39;, &#39;pdf&#39;, &#39;ps&#39;, &#39;inline&#39;, &#39;ipympl&#39;, &#39;widget&#39;]
 </pre></div>
 </div>
 </div>
@@ -5267,7 +5289,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='fcd3a94d-b39c-4b84-92b9-badd1bc0e8da'></div></div></div>
+</script><div class="output text_html"><div id='3d7c6f3f-ad4c-4d29-887c-0108d6492a3e'></div></div></div>
 </div>
 <p>You can also use <code class="docutils literal notranslate"><span class="pre">animation</span></code> package to store the frames and play them back.</p>
 <div class="cell docutils container">
@@ -6253,7 +6275,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='18cc210e-b55d-4fe4-85ed-c8a5344deb20'></div></div></div>
+</script><div class="output text_html"><div id='aae8282d-493c-4aa1-b674-95e44cfdd1ee'></div></div></div>
 </div>
 <p>You can save the movie in a gif file.</p>
 <div class="cell docutils container">
@@ -6280,7 +6302,7 @@ if (IPython.notebook.kernel !== null) {
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true
