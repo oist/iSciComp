@@ -4,10 +4,6 @@
 # # 3. Vectors and Matrices: Exercise
 # 
 # Name: 
-# 
-# Date: 
-# 
-# (Please submit this .ipynb file with your name and its PDF copy.)
 
 # $$ % Latex macros
 # \newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}

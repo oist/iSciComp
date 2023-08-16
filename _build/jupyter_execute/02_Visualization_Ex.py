@@ -4,10 +4,6 @@
 # # 2. Visualization: Exercise
 # 
 # Name: 
-# 
-# Date: 
-# 
-# (Please submit this .ipynb file with your name and its PDF copy.)
 
 # In[1]:
 

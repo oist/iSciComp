@@ -1,11 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 2. Visualization: Exercise Solution
-# 
-# Name: Kenji Doya
-# 
-# Date: Jan. 28, 2022
+# # 2. Visualization: Exercise Solutions
 
 # In[1]:
 

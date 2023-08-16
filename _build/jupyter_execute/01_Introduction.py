@@ -2,7 +2,6 @@
 # coding: utf-8
 
 # # 1. Introduction to Python
-# Computational Methods, Sept. 2022, Kenji Doya
 
 # Python is a programming language developed in 1990s by Guido van Rossum.  
 # Its major features are:
@@ -49,7 +48,8 @@
 # In[3]:
 
 
-exp(2)
+# Uncomment (remove #) the line below
+# exp(2)
 
 
 # The plain Python does not include math functions. You need to import numpy.
@@ -110,7 +110,7 @@ exp(2)
 # You can type Control+Return to run the cell or Shift+Return to run and move to the next cell.   
 # You can also use the triangle button or "Cell" menu to run cells.
 
-# In[ ]:
+# In[4]:
 
 
 2*3
@@ -119,13 +119,13 @@ exp(2)
 # ## Integer and floating-point numbers
 # A number can be an *integer* or *floating-point*, which sometimes needs distinction.
 
-# In[ ]:
+# In[5]:
 
 
 type(1)
 
 
-# In[ ]:
+# In[6]:
 
 
 type(1.5)
@@ -134,7 +134,7 @@ type(1.5)
 # In Python 3, division of integers can produce a float.  
 # In Python 2, it was truncated to an integer.
 
-# In[ ]:
+# In[7]:
 
 
 3 / 2  # 1.5 by Python 3; 1 by Python 2
@@ -142,13 +142,13 @@ type(1.5)
 
 # You can perform integer division by `//` and get the remainder by `%`.
 
-# In[ ]:
+# In[8]:
 
 
 5 // 2
 
 
-# In[ ]:
+# In[9]:
 
 
 5 % 2
@@ -156,7 +156,7 @@ type(1.5)
 
 # To make an integer as a floating point number, you can add `.`
 
-# In[ ]:
+# In[10]:
 
 
 type(1.)
@@ -171,19 +171,19 @@ type(1.)
 # ## Variables
 # You can assing a number or result of computation to a variable.  
 
-# In[ ]:
+# In[11]:
 
 
 a = 1
 
 
-# In[ ]:
+# In[12]:
 
 
 a
 
 
-# In[ ]:
+# In[13]:
 
 
 b = a + a
@@ -192,7 +192,7 @@ b
 
 # Multiple variables can be assigned at once.
 
-# In[ ]:
+# In[14]:
 
 
 a, b = 1, 2
@@ -210,7 +210,7 @@ print(a, b)
 # 
 # You can use `print` function to check the variables anywhere in a cell, multiple items at onece.
 
-# In[ ]:
+# In[15]:
 
 
 a = 2
@@ -221,7 +221,7 @@ print('a =', a, '; b =', b)
 
 # You can use `.format()` for elaborate formatting with `:d` for integers, `:f` for floating point numbers, and `:s` for text strings.
 
-# In[ ]:
+# In[16]:
 
 
 c = a/b
@@ -238,7 +238,7 @@ print('{0:2d} devided by {1:3d} is about {2:.4f}.'.format(a, b, c))
 
 # You can create a list by surrounding items by [ ].
 
-# In[ ]:
+# In[17]:
 
 
 b = [1, 2, 3, 4]
@@ -247,13 +247,13 @@ b
 
 # An item can be referenced by [ ], with index starting from 0. 
 
-# In[ ]:
+# In[18]:
 
 
 b[1]  # 2nd item
 
 
-# In[ ]:
+# In[19]:
 
 
 b[-1]  # last item
@@ -261,31 +261,31 @@ b[-1]  # last item
 
 # A colon can be used for indexing a part of list.
 
-# In[ ]:
+# In[20]:
 
 
 b[1:3]  # 2nd to 3rd
 
 
-# In[ ]:
+# In[21]:
 
 
 b[:3]  # first to third
 
 
-# In[ ]:
+# In[22]:
 
 
 b[1:]  # 2nd to last
 
 
-# In[ ]:
+# In[23]:
 
 
 b[1::2]  # from 1st, step by 2
 
 
-# In[ ]:
+# In[24]:
 
 
 b[::-1]  # all in reverse order
@@ -299,7 +299,7 @@ b[::-1]  # all in reverse order
 
 # For lists, + means concatenation
 
-# In[ ]:
+# In[25]:
 
 
 b + b
@@ -307,7 +307,7 @@ b + b
 
 # You can create a nested list, like a matrix
 
-# In[ ]:
+# In[26]:
 
 
 A = [[1,2,3],[4,5,6]]
@@ -316,19 +316,19 @@ A
 
 # An item in a nested list can be picked by [ ][ ], but not [ , ]
 
-# In[ ]:
+# In[27]:
 
 
 A[1]
 
 
-# In[ ]:
+# In[28]:
 
 
 A[1][2]
 
 
-# In[ ]:
+# In[29]:
 
 
 A[1,2]  # this causes an error for a list

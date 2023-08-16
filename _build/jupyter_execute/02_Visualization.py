@@ -2,7 +2,6 @@
 # coding: utf-8
 
 # # 2. Visualization
-# Computational Methods, Sep. 2022, Kenji Doya
 
 # Visualizatin is vital in data analysis and scientific computing, to
 # 

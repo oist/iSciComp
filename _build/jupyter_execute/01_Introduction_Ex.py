@@ -3,11 +3,7 @@
 
 # # 1. Introduction to Python: Exercise
 # 
-# Name: Kenji Doya
-# 
-# Date: Sept 20, 2022
-# 
-# (Please submit this .ipynb file with your name and its PDF copy.)
+# Name: 
 
 # In[1]:
 
@@ -15,7 +11,7 @@
 import numpy as np
 
 
-# ###  Lists and loops
+# ##  Lists and loops
 # Create the following lists, possibly in multiple ways.
 # 
 # 1) odd positive integers below 20.
@@ -85,7 +81,7 @@ get_ipython().run_line_magic('pinfo', 'np.sort')
 
 
 
-# ### Arrays and matrices
+# ## Arrays and matrices
 
 # 1) an m-by-n matrix with random integers from 0 to k.
 

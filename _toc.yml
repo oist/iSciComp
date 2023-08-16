@@ -12,9 +12,36 @@ chapters:
 - file: 03_Matrix
   sections:
   - file: 03_Matrix_Ex
+- file: 04_Function
+  sections:
+  - file: 04_Function_Ex
+- file: 05_Iteration
+  sections:
+  - file: 05_Iteration_Ex
+- file: 06_ODE
+  sections:
+  - file: 06_ODE_Ex
+- file: 07_PDE
+  sections:
+  - file: 07_PDE_Ex
+- file: 08_Optimization
+  sections:
+  - file: 08_Optimization_Ex
+- file: 09_Stochastic
+  sections:
+  - file: 09_Stochastic_Ex
+- file: 10_Management
+  sections:
+  - file: 10_Management_Ex
+- file: References
 - file: Solutions
   sections:
   - file: 01_Introduction_Sol
   - file: 02_Visualization_Sol
   - file: 03_Matrix_Sol
-
+  - file: 04_Function_Sol
+  - file: 05_Iteration_Sol
+  - file: 06_ODE_Sol
+  - file: 07_PDE_Sol
+  - file: 08_Optimization_Sol
+  - file: 09_Stochastic_Sol

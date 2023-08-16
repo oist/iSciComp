@@ -1,11 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 3. Vectors and Matrices: Exercise
-# 
-# Name: Kenji Doya
-# 
-# Date: Oct. 7, 2022
+# # 3. Vectors and Matrices: Exercise Solutions
 
 # $$ % Latex macros
 # \newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
