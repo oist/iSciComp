@@ -3,8 +3,7 @@
 
 # # Introduction to Scientific Computing
 # 
-# Kenji Doya
-# 
+# Kenji Doya  
 # August 2023 in Paris
 
 # ## Aim of this Book
@@ -17,9 +16,10 @@
 # 
 # ### Jupyter Book
 # 
-# This book is made by `Jupyter Book` from Jupyter Notebooks. An important feature is that you can download the source codes as Jupyter Notebook using the download icon on the top right of each page.
+# This book is made by *Jupyter Book* (https://jupyterbook.org).
+# An important feature is that you can download the source codes as Jupyter Notebook by the Download icon on the top right corner of each chapter.
 # 
-# Rather than just reading the html or pdf text, please run the codes, change parameters, apply your own data, and modify the codes to see how the algorithms really work.
+# Rather than just reading the html or pdf text, please run the codes, change parameters, apply your own data, and modify the codes to see how the algorithms really work (or fails).
 
 # ## Book Contents
 # 
