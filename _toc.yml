@@ -8,6 +8,8 @@ chapters:
   - file: 01_Introduction_Ex
 - file: 02_Visualization
   sections:
+  - file: 02_Visualization_3D
+  - file: 02_Visualization_Animation
   - file: 02_Visualization_Ex
 - file: 03_Matrix
   sections:
