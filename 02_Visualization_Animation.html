@@ -405,11 +405,11 @@ document.write(`
 </div>
 </div>
 </div>
+<p>After downloading the code, please uncomment the line <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code> to see animations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%matplotlib auto    # for separate graphics window</span>
-<span class="c1">#%matplotlib notebook  # for interactive graphics</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1">#%matplotlib notebook</span>
 </pre></div>
 </div>
 </div>
@@ -420,20 +420,22 @@ document.write(`
 For that, you can define a function to draw each frame, and pass the function to <code class="docutils literal notranslate"><span class="pre">FuncAnimation</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pendulum</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;draw a pendulum: i=frame number&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pendulum</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;swinging pendulum. i:frame number&quot;&quot;&quot;</span>
     <span class="c1"># clear previous plot</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">clear</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+    <span class="c1"># swinging pendulum</span>
     <span class="n">l</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># length</span>
     <span class="n">th</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">i</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>  <span class="c1"># angle, 2 sec period</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">th</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">th</span><span class="p">)</span>
     <span class="c1"># draw a new plot</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
-    <span class="c1">#plt.plot(x, y, &#39;ro&#39;, markersize=10)</span>
+    <span class="n">pl</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="o">*</span><span class="n">l</span><span class="p">,</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">l</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="o">*</span><span class="n">l</span><span class="p">,</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">l</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pl</span>   <span class="c1"># for saving</span>
 </pre></div>
 </div>
 </div>
@@ -446,7 +448,7 @@ For that, you can define a function to draw each frame, and pass the function to
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/093c843abdb5d871821966effd661e4575eaf8fd5f9dc70c02356d09ee368ca4.png" src="_images/093c843abdb5d871821966effd661e4575eaf8fd5f9dc70c02356d09ee368ca4.png" />
+<img alt="_images/a9430c7e9940c12b43f9a82e7610ad90c0f9cf174e4db6c5d864dacf15d26c5c.png" src="_images/a9430c7e9940c12b43f9a82e7610ad90c0f9cf174e4db6c5d864dacf15d26c5c.png" />
 </div>
 </div>
 </section>
@@ -458,23 +460,10 @@ For that, you can define a function to draw each frame, and pass the function to
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># prepare frames</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">):</span>
-    <span class="c1"># clear previous plot</span>
-    <span class="c1">#plt.cla()</span>
-    <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.05</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># length</span>
-    <span class="n">th</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">i</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>  <span class="c1"># angle, 2 sec period</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">th</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">th</span><span class="p">)</span>
-    <span class="c1"># draw a new plot</span>
-    <span class="n">art</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
-    <span class="c1"># plt.plot(x, y, &#39;ro&#39;, markersize=10)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="o">*</span><span class="n">l</span><span class="p">,</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">l</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="o">*</span><span class="n">l</span><span class="p">,</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">l</span><span class="p">)</span>
+    <span class="n">art</span> <span class="o">=</span> <span class="n">pendulum</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
     <span class="c1"># append to the frame</span>
     <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">art</span><span class="p">)</span>
 <span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">ArtistAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="c1">#plt.show()</span>
 </pre></div>
 </div>
 </div>
@@ -482,7 +471,7 @@ For that, you can define a function to draw each frame, and pass the function to
 <img alt="_images/d47c28451837cb2c84154b63336052026966fc4bfaa5904a72111ec2bd3c9b24.png" src="_images/d47c28451837cb2c84154b63336052026966fc4bfaa5904a72111ec2bd3c9b24.png" />
 </div>
 </div>
-<p>You can save the movie in a gif file.</p>
+<p>You can save the movie in a motion gif file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;pend.gif&quot;</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="s1">&#39;pillow&#39;</span><span class="p">)</span>
@@ -490,7 +479,8 @@ For that, you can define a function to draw each frame, and pass the function to
 </div>
 </div>
 </div>
-<p>Open <code class="docutils literal notranslate"><span class="pre">pend.gif</span></code> in a browser to see it moves.</p>
+<p>Here is the saved file <code class="docutils literal notranslate"><span class="pre">pend.gif</span></code>:
+<img alt="pend.gif" src="_images/pend.gif" /></p>
 </section>
 </section>
 
