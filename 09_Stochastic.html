@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>9. Stochastic Methods &#8212; Introduction to Scientific Computing</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +64,112 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '09_Stochastic';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="9. Stochastic Methods: Exercise" href="09_Stochastic_Ex.html" />
     <link rel="prev" title="8. Optimization: Exercise" href="08_Optimization_Ex.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
         
       
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="iSciComp.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="_static/SC_logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Introduction to Scientific Computing</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="_static/SC_logo.png" class="logo__image only-light" alt="Introduction to Scientific Computing - Home"/>
+    <script>document.write(`<img src="_static/SC_logo.png" class="logo__image only-dark" alt="Introduction to Scientific Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -116,544 +179,241 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="01_Introduction.html">
-   1. Introduction to Python
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_Introduction_Ex.html">
-     1. Introduction to Python: Exercise
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="02_Visualization.html">
-   2. Visualization
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="03_Matrix.html">
-   3. Vectors and Matrices
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_Matrix_Ex.html">
-     3. Vectors and Matrices: Exercise
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="04_Function.html">
-   4. Functions and Classes
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_Function_Ex.html">
-     4. Functions and Classes: Exercise
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="05_Iteration.html">
-   5. Iterative Computation
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_Iteration_Ex.html">
-     5. Iterative Computation: Exercise
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="06_ODE.html">
-   6. Ordinary Differential Equations
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="06_ODE_Ex.html">
-     6. Ordinary Differential Equations: Exercise
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="07_PDE.html">
-   7. Partial Differential Equations
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="07_PDE_Ex.html">
-     7. Partial Differential Equations: Exercise
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="08_Optimization.html">
-   8. Optimization
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="08_Optimization_Ex.html">
-     8. Optimization: Exercise
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
-   9. Stochastic Methods
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="09_Stochastic_Ex.html">
-     9. Stochastic Methods: Exercise
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="10_Management.html">
-   Software Management
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10_Management_Ex.html">
-     10. Software Management: Exercise
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="References.html">
-   References
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="Solutions.html">
-   Sample Solutions of Exercises
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_Introduction_Sol.html">
-     1. Introduction to Python: Exercise Solutions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_Visualization_Sol.html">
-     2. Visualization: Exercise Solutions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_Matrix_Sol.html">
-     3. Vectors and Matrices: Exercise Solutions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_Function_Sol.html">
-     4. Functions and Classes: Exercise Solutions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_Iteration_Sol.html">
-     5. Iterative Computation: Exercise Solutions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="06_ODE_Sol.html">
-     6. Ordinary Differential Equations: Exercise Solutions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="07_PDE_Sol.html">
-     7. Partial Differential Equations: Exercise Solutions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="08_Optimization_Sol.html">
-     8. Optimization: Exercise Solutions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="09_Stochastic_Sol.html">
-     9. Stochastic Methods: Exercise Solutions
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="02_Visualization.html">2. Visualization</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_3D.html">3D Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_Animation.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_Ex.html">2. Visualization: Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="03_Matrix.html">3. Vectors and Matrices</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="03_Matrix_Ex.html">3. Vectors and Matrices: Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="04_Function.html">4. Functions and Classes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="04_Function_Ex.html">4. Functions and Classes: Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05_Iteration.html">5. Iterative Computation</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="05_Iteration_Ex.html">5. Iterative Computation: Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="06_ODE.html">6. Ordinary Differential Equations</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="06_ODE_Ex.html">6. Ordinary Differential Equations: Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="07_PDE.html">7. Partial Differential Equations</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="07_PDE_Ex.html">7. Partial Differential Equations: Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="08_Optimization.html">8. Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="08_Optimization_Ex.html">8. Optimization: Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">9. Stochastic Methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="09_Stochastic_Ex.html">9. Stochastic Methods: Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_Ex.html">10. Software Management: Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Solutions.html">Sample Solutions of Exercises</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_Introduction_Sol.html">1. Introduction to Python: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_Sol.html">2. Visualization: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_Matrix_Sol.html">3. Vectors and Matrices: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_Function_Sol.html">4. Functions and Classes: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_Iteration_Sol.html">5. Iterative Computation: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_ODE_Sol.html">6. Ordinary Differential Equations: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_PDE_Sol.html">7. Partial Differential Equations: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_Optimization_Sol.html">8. Optimization: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_Stochastic_Sol.html">9. Stochastic Methods: Exercise Solutions</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/09_Stochastic.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/09_Stochastic.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/09_Stochastic.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
 
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#random-numbers">
-   Random Numbers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#integrating-area-volume">
-   Integrating area/volume
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#non-uniform-distributions">
-   Non-uniform Distributions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exponential-distribution">
-     Exponential distribution
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#normal-distribution">
-     Normal distribution
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rejection-sampling">
-   Rejection Sampling
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gamma-distribution">
-     Gamma distribution
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#importance-sampling">
-   Importance Sampling
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mean-and-variance">
-     Mean and variance
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#markov-chain-monte-carlo-mcmc">
-   Markov Chain Monte Carlo (MCMC)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#metropolis-sampling">
-     Metropolis Sampling
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>9. Stochastic Methods</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#random-numbers">
-   Random Numbers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#integrating-area-volume">
-   Integrating area/volume
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#non-uniform-distributions">
-   Non-uniform Distributions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exponential-distribution">
-     Exponential distribution
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#normal-distribution">
-     Normal distribution
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rejection-sampling">
-   Rejection Sampling
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gamma-distribution">
-     Gamma distribution
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#importance-sampling">
-   Importance Sampling
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mean-and-variance">
-     Mean and variance
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#markov-chain-monte-carlo-mcmc">
-   Markov Chain Monte Carlo (MCMC)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#metropolis-sampling">
-     Metropolis Sampling
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>9. Stochastic Methods</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-numbers">Random Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrating-area-volume">Integrating area/volume</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-uniform-distributions">Non-uniform Distributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-distribution">Exponential distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">Normal distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rejection-sampling">Rejection Sampling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma-distribution">Gamma distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-sampling">Importance Sampling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-and-variance">Mean and variance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-chain-monte-carlo-mcmc">Markov Chain Monte Carlo (MCMC)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metropolis-sampling">Metropolis Sampling</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="stochastic-methods">
-<h1>9. Stochastic Methods<a class="headerlink" href="#stochastic-methods" title="Permalink to this headline">#</a></h1>
+<h1>9. Stochastic Methods<a class="headerlink" href="#stochastic-methods" title="Permalink to this heading">#</a></h1>
 <p>Some computations involve random numbers, such as simulating stochastic processes or searching in a high dimension space.</p>
 <p>References:</p>
 <ul class="simple">
@@ -670,7 +430,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="random-numbers">
-<h2>Random Numbers<a class="headerlink" href="#random-numbers" title="Permalink to this headline">#</a></h2>
+<h2>Random Numbers<a class="headerlink" href="#random-numbers" title="Permalink to this heading">#</a></h2>
 <p>How can we generate <em>random</em> numbers from deterministic digital computers? They are, of course, <em>pseudo</em> random numbers.</p>
 <p>The classic way of generating pseudo random numbers is <em>Linear Congruent Method</em> using a sequential dynimcs:<br />
 $<span class="math notranslate nohighlight">\( x_{i+1}=ax_i+b \mod m. \)</span>$
@@ -709,7 +469,7 @@ Below is what was long used in the Unix system.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09_Stochastic_7_0.png" src="_images/09_Stochastic_7_0.png" />
+<img alt="_images/a0edd6df60112742b59522c9f655b34aa58cfa26d3f8cccb4466a4d7d7049e7b.png" src="_images/a0edd6df60112742b59522c9f655b34aa58cfa26d3f8cccb4466a4d7d7049e7b.png" />
 </div>
 </div>
 <p>A common problem with LCM is that lower digits can fall in simple cycles.</p>
@@ -749,7 +509,7 @@ Below is what was long used in the Unix system.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09_Stochastic_14_0.png" src="_images/09_Stochastic_14_0.png" />
+<img alt="_images/96b711824dd05942597569a0b934c0969424c554eebba5c00dfef811025c8746.png" src="_images/96b711824dd05942597569a0b934c0969424c554eebba5c00dfef811025c8746.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -759,18 +519,18 @@ Below is what was long used in the Unix system.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 1, 0, 3, 0, 0, 2, 0, 2, 1, 2, 0, 3, 0, 0, 2, 1, 3, 1, 2, 3, 2,
-       1, 1, 3, 3, 0, 0, 0, 0, 3, 1, 2, 2, 0, 3, 0, 2, 3, 1, 1, 1, 1, 2,
-       3, 0, 1, 0, 2, 1, 3, 2, 2, 1, 1, 1, 2, 3, 0, 3, 3, 1, 2, 2, 3, 2,
-       2, 3, 0, 2, 0, 1, 2, 2, 1, 3, 0, 0, 3, 1, 1, 1, 0, 2, 2, 0, 0, 1,
-       2, 0, 0, 1, 3, 2, 1, 3, 2, 2, 2, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 2, 0, 0, 3, 0, 0, 1, 1, 0, 3, 0, 0, 2, 0, 3, 2, 0, 0, 2, 2, 1,
+       0, 0, 3, 0, 2, 2, 2, 1, 0, 3, 3, 1, 1, 1, 3, 2, 1, 0, 0, 1, 0, 0,
+       1, 1, 3, 0, 0, 0, 0, 3, 1, 3, 1, 1, 1, 2, 3, 2, 1, 2, 3, 2, 3, 2,
+       2, 0, 3, 0, 3, 2, 0, 3, 2, 3, 0, 3, 2, 3, 0, 2, 3, 2, 2, 0, 0, 0,
+       1, 3, 0, 0, 2, 2, 1, 2, 1, 0, 1, 3])
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="integrating-area-volume">
-<h2>Integrating area/volume<a class="headerlink" href="#integrating-area-volume" title="Permalink to this headline">#</a></h2>
+<h2>Integrating area/volume<a class="headerlink" href="#integrating-area-volume" title="Permalink to this heading">#</a></h2>
 <p>Uniform random numbers can be used to approximate integration
 $<span class="math notranslate nohighlight">\( \int_V f(x)dx \simeq \frac{|V|}{n}\sum_{i=1}^n f(x_i) \)</span><span class="math notranslate nohighlight">\(
 by uniform samples \)</span>x_i<span class="math notranslate nohighlight">\( in a volume \)</span>V$</p>
@@ -797,7 +557,7 @@ by uniform samples \)</span>x_i<span class="math notranslate nohighlight">\( in 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.186632147181075
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.202229391086476
 4.1887902047863905
 </pre></div>
 </div>
@@ -834,19 +594,19 @@ by uniform samples \)</span>x_i<span class="math notranslate nohighlight">\( in 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 3.138551676665442 3.141592653589793
-3 4.185736885980518 4.188790204786391
-4 4.994879997092956 4.934802200544679
-5 5.2787967548627615 5.263789013914324
-6 5.255995173314304 5.167712780049969
-7 5.109197194676637 4.724765970331401
-8 3.784452652036485 4.058712126416768
-9 3.572358824180159 3.2985089027387064
-10 2.0070113956331177 2.550164039877345
-11 1.8462734178256892 1.8841038793898999
-12 0.3563567411628886 1.3352627688545893
-13 0.449114384811362 0.9106287547832829
-14 0.33592436497820494 0.5992645293207919
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 3.134503692696435 3.141592653589793
+3 4.236939060244356 4.188790204786391
+4 4.930158970498275 4.934802200544679
+5 5.16867572853461 5.263789013914324
+6 5.188683718602632 5.167712780049969
+7 4.76305765348662 4.724765970331401
+8 3.776841403814062 4.058712126416768
+9 3.107821682095503 3.2985089027387064
+10 2.843070875793348 2.550164039877345
+11 1.710863315556103 1.8841038793898999
+12 1.6184684081953502 1.3352627688545893
+13 0.4923154425857472 0.9106287547832829
+14 0.0 0.5992645293207919
 15 0.0 0.38144328082330436
 16 0.0 0.23533063035889312
 17 0.0 0.140981106917139
@@ -858,11 +618,11 @@ by uniform samples \)</span>x_i<span class="math notranslate nohighlight">\( in 
 </div>
 </section>
 <section id="non-uniform-distributions">
-<h2>Non-uniform Distributions<a class="headerlink" href="#non-uniform-distributions" title="Permalink to this headline">#</a></h2>
+<h2>Non-uniform Distributions<a class="headerlink" href="#non-uniform-distributions" title="Permalink to this heading">#</a></h2>
 <p>How can we generate samples following a non-uniform distribution <span class="math notranslate nohighlight">\(p(x)\)</span>?</p>
 <p>If the cumulative density function <span class="math notranslate nohighlight">\(f(x) = \int_{-\infty}^{x} p(u) du\)</span> is known, we can map uniformly distributed samples <span class="math notranslate nohighlight">\(y_i\in[0,1]\)</span> to <span class="math notranslate nohighlight">\(x_i = f^{-1}(y_i)\)</span>.</p>
 <section id="exponential-distribution">
-<h3>Exponential distribution<a class="headerlink" href="#exponential-distribution" title="Permalink to this headline">#</a></h3>
+<h3>Exponential distribution<a class="headerlink" href="#exponential-distribution" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[ p(x;\mu) = \frac{1}{\mu}e^{-\frac{x}{\mu}} \]</div>
 <div class="math notranslate nohighlight">
@@ -897,7 +657,7 @@ by uniform samples \)</span>x_i<span class="math notranslate nohighlight">\( in 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09_Stochastic_29_0.png" src="_images/09_Stochastic_29_0.png" />
+<img alt="_images/3e7eaede25114c62296fbb0a46831783cd5a3389c2fbb2e9e082d5e4c43ca269.png" src="_images/3e7eaede25114c62296fbb0a46831783cd5a3389c2fbb2e9e082d5e4c43ca269.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -917,8 +677,8 @@ by uniform samples \)</span>x_i<span class="math notranslate nohighlight">\( in 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.20435683, 16.93045084,  5.46393036,  1.90611343,  2.060477  ,
-        2.34353003,  6.46544076,  5.40272458,  2.09439886,  0.12841252])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.43181078, 0.45270894, 6.69521414, 0.43297157, 1.80923126,
+       1.01823022, 1.04395492, 0.69637226, 3.41460486, 0.50292536])
 </pre></div>
 </div>
 </div>
@@ -933,7 +693,7 @@ by uniform samples \)</span>x_i<span class="math notranslate nohighlight">\( in 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09_Stochastic_32_0.png" src="_images/09_Stochastic_32_0.png" />
+<img alt="_images/e210a8c549e13129a02dc7d0b139fe76fb0a27f123c31a958e1ec44f2b783965.png" src="_images/e210a8c549e13129a02dc7d0b139fe76fb0a27f123c31a958e1ec44f2b783965.png" />
 </div>
 </div>
 <p>When a stochastic variable <span class="math notranslate nohighlight">\(x\)</span> following the distribution <span class="math notranslate nohighlight">\(p(x)\)</span> is transformed by <span class="math notranslate nohighlight">\(y=g(x)\)</span>, the distribution of <span class="math notranslate nohighlight">\(y\)</span> is given by
@@ -941,7 +701,7 @@ $<span class="math notranslate nohighlight">\(p(y) = \left|\frac{\partial x}{\pa
 where \)</span>|,|$ means the absolute value for a scalar derivative and the determinant for a Jacobian matrix.</p>
 </section>
 <section id="normal-distribution">
-<h3>Normal distribution<a class="headerlink" href="#normal-distribution" title="Permalink to this headline">#</a></h3>
+<h3>Normal distribution<a class="headerlink" href="#normal-distribution" title="Permalink to this heading">#</a></h3>
 <p>A common way of generating a normal (Gaussian) distribution
 $<span class="math notranslate nohighlight">\( p(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2} \)</span><span class="math notranslate nohighlight">\(
 is to consider a 2D normal distribution
@@ -983,7 +743,7 @@ By further transforming \)</span>u=r^2<span class="math notranslate nohighlight"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.56922277, -0.17458328])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.82573553, 0.13626526])
 </pre></div>
 </div>
 </div>
@@ -1001,7 +761,7 @@ By further transforming \)</span>u=r^2<span class="math notranslate nohighlight"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09_Stochastic_38_0.png" src="_images/09_Stochastic_38_0.png" />
+<img alt="_images/84f9c3cee34685738ef6df319c31398b05fdd3e4dfa7461751012f58bd36ba4a.png" src="_images/84f9c3cee34685738ef6df319c31398b05fdd3e4dfa7461751012f58bd36ba4a.png" />
 </div>
 </div>
 <p>In practice, you can sample by the whole variety of distributions in numpy.random package, but it’s good to know the principle.</p>
@@ -1151,7 +911,6 @@ PACKAGE CONTENTS
     _sfc64
     bit_generator
     mtrand
-    setup
     tests (package)
 
 CLASSES
@@ -1178,8 +937,9 @@ CLASSES
      |      A seed to initialize the `BitGenerator`. If None, then fresh,
      |      unpredictable entropy will be pulled from the OS. If an ``int`` or
      |      ``array_like[ints]`` is passed, then it will be passed to
-     |      ~`numpy.random.SeedSequence` to derive the initial `BitGenerator` state.
+     |      `~numpy.random.SeedSequence` to derive the initial `BitGenerator` state.
      |      One may also pass in a `SeedSequence` instance.
+     |      All integer values must be non-negative.
      |  
      |  Attributes
      |  ----------
@@ -1196,6 +956,7 @@ CLASSES
      |  Methods defined here:
      |  
      |  __getstate__(...)
+     |      Helper for pickle.
      |  
      |  __init__(self, /, *args, **kwargs)
      |      Initialize self.  See help(type(self)) for accurate signature.
@@ -1227,11 +988,40 @@ CLASSES
      |      
      |      Notes
      |      -----
-     |      This method directly exposes the the raw underlying pseudo-random
+     |      This method directly exposes the raw underlying pseudo-random
      |      number generator. All values are returned as unsigned 64-bit
      |      values irrespective of the number of bits produced by the PRNG.
      |      
      |      See the class docstring for the number of bits returned.
+     |  
+     |  spawn(...)
+     |      spawn(n_children)
+     |      
+     |      Create new independent child bit generators.
+     |      
+     |      See :ref:`seedsequence-spawn` for additional notes on spawning
+     |      children.  Some bit generators also implement ``jumped``
+     |      as a different approach for creating independent streams.
+     |      
+     |      .. versionadded:: 1.25.0
+     |      
+     |      Parameters
+     |      ----------
+     |      n_children : int
+     |      
+     |      Returns
+     |      -------
+     |      child_bit_generators : list of BitGenerators
+     |      
+     |      Raises
+     |      ------
+     |      TypeError
+     |          When the underlying SeedSequence does not implement spawning.
+     |      
+     |      See Also
+     |      --------
+     |      random.Generator.spawn, random.SeedSequence.spawn :
+     |          Equivalent method on the generator and seed sequence.
      |  
      |  ----------------------------------------------------------------------
      |  Static methods defined here:
@@ -1275,6 +1065,17 @@ CLASSES
      |          * bitgen - pointer to the bit generator struct
      |  
      |  lock
+     |  
+     |  seed_seq
+     |      Get the seed sequence used to initialize the bit generator.
+     |      
+     |      .. versionadded:: 1.25.0
+     |      
+     |      Returns
+     |      -------
+     |      seed_seq : ISeedSequence
+     |          The SeedSequence object used to initialize the BitGenerator.
+     |          This is normally a `np.random.SeedSequence` instance.
      |  
      |  state
      |      Get or set the PRNG state
@@ -1336,6 +1137,7 @@ CLASSES
      |  Methods defined here:
      |  
      |  __getstate__(...)
+     |      Helper for pickle.
      |  
      |  __init__(self, /, *args, **kwargs)
      |      Initialize self.  See help(type(self)) for accurate signature.
@@ -1343,7 +1145,7 @@ CLASSES
      |  __reduce__(...)
      |      Helper for pickle.
      |  
-     |  __repr__(self, /)
+     |  __repr__(...)
      |      Return repr(self).
      |  
      |  __setstate__(...)
@@ -1678,7 +1480,7 @@ CLASSES
      |      Raises
      |      ------
      |      ValueError
-     |          If any value in ``alpha`` is less than or equal to zero
+     |          If any value in ``alpha`` is less than zero
      |      
      |      Notes
      |      -----
@@ -1758,6 +1560,22 @@ CLASSES
      |      -------
      |      out : ndarray or scalar
      |          Drawn samples from the parameterized exponential distribution.
+     |      
+     |      Examples
+     |      --------
+     |      A real world example: Assume a company has 10000 customer support 
+     |      agents and the average time between customer calls is 4 minutes.
+     |      
+     |      &gt;&gt;&gt; n = 10000
+     |      &gt;&gt;&gt; time_between_calls = np.random.default_rng().exponential(scale=4, size=n)
+     |      
+     |      What is the probability that a customer will call in the next 
+     |      4 to 5 minutes? 
+     |      
+     |      &gt;&gt;&gt; x = ((time_between_calls &lt; 5).sum())/n 
+     |      &gt;&gt;&gt; y = ((time_between_calls &lt; 4).sum())/n
+     |      &gt;&gt;&gt; x-y
+     |      0.08 # may vary
      |      
      |      References
      |      ----------
@@ -2504,7 +2322,7 @@ CLASSES
      |      &gt;&gt;&gt; b = []
      |      &gt;&gt;&gt; for i in range(1000):
      |      ...    a = 10. + rng.standard_normal(100)
-     |      ...    b.append(np.product(a))
+     |      ...    b.append(np.prod(a))
      |      
      |      &gt;&gt;&gt; b = np.array(b) / np.min(b) # scale values to be positive
      |      &gt;&gt;&gt; count, bins, ignored = plt.hist(b, 100, density=True, align=&#39;mid&#39;)
@@ -2524,12 +2342,12 @@ CLASSES
      |      Draw samples from a logarithmic series distribution.
      |      
      |      Samples are drawn from a log series distribution with specified
-     |      shape parameter, 0 &lt; ``p`` &lt; 1.
+     |      shape parameter, 0 &lt;= ``p`` &lt; 1.
      |      
      |      Parameters
      |      ----------
      |      p : float or array_like of floats
-     |          Shape parameter for the distribution.  Must be in the range (0, 1).
+     |          Shape parameter for the distribution.  Must be in the range [0, 1).
      |      size : int or tuple of ints, optional
      |          Output shape.  If the given shape is, e.g., ``(m, n, k)``, then
      |          ``m * n * k`` samples are drawn.  If size is ``None`` (default),
@@ -2637,6 +2455,9 @@ CLASSES
      |      
      |          Each entry ``out[i,j,...,:]`` is a ``p``-dimensional value drawn
      |          from the distribution.
+     |      
+     |          .. versionchanged:: 1.22.0
+     |              Added support for broadcasting `pvals` against `n`
      |      
      |      Examples
      |      --------
@@ -2845,8 +2666,8 @@ CLASSES
      |      generalization of the one-dimensional normal distribution to higher
      |      dimensions.  Such a distribution is specified by its mean and
      |      covariance matrix.  These parameters are analogous to the mean
-     |      (average or &quot;center&quot;) and variance (standard deviation, or &quot;width,&quot;
-     |      squared) of the one-dimensional normal distribution.
+     |      (average or &quot;center&quot;) and variance (the squared standard deviation,
+     |      or &quot;width&quot;) of the one-dimensional normal distribution.
      |      
      |      Parameters
      |      ----------
@@ -2923,6 +2744,12 @@ CLASSES
      |      nonnegative-definite). Otherwise, the behavior of this method is
      |      undefined and backwards compatibility is not guaranteed.
      |      
+     |      This function internally uses linear algebra routines, and thus results
+     |      may not be identical (even up to precision) across architectures, OSes,
+     |      or even builds. For example, this is likely if ``cov`` has multiple equal
+     |      singular values and ``method`` is ``&#39;svd&#39;`` (default). In this case,
+     |      ``method=&#39;cholesky&#39;`` may be more robust.
+     |      
      |      References
      |      ----------
      |      .. [1] Papoulis, A., &quot;Probability, Random Variables, and Stochastic
@@ -2945,11 +2772,35 @@ CLASSES
      |      &gt;&gt;&gt; y.shape
      |      (3, 3, 2)
      |      
-     |      The following is probably true, given that 0.6 is roughly twice the
-     |      standard deviation:
+     |      Here we generate 800 samples from the bivariate normal distribution
+     |      with mean [0, 0] and covariance matrix [[6, -3], [-3, 3.5]].  The
+     |      expected variances of the first and second components of the sample
+     |      are 6 and 3.5, respectively, and the expected correlation
+     |      coefficient is -3/sqrt(6*3.5) ≈ -0.65465.
      |      
-     |      &gt;&gt;&gt; list((x[0,0,:] - mean) &lt; 0.6)
-     |      [True, True] # random
+     |      &gt;&gt;&gt; cov = np.array([[6, -3], [-3, 3.5]])
+     |      &gt;&gt;&gt; pts = rng.multivariate_normal([0, 0], cov, size=800)
+     |      
+     |      Check that the mean, covariance, and correlation coefficient of the
+     |      sample are close to the expected values:
+     |      
+     |      &gt;&gt;&gt; pts.mean(axis=0)
+     |      array([ 0.0326911 , -0.01280782])  # may vary
+     |      &gt;&gt;&gt; np.cov(pts.T)
+     |      array([[ 5.96202397, -2.85602287],
+     |             [-2.85602287,  3.47613949]])  # may vary
+     |      &gt;&gt;&gt; np.corrcoef(pts.T)[0, 1]
+     |      -0.6273591314603949  # may vary
+     |      
+     |      We can visualize this data with a scatter plot.  The orientation
+     |      of the point cloud illustrates the negative correlation of the
+     |      components of this sample.
+     |      
+     |      &gt;&gt;&gt; import matplotlib.pyplot as plt
+     |      &gt;&gt;&gt; plt.plot(pts[:, 0], pts[:, 1], &#39;.&#39;, alpha=0.5)
+     |      &gt;&gt;&gt; plt.axis(&#39;equal&#39;)
+     |      &gt;&gt;&gt; plt.grid()
+     |      &gt;&gt;&gt; plt.show()
      |  
      |  negative_binomial(...)
      |      negative_binomial(n, p, size=None)
@@ -2989,13 +2840,29 @@ CLASSES
      |      probability of success, :math:`N+n` is the number of trials, and
      |      :math:`\Gamma` is the gamma function. When :math:`n` is an integer,
      |      :math:`\frac{\Gamma(N+n)}{N!\Gamma(n)} = \binom{N+n-1}{N}`, which is
-     |      the more common form of this term in the the pmf. The negative
+     |      the more common form of this term in the pmf. The negative
      |      binomial distribution gives the probability of N failures given n
      |      successes, with a success on the last trial.
      |      
      |      If one throws a die repeatedly until the third time a &quot;1&quot; appears,
      |      then the probability distribution of the number of non-&quot;1&quot;s that
      |      appear before the third &quot;1&quot; is a negative binomial distribution.
+     |      
+     |      Because this method internally calls ``Generator.poisson`` with an
+     |      intermediate random value, a ValueError is raised when the choice of 
+     |      :math:`n` and :math:`p` would result in the mean + 10 sigma of the sampled
+     |      intermediate distribution exceeding the max acceptable value of the 
+     |      ``Generator.poisson`` method. This happens when :math:`p` is too low 
+     |      (a lot of failures happen for every success) and :math:`n` is too big (
+     |      a lot of successes are allowed).
+     |      Therefore, the :math:`n` and :math:`p` values must satisfy the constraint:
+     |      
+     |      .. math:: n\frac{1-p}{p}+10n\sqrt{n}\frac{1-p}{p}&lt;2^{63}-1-10\sqrt{2^{63}-1},
+     |      
+     |      Where the left side of the equation is the derived mean + 10 sigma of
+     |      a sample from the gamma distribution internally used as the :math:`lam`
+     |      parameter of a poisson sample, and the right side of the equation is
+     |      the constraint for maximum value of :math:`lam` in ``Generator.poisson``.
      |      
      |      References
      |      ----------
@@ -3252,7 +3119,8 @@ CLASSES
      |      ...          linewidth=2, color=&#39;r&#39;)
      |      &gt;&gt;&gt; plt.show()
      |      
-     |      Two-by-four array of samples from N(3, 6.25):
+     |      Two-by-four array of samples from the normal distribution with
+     |      mean 3 and standard deviation 2.5:
      |      
      |      &gt;&gt;&gt; np.random.default_rng().normal(3, 2.5, size=(2, 4))
      |      array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],   # random
@@ -3386,7 +3254,7 @@ CLASSES
      |      &gt;&gt;&gt; rng.permutation(&quot;abc&quot;)
      |      Traceback (most recent call last):
      |          ...
-     |      numpy.AxisError: axis 0 is out of bounds for array of dimension 0
+     |      numpy.exceptions.AxisError: axis 0 is out of bounds for array of dimension 0
      |      
      |      &gt;&gt;&gt; arr = np.arange(9).reshape((3, 3))
      |      &gt;&gt;&gt; rng.permutation(arr, axis=1)
@@ -3411,7 +3279,7 @@ CLASSES
      |          is shuffled independently of the others.  If `axis` is
      |          None, the flattened array is shuffled.
      |      out : ndarray, optional
-     |          If given, this is the destinaton of the shuffled array.
+     |          If given, this is the destination of the shuffled array.
      |          If `out` is None, a shuffled copy of the array is returned.
      |      
      |      Returns
@@ -3425,6 +3293,12 @@ CLASSES
      |      --------
      |      shuffle
      |      permutation
+     |      
+     |      Notes
+     |      -----
+     |      An important distinction between methods ``shuffle``  and ``permuted`` is 
+     |      how they both treat the ``axis`` parameter which can be found at 
+     |      :ref:`generator-handling-axis-parameter`.
      |      
      |      Examples
      |      --------
@@ -3636,10 +3510,10 @@ CLASSES
      |      Return random floats in the half-open interval [0.0, 1.0).
      |      
      |      Results are from the &quot;continuous uniform&quot; distribution over the
-     |      stated interval.  To sample :math:`Unif[a, b), b &gt; a` multiply
-     |      the output of `random` by `(b-a)` and add `a`::
+     |      stated interval.  To sample :math:`Unif[a, b), b &gt; a` use `uniform`
+     |      or multiply the output of `random` by ``(b - a)`` and add ``a``::
      |      
-     |        (b - a) * random() + a
+     |          (b - a) * random() + a
      |      
      |      Parameters
      |      ----------
@@ -3660,6 +3534,10 @@ CLASSES
      |      out : float or ndarray of floats
      |          Array of random floats of shape `size` (unless ``size=None``, in which
      |          case a single float is returned).
+     |      
+     |      See Also
+     |      --------
+     |      uniform : Draw samples from the parameterized uniform distribution.
      |      
      |      Examples
      |      --------
@@ -3759,15 +3637,32 @@ CLASSES
      |      -------
      |      None
      |      
+     |      See Also
+     |      --------
+     |      permuted
+     |      permutation
+     |      
+     |      Notes
+     |      -----
+     |      An important distinction between methods ``shuffle``  and ``permuted`` is 
+     |      how they both treat the ``axis`` parameter which can be found at 
+     |      :ref:`generator-handling-axis-parameter`.
+     |      
      |      Examples
      |      --------
      |      &gt;&gt;&gt; rng = np.random.default_rng()
      |      &gt;&gt;&gt; arr = np.arange(10)
+     |      &gt;&gt;&gt; arr
+     |      array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
      |      &gt;&gt;&gt; rng.shuffle(arr)
      |      &gt;&gt;&gt; arr
-     |      [1 7 5 2 9 4 3 6 0 8] # random
+     |      array([2, 0, 7, 5, 1, 4, 8, 9, 3, 6]) # random
      |      
      |      &gt;&gt;&gt; arr = np.arange(9).reshape((3, 3))
+     |      &gt;&gt;&gt; arr
+     |      array([[0, 1, 2],
+     |             [3, 4, 5],
+     |             [6, 7, 8]])
      |      &gt;&gt;&gt; rng.shuffle(arr)
      |      &gt;&gt;&gt; arr
      |      array([[3, 4, 5], # random
@@ -3775,11 +3670,69 @@ CLASSES
      |             [0, 1, 2]])
      |      
      |      &gt;&gt;&gt; arr = np.arange(9).reshape((3, 3))
+     |      &gt;&gt;&gt; arr
+     |      array([[0, 1, 2],
+     |             [3, 4, 5],
+     |             [6, 7, 8]])
      |      &gt;&gt;&gt; rng.shuffle(arr, axis=1)
      |      &gt;&gt;&gt; arr
      |      array([[2, 0, 1], # random
      |             [5, 3, 4],
      |             [8, 6, 7]])
+     |  
+     |  spawn(...)
+     |      spawn(n_children)
+     |      
+     |      Create new independent child generators.
+     |      
+     |      See :ref:`seedsequence-spawn` for additional notes on spawning
+     |      children.
+     |      
+     |      .. versionadded:: 1.25.0
+     |      
+     |      Parameters
+     |      ----------
+     |      n_children : int
+     |      
+     |      Returns
+     |      -------
+     |      child_generators : list of Generators
+     |      
+     |      Raises
+     |      ------
+     |      TypeError
+     |          When the underlying SeedSequence does not implement spawning.
+     |      
+     |      See Also
+     |      --------
+     |      random.BitGenerator.spawn, random.SeedSequence.spawn :
+     |          Equivalent method on the bit generator and seed sequence.
+     |      bit_generator :
+     |          The bit generator instance used by the generator.
+     |      
+     |      Examples
+     |      --------
+     |      Starting from a seeded default generator:
+     |      
+     |      &gt;&gt;&gt; # High quality entropy created with: f&quot;0x{secrets.randbits(128):x}&quot;
+     |      &gt;&gt;&gt; entropy = 0x3034c61a9ae04ff8cb62ab8ec2c4b501
+     |      &gt;&gt;&gt; rng = np.random.default_rng(entropy)
+     |      
+     |      Create two new generators for example for parallel execution:
+     |      
+     |      &gt;&gt;&gt; child_rng1, child_rng2 = rng.spawn(2)
+     |      
+     |      Drawn numbers from each are independent but derived from the initial
+     |      seeding entropy:
+     |      
+     |      &gt;&gt;&gt; rng.uniform(), child_rng1.uniform(), child_rng2.uniform()
+     |      (0.19029263503854454, 0.9475673279178444, 0.4702687338396767)
+     |      
+     |      It is safe to spawn additional children from the original ``rng`` or
+     |      the children:
+     |      
+     |      &gt;&gt;&gt; more_child_rngs = rng.spawn(20)
+     |      &gt;&gt;&gt; nested_spawn = child_rng1.spawn(20)
      |  
      |  standard_cauchy(...)
      |      standard_cauchy(size=None)
@@ -3984,7 +3937,8 @@ CLASSES
      |      
      |      Notes
      |      -----
-     |      For random samples from :math:`N(\mu, \sigma^2)`, use one of::
+     |      For random samples from the normal distribution with mean ``mu`` and
+     |      standard deviation ``sigma``, use one of::
      |      
      |          mu + sigma * rng.standard_normal(size=...)
      |          rng.normal(mu, sigma, size=...)
@@ -4005,7 +3959,8 @@ CLASSES
      |      &gt;&gt;&gt; s.shape
      |      (3, 4, 2)
      |      
-     |      Two-by-four array of samples from :math:`N(3, 6.25)`:
+     |      Two-by-four array of samples from the normal distribution with
+     |      mean 3 and standard deviation 2.5:
      |      
      |      &gt;&gt;&gt; 3 + 2.5 * rng.standard_normal(size=(2, 4))
      |      array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],   # random
@@ -4633,7 +4588,7 @@ CLASSES
      |  
      |  **Compatibility Guarantee**
      |  
-     |  ``MT19937`` makes a guarantee that a fixed seed and will always produce
+     |  ``MT19937`` makes a guarantee that a fixed seed will always produce
      |  the same random integer stream.
      |  
      |  References
@@ -4665,7 +4620,7 @@ CLASSES
      |      
      |      Returns a new bit generator with the state jumped
      |      
-     |      The state of the returned big generator is jumped as-if
+     |      The state of the returned bit generator is jumped as-if
      |      2**(128 * jumps) random numbers have been generated.
      |      
      |      Parameters
@@ -4722,6 +4677,7 @@ CLASSES
      |  Methods inherited from numpy.random.bit_generator.BitGenerator:
      |  
      |  __getstate__(...)
+     |      Helper for pickle.
      |  
      |  __reduce__(...)
      |      Helper for pickle.
@@ -4750,11 +4706,40 @@ CLASSES
      |      
      |      Notes
      |      -----
-     |      This method directly exposes the the raw underlying pseudo-random
+     |      This method directly exposes the raw underlying pseudo-random
      |      number generator. All values are returned as unsigned 64-bit
      |      values irrespective of the number of bits produced by the PRNG.
      |      
      |      See the class docstring for the number of bits returned.
+     |  
+     |  spawn(...)
+     |      spawn(n_children)
+     |      
+     |      Create new independent child bit generators.
+     |      
+     |      See :ref:`seedsequence-spawn` for additional notes on spawning
+     |      children.  Some bit generators also implement ``jumped``
+     |      as a different approach for creating independent streams.
+     |      
+     |      .. versionadded:: 1.25.0
+     |      
+     |      Parameters
+     |      ----------
+     |      n_children : int
+     |      
+     |      Returns
+     |      -------
+     |      child_bit_generators : list of BitGenerators
+     |      
+     |      Raises
+     |      ------
+     |      TypeError
+     |          When the underlying SeedSequence does not implement spawning.
+     |      
+     |      See Also
+     |      --------
+     |      random.Generator.spawn, random.SeedSequence.spawn :
+     |          Equivalent method on the generator and seed sequence.
      |  
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from numpy.random.bit_generator.BitGenerator:
@@ -4792,6 +4777,17 @@ CLASSES
      |          * bitgen - pointer to the bit generator struct
      |  
      |  lock
+     |  
+     |  seed_seq
+     |      Get the seed sequence used to initialize the bit generator.
+     |      
+     |      .. versionadded:: 1.25.0
+     |      
+     |      Returns
+     |      -------
+     |      seed_seq : ISeedSequence
+     |          The SeedSequence object used to initialize the BitGenerator.
+     |          This is normally a `np.random.SeedSequence` instance.
     
     class PCG64(numpy.random.bit_generator.BitGenerator)
      |  PCG64(seed=None)
@@ -4956,6 +4952,7 @@ CLASSES
      |  Methods inherited from numpy.random.bit_generator.BitGenerator:
      |  
      |  __getstate__(...)
+     |      Helper for pickle.
      |  
      |  __reduce__(...)
      |      Helper for pickle.
@@ -4984,11 +4981,40 @@ CLASSES
      |      
      |      Notes
      |      -----
-     |      This method directly exposes the the raw underlying pseudo-random
+     |      This method directly exposes the raw underlying pseudo-random
      |      number generator. All values are returned as unsigned 64-bit
      |      values irrespective of the number of bits produced by the PRNG.
      |      
      |      See the class docstring for the number of bits returned.
+     |  
+     |  spawn(...)
+     |      spawn(n_children)
+     |      
+     |      Create new independent child bit generators.
+     |      
+     |      See :ref:`seedsequence-spawn` for additional notes on spawning
+     |      children.  Some bit generators also implement ``jumped``
+     |      as a different approach for creating independent streams.
+     |      
+     |      .. versionadded:: 1.25.0
+     |      
+     |      Parameters
+     |      ----------
+     |      n_children : int
+     |      
+     |      Returns
+     |      -------
+     |      child_bit_generators : list of BitGenerators
+     |      
+     |      Raises
+     |      ------
+     |      TypeError
+     |          When the underlying SeedSequence does not implement spawning.
+     |      
+     |      See Also
+     |      --------
+     |      random.Generator.spawn, random.SeedSequence.spawn :
+     |          Equivalent method on the generator and seed sequence.
      |  
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from numpy.random.bit_generator.BitGenerator:
@@ -5026,6 +5052,17 @@ CLASSES
      |          * bitgen - pointer to the bit generator struct
      |  
      |  lock
+     |  
+     |  seed_seq
+     |      Get the seed sequence used to initialize the bit generator.
+     |      
+     |      .. versionadded:: 1.25.0
+     |      
+     |      Returns
+     |      -------
+     |      seed_seq : ISeedSequence
+     |          The SeedSequence object used to initialize the BitGenerator.
+     |          This is normally a `np.random.SeedSequence` instance.
     
     class PCG64DXSM(numpy.random.bit_generator.BitGenerator)
      |  PCG64DXSM(seed=None)
@@ -5192,6 +5229,7 @@ CLASSES
      |  Methods inherited from numpy.random.bit_generator.BitGenerator:
      |  
      |  __getstate__(...)
+     |      Helper for pickle.
      |  
      |  __reduce__(...)
      |      Helper for pickle.
@@ -5220,11 +5258,40 @@ CLASSES
      |      
      |      Notes
      |      -----
-     |      This method directly exposes the the raw underlying pseudo-random
+     |      This method directly exposes the raw underlying pseudo-random
      |      number generator. All values are returned as unsigned 64-bit
      |      values irrespective of the number of bits produced by the PRNG.
      |      
      |      See the class docstring for the number of bits returned.
+     |  
+     |  spawn(...)
+     |      spawn(n_children)
+     |      
+     |      Create new independent child bit generators.
+     |      
+     |      See :ref:`seedsequence-spawn` for additional notes on spawning
+     |      children.  Some bit generators also implement ``jumped``
+     |      as a different approach for creating independent streams.
+     |      
+     |      .. versionadded:: 1.25.0
+     |      
+     |      Parameters
+     |      ----------
+     |      n_children : int
+     |      
+     |      Returns
+     |      -------
+     |      child_bit_generators : list of BitGenerators
+     |      
+     |      Raises
+     |      ------
+     |      TypeError
+     |          When the underlying SeedSequence does not implement spawning.
+     |      
+     |      See Also
+     |      --------
+     |      random.Generator.spawn, random.SeedSequence.spawn :
+     |          Equivalent method on the generator and seed sequence.
      |  
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from numpy.random.bit_generator.BitGenerator:
@@ -5262,6 +5329,17 @@ CLASSES
      |          * bitgen - pointer to the bit generator struct
      |  
      |  lock
+     |  
+     |  seed_seq
+     |      Get the seed sequence used to initialize the bit generator.
+     |      
+     |      .. versionadded:: 1.25.0
+     |      
+     |      Returns
+     |      -------
+     |      seed_seq : ISeedSequence
+     |          The SeedSequence object used to initialize the BitGenerator.
+     |          This is normally a `np.random.SeedSequence` instance.
     
     class Philox(numpy.random.bit_generator.BitGenerator)
      |  Philox(seed=None, counter=None, key=None)
@@ -5424,8 +5502,8 @@ CLASSES
      |      
      |      Returns a new bit generator with the state jumped
      |      
-     |      The state of the returned big generator is jumped as-if
-     |      2**(128 * jumps) random numbers have been generated.
+     |      The state of the returned bit generator is jumped as-if
+     |      (2**128) * jumps random numbers have been generated.
      |      
      |      Parameters
      |      ----------
@@ -5464,6 +5542,7 @@ CLASSES
      |  Methods inherited from numpy.random.bit_generator.BitGenerator:
      |  
      |  __getstate__(...)
+     |      Helper for pickle.
      |  
      |  __reduce__(...)
      |      Helper for pickle.
@@ -5492,11 +5571,40 @@ CLASSES
      |      
      |      Notes
      |      -----
-     |      This method directly exposes the the raw underlying pseudo-random
+     |      This method directly exposes the raw underlying pseudo-random
      |      number generator. All values are returned as unsigned 64-bit
      |      values irrespective of the number of bits produced by the PRNG.
      |      
      |      See the class docstring for the number of bits returned.
+     |  
+     |  spawn(...)
+     |      spawn(n_children)
+     |      
+     |      Create new independent child bit generators.
+     |      
+     |      See :ref:`seedsequence-spawn` for additional notes on spawning
+     |      children.  Some bit generators also implement ``jumped``
+     |      as a different approach for creating independent streams.
+     |      
+     |      .. versionadded:: 1.25.0
+     |      
+     |      Parameters
+     |      ----------
+     |      n_children : int
+     |      
+     |      Returns
+     |      -------
+     |      child_bit_generators : list of BitGenerators
+     |      
+     |      Raises
+     |      ------
+     |      TypeError
+     |          When the underlying SeedSequence does not implement spawning.
+     |      
+     |      See Also
+     |      --------
+     |      random.Generator.spawn, random.SeedSequence.spawn :
+     |          Equivalent method on the generator and seed sequence.
      |  
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from numpy.random.bit_generator.BitGenerator:
@@ -5534,6 +5642,17 @@ CLASSES
      |          * bitgen - pointer to the bit generator struct
      |  
      |  lock
+     |  
+     |  seed_seq
+     |      Get the seed sequence used to initialize the bit generator.
+     |      
+     |      .. versionadded:: 1.25.0
+     |      
+     |      Returns
+     |      -------
+     |      seed_seq : ISeedSequence
+     |          The SeedSequence object used to initialize the BitGenerator.
+     |          This is normally a `np.random.SeedSequence` instance.
     
     class RandomState(builtins.object)
      |  RandomState(seed=None)
@@ -5556,7 +5675,7 @@ CLASSES
      |  &#39;RandomState&#39; methods using the same parameters will always produce the
      |  same results up to roundoff error except when the values were incorrect.
      |  `RandomState` is effectively frozen and will only receive updates that
-     |  are required by changes in the the internals of Numpy. More substantial
+     |  are required by changes in the internals of Numpy. More substantial
      |  changes, including algorithmic improvements, are reserved for
      |  `Generator`.
      |  
@@ -5589,6 +5708,7 @@ CLASSES
      |  Methods defined here:
      |  
      |  __getstate__(...)
+     |      Helper for pickle.
      |  
      |  __init__(self, /, *args, **kwargs)
      |      Initialize self.  See help(type(self)) for accurate signature.
@@ -5596,7 +5716,7 @@ CLASSES
      |  __reduce__(...)
      |      Helper for pickle.
      |  
-     |  __repr__(self, /)
+     |  __repr__(...)
      |      Return repr(self).
      |  
      |  __setstate__(...)
@@ -5624,8 +5744,10 @@ CLASSES
      |      It is often seen in Bayesian inference and order statistics.
      |      
      |      .. note::
-     |          New code should use the ``beta`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.beta`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
+     |      
      |      
      |      Parameters
      |      ----------
@@ -5646,7 +5768,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.beta: which should be used for new code.
+     |      random.Generator.beta: which should be used for new code.
      |  
      |  binomial(...)
      |      binomial(n, p, size=None)
@@ -5659,8 +5781,9 @@ CLASSES
      |      input as a float, but it is truncated to an integer in use)
      |      
      |      .. note::
-     |          New code should use the ``binomial`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.binomial`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -5685,7 +5808,7 @@ CLASSES
      |      --------
      |      scipy.stats.binom : probability density function, distribution or
      |          cumulative density function, etc.
-     |      Generator.binomial: which should be used for new code.
+     |      random.Generator.binomial: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -5742,8 +5865,9 @@ CLASSES
      |      Return random bytes.
      |      
      |      .. note::
-     |          New code should use the ``bytes`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.bytes`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -5757,7 +5881,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.bytes: which should be used for new code.
+     |      random.Generator.bytes: which should be used for new code.
      |      
      |      Examples
      |      --------
@@ -5775,8 +5899,9 @@ CLASSES
      |      is often used in hypothesis testing.
      |      
      |      .. note::
-     |          New code should use the ``chisquare`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.chisquare`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -5801,7 +5926,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.chisquare: which should be used for new code.
+     |      random.Generator.chisquare: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -5841,8 +5966,9 @@ CLASSES
      |      .. versionadded:: 1.7.0
      |      
      |      .. note::
-     |          New code should use the ``choice`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.choice`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -5878,7 +6004,7 @@ CLASSES
      |      See Also
      |      --------
      |      randint, shuffle, permutation
-     |      Generator.choice: which should be used in new code
+     |      random.Generator.choice: which should be used in new code
      |      
      |      Notes
      |      -----
@@ -5935,8 +6061,9 @@ CLASSES
      |      inference.
      |      
      |      .. note::
-     |          New code should use the ``dirichlet`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.dirichlet`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -5954,13 +6081,13 @@ CLASSES
      |          The drawn samples, of shape ``(size, k)``.
      |      
      |      Raises
-     |      -------
+     |      ------
      |      ValueError
      |          If any value in ``alpha`` is less than or equal to zero
      |      
      |      See Also
      |      --------
-     |      Generator.dirichlet: which should be used for new code.
+     |      random.Generator.dirichlet: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -6026,8 +6153,9 @@ CLASSES
      |      between page requests to Wikipedia [2]_.
      |      
      |      .. note::
-     |          New code should use the ``exponential`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.exponential`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -6045,9 +6173,25 @@ CLASSES
      |      out : ndarray or scalar
      |          Drawn samples from the parameterized exponential distribution.
      |      
+     |      Examples
+     |      --------
+     |      A real world example: Assume a company has 10000 customer support 
+     |      agents and the average time between customer calls is 4 minutes.
+     |      
+     |      &gt;&gt;&gt; n = 10000
+     |      &gt;&gt;&gt; time_between_calls = np.random.default_rng().exponential(scale=4, size=n)
+     |      
+     |      What is the probability that a customer will call in the next 
+     |      4 to 5 minutes? 
+     |      
+     |      &gt;&gt;&gt; x = ((time_between_calls &lt; 5).sum())/n 
+     |      &gt;&gt;&gt; y = ((time_between_calls &lt; 4).sum())/n
+     |      &gt;&gt;&gt; x-y
+     |      0.08 # may vary
+     |      
      |      See Also
      |      --------
-     |      Generator.exponential: which should be used for new code.
+     |      random.Generator.exponential: which should be used for new code.
      |      
      |      References
      |      ----------
@@ -6074,8 +6218,9 @@ CLASSES
      |      variates.
      |      
      |      .. note::
-     |          New code should use the ``f`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.f`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -6098,7 +6243,7 @@ CLASSES
      |      --------
      |      scipy.stats.f : probability density function, distribution or
      |          cumulative density function, etc.
-     |      Generator.f: which should be used for new code.
+     |      random.Generator.f: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -6154,8 +6299,9 @@ CLASSES
      |      &quot;theta&quot;), where both parameters are &gt; 0.
      |      
      |      .. note::
-     |          New code should use the ``gamma`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.gamma`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -6179,7 +6325,7 @@ CLASSES
      |      --------
      |      scipy.stats.gamma : probability density function, distribution or
      |          cumulative density function, etc.
-     |      Generator.gamma: which should be used for new code.
+     |      random.Generator.gamma: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -6238,8 +6384,9 @@ CLASSES
      |      where `p` is the probability of success of an individual trial.
      |      
      |      .. note::
-     |          New code should use the ``geometric`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.geometric`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -6258,7 +6405,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.geometric: which should be used for new code.
+     |      random.Generator.geometric: which should be used for new code.
      |      
      |      Examples
      |      --------
@@ -6273,7 +6420,7 @@ CLASSES
      |      0.34889999999999999 #random
      |  
      |  get_state(...)
-     |      get_state()
+     |      get_state(legacy=True)
      |      
      |      Return a tuple representing the internal state of the generator.
      |      
@@ -6283,12 +6430,13 @@ CLASSES
      |      ----------
      |      legacy : bool, optional
      |          Flag indicating to return a legacy tuple state when the BitGenerator
-     |          is MT19937, instead of a dict.
+     |          is MT19937, instead of a dict. Raises ValueError if the underlying
+     |          bit generator is not an instance of MT19937.
      |      
      |      Returns
      |      -------
      |      out : {tuple(str, ndarray of 624 uints, int, int, float), dict}
-     |          The returned tuple has the following items:
+     |          If legacy is True, the returned tuple has the following items:
      |      
      |          1. the string &#39;MT19937&#39;.
      |          2. a 1-D array of 624 unsigned integer keys.
@@ -6319,8 +6467,9 @@ CLASSES
      |      Notes and References below.
      |      
      |      .. note::
-     |          New code should use the ``gumbel`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.gumbel`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -6346,7 +6495,7 @@ CLASSES
      |      scipy.stats.gumbel_r
      |      scipy.stats.genextreme
      |      weibull
-     |      Generator.gumbel: which should be used for new code.
+     |      random.Generator.gumbel: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -6436,8 +6585,10 @@ CLASSES
      |      than or equal to the sum ``ngood + nbad``).
      |      
      |      .. note::
-     |          New code should use the ``hypergeometric`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the
+     |          `~numpy.random.Generator.hypergeometric`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -6466,7 +6617,7 @@ CLASSES
      |      --------
      |      scipy.stats.hypergeom : probability density function, distribution or
      |          cumulative density function, etc.
-     |      Generator.hypergeometric: which should be used for new code.
+     |      random.Generator.hypergeometric: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -6531,8 +6682,9 @@ CLASSES
      |      random variables.
      |      
      |      .. note::
-     |          New code should use the ``laplace`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.laplace`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -6554,7 +6706,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.laplace: which should be used for new code.
+     |      random.Generator.laplace: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -6614,8 +6766,9 @@ CLASSES
      |      parameters, loc (location or mean, also median), and scale (&gt;0).
      |      
      |      .. note::
-     |          New code should use the ``logistic`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.logistic`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -6639,7 +6792,7 @@ CLASSES
      |      --------
      |      scipy.stats.logistic : probability density function, distribution or
      |          cumulative density function, etc.
-     |      Generator.logistic: which should be used for new code.
+     |      random.Generator.logistic: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -6694,8 +6847,9 @@ CLASSES
      |      underlying normal distribution it is derived from.
      |      
      |      .. note::
-     |          New code should use the ``lognormal`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.lognormal`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -6719,7 +6873,7 @@ CLASSES
      |      --------
      |      scipy.stats.lognorm : probability density function, distribution,
      |          cumulative density function, etc.
-     |      Generator.lognormal: which should be used for new code.
+     |      random.Generator.lognormal: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -6777,7 +6931,7 @@ CLASSES
      |      &gt;&gt;&gt; b = []
      |      &gt;&gt;&gt; for i in range(1000):
      |      ...    a = 10. + np.random.standard_normal(100)
-     |      ...    b.append(np.product(a))
+     |      ...    b.append(np.prod(a))
      |      
      |      &gt;&gt;&gt; b = np.array(b) / np.min(b) # scale values to be positive
      |      &gt;&gt;&gt; count, bins, ignored = plt.hist(b, 100, density=True, align=&#39;mid&#39;)
@@ -6797,16 +6951,17 @@ CLASSES
      |      Draw samples from a logarithmic series distribution.
      |      
      |      Samples are drawn from a log series distribution with specified
-     |      shape parameter, 0 &lt; ``p`` &lt; 1.
+     |      shape parameter, 0 &lt;= ``p`` &lt; 1.
      |      
      |      .. note::
-     |          New code should use the ``logseries`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.logseries`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
      |      p : float or array_like of floats
-     |          Shape parameter for the distribution.  Must be in the range (0, 1).
+     |          Shape parameter for the distribution.  Must be in the range [0, 1).
      |      size : int or tuple of ints, optional
      |          Output shape.  If the given shape is, e.g., ``(m, n, k)``, then
      |          ``m * n * k`` samples are drawn.  If size is ``None`` (default),
@@ -6822,7 +6977,7 @@ CLASSES
      |      --------
      |      scipy.stats.logser : probability density function, distribution or
      |          cumulative density function, etc.
-     |      Generator.logseries: which should be used for new code.
+     |      random.Generator.logseries: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -6883,8 +7038,9 @@ CLASSES
      |      outcome was ``i``.
      |      
      |      .. note::
-     |          New code should use the ``multinomial`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.multinomial`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -6911,7 +7067,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.multinomial: which should be used for new code.
+     |      random.Generator.multinomial: which should be used for new code.
      |      
      |      Examples
      |      --------
@@ -6964,8 +7120,10 @@ CLASSES
      |      squared) of the one-dimensional normal distribution.
      |      
      |      .. note::
-     |          New code should use the ``multivariate_normal`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the
+     |          `~numpy.random.Generator.multivariate_normal`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -6996,7 +7154,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.multivariate_normal: which should be used for new code.
+     |      random.Generator.multivariate_normal: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -7052,11 +7210,35 @@ CLASSES
      |      &gt;&gt;&gt; x.shape
      |      (3, 3, 2)
      |      
-     |      The following is probably true, given that 0.6 is roughly twice the
-     |      standard deviation:
+     |      Here we generate 800 samples from the bivariate normal distribution
+     |      with mean [0, 0] and covariance matrix [[6, -3], [-3, 3.5]].  The
+     |      expected variances of the first and second components of the sample
+     |      are 6 and 3.5, respectively, and the expected correlation
+     |      coefficient is -3/sqrt(6*3.5) ≈ -0.65465.
      |      
-     |      &gt;&gt;&gt; list((x[0,0,:] - mean) &lt; 0.6)
-     |      [True, True] # random
+     |      &gt;&gt;&gt; cov = np.array([[6, -3], [-3, 3.5]])
+     |      &gt;&gt;&gt; pts = np.random.multivariate_normal([0, 0], cov, size=800)
+     |      
+     |      Check that the mean, covariance, and correlation coefficient of the
+     |      sample are close to the expected values:
+     |      
+     |      &gt;&gt;&gt; pts.mean(axis=0)
+     |      array([ 0.0326911 , -0.01280782])  # may vary
+     |      &gt;&gt;&gt; np.cov(pts.T)
+     |      array([[ 5.96202397, -2.85602287],
+     |             [-2.85602287,  3.47613949]])  # may vary
+     |      &gt;&gt;&gt; np.corrcoef(pts.T)[0, 1]
+     |      -0.6273591314603949  # may vary
+     |      
+     |      We can visualize this data with a scatter plot.  The orientation
+     |      of the point cloud illustrates the negative correlation of the
+     |      components of this sample.
+     |      
+     |      &gt;&gt;&gt; import matplotlib.pyplot as plt
+     |      &gt;&gt;&gt; plt.plot(pts[:, 0], pts[:, 1], &#39;.&#39;, alpha=0.5)
+     |      &gt;&gt;&gt; plt.axis(&#39;equal&#39;)
+     |      &gt;&gt;&gt; plt.grid()
+     |      &gt;&gt;&gt; plt.show()
      |  
      |  negative_binomial(...)
      |      negative_binomial(n, p, size=None)
@@ -7068,8 +7250,10 @@ CLASSES
      |      is &gt; 0 and `p` is in the interval [0, 1].
      |      
      |      .. note::
-     |          New code should use the ``negative_binomial`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the
+     |          `~numpy.random.Generator.negative_binomial`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -7092,7 +7276,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.negative_binomial: which should be used for new code.
+     |      random.Generator.negative_binomial: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -7104,7 +7288,7 @@ CLASSES
      |      probability of success, :math:`N+n` is the number of trials, and
      |      :math:`\Gamma` is the gamma function. When :math:`n` is an integer,
      |      :math:`\frac{\Gamma(N+n)}{N!\Gamma(n)} = \binom{N+n-1}{N}`, which is
-     |      the more common form of this term in the the pmf. The negative
+     |      the more common form of this term in the pmf. The negative
      |      binomial distribution gives the probability of N failures given n
      |      successes, with a success on the last trial.
      |      
@@ -7144,8 +7328,10 @@ CLASSES
      |      the :math:`\chi^2` distribution.
      |      
      |      .. note::
-     |          New code should use the ``noncentral_chisquare`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the
+     |          `~numpy.random.Generator.noncentral_chisquare`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -7169,7 +7355,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.noncentral_chisquare: which should be used for new code.
+     |      random.Generator.noncentral_chisquare: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -7226,8 +7412,10 @@ CLASSES
      |      `nonc` is the non-centrality parameter.
      |      
      |      .. note::
-     |          New code should use the ``noncentral_f`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the
+     |          `~numpy.random.Generator.noncentral_f`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -7255,7 +7443,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.noncentral_f: which should be used for new code.
+     |      random.Generator.noncentral_f: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -7309,8 +7497,9 @@ CLASSES
      |      unique distribution [2]_.
      |      
      |      .. note::
-     |          New code should use the ``normal`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.normal`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -7334,7 +7523,7 @@ CLASSES
      |      --------
      |      scipy.stats.norm : probability density function, distribution or
      |          cumulative density function, etc.
-     |      Generator.normal: which should be used for new code.
+     |      random.Generator.normal: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -7386,7 +7575,8 @@ CLASSES
      |      ...          linewidth=2, color=&#39;r&#39;)
      |      &gt;&gt;&gt; plt.show()
      |      
-     |      Two-by-four array of samples from N(3, 6.25):
+     |      Two-by-four array of samples from the normal distribution with
+     |      mean 3 and standard deviation 2.5:
      |      
      |      &gt;&gt;&gt; np.random.normal(3, 2.5, size=(2, 4))
      |      array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],   # random
@@ -7416,8 +7606,9 @@ CLASSES
      |      remaining 80 percent of the range.
      |      
      |      .. note::
-     |          New code should use the ``pareto`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.pareto`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -7440,7 +7631,7 @@ CLASSES
      |          cumulative density function, etc.
      |      scipy.stats.genpareto : probability density function, distribution or
      |          cumulative density function, etc.
-     |      Generator.pareto: which should be used for new code.
+     |      random.Generator.pareto: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -7496,8 +7687,10 @@ CLASSES
      |      first index.
      |      
      |      .. note::
-     |          New code should use the ``permutation`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the
+     |          `~numpy.random.Generator.permutation`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -7513,7 +7706,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.permutation: which should be used for new code.
+     |      random.Generator.permutation: which should be used for new code.
      |      
      |      Examples
      |      --------
@@ -7538,8 +7731,9 @@ CLASSES
      |      for large N.
      |      
      |      .. note::
-     |          New code should use the ``poisson`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.poisson`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -7560,7 +7754,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.poisson: which should be used for new code.
+     |      random.Generator.poisson: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -7611,8 +7805,9 @@ CLASSES
      |      Also known as the power function distribution.
      |      
      |      .. note::
-     |          New code should use the ``power`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.power`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -7636,7 +7831,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.power: which should be used for new code.
+     |      random.Generator.power: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -7750,8 +7945,9 @@ CLASSES
      |      `high` is None (the default), then results are from [0, `low`).
      |      
      |      .. note::
-     |          New code should use the ``integers`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.integers`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -7784,7 +7980,7 @@ CLASSES
      |      random_integers : similar to `randint`, only for the closed
      |          interval [`low`, `high`], and 1 is the lowest value if `high` is
      |          omitted.
-     |      Generator.integers: which should be used for new code.
+     |      random.Generator.integers: which should be used for new code.
      |      
      |      Examples
      |      --------
@@ -7827,8 +8023,10 @@ CLASSES
      |          other NumPy functions like `numpy.zeros` and `numpy.ones`.
      |      
      |      .. note::
-     |          New code should use the ``standard_normal`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the
+     |          `~numpy.random.Generator.standard_normal`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      If positive int_like arguments are provided, `randn` generates an array
      |      of shape ``(d0, d1, ..., dn)``, filled
@@ -7853,20 +8051,22 @@ CLASSES
      |      --------
      |      standard_normal : Similar, but takes a tuple as its argument.
      |      normal : Also accepts mu and sigma arguments.
-     |      Generator.standard_normal: which should be used for new code.
+     |      random.Generator.standard_normal: which should be used for new code.
      |      
      |      Notes
      |      -----
-     |      For random samples from :math:`N(\mu, \sigma^2)`, use:
+     |      For random samples from the normal distribution with mean ``mu`` and
+     |      standard deviation ``sigma``, use::
      |      
-     |      ``sigma * np.random.randn(...) + mu``
+     |          sigma * np.random.randn(...) + mu
      |      
      |      Examples
      |      --------
      |      &gt;&gt;&gt; np.random.randn()
      |      2.1923875335537315  # random
      |      
-     |      Two-by-four array of samples from N(3, 6.25):
+     |      Two-by-four array of samples from the normal distribution with
+     |      mean 3 and standard deviation 2.5:
      |      
      |      &gt;&gt;&gt; 3 + 2.5 * np.random.randn(2, 4)
      |      array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],   # random
@@ -7968,8 +8168,9 @@ CLASSES
      |        (b - a) * random_sample() + a
      |      
      |      .. note::
-     |          New code should use the ``random`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.random`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -7986,7 +8187,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.random: which should be used for new code.
+     |      random.Generator.random: which should be used for new code.
      |      
      |      Examples
      |      --------
@@ -8013,8 +8214,9 @@ CLASSES
      |      Rayleigh.
      |      
      |      .. note::
-     |          New code should use the ``rayleigh`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.rayleigh`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -8033,7 +8235,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.rayleigh: which should be used for new code.
+     |      random.Generator.rayleigh: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -8074,7 +8276,7 @@ CLASSES
      |      0.087300000000000003 # random
      |  
      |  seed(...)
-     |      seed(self, seed=None)
+     |      seed(seed=None)
      |      
      |      Reseed a legacy MT19937 BitGenerator
      |      
@@ -8152,8 +8354,9 @@ CLASSES
      |      their contents remains the same.
      |      
      |      .. note::
-     |          New code should use the ``shuffle`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.shuffle`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -8166,7 +8369,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.shuffle: which should be used for new code.
+     |      random.Generator.shuffle: which should be used for new code.
      |      
      |      Examples
      |      --------
@@ -8192,8 +8395,10 @@ CLASSES
      |      Also known as the Lorentz distribution.
      |      
      |      .. note::
-     |          New code should use the ``standard_cauchy`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the
+     |          `~numpy.random.Generator.standard_cauchy`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -8209,7 +8414,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.standard_cauchy: which should be used for new code.
+     |      random.Generator.standard_cauchy: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -8261,8 +8466,10 @@ CLASSES
      |      with a scale parameter of 1.
      |      
      |      .. note::
-     |          New code should use the ``standard_exponential`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the
+     |          `~numpy.random.Generator.standard_exponential`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -8278,7 +8485,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.standard_exponential: which should be used for new code.
+     |      random.Generator.standard_exponential: which should be used for new code.
      |      
      |      Examples
      |      --------
@@ -8295,8 +8502,10 @@ CLASSES
      |      shape (sometimes designated &quot;k&quot;) and scale=1.
      |      
      |      .. note::
-     |          New code should use the ``standard_gamma`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the
+     |          `~numpy.random.Generator.standard_gamma`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -8317,7 +8526,7 @@ CLASSES
      |      --------
      |      scipy.stats.gamma : probability density function, distribution or
      |          cumulative density function, etc.
-     |      Generator.standard_gamma: which should be used for new code.
+     |      random.Generator.standard_gamma: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -8364,8 +8573,10 @@ CLASSES
      |      Draw samples from a standard Normal distribution (mean=0, stdev=1).
      |      
      |      .. note::
-     |          New code should use the ``standard_normal`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the
+     |          `~numpy.random.Generator.standard_normal`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -8385,11 +8596,12 @@ CLASSES
      |      normal :
      |          Equivalent function with additional ``loc`` and ``scale`` arguments
      |          for setting the mean and standard deviation.
-     |      Generator.standard_normal: which should be used for new code.
+     |      random.Generator.standard_normal: which should be used for new code.
      |      
      |      Notes
      |      -----
-     |      For random samples from :math:`N(\mu, \sigma^2)`, use one of::
+     |      For random samples from the normal distribution with mean ``mu`` and
+     |      standard deviation ``sigma``, use one of::
      |      
      |          mu + sigma * np.random.standard_normal(size=...)
      |          np.random.normal(mu, sigma, size=...)
@@ -8409,7 +8621,8 @@ CLASSES
      |      &gt;&gt;&gt; s.shape
      |      (3, 4, 2)
      |      
-     |      Two-by-four array of samples from :math:`N(3, 6.25)`:
+     |      Two-by-four array of samples from the normal distribution with
+     |      mean 3 and standard deviation 2.5:
      |      
      |      &gt;&gt;&gt; 3 + 2.5 * np.random.standard_normal(size=(2, 4))
      |      array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],   # random
@@ -8426,8 +8639,9 @@ CLASSES
      |      distribution (`standard_normal`).
      |      
      |      .. note::
-     |          New code should use the ``standard_t`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.standard_t`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -8446,7 +8660,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.standard_t: which should be used for new code.
+     |      random.Generator.standard_t: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -8572,8 +8786,9 @@ CLASSES
      |      directly define the shape of the pdf.
      |      
      |      .. note::
-     |          New code should use the ``triangular`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.triangular`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -8598,7 +8813,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.triangular: which should be used for new code.
+     |      random.Generator.triangular: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -8640,8 +8855,9 @@ CLASSES
      |      by `uniform`.
      |      
      |      .. note::
-     |          New code should use the ``uniform`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.uniform`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -8675,7 +8891,7 @@ CLASSES
      |      rand : Convenience function that accepts dimensions as input, e.g.,
      |             ``rand(2,2)`` would generate a 2-by-2 array of floats,
      |             uniformly distributed over ``[0, 1)``.
-     |      Generator.uniform: which should be used for new code.
+     |      random.Generator.uniform: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -8733,8 +8949,9 @@ CLASSES
      |      distribution.
      |      
      |      .. note::
-     |          New code should use the ``vonmises`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.vonmises`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -8757,7 +8974,7 @@ CLASSES
      |      --------
      |      scipy.stats.vonmises : probability density function, distribution, or
      |          cumulative density function, etc.
-     |      Generator.vonmises: which should be used for new code.
+     |      random.Generator.vonmises: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -8815,8 +9032,9 @@ CLASSES
      |      unit distance and distance covered in unit time.
      |      
      |      .. note::
-     |          New code should use the ``wald`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.wald`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -8837,7 +9055,7 @@ CLASSES
      |      
      |      See Also
      |      --------
-     |      Generator.wald: which should be used for new code.
+     |      random.Generator.wald: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -8885,8 +9103,9 @@ CLASSES
      |      :math:`\lambda` is just :math:`X = \lambda(-ln(U))^{1/a}`.
      |      
      |      .. note::
-     |          New code should use the ``weibull`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.weibull`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -8909,7 +9128,7 @@ CLASSES
      |      scipy.stats.weibull_min
      |      scipy.stats.genextreme
      |      gumbel
-     |      Generator.weibull: which should be used for new code.
+     |      random.Generator.weibull: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -8979,8 +9198,9 @@ CLASSES
      |      frequency table.
      |      
      |      .. note::
-     |          New code should use the ``zipf`` method of a ``default_rng()``
-     |          instance instead; please see the :ref:`random-quick-start`.
+     |          New code should use the `~numpy.random.Generator.zipf`
+     |          method of a `~numpy.random.Generator` instance instead;
+     |          please see the :ref:`random-quick-start`.
      |      
      |      Parameters
      |      ----------
@@ -9001,7 +9221,7 @@ CLASSES
      |      --------
      |      scipy.stats.zipf : probability density function, distribution, or
      |          cumulative density function, etc.
-     |      Generator.zipf: which should be used for new code.
+     |      random.Generator.zipf: which should be used for new code.
      |      
      |      Notes
      |      -----
@@ -9152,6 +9372,7 @@ CLASSES
      |  Methods inherited from numpy.random.bit_generator.BitGenerator:
      |  
      |  __getstate__(...)
+     |      Helper for pickle.
      |  
      |  __reduce__(...)
      |      Helper for pickle.
@@ -9180,11 +9401,40 @@ CLASSES
      |      
      |      Notes
      |      -----
-     |      This method directly exposes the the raw underlying pseudo-random
+     |      This method directly exposes the raw underlying pseudo-random
      |      number generator. All values are returned as unsigned 64-bit
      |      values irrespective of the number of bits produced by the PRNG.
      |      
      |      See the class docstring for the number of bits returned.
+     |  
+     |  spawn(...)
+     |      spawn(n_children)
+     |      
+     |      Create new independent child bit generators.
+     |      
+     |      See :ref:`seedsequence-spawn` for additional notes on spawning
+     |      children.  Some bit generators also implement ``jumped``
+     |      as a different approach for creating independent streams.
+     |      
+     |      .. versionadded:: 1.25.0
+     |      
+     |      Parameters
+     |      ----------
+     |      n_children : int
+     |      
+     |      Returns
+     |      -------
+     |      child_bit_generators : list of BitGenerators
+     |      
+     |      Raises
+     |      ------
+     |      TypeError
+     |          When the underlying SeedSequence does not implement spawning.
+     |      
+     |      See Also
+     |      --------
+     |      random.Generator.spawn, random.SeedSequence.spawn :
+     |          Equivalent method on the generator and seed sequence.
      |  
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from numpy.random.bit_generator.BitGenerator:
@@ -9222,6 +9472,17 @@ CLASSES
      |          * bitgen - pointer to the bit generator struct
      |  
      |  lock
+     |  
+     |  seed_seq
+     |      Get the seed sequence used to initialize the bit generator.
+     |      
+     |      .. versionadded:: 1.25.0
+     |      
+     |      Returns
+     |      -------
+     |      seed_seq : ISeedSequence
+     |          The SeedSequence object used to initialize the BitGenerator.
+     |          This is normally a `np.random.SeedSequence` instance.
     
     class SeedSequence(builtins.object)
      |  SeedSequence(entropy=None, *, spawn_key=(), pool_size=4)
@@ -9239,9 +9500,12 @@ CLASSES
      |  ----------
      |  entropy : {None, int, sequence[int]}, optional
      |      The entropy for creating a `SeedSequence`.
+     |      All integer values must be non-negative.
      |  spawn_key : {(), sequence[int]}, optional
-     |      A third source of entropy, used internally when calling
-     |      `SeedSequence.spawn`
+     |      An additional source of entropy based on the position of this
+     |      `SeedSequence` in the tree of such objects created with the
+     |      `SeedSequence.spawn` method. Typically, only `SeedSequence.spawn` will
+     |      set this, and users will not.
      |  pool_size : {int}, optional
      |      Size of the pooled entropy to store. Default is 4 to give a 128-bit
      |      entropy pool. 8 (for 256 bits) is another reasonable choice if working
@@ -9272,7 +9536,7 @@ CLASSES
      |  
      |  __reduce__ = __reduce_cython__(...)
      |  
-     |  __repr__(self, /)
+     |  __repr__(...)
      |      Return repr(self).
      |  
      |  __setstate__ = __setstate_cython__(...)
@@ -9305,6 +9569,9 @@ CLASSES
      |      Spawn a number of child `SeedSequence` s by extending the
      |      `spawn_key`.
      |      
+     |      See :ref:`seedsequence-spawn` for additional notes on spawning
+     |      children.
+     |      
      |      Parameters
      |      ----------
      |      n_children : int
@@ -9312,6 +9579,11 @@ CLASSES
      |      Returns
      |      -------
      |      seqs : list of `SeedSequence` s
+     |      
+     |      See Also
+     |      --------
+     |      random.Generator.spawn, random.BitGenerator.spawn :
+     |          Equivalent method on the generator and bit generator.
      |  
      |  ----------------------------------------------------------------------
      |  Static methods defined here:
@@ -9360,8 +9632,10 @@ FUNCTIONS
         It is often seen in Bayesian inference and order statistics.
         
         .. note::
-            New code should use the ``beta`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.beta`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
+        
         
         Parameters
         ----------
@@ -9382,7 +9656,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.beta: which should be used for new code.
+        random.Generator.beta: which should be used for new code.
     
     binomial(...) method of numpy.random.mtrand.RandomState instance
         binomial(n, p, size=None)
@@ -9395,8 +9669,9 @@ FUNCTIONS
         input as a float, but it is truncated to an integer in use)
         
         .. note::
-            New code should use the ``binomial`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.binomial`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -9421,7 +9696,7 @@ FUNCTIONS
         --------
         scipy.stats.binom : probability density function, distribution or
             cumulative density function, etc.
-        Generator.binomial: which should be used for new code.
+        random.Generator.binomial: which should be used for new code.
         
         Notes
         -----
@@ -9478,8 +9753,9 @@ FUNCTIONS
         Return random bytes.
         
         .. note::
-            New code should use the ``bytes`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.bytes`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -9493,7 +9769,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.bytes: which should be used for new code.
+        random.Generator.bytes: which should be used for new code.
         
         Examples
         --------
@@ -9511,8 +9787,9 @@ FUNCTIONS
         is often used in hypothesis testing.
         
         .. note::
-            New code should use the ``chisquare`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.chisquare`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -9537,7 +9814,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.chisquare: which should be used for new code.
+        random.Generator.chisquare: which should be used for new code.
         
         Notes
         -----
@@ -9577,8 +9854,9 @@ FUNCTIONS
         .. versionadded:: 1.7.0
         
         .. note::
-            New code should use the ``choice`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.choice`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -9614,7 +9892,7 @@ FUNCTIONS
         See Also
         --------
         randint, shuffle, permutation
-        Generator.choice: which should be used in new code
+        random.Generator.choice: which should be used in new code
         
         Notes
         -----
@@ -9660,80 +9938,83 @@ FUNCTIONS
               dtype=&#39;&lt;U11&#39;)
     
     default_rng(...)
+        default_rng(seed=None)
         Construct a new Generator with the default BitGenerator (PCG64).
         
-        Parameters
-        ----------
-        seed : {None, int, array_like[ints], SeedSequence, BitGenerator, Generator}, optional
-            A seed to initialize the `BitGenerator`. If None, then fresh,
-            unpredictable entropy will be pulled from the OS. If an ``int`` or
-            ``array_like[ints]`` is passed, then it will be passed to
-            `SeedSequence` to derive the initial `BitGenerator` state. One may also
-            pass in a `SeedSequence` instance.
-            Additionally, when passed a `BitGenerator`, it will be wrapped by
-            `Generator`. If passed a `Generator`, it will be returned unaltered.
+            Parameters
+            ----------
+            seed : {None, int, array_like[ints], SeedSequence, BitGenerator, Generator}, optional
+                A seed to initialize the `BitGenerator`. If None, then fresh,
+                unpredictable entropy will be pulled from the OS. If an ``int`` or
+                ``array_like[ints]`` is passed, then it will be passed to
+                `SeedSequence` to derive the initial `BitGenerator` state. One may also
+                pass in a `SeedSequence` instance.
+                Additionally, when passed a `BitGenerator`, it will be wrapped by
+                `Generator`. If passed a `Generator`, it will be returned unaltered.
         
-        Returns
-        -------
-        Generator
-            The initialized generator object.
+            Returns
+            -------
+            Generator
+                The initialized generator object.
         
-        Notes
-        -----
-        If ``seed`` is not a `BitGenerator` or a `Generator`, a new `BitGenerator`
-        is instantiated. This function does not manage a default global instance.
+            Notes
+            -----
+            If ``seed`` is not a `BitGenerator` or a `Generator`, a new `BitGenerator`
+            is instantiated. This function does not manage a default global instance.
         
-        Examples
-        --------
-        ``default_rng`` is the recommended constructor for the random number class
-        ``Generator``. Here are several ways we can construct a random 
-        number generator using ``default_rng`` and the ``Generator`` class. 
-        
-        Here we use ``default_rng`` to generate a random float:
-        
-        &gt;&gt;&gt; import numpy as np
-        &gt;&gt;&gt; rng = np.random.default_rng(12345)
-        &gt;&gt;&gt; print(rng)
-        Generator(PCG64)
-        &gt;&gt;&gt; rfloat = rng.random()
-        &gt;&gt;&gt; rfloat
-        0.22733602246716966
-        &gt;&gt;&gt; type(rfloat)
-        &lt;class &#39;float&#39;&gt;
-         
-        Here we use ``default_rng`` to generate 3 random integers between 0 
-        (inclusive) and 10 (exclusive):
+            See :ref:`seeding_and_entropy` for more information about seeding.
             
-        &gt;&gt;&gt; import numpy as np
-        &gt;&gt;&gt; rng = np.random.default_rng(12345)
-        &gt;&gt;&gt; rints = rng.integers(low=0, high=10, size=3)
-        &gt;&gt;&gt; rints
-        array([6, 2, 7])
-        &gt;&gt;&gt; type(rints[0])
-        &lt;class &#39;numpy.int64&#39;&gt;
+            Examples
+            --------
+            ``default_rng`` is the recommended constructor for the random number class
+            ``Generator``. Here are several ways we can construct a random 
+            number generator using ``default_rng`` and the ``Generator`` class. 
+            
+            Here we use ``default_rng`` to generate a random float:
+         
+            &gt;&gt;&gt; import numpy as np
+            &gt;&gt;&gt; rng = np.random.default_rng(12345)
+            &gt;&gt;&gt; print(rng)
+            Generator(PCG64)
+            &gt;&gt;&gt; rfloat = rng.random()
+            &gt;&gt;&gt; rfloat
+            0.22733602246716966
+            &gt;&gt;&gt; type(rfloat)
+            &lt;class &#39;float&#39;&gt;
+             
+            Here we use ``default_rng`` to generate 3 random integers between 0 
+            (inclusive) and 10 (exclusive):
+                
+            &gt;&gt;&gt; import numpy as np
+            &gt;&gt;&gt; rng = np.random.default_rng(12345)
+            &gt;&gt;&gt; rints = rng.integers(low=0, high=10, size=3)
+            &gt;&gt;&gt; rints
+            array([6, 2, 7])
+            &gt;&gt;&gt; type(rints[0])
+            &lt;class &#39;numpy.int64&#39;&gt;
+            
+            Here we specify a seed so that we have reproducible results:
+            
+            &gt;&gt;&gt; import numpy as np
+            &gt;&gt;&gt; rng = np.random.default_rng(seed=42)
+            &gt;&gt;&gt; print(rng)
+            Generator(PCG64)
+            &gt;&gt;&gt; arr1 = rng.random((3, 3))
+            &gt;&gt;&gt; arr1
+            array([[0.77395605, 0.43887844, 0.85859792],
+                   [0.69736803, 0.09417735, 0.97562235],
+                   [0.7611397 , 0.78606431, 0.12811363]])
         
-        Here we specify a seed so that we have reproducible results:
+            If we exit and restart our Python interpreter, we&#39;ll see that we
+            generate the same random numbers again:
         
-        &gt;&gt;&gt; import numpy as np
-        &gt;&gt;&gt; rng = np.random.default_rng(seed=42)
-        &gt;&gt;&gt; print(rng)
-        Generator(PCG64)
-        &gt;&gt;&gt; arr1 = rng.random((3, 3))
-        &gt;&gt;&gt; arr1
-        array([[0.77395605, 0.43887844, 0.85859792],
-               [0.69736803, 0.09417735, 0.97562235],
-               [0.7611397 , 0.78606431, 0.12811363]])
-        
-        If we exit and restart our Python interpreter, we&#39;ll see that we
-        generate the same random numbers again:
-        
-        &gt;&gt;&gt; import numpy as np
-        &gt;&gt;&gt; rng = np.random.default_rng(seed=42)
-        &gt;&gt;&gt; arr2 = rng.random((3, 3))
-        &gt;&gt;&gt; arr2
-        array([[0.77395605, 0.43887844, 0.85859792],
-               [0.69736803, 0.09417735, 0.97562235],
-               [0.7611397 , 0.78606431, 0.12811363]])
+            &gt;&gt;&gt; import numpy as np
+            &gt;&gt;&gt; rng = np.random.default_rng(seed=42)
+            &gt;&gt;&gt; arr2 = rng.random((3, 3))
+            &gt;&gt;&gt; arr2
+            array([[0.77395605, 0.43887844, 0.85859792],
+                   [0.69736803, 0.09417735, 0.97562235],
+                   [0.7611397 , 0.78606431, 0.12811363]])
     
     dirichlet(...) method of numpy.random.mtrand.RandomState instance
         dirichlet(alpha, size=None)
@@ -9747,8 +10028,9 @@ FUNCTIONS
         inference.
         
         .. note::
-            New code should use the ``dirichlet`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.dirichlet`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -9766,13 +10048,13 @@ FUNCTIONS
             The drawn samples, of shape ``(size, k)``.
         
         Raises
-        -------
+        ------
         ValueError
             If any value in ``alpha`` is less than or equal to zero
         
         See Also
         --------
-        Generator.dirichlet: which should be used for new code.
+        random.Generator.dirichlet: which should be used for new code.
         
         Notes
         -----
@@ -9838,8 +10120,9 @@ FUNCTIONS
         between page requests to Wikipedia [2]_.
         
         .. note::
-            New code should use the ``exponential`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.exponential`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -9857,9 +10140,25 @@ FUNCTIONS
         out : ndarray or scalar
             Drawn samples from the parameterized exponential distribution.
         
+        Examples
+        --------
+        A real world example: Assume a company has 10000 customer support 
+        agents and the average time between customer calls is 4 minutes.
+        
+        &gt;&gt;&gt; n = 10000
+        &gt;&gt;&gt; time_between_calls = np.random.default_rng().exponential(scale=4, size=n)
+        
+        What is the probability that a customer will call in the next 
+        4 to 5 minutes? 
+        
+        &gt;&gt;&gt; x = ((time_between_calls &lt; 5).sum())/n 
+        &gt;&gt;&gt; y = ((time_between_calls &lt; 4).sum())/n
+        &gt;&gt;&gt; x-y
+        0.08 # may vary
+        
         See Also
         --------
-        Generator.exponential: which should be used for new code.
+        random.Generator.exponential: which should be used for new code.
         
         References
         ----------
@@ -9886,8 +10185,9 @@ FUNCTIONS
         variates.
         
         .. note::
-            New code should use the ``f`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.f`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -9910,7 +10210,7 @@ FUNCTIONS
         --------
         scipy.stats.f : probability density function, distribution or
             cumulative density function, etc.
-        Generator.f: which should be used for new code.
+        random.Generator.f: which should be used for new code.
         
         Notes
         -----
@@ -9966,8 +10266,9 @@ FUNCTIONS
         &quot;theta&quot;), where both parameters are &gt; 0.
         
         .. note::
-            New code should use the ``gamma`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.gamma`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -9991,7 +10292,7 @@ FUNCTIONS
         --------
         scipy.stats.gamma : probability density function, distribution or
             cumulative density function, etc.
-        Generator.gamma: which should be used for new code.
+        random.Generator.gamma: which should be used for new code.
         
         Notes
         -----
@@ -10050,8 +10351,9 @@ FUNCTIONS
         where `p` is the probability of success of an individual trial.
         
         .. note::
-            New code should use the ``geometric`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.geometric`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -10070,7 +10372,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.geometric: which should be used for new code.
+        random.Generator.geometric: which should be used for new code.
         
         Examples
         --------
@@ -10085,7 +10387,7 @@ FUNCTIONS
         0.34889999999999999 #random
     
     get_state(...) method of numpy.random.mtrand.RandomState instance
-        get_state()
+        get_state(legacy=True)
         
         Return a tuple representing the internal state of the generator.
         
@@ -10095,12 +10397,13 @@ FUNCTIONS
         ----------
         legacy : bool, optional
             Flag indicating to return a legacy tuple state when the BitGenerator
-            is MT19937, instead of a dict.
+            is MT19937, instead of a dict. Raises ValueError if the underlying
+            bit generator is not an instance of MT19937.
         
         Returns
         -------
         out : {tuple(str, ndarray of 624 uints, int, int, float), dict}
-            The returned tuple has the following items:
+            If legacy is True, the returned tuple has the following items:
         
             1. the string &#39;MT19937&#39;.
             2. a 1-D array of 624 unsigned integer keys.
@@ -10131,8 +10434,9 @@ FUNCTIONS
         Notes and References below.
         
         .. note::
-            New code should use the ``gumbel`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.gumbel`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -10158,7 +10462,7 @@ FUNCTIONS
         scipy.stats.gumbel_r
         scipy.stats.genextreme
         weibull
-        Generator.gumbel: which should be used for new code.
+        random.Generator.gumbel: which should be used for new code.
         
         Notes
         -----
@@ -10248,8 +10552,10 @@ FUNCTIONS
         than or equal to the sum ``ngood + nbad``).
         
         .. note::
-            New code should use the ``hypergeometric`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the
+            `~numpy.random.Generator.hypergeometric`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -10278,7 +10584,7 @@ FUNCTIONS
         --------
         scipy.stats.hypergeom : probability density function, distribution or
             cumulative density function, etc.
-        Generator.hypergeometric: which should be used for new code.
+        random.Generator.hypergeometric: which should be used for new code.
         
         Notes
         -----
@@ -10343,8 +10649,9 @@ FUNCTIONS
         random variables.
         
         .. note::
-            New code should use the ``laplace`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.laplace`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -10366,7 +10673,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.laplace: which should be used for new code.
+        random.Generator.laplace: which should be used for new code.
         
         Notes
         -----
@@ -10426,8 +10733,9 @@ FUNCTIONS
         parameters, loc (location or mean, also median), and scale (&gt;0).
         
         .. note::
-            New code should use the ``logistic`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.logistic`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -10451,7 +10759,7 @@ FUNCTIONS
         --------
         scipy.stats.logistic : probability density function, distribution or
             cumulative density function, etc.
-        Generator.logistic: which should be used for new code.
+        random.Generator.logistic: which should be used for new code.
         
         Notes
         -----
@@ -10506,8 +10814,9 @@ FUNCTIONS
         underlying normal distribution it is derived from.
         
         .. note::
-            New code should use the ``lognormal`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.lognormal`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -10531,7 +10840,7 @@ FUNCTIONS
         --------
         scipy.stats.lognorm : probability density function, distribution,
             cumulative density function, etc.
-        Generator.lognormal: which should be used for new code.
+        random.Generator.lognormal: which should be used for new code.
         
         Notes
         -----
@@ -10589,7 +10898,7 @@ FUNCTIONS
         &gt;&gt;&gt; b = []
         &gt;&gt;&gt; for i in range(1000):
         ...    a = 10. + np.random.standard_normal(100)
-        ...    b.append(np.product(a))
+        ...    b.append(np.prod(a))
         
         &gt;&gt;&gt; b = np.array(b) / np.min(b) # scale values to be positive
         &gt;&gt;&gt; count, bins, ignored = plt.hist(b, 100, density=True, align=&#39;mid&#39;)
@@ -10609,16 +10918,17 @@ FUNCTIONS
         Draw samples from a logarithmic series distribution.
         
         Samples are drawn from a log series distribution with specified
-        shape parameter, 0 &lt; ``p`` &lt; 1.
+        shape parameter, 0 &lt;= ``p`` &lt; 1.
         
         .. note::
-            New code should use the ``logseries`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.logseries`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
         p : float or array_like of floats
-            Shape parameter for the distribution.  Must be in the range (0, 1).
+            Shape parameter for the distribution.  Must be in the range [0, 1).
         size : int or tuple of ints, optional
             Output shape.  If the given shape is, e.g., ``(m, n, k)``, then
             ``m * n * k`` samples are drawn.  If size is ``None`` (default),
@@ -10634,7 +10944,7 @@ FUNCTIONS
         --------
         scipy.stats.logser : probability density function, distribution or
             cumulative density function, etc.
-        Generator.logseries: which should be used for new code.
+        random.Generator.logseries: which should be used for new code.
         
         Notes
         -----
@@ -10695,8 +11005,9 @@ FUNCTIONS
         outcome was ``i``.
         
         .. note::
-            New code should use the ``multinomial`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.multinomial`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -10723,7 +11034,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.multinomial: which should be used for new code.
+        random.Generator.multinomial: which should be used for new code.
         
         Examples
         --------
@@ -10776,8 +11087,10 @@ FUNCTIONS
         squared) of the one-dimensional normal distribution.
         
         .. note::
-            New code should use the ``multivariate_normal`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the
+            `~numpy.random.Generator.multivariate_normal`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -10808,7 +11121,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.multivariate_normal: which should be used for new code.
+        random.Generator.multivariate_normal: which should be used for new code.
         
         Notes
         -----
@@ -10864,11 +11177,35 @@ FUNCTIONS
         &gt;&gt;&gt; x.shape
         (3, 3, 2)
         
-        The following is probably true, given that 0.6 is roughly twice the
-        standard deviation:
+        Here we generate 800 samples from the bivariate normal distribution
+        with mean [0, 0] and covariance matrix [[6, -3], [-3, 3.5]].  The
+        expected variances of the first and second components of the sample
+        are 6 and 3.5, respectively, and the expected correlation
+        coefficient is -3/sqrt(6*3.5) ≈ -0.65465.
         
-        &gt;&gt;&gt; list((x[0,0,:] - mean) &lt; 0.6)
-        [True, True] # random
+        &gt;&gt;&gt; cov = np.array([[6, -3], [-3, 3.5]])
+        &gt;&gt;&gt; pts = np.random.multivariate_normal([0, 0], cov, size=800)
+        
+        Check that the mean, covariance, and correlation coefficient of the
+        sample are close to the expected values:
+        
+        &gt;&gt;&gt; pts.mean(axis=0)
+        array([ 0.0326911 , -0.01280782])  # may vary
+        &gt;&gt;&gt; np.cov(pts.T)
+        array([[ 5.96202397, -2.85602287],
+               [-2.85602287,  3.47613949]])  # may vary
+        &gt;&gt;&gt; np.corrcoef(pts.T)[0, 1]
+        -0.6273591314603949  # may vary
+        
+        We can visualize this data with a scatter plot.  The orientation
+        of the point cloud illustrates the negative correlation of the
+        components of this sample.
+        
+        &gt;&gt;&gt; import matplotlib.pyplot as plt
+        &gt;&gt;&gt; plt.plot(pts[:, 0], pts[:, 1], &#39;.&#39;, alpha=0.5)
+        &gt;&gt;&gt; plt.axis(&#39;equal&#39;)
+        &gt;&gt;&gt; plt.grid()
+        &gt;&gt;&gt; plt.show()
     
     negative_binomial(...) method of numpy.random.mtrand.RandomState instance
         negative_binomial(n, p, size=None)
@@ -10880,8 +11217,10 @@ FUNCTIONS
         is &gt; 0 and `p` is in the interval [0, 1].
         
         .. note::
-            New code should use the ``negative_binomial`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the
+            `~numpy.random.Generator.negative_binomial`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -10904,7 +11243,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.negative_binomial: which should be used for new code.
+        random.Generator.negative_binomial: which should be used for new code.
         
         Notes
         -----
@@ -10916,7 +11255,7 @@ FUNCTIONS
         probability of success, :math:`N+n` is the number of trials, and
         :math:`\Gamma` is the gamma function. When :math:`n` is an integer,
         :math:`\frac{\Gamma(N+n)}{N!\Gamma(n)} = \binom{N+n-1}{N}`, which is
-        the more common form of this term in the the pmf. The negative
+        the more common form of this term in the pmf. The negative
         binomial distribution gives the probability of N failures given n
         successes, with a success on the last trial.
         
@@ -10956,8 +11295,10 @@ FUNCTIONS
         the :math:`\chi^2` distribution.
         
         .. note::
-            New code should use the ``noncentral_chisquare`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the
+            `~numpy.random.Generator.noncentral_chisquare`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -10981,7 +11322,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.noncentral_chisquare: which should be used for new code.
+        random.Generator.noncentral_chisquare: which should be used for new code.
         
         Notes
         -----
@@ -11038,8 +11379,10 @@ FUNCTIONS
         `nonc` is the non-centrality parameter.
         
         .. note::
-            New code should use the ``noncentral_f`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the
+            `~numpy.random.Generator.noncentral_f`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -11067,7 +11410,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.noncentral_f: which should be used for new code.
+        random.Generator.noncentral_f: which should be used for new code.
         
         Notes
         -----
@@ -11121,8 +11464,9 @@ FUNCTIONS
         unique distribution [2]_.
         
         .. note::
-            New code should use the ``normal`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.normal`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -11146,7 +11490,7 @@ FUNCTIONS
         --------
         scipy.stats.norm : probability density function, distribution or
             cumulative density function, etc.
-        Generator.normal: which should be used for new code.
+        random.Generator.normal: which should be used for new code.
         
         Notes
         -----
@@ -11198,7 +11542,8 @@ FUNCTIONS
         ...          linewidth=2, color=&#39;r&#39;)
         &gt;&gt;&gt; plt.show()
         
-        Two-by-four array of samples from N(3, 6.25):
+        Two-by-four array of samples from the normal distribution with
+        mean 3 and standard deviation 2.5:
         
         &gt;&gt;&gt; np.random.normal(3, 2.5, size=(2, 4))
         array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],   # random
@@ -11228,8 +11573,9 @@ FUNCTIONS
         remaining 80 percent of the range.
         
         .. note::
-            New code should use the ``pareto`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.pareto`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -11252,7 +11598,7 @@ FUNCTIONS
             cumulative density function, etc.
         scipy.stats.genpareto : probability density function, distribution or
             cumulative density function, etc.
-        Generator.pareto: which should be used for new code.
+        random.Generator.pareto: which should be used for new code.
         
         Notes
         -----
@@ -11308,8 +11654,10 @@ FUNCTIONS
         first index.
         
         .. note::
-            New code should use the ``permutation`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the
+            `~numpy.random.Generator.permutation`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -11325,7 +11673,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.permutation: which should be used for new code.
+        random.Generator.permutation: which should be used for new code.
         
         Examples
         --------
@@ -11350,8 +11698,9 @@ FUNCTIONS
         for large N.
         
         .. note::
-            New code should use the ``poisson`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.poisson`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -11372,7 +11721,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.poisson: which should be used for new code.
+        random.Generator.poisson: which should be used for new code.
         
         Notes
         -----
@@ -11423,8 +11772,9 @@ FUNCTIONS
         Also known as the power function distribution.
         
         .. note::
-            New code should use the ``power`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.power`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -11448,7 +11798,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.power: which should be used for new code.
+        random.Generator.power: which should be used for new code.
         
         Notes
         -----
@@ -11562,8 +11912,9 @@ FUNCTIONS
         `high` is None (the default), then results are from [0, `low`).
         
         .. note::
-            New code should use the ``integers`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.integers`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -11596,7 +11947,7 @@ FUNCTIONS
         random_integers : similar to `randint`, only for the closed
             interval [`low`, `high`], and 1 is the lowest value if `high` is
             omitted.
-        Generator.integers: which should be used for new code.
+        random.Generator.integers: which should be used for new code.
         
         Examples
         --------
@@ -11639,8 +11990,10 @@ FUNCTIONS
             other NumPy functions like `numpy.zeros` and `numpy.ones`.
         
         .. note::
-            New code should use the ``standard_normal`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the
+            `~numpy.random.Generator.standard_normal`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         If positive int_like arguments are provided, `randn` generates an array
         of shape ``(d0, d1, ..., dn)``, filled
@@ -11665,20 +12018,22 @@ FUNCTIONS
         --------
         standard_normal : Similar, but takes a tuple as its argument.
         normal : Also accepts mu and sigma arguments.
-        Generator.standard_normal: which should be used for new code.
+        random.Generator.standard_normal: which should be used for new code.
         
         Notes
         -----
-        For random samples from :math:`N(\mu, \sigma^2)`, use:
+        For random samples from the normal distribution with mean ``mu`` and
+        standard deviation ``sigma``, use::
         
-        ``sigma * np.random.randn(...) + mu``
+            sigma * np.random.randn(...) + mu
         
         Examples
         --------
         &gt;&gt;&gt; np.random.randn()
         2.1923875335537315  # random
         
-        Two-by-four array of samples from N(3, 6.25):
+        Two-by-four array of samples from the normal distribution with
+        mean 3 and standard deviation 2.5:
         
         &gt;&gt;&gt; 3 + 2.5 * np.random.randn(2, 4)
         array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],   # random
@@ -11780,8 +12135,9 @@ FUNCTIONS
           (b - a) * random_sample() + a
         
         .. note::
-            New code should use the ``random`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.random`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -11798,7 +12154,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.random: which should be used for new code.
+        random.Generator.random: which should be used for new code.
         
         Examples
         --------
@@ -11829,8 +12185,9 @@ FUNCTIONS
         Rayleigh.
         
         .. note::
-            New code should use the ``rayleigh`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.rayleigh`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -11849,7 +12206,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.rayleigh: which should be used for new code.
+        random.Generator.rayleigh: which should be used for new code.
         
         Notes
         -----
@@ -11893,24 +12250,22 @@ FUNCTIONS
         This is an alias of `random_sample`. See `random_sample`  for the complete
         documentation.
     
-    seed(...) method of numpy.random.mtrand.RandomState instance
-        seed(self, seed=None)
+    seed(...)
+        seed(seed=None)
         
-        Reseed a legacy MT19937 BitGenerator
+        Reseed the singleton RandomState instance.
         
         Notes
         -----
-        This is a convenience, legacy function.
+        This is a convenience, legacy function that exists to support
+        older code that uses the singleton RandomState. Best practice
+        is to use a dedicated ``Generator`` instance rather than
+        the random variate generation methods exposed directly in
+        the random module.
         
-        The best practice is to **not** reseed a BitGenerator, rather to
-        recreate a new one. This method is here for legacy reasons.
-        This example demonstrates best practice.
-        
-        &gt;&gt;&gt; from numpy.random import MT19937
-        &gt;&gt;&gt; from numpy.random import RandomState, SeedSequence
-        &gt;&gt;&gt; rs = RandomState(MT19937(SeedSequence(123456789)))
-        # Later, you want to restart the stream
-        &gt;&gt;&gt; rs = RandomState(MT19937(SeedSequence(987654321)))
+        See Also
+        --------
+        numpy.random.Generator
     
     set_state(...) method of numpy.random.mtrand.RandomState instance
         set_state(state)
@@ -11972,8 +12327,9 @@ FUNCTIONS
         their contents remains the same.
         
         .. note::
-            New code should use the ``shuffle`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.shuffle`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -11986,7 +12342,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.shuffle: which should be used for new code.
+        random.Generator.shuffle: which should be used for new code.
         
         Examples
         --------
@@ -12012,8 +12368,10 @@ FUNCTIONS
         Also known as the Lorentz distribution.
         
         .. note::
-            New code should use the ``standard_cauchy`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the
+            `~numpy.random.Generator.standard_cauchy`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -12029,7 +12387,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.standard_cauchy: which should be used for new code.
+        random.Generator.standard_cauchy: which should be used for new code.
         
         Notes
         -----
@@ -12081,8 +12439,10 @@ FUNCTIONS
         with a scale parameter of 1.
         
         .. note::
-            New code should use the ``standard_exponential`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the
+            `~numpy.random.Generator.standard_exponential`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -12098,7 +12458,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.standard_exponential: which should be used for new code.
+        random.Generator.standard_exponential: which should be used for new code.
         
         Examples
         --------
@@ -12115,8 +12475,10 @@ FUNCTIONS
         shape (sometimes designated &quot;k&quot;) and scale=1.
         
         .. note::
-            New code should use the ``standard_gamma`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the
+            `~numpy.random.Generator.standard_gamma`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -12137,7 +12499,7 @@ FUNCTIONS
         --------
         scipy.stats.gamma : probability density function, distribution or
             cumulative density function, etc.
-        Generator.standard_gamma: which should be used for new code.
+        random.Generator.standard_gamma: which should be used for new code.
         
         Notes
         -----
@@ -12184,8 +12546,10 @@ FUNCTIONS
         Draw samples from a standard Normal distribution (mean=0, stdev=1).
         
         .. note::
-            New code should use the ``standard_normal`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the
+            `~numpy.random.Generator.standard_normal`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -12205,11 +12569,12 @@ FUNCTIONS
         normal :
             Equivalent function with additional ``loc`` and ``scale`` arguments
             for setting the mean and standard deviation.
-        Generator.standard_normal: which should be used for new code.
+        random.Generator.standard_normal: which should be used for new code.
         
         Notes
         -----
-        For random samples from :math:`N(\mu, \sigma^2)`, use one of::
+        For random samples from the normal distribution with mean ``mu`` and
+        standard deviation ``sigma``, use one of::
         
             mu + sigma * np.random.standard_normal(size=...)
             np.random.normal(mu, sigma, size=...)
@@ -12229,7 +12594,8 @@ FUNCTIONS
         &gt;&gt;&gt; s.shape
         (3, 4, 2)
         
-        Two-by-four array of samples from :math:`N(3, 6.25)`:
+        Two-by-four array of samples from the normal distribution with
+        mean 3 and standard deviation 2.5:
         
         &gt;&gt;&gt; 3 + 2.5 * np.random.standard_normal(size=(2, 4))
         array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],   # random
@@ -12246,8 +12612,9 @@ FUNCTIONS
         distribution (`standard_normal`).
         
         .. note::
-            New code should use the ``standard_t`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.standard_t`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -12266,7 +12633,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.standard_t: which should be used for new code.
+        random.Generator.standard_t: which should be used for new code.
         
         Notes
         -----
@@ -12353,8 +12720,9 @@ FUNCTIONS
         directly define the shape of the pdf.
         
         .. note::
-            New code should use the ``triangular`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.triangular`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -12379,7 +12747,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.triangular: which should be used for new code.
+        random.Generator.triangular: which should be used for new code.
         
         Notes
         -----
@@ -12421,8 +12789,9 @@ FUNCTIONS
         by `uniform`.
         
         .. note::
-            New code should use the ``uniform`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.uniform`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -12456,7 +12825,7 @@ FUNCTIONS
         rand : Convenience function that accepts dimensions as input, e.g.,
                ``rand(2,2)`` would generate a 2-by-2 array of floats,
                uniformly distributed over ``[0, 1)``.
-        Generator.uniform: which should be used for new code.
+        random.Generator.uniform: which should be used for new code.
         
         Notes
         -----
@@ -12514,8 +12883,9 @@ FUNCTIONS
         distribution.
         
         .. note::
-            New code should use the ``vonmises`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.vonmises`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -12538,7 +12908,7 @@ FUNCTIONS
         --------
         scipy.stats.vonmises : probability density function, distribution, or
             cumulative density function, etc.
-        Generator.vonmises: which should be used for new code.
+        random.Generator.vonmises: which should be used for new code.
         
         Notes
         -----
@@ -12596,8 +12966,9 @@ FUNCTIONS
         unit distance and distance covered in unit time.
         
         .. note::
-            New code should use the ``wald`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.wald`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -12618,7 +12989,7 @@ FUNCTIONS
         
         See Also
         --------
-        Generator.wald: which should be used for new code.
+        random.Generator.wald: which should be used for new code.
         
         Notes
         -----
@@ -12666,8 +13037,9 @@ FUNCTIONS
         :math:`\lambda` is just :math:`X = \lambda(-ln(U))^{1/a}`.
         
         .. note::
-            New code should use the ``weibull`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.weibull`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -12690,7 +13062,7 @@ FUNCTIONS
         scipy.stats.weibull_min
         scipy.stats.genextreme
         gumbel
-        Generator.weibull: which should be used for new code.
+        random.Generator.weibull: which should be used for new code.
         
         Notes
         -----
@@ -12760,8 +13132,9 @@ FUNCTIONS
         frequency table.
         
         .. note::
-            New code should use the ``zipf`` method of a ``default_rng()``
-            instance instead; please see the :ref:`random-quick-start`.
+            New code should use the `~numpy.random.Generator.zipf`
+            method of a `~numpy.random.Generator` instance instead;
+            please see the :ref:`random-quick-start`.
         
         Parameters
         ----------
@@ -12782,7 +13155,7 @@ FUNCTIONS
         --------
         scipy.stats.zipf : probability density function, distribution, or
             cumulative density function, etc.
-        Generator.zipf: which should be used for new code.
+        random.Generator.zipf: which should be used for new code.
         
         Notes
         -----
@@ -12836,7 +13209,7 @@ DATA
     __all__ = [&#39;beta&#39;, &#39;binomial&#39;, &#39;bytes&#39;, &#39;chisquare&#39;, &#39;choice&#39;, &#39;dirich...
 
 FILE
-    /Users/doya/miniforge3/lib/python3.9/site-packages/numpy/random/__init__.py
+    /Users/doya/anaconda3/envs/jbook/lib/python3.11/site-packages/numpy/random/__init__.py
 </pre></div>
 </div>
 </div>
@@ -12844,12 +13217,12 @@ FILE
 </section>
 </section>
 <section id="rejection-sampling">
-<h2>Rejection Sampling<a class="headerlink" href="#rejection-sampling" title="Permalink to this headline">#</a></h2>
+<h2>Rejection Sampling<a class="headerlink" href="#rejection-sampling" title="Permalink to this heading">#</a></h2>
 <p>What can we do when transformations from uniform distribution is not available?</p>
 <p>Let us find a <em>proposal distribution</em> <span class="math notranslate nohighlight">\(q(x)\)</span> for which samples are easily generated and covers the target distribution as <span class="math notranslate nohighlight">\(p(x)\le cq(x)\)</span> with a scaling constant <span class="math notranslate nohighlight">\(c&gt;0\)</span>.<br />
 Then take a sample from <span class="math notranslate nohighlight">\(q(x)\)</span> and accept it with probability <span class="math notranslate nohighlight">\(\frac{p(x)}{cq(x)}\)</span>.</p>
 <section id="gamma-distribution">
-<h3>Gamma distribution<a class="headerlink" href="#gamma-distribution" title="Permalink to this headline">#</a></h3>
+<h3>Gamma distribution<a class="headerlink" href="#gamma-distribution" title="Permalink to this heading">#</a></h3>
 <p><em>Gamma distribution</em> is an extension of exponential distribution defined as
 $<span class="math notranslate nohighlight">\( p(x; k, \theta) = \frac{1}{\Gamma(k)\theta^k}x^{k-1}e^{-\frac{x}{\theta}} \)</span><span class="math notranslate nohighlight">\(
 with the shape parameter \)</span>k&gt;0<span class="math notranslate nohighlight">\( and the scaling parameter \)</span>\theta$.</p>
@@ -12874,7 +13247,7 @@ with the shape parameter \)</span>k&gt;0<span class="math notranslate nohighligh
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09_Stochastic_44_0.png" src="_images/09_Stochastic_44_0.png" />
+<img alt="_images/3d8ef64f7340b1862e4063fc2732c43b673ed9ab33d738b4af1ba7ff623e17e3.png" src="_images/3d8ef64f7340b1862e4063fc2732c43b673ed9ab33d738b4af1ba7ff623e17e3.png" />
 </div>
 </div>
 <p>Consider the exponential distribution <span class="math notranslate nohighlight">\(q(x;\mu)=\frac{1}{\mu}e^{-\frac{x}{\mu}}\)</span> as the proposal distribution.<br />
@@ -12903,7 +13276,7 @@ satisfies \)</span>p(x)\le cq(x)$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09_Stochastic_46_0.png" src="_images/09_Stochastic_46_0.png" />
+<img alt="_images/0f931ae6f8e0b419f4361cab126e403949fb8f4f99f7262bc840b6aa72c7e6eb.png" src="_images/0f931ae6f8e0b419f4361cab126e403949fb8f4f99f7262bc840b6aa72c7e6eb.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -12933,16 +13306,16 @@ satisfies \)</span>p(x)\le cq(x)$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accept: 551
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accept: 547
 </pre></div>
 </div>
-<img alt="_images/09_Stochastic_48_1.png" src="_images/09_Stochastic_48_1.png" />
+<img alt="_images/ac4417dcb52cbdc3e52a3f47d0846c39bfedfb7ccec562343b41f5f5d4fb631b.png" src="_images/ac4417dcb52cbdc3e52a3f47d0846c39bfedfb7ccec562343b41f5f5d4fb631b.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="importance-sampling">
-<h2>Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">#</a></h2>
+<h2>Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this heading">#</a></h2>
 <p>One probelm of rejection sampling is that we may end up rejecting many of the samples when we cannot find a good proposal distribution.</p>
 <p>When the aim is not just to take samples from <span class="math notranslate nohighlight">\(p(x)\)</span> but to take
 the <em>expectation</em> of a function <span class="math notranslate nohighlight">\(h(x)\)</span> with respect to the distribution <span class="math notranslate nohighlight">\(p(x)\)</span>
@@ -12952,7 +13325,7 @@ we can use the ratio between the target and proposal distributions to better uti
 \[ E_p[h(x)] = \int h(x)p(x)dx = \int h(x)\frac{p(x)}{q(x)}q(x)dx
     = E_q\left[\frac{p(x)}{q(x)}h(x)\right] \]</div>
 <section id="mean-and-variance">
-<h3>Mean and variance<a class="headerlink" href="#mean-and-variance" title="Permalink to this headline">#</a></h3>
+<h3>Mean and variance<a class="headerlink" href="#mean-and-variance" title="Permalink to this heading">#</a></h3>
 <p>Let us consider taking the mean
 $<span class="math notranslate nohighlight">\( \mu = E_p[x] = \int xp(x)dx \)</span><span class="math notranslate nohighlight">\(
 and the variance
@@ -12977,7 +13350,7 @@ for the gamma distribution, which are known to be \)</span>k\theta<span class="m
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.0344683119908513, 8.957923734860142)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.0872989400702897, 10.94428410782792)
 </pre></div>
 </div>
 </div>
@@ -13001,7 +13374,7 @@ for the gamma distribution, which are known to be \)</span>k\theta<span class="m
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.715452007977214, 1.8935600535239674)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.029674871805032, 1.7196247354789378)
 </pre></div>
 </div>
 </div>
@@ -13026,7 +13399,7 @@ for the gamma distribution, which are known to be \)</span>k\theta<span class="m
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.01443561772641, 3.0433399662357035)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.010049564156104, 3.044881802140298)
 </pre></div>
 </div>
 </div>
@@ -13047,8 +13420,8 @@ for the gamma distribution, which are known to be \)</span>k\theta<span class="m
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RS:  3.021025041844551 0.06887651836534543
-IS:  2.99676139988348 0.05064515188923128
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RS:  3.00447722553726 0.07083785461181043
+IS:  2.96677140740034 0.05703549710134203
 </pre></div>
 </div>
 </div>
@@ -13056,10 +13429,10 @@ IS:  2.99676139988348 0.05064515188923128
 </section>
 </section>
 <section id="markov-chain-monte-carlo-mcmc">
-<h2>Markov Chain Monte Carlo (MCMC)<a class="headerlink" href="#markov-chain-monte-carlo-mcmc" title="Permalink to this headline">#</a></h2>
+<h2>Markov Chain Monte Carlo (MCMC)<a class="headerlink" href="#markov-chain-monte-carlo-mcmc" title="Permalink to this heading">#</a></h2>
 <p>What if we don’t know the right proposal distribution? We can take a nearby point of a previous sample as a candidate sample and keep it if the candidate’s probability is high. The method is callel Markov Chain Monte Carlo (MCMC) method and used practically for sampling from unknow distributions in high dimensional space.</p>
 <section id="metropolis-sampling">
-<h3>Metropolis Sampling<a class="headerlink" href="#metropolis-sampling" title="Permalink to this headline">#</a></h3>
+<h3>Metropolis Sampling<a class="headerlink" href="#metropolis-sampling" title="Permalink to this heading">#</a></h3>
 <p>A simple example of MCMC is Metropolis sampling, which requires only unnormalized propability <span class="math notranslate nohighlight">\(\tilde{p}(x)\propto p(x)\)</span> of samples for relative comparison.</p>
 <p>A new candidate <span class="math notranslate nohighlight">\(x^*\)</span> is generated by a symmetric proposal distribution <span class="math notranslate nohighlight">\(q(x^*|x_k)=q(x_k|x^*)\)</span>, such as a gaussian distribution, and acctepted with the probability of
 $<span class="math notranslate nohighlight">\( p_\mbox{acc} = \min(1, \frac{p(x^*)}{p(x_k)}) \)</span>$</p>
@@ -13105,7 +13478,7 @@ $<span class="math notranslate nohighlight">\( p_\mbox{acc} = \min(1, \frac{p(x^
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09_Stochastic_65_0.png" src="_images/09_Stochastic_65_0.png" />
+<img alt="_images/9329c020610a165376d2ea173429a47db595ce6f228c1cb736038fbb304d747b.png" src="_images/9329c020610a165376d2ea173429a47db595ce6f228c1cb736038fbb304d747b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -13118,10 +13491,10 @@ $<span class="math notranslate nohighlight">\( p_\mbox{acc} = \min(1, \frac{p(x^
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>948
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>926
 </pre></div>
 </div>
-<img alt="_images/09_Stochastic_66_1.png" src="_images/09_Stochastic_66_1.png" />
+<img alt="_images/b3058de4c0d316f5e2992352db429042da287fe0447e3586e81cacba123703ab.png" src="_images/b3058de4c0d316f5e2992352db429042da287fe0447e3586e81cacba123703ab.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -13134,10 +13507,10 @@ $<span class="math notranslate nohighlight">\( p_\mbox{acc} = \min(1, \frac{p(x^
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>904
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>886
 </pre></div>
 </div>
-<img alt="_images/09_Stochastic_67_1.png" src="_images/09_Stochastic_67_1.png" />
+<img alt="_images/52feecae5fc285616db41dd6fe7cb44a39e0fd29d7e5df4861355981f12820fd.png" src="_images/52feecae5fc285616db41dd6fe7cb44a39e0fd29d7e5df4861355981f12820fd.png" />
 </div>
 </div>
 </section>
@@ -13158,7 +13531,7 @@ $<span class="math notranslate nohighlight">\( p_\mbox{acc} = \min(1, \frac{p(x^
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -13166,50 +13539,121 @@ $<span class="math notranslate nohighlight">\( p_\mbox{acc} = \min(1, \frac{p(x^
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="08_Optimization_Ex.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">8. Optimization: Exercise</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="08_Optimization_Ex.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">8. Optimization: Exercise</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="09_Stochastic_Ex.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="09_Stochastic_Ex.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">9. Stochastic Methods: Exercise</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-numbers">Random Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrating-area-volume">Integrating area/volume</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-uniform-distributions">Non-uniform Distributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-distribution">Exponential distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">Normal distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rejection-sampling">Rejection Sampling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma-distribution">Gamma distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-sampling">Importance Sampling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-and-variance">Mean and variance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-chain-monte-carlo-mcmc">Markov Chain Monte Carlo (MCMC)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metropolis-sampling">Metropolis Sampling</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Kenji Doya<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Kenji Doya
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
