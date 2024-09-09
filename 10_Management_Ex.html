@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>10. Software Management: Exercise &#8212; Introduction to Scientific Computing</title>
   
@@ -15,52 +15,46 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '10_Management_Ex';</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -76,28 +70,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -120,19 +109,19 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
 
-  <header>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <div class="bd-header navbar navbar-expand-lg bd-navbar">
-    </div>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
-  </header>
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -148,6 +137,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="iSciComp.html">
@@ -166,7 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -177,50 +179,50 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="02_Visualization.html">2. Visualization</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="02_Visualization.html">2. Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="02_Visualization_3D.html">3D Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_Visualization_Animation.html">Animation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_Visualization_Ex.html">2. Visualization: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="03_Matrix.html">3. Vectors and Matrices</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="03_Matrix.html">3. Vectors and Matrices</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="03_Matrix_Ex.html">3. Vectors and Matrices: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="04_Function.html">4. Functions and Classes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="04_Function.html">4. Functions and Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="04_Function_Ex.html">4. Functions and Classes: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="05_Iteration.html">5. Iterative Computation</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05_Iteration.html">5. Iterative Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="05_Iteration_Ex.html">5. Iterative Computation: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="06_ODE.html">6. Ordinary Differential Equations</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="06_ODE.html">6. Ordinary Differential Equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="06_ODE_Ex.html">6. Ordinary Differential Equations: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="07_PDE.html">7. Partial Differential Equations</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="07_PDE.html">7. Partial Differential Equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="07_PDE_Ex.html">7. Partial Differential Equations: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="08_Optimization.html">8. Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="08_Optimization.html">8. Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="08_Optimization_Ex.html">8. Optimization: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="09_Stochastic.html">9. Stochastic Methods</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="09_Stochastic.html">9. Stochastic Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="09_Stochastic_Ex.html">9. Stochastic Methods: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">10. Software Management: Exercise</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Solutions.html">Sample Solutions of Exercises</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Solutions.html">Sample Solutions of Exercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Sol.html">1. Introduction to Python: Exercise Solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_Visualization_Sol.html">2. Visualization: Exercise Solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_Matrix_Sol.html">3. Vectors and Matrices: Exercise Solutions</a></li>
@@ -231,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="08_Optimization_Sol.html">8. Optimization: Exercise Solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="09_Stochastic_Sol.html">9. Stochastic Methods: Exercise Solutions</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -247,7 +249,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -256,14 +258,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -341,10 +343,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -352,14 +354,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -457,11 +459,427 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You have not agreed to the Xcode and Apple SDKs license. You must agree to the license below in order to use Xcode.
-Press enter to display the license:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;ComputationalMethods2022&#39;...
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>remote: Enumerating objects: 578, done.
+remote: Counting objects:   0% (1/232)
+remote: Counting objects:   1% (3/232)
+remote: Counting objects:   2% (5/232)
+remote: Counting objects:   3% (7/232)
+remote: Counting objects:   4% (10/232)
+remote: Counting objects:   5% (12/232)
+remote: Counting objects:   6% (14/232)
+remote: Counting objects:   7% (17/232)
+remote: Counting objects:   8% (19/232)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>remote: Counting objects:   9% (21/232)
+remote: Counting objects:  10% (24/232)
+remote: Counting objects:  11% (26/232)
+remote: Counting objects:  12% (28/232)
+remote: Counting objects:  13% (31/232)
+remote: Counting objects:  14% (33/232)
+remote: Counting objects:  15% (35/232)
+remote: Counting objects:  16% (38/232)
+remote: Counting objects:  17% (40/232)
+remote: Counting objects:  18% (42/232)
+remote: Counting objects:  19% (45/232)
+remote: Counting objects:  20% (47/232)
+remote: Counting objects:  21% (49/232)
+remote: Counting objects:  22% (52/232)
+remote: Counting objects:  23% (54/232)
+remote: Counting objects:  24% (56/232)
+remote: Counting objects:  25% (58/232)
+remote: Counting objects:  26% (61/232)
+remote: Counting objects:  27% (63/232)
+remote: Counting objects:  28% (65/232)
+remote: Counting objects:  29% (68/232)
+remote: Counting objects:  30% (70/232)
+remote: Counting objects:  31% (72/232)
+remote: Counting objects:  32% (75/232)
+remote: Counting objects:  33% (77/232)
+remote: Counting objects:  34% (79/232)
+remote: Counting objects:  35% (82/232)
+remote: Counting objects:  36% (84/232)
+remote: Counting objects:  37% (86/232)
+remote: Counting objects:  38% (89/232)
+remote: Counting objects:  39% (91/232)
+remote: Counting objects:  40% (93/232)
+remote: Counting objects:  41% (96/232)
+remote: Counting objects:  42% (98/232)
+remote: Counting objects:  43% (100/232)
+remote: Counting objects:  44% (103/232)
+remote: Counting objects:  45% (105/232)
+remote: Counting objects:  46% (107/232)
+remote: Counting objects:  47% (110/232)
+remote: Counting objects:  48% (112/232)
+remote: Counting objects:  49% (114/232)
+remote: Counting objects:  50% (116/232)
+remote: Counting objects:  51% (119/232)
+remote: Counting objects:  52% (121/232)
+remote: Counting objects:  53% (123/232)
+remote: Counting objects:  54% (126/232)
+remote: Counting objects:  55% (128/232)
+remote: Counting objects:  56% (130/232)
+remote: Counting objects:  57% (133/232)
+remote: Counting objects:  58% (135/232)
+remote: Counting objects:  59% (137/232)
+remote: Counting objects:  60% (140/232)
+remote: Counting objects:  61% (142/232)
+remote: Counting objects:  62% (144/232)
+remote: Counting objects:  63% (147/232)
+remote: Counting objects:  64% (149/232)
+remote: Counting objects:  65% (151/232)
+remote: Counting objects:  66% (154/232)
+remote: Counting objects:  67% (156/232)
+remote: Counting objects:  68% (158/232)
+remote: Counting objects:  69% (161/232)
+remote: Counting objects:  70% (163/232)
+remote: Counting objects:  71% (165/232)
+remote: Counting objects:  72% (168/232)
+remote: Counting objects:  73% (170/232)
+remote: Counting objects:  74% (172/232)
+remote: Counting objects:  75% (174/232)
+remote: Counting objects:  76% (177/232)
+remote: Counting objects:  77% (179/232)
+remote: Counting objects:  78% (181/232)
+remote: Counting objects:  79% (184/232)
+remote: Counting objects:  80% (186/232)
+remote: Counting objects:  81% (188/232)
+remote: Counting objects:  82% (191/232)
+remote: Counting objects:  83% (193/232)
+remote: Counting objects:  84% (195/232)
+remote: Counting objects:  85% (198/232)
+remote: Counting objects:  86% (200/232)
+remote: Counting objects:  87% (202/232)
+remote: Counting objects:  88% (205/232)
+remote: Counting objects:  89% (207/232)
+remote: Counting objects:  90% (209/232)
+remote: Counting objects:  91% (212/232)
+remote: Counting objects:  92% (214/232)
+remote: Counting objects:  93% (216/232)
+remote: Counting objects:  94% (219/232)
+remote: Counting objects:  95% (221/232)
+remote: Counting objects:  96% (223/232)
+remote: Counting objects:  97% (226/232)
+remote: Counting objects:  98% (228/232)
+remote: Counting objects:  99% (230/232)
+remote: Counting objects: 100% (232/232)
+remote: Counting objects: 100% (232/232), done.
+remote: Compressing objects:   0% (1/152)
+remote: Compressing objects:   1% (2/152)
+remote: Compressing objects:   2% (4/152)
+remote: Compressing objects:   3% (5/152)
+remote: Compressing objects:   4% (7/152)
+remote: Compressing objects:   5% (8/152)
+remote: Compressing objects:   6% (10/152)
+remote: Compressing objects:   7% (11/152)
+remote: Compressing objects:   8% (13/152)
+remote: Compressing objects:   9% (14/152)
+remote: Compressing objects:  10% (16/152)
+remote: Compressing objects:  11% (17/152)
+remote: Compressing objects:  12% (19/152)
+remote: Compressing objects:  13% (20/152)
+remote: Compressing objects:  14% (22/152)
+remote: Compressing objects:  15% (23/152)
+remote: Compressing objects:  16% (25/152)
+remote: Compressing objects:  17% (26/152)
+remote: Compressing objects:  18% (28/152)
+remote: Compressing objects:  19% (29/152)
+remote: Compressing objects:  20% (31/152)
+remote: Compressing objects:  21% (32/152)
+remote: Compressing objects:  22% (34/152)
+remote: Compressing objects:  23% (35/152)
+remote: Compressing objects:  24% (37/152)
+remote: Compressing objects:  25% (38/152)
+remote: Compressing objects:  26% (40/152)
+remote: Compressing objects:  27% (42/152)
+remote: Compressing objects:  28% (43/152)
+remote: Compressing objects:  29% (45/152)
+remote: Compressing objects:  30% (46/152)
+remote: Compressing objects:  31% (48/152)
+remote: Compressing objects:  32% (49/152)
+remote: Compressing objects:  33% (51/152)
+remote: Compressing objects:  34% (52/152)
+remote: Compressing objects:  35% (54/152)
+remote: Compressing objects:  36% (55/152)
+remote: Compressing objects:  37% (57/152)
+remote: Compressing objects:  38% (58/152)
+remote: Compressing objects:  39% (60/152)
+remote: Compressing objects:  40% (61/152)
+remote: Compressing objects:  41% (63/152)
+remote: Compressing objects:  42% (64/152)
+remote: Compressing objects:  43% (66/152)
+remote: Compressing objects:  44% (67/152)
+remote: Compressing objects:  45% (69/152)
+remote: Compressing objects:  46% (70/152)
+remote: Compressing objects:  47% (72/152)
+remote: Compressing objects:  48% (73/152)
+remote: Compressing objects:  49% (75/152)
+remote: Compressing objects:  50% (76/152)
+remote: Compressing objects:  51% (78/152)
+remote: Compressing objects:  52% (80/152)
+remote: Compressing objects:  53% (81/152)
+remote: Compressing objects:  54% (83/152)
+remote: Compressing objects:  55% (84/152)
+remote: Compressing objects:  56% (86/152)
+remote: Compressing objects:  57% (87/152)
+remote: Compressing objects:  58% (89/152)
+remote: Compressing objects:  59% (90/152)
+remote: Compressing objects:  60% (92/152)
+remote: Compressing objects:  61% (93/152)
+remote: Compressing objects:  62% (95/152)
+remote: Compressing objects:  63% (96/152)
+remote: Compressing objects:  64% (98/152)
+remote: Compressing objects:  65% (99/152)
+remote: Compressing objects:  66% (101/152)
+remote: Compressing objects:  67% (102/152)
+remote: Compressing objects:  68% (104/152)
+remote: Compressing objects:  69% (105/152)
+remote: Compressing objects:  70% (107/152)
+remote: Compressing objects:  71% (108/152)
+remote: Compressing objects:  72% (110/152)
+remote: Compressing objects:  73% (111/152)
+remote: Compressing objects:  74% (113/152)
+remote: Compressing objects:  75% (114/152)
+remote: Compressing objects:  76% (116/152)
+remote: Compressing objects:  77% (118/152)
+remote: Compressing objects:  78% (119/152)
+remote: Compressing objects:  79% (121/152)
+remote: Compressing objects:  80% (122/152)
+remote: Compressing objects:  81% (124/152)
+remote: Compressing objects:  82% (125/152)
+remote: Compressing objects:  83% (127/152)
+remote: Compressing objects:  84% (128/152)
+remote: Compressing objects:  85% (130/152)
+remote: Compressing objects:  86% (131/152)
+remote: Compressing objects:  87% (133/152)
+remote: Compressing objects:  88% (134/152)
+remote: Compressing objects:  89% (136/152)
+remote: Compressing objects:  90% (137/152)
+remote: Compressing objects:  91% (139/152)
+remote: Compressing objects:  92% (140/152)
+remote: Compressing objects:  93% (142/152)
+remote: Compressing objects:  94% (143/152)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>remote: Compressing objects:  95% (145/152)
+remote: Compressing objects:  96% (146/152)
+remote: Compressing objects:  97% (148/152)
+remote: Compressing objects:  98% (149/152)
+remote: Compressing objects:  99% (151/152)
+remote: Compressing objects: 100% (152/152)
+remote: Compressing objects: 100% (152/152), done.
+Receiving objects:   0% (1/578)
+Receiving objects:   1% (6/578)
+Receiving objects:   2% (12/578)
+Receiving objects:   3% (18/578)
+Receiving objects:   4% (24/578)
+Receiving objects:   5% (29/578)
+Receiving objects:   6% (35/578)
+Receiving objects:   7% (41/578)
+Receiving objects:   8% (47/578)
+Receiving objects:   9% (53/578)
+Receiving objects:  10% (58/578)
+Receiving objects:  11% (64/578)
+Receiving objects:  12% (70/578)
+Receiving objects:  13% (76/578)
+Receiving objects:  14% (81/578)
+Receiving objects:  15% (87/578)
+Receiving objects:  16% (93/578)
+Receiving objects:  17% (99/578)
+Receiving objects:  18% (105/578)
+Receiving objects:  19% (110/578)
+Receiving objects:  20% (116/578)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Receiving objects:  21% (122/578)
+Receiving objects:  22% (128/578)
+Receiving objects:  23% (133/578)
+Receiving objects:  24% (139/578)
+Receiving objects:  25% (145/578)
+Receiving objects:  26% (151/578)
+Receiving objects:  27% (157/578)
+Receiving objects:  28% (162/578)
+Receiving objects:  29% (168/578)
+Receiving objects:  30% (174/578)
+Receiving objects:  31% (180/578)
+Receiving objects:  32% (185/578)
+Receiving objects:  33% (191/578)
+Receiving objects:  34% (197/578)
+Receiving objects:  35% (203/578)
+Receiving objects:  36% (209/578)
+Receiving objects:  37% (214/578)
+Receiving objects:  38% (220/578)
+Receiving objects:  39% (226/578)
+Receiving objects:  40% (232/578)
+Receiving objects:  41% (237/578)
+Receiving objects:  42% (243/578)
+Receiving objects:  43% (249/578)
+Receiving objects:  44% (255/578)
+Receiving objects:  45% (261/578)
+Receiving objects:  46% (266/578)
+Receiving objects:  47% (272/578)
+Receiving objects:  48% (278/578)
+Receiving objects:  49% (284/578)
+Receiving objects:  50% (289/578)
+Receiving objects:  51% (295/578)
+Receiving objects:  52% (301/578)
+Receiving objects:  53% (307/578)
+Receiving objects:  54% (313/578)
+Receiving objects:  55% (318/578)
+Receiving objects:  56% (324/578)
+Receiving objects:  57% (330/578)
+Receiving objects:  58% (336/578)
+Receiving objects:  59% (342/578)
+Receiving objects:  60% (347/578)
+Receiving objects:  61% (353/578)
+Receiving objects:  62% (359/578)
+Receiving objects:  63% (365/578)
+Receiving objects:  64% (370/578)
+Receiving objects:  65% (376/578)
+Receiving objects:  66% (382/578)
+Receiving objects:  67% (388/578)
+Receiving objects:  68% (394/578)
+Receiving objects:  69% (399/578)
+Receiving objects:  70% (405/578)
+Receiving objects:  71% (411/578)
+Receiving objects:  72% (417/578)
+Receiving objects:  73% (422/578)
+Receiving objects:  74% (428/578)
+Receiving objects:  75% (434/578)
+Receiving objects:  76% (440/578)
+Receiving objects:  77% (446/578)
+Receiving objects:  78% (451/578)
+Receiving objects:  79% (457/578)
+Receiving objects:  80% (463/578)
+Receiving objects:  81% (469/578)
+Receiving objects:  82% (474/578)
+Receiving objects:  83% (480/578)
+Receiving objects:  84% (486/578)
+Receiving objects:  85% (492/578)
+Receiving objects:  86% (498/578)
+Receiving objects:  87% (503/578)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Receiving objects:  88% (509/578)
+Receiving objects:  89% (515/578)
+Receiving objects:  90% (521/578)
+Receiving objects:  91% (526/578)
+Receiving objects:  92% (532/578)
+Receiving objects:  93% (538/578)
+Receiving objects:  94% (544/578)
+remote: Total 578 (delta 126), reused 150 (delta 76), pack-reused 346 (from 1)
+Receiving objects:  95% (550/578)
+Receiving objects:  96% (555/578)
+Receiving objects:  97% (561/578)
+Receiving objects:  98% (567/578)
+Receiving objects:  99% (573/578)
+Receiving objects: 100% (578/578)
+Receiving objects: 100% (578/578), 360.27 KiB | 1.10 MiB/s, done.
+Resolving deltas:   0% (0/280)
+Resolving deltas:   1% (3/280)
+Resolving deltas:   2% (6/280)
+Resolving deltas:   3% (9/280)
+Resolving deltas:   4% (12/280)
+Resolving deltas:   5% (14/280)
+Resolving deltas:   6% (17/280)
+Resolving deltas:   7% (20/280)
+Resolving deltas:   8% (23/280)
+Resolving deltas:   9% (26/280)
+Resolving deltas:  10% (28/280)
+Resolving deltas:  11% (31/280)
+Resolving deltas:  12% (34/280)
+Resolving deltas:  13% (37/280)
+Resolving deltas:  14% (40/280)
+Resolving deltas:  15% (42/280)
+Resolving deltas:  16% (45/280)
+Resolving deltas:  17% (48/280)
+Resolving deltas:  18% (51/280)
+Resolving deltas:  19% (54/280)
+Resolving deltas:  20% (56/280)
+Resolving deltas:  21% (59/280)
+Resolving deltas:  22% (62/280)
+Resolving deltas:  23% (65/280)
+Resolving deltas:  24% (68/280)
+Resolving deltas:  25% (70/280)
+Resolving deltas:  26% (73/280)
+Resolving deltas:  27% (76/280)
+Resolving deltas:  28% (79/280)
+Resolving deltas:  29% (82/280)
+Resolving deltas:  30% (84/280)
+Resolving deltas:  31% (87/280)
+Resolving deltas:  32% (90/280)
+Resolving deltas:  33% (93/280)
+Resolving deltas:  34% (96/280)
+Resolving deltas:  35% (98/280)
+Resolving deltas:  36% (101/280)
+Resolving deltas:  37% (104/280)
+Resolving deltas:  38% (107/280)
+Resolving deltas:  39% (110/280)
+Resolving deltas:  40% (112/280)
+Resolving deltas:  41% (115/280)
+Resolving deltas:  42% (118/280)
+Resolving deltas:  43% (121/280)
+Resolving deltas:  44% (124/280)
+Resolving deltas:  45% (126/280)
+Resolving deltas:  46% (129/280)
+Resolving deltas:  47% (132/280)
+Resolving deltas:  48% (135/280)
+Resolving deltas:  49% (138/280)
+Resolving deltas:  50% (140/280)
+Resolving deltas:  51% (143/280)
+Resolving deltas:  52% (146/280)
+Resolving deltas:  53% (149/280)
+Resolving deltas:  54% (152/280)
+Resolving deltas:  55% (154/280)
+Resolving deltas:  56% (157/280)
+Resolving deltas:  57% (160/280)
+Resolving deltas:  58% (163/280)
+Resolving deltas:  59% (166/280)
+Resolving deltas:  60% (168/280)
+Resolving deltas:  61% (171/280)
+Resolving deltas:  62% (174/280)
+Resolving deltas:  63% (177/280)
+Resolving deltas:  64% (180/280)
+Resolving deltas:  65% (182/280)
+Resolving deltas:  66% (185/280)
+Resolving deltas:  67% (188/280)
+Resolving deltas:  68% (191/280)
+Resolving deltas:  69% (194/280)
+Resolving deltas:  70% (196/280)
+Resolving deltas:  71% (199/280)
+Resolving deltas:  72% (202/280)
+Resolving deltas:  73% (205/280)
+Resolving deltas:  74% (208/280)
+Resolving deltas:  75% (210/280)
+Resolving deltas:  76% (213/280)
+Resolving deltas:  77% (216/280)
+Resolving deltas:  78% (219/280)
+Resolving deltas:  79% (222/280)
+Resolving deltas:  80% (224/280)
+Resolving deltas:  81% (227/280)
+Resolving deltas:  82% (230/280)
+Resolving deltas:  83% (233/280)
+Resolving deltas:  84% (236/280)
+Resolving deltas:  85% (238/280)
+Resolving deltas:  86% (241/280)
+Resolving deltas:  87% (244/280)
+Resolving deltas:  88% (247/280)
+Resolving deltas:  89% (250/280)
+Resolving deltas:  90% (252/280)
+Resolving deltas:  91% (255/280)
+Resolving deltas:  92% (258/280)
+Resolving deltas:  93% (261/280)
+Resolving deltas:  94% (264/280)
+Resolving deltas:  95% (266/280)
+Resolving deltas:  96% (269/280)
+Resolving deltas:  97% (272/280)
+Resolving deltas:  98% (275/280)
+Resolving deltas:  99% (278/280)
+Resolving deltas: 100% (280/280)
+Resolving deltas: 100% (280/280), done.
 </pre></div>
 </div>
 </div>
@@ -469,6 +887,35 @@ Press enter to display the license:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">ls</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>01_Introduction.ipynb             08_Optimization_Sol.ipynb
+01_Introduction_Ex.ipynb          09_Stochastic.ipynb
+01_Introduction_Sol.ipynb         09_Stochastic_Ex.ipynb
+02_Visualization.ipynb            09_Stochastic_Sol.ipynb
+02_Visualization_3D.ipynb         10_Management.ipynb
+02_Visualization_Animation.ipynb  10_Management_Ex.ipynb
+02_Visualization_Ex.ipynb         <span class=" -Color -Color-Blue">ComputationalMethods2022</span>/
+02_Visualization_Sol.ipynb        LICENSE
+03_Matrix.ipynb                   README.md
+03_Matrix_Ex.ipynb                References.ipynb
+03_Matrix_Sol.ipynb               SC_logo.png
+04_Function.ipynb                 Solutions.ipynb
+04_Function_Ex.ipynb              <span class=" -Color -Color-Blue">__pycache__</span>/
+04_Function_Sol.ipynb             <span class=" -Color -Color-Blue">_build</span>/
+05_Iteration.ipynb                _config.yml
+05_Iteration_Ex.ipynb             _toc.yml
+05_Iteration_Sol.ipynb            <span class=" -Color -Color-Blue">data</span>/
+06_ODE.ipynb                      <span class=" -Color -Color-Blue">figures</span>/
+06_ODE_Ex.ipynb                   haisai.py
+06_ODE_Sol.ipynb                  iSciComp.bib
+07_PDE.ipynb                      iSciComp.ipynb
+07_PDE_Ex.ipynb                   index.html
+07_PDE_Sol.ipynb                  lp.py
+08_Optimization.ipynb             <span class=" -Color -Color-Blue">odesim</span>/
+08_Optimization_Ex.ipynb          pend.gif
 </pre></div>
 </div>
 </div>
@@ -480,10 +927,22 @@ Press enter to display the license:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/doya/OIST Dropbox/kenji doya/Python/iSciComp/ComputationalMethods2022
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">ls</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>README.md         odesim.py         second.py         test.py
+first.py          <span class=" -Color -Color-Blue">outputs</span>/          simple_growth.py
+lorenz.py         pendulum.py       tatsuo.py
 </pre></div>
 </div>
 </div>
@@ -505,12 +964,23 @@ Press enter to display the license:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importing ODE: first
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t= 10.0 ; state= [0.36787947]
+</pre></div>
+</div>
+<img alt="_images/2e71ffd92071be535558426342887020fdd90a5db6588dbfcec01e2cde3d577d.png" src="_images/2e71ffd92071be535558426342887020fdd90a5db6588dbfcec01e2cde3d577d.png" />
 </div>
 </div>
 </section>
@@ -524,6 +994,11 @@ Press enter to display the license:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Switched to branch &#39;myname&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Make a copy of a dynamics file <code class="docutils literal notranslate"><span class="pre">first.py</span></code> or <code class="docutils literal notranslate"><span class="pre">second.py</span></code>, implement your own ODE, and save with a new name, e.g. <code class="docutils literal notranslate"><span class="pre">vdp.py</span></code>.</p>
 <p>Run odesim and confirm that your ODE runs appropriately.</p>
@@ -534,10 +1009,21 @@ Press enter to display the license:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch myname
+nothing to commit, working tree clean
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>add<span class="w"> </span>vdp.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fatal: pathspec &#39;vdp.py&#39; did not match any files
 </pre></div>
 </div>
 </div>
@@ -548,10 +1034,285 @@ Press enter to display the license:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch myname
+nothing to commit, working tree clean
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--graph<span class="w"> </span>--oneline<span class="w"> </span>--all
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*   <span class=" -Color -Color-Yellow">c7c6fe1 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">myname</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Red">origin/myname</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Red">origin/main</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Red">origin/HEAD</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span> Merge pull request #5 from oist/Sougato
+<span class=" -Color -Color-Red">|</span><span class=" -Color -Color-Green">\</span>  
+<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Yellow">3784ba9 (</span><span class=" -Color -Color-Bold -Color-Bold-Red">origin/Sougato</span><span class=" -Color -Color-Yellow">)</span> Adding pendulum.py after fixing errors
+<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Yellow">5d6b385</span> Adding a pendulum ODE module
+* <span class=" -Color -Color-Green">|</span>   <span class=" -Color -Color-Yellow">cdce9fb</span> Merge pull request #4 from oist/Amy
+<span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Blue">\</span> <span class=" -Color -Color-Green">\</span>  
+<span class=" -Color -Color-Yellow">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">79900ea (</span><span class=" -Color -Color-Bold -Color-Bold-Red">origin/Amy</span><span class=" -Color -Color-Yellow">)</span> changed into a cubic nonlinearity
+<span class=" -Color -Color-Yellow">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">4c16aca</span> edited test.py
+<span class=" -Color -Color-Yellow">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">831f82f</span> adding my model test.py
+<span class=" -Color -Color-Yellow">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">0ef7d6a</span> adding my model test.py
+* <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span>   <span class=" -Color -Color-Yellow">86c34e3</span> Merge pull request #6 from oist/lily
+<span class=" -Color -Color-Magenta">|</span><span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Blue">\</span> <span class=" -Color -Color-Green">\</span>  
+<span class=" -Color -Color-Magenta">|</span> * <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">dc9432c (</span><span class=" -Color -Color-Bold -Color-Bold-Red">origin/lily</span><span class=" -Color -Color-Yellow">)</span> Create simple_growth.py
+<span class=" -Color -Color-Magenta">|/</span> <span class=" -Color -Color-Blue">/</span> <span class=" -Color -Color-Green">/</span>  
+* <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span>   <span class=" -Color -Color-Yellow">84f49b7</span> Merge pull request #2 from oist/rui_fukushima
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span><span class=" -Color -Color-Bold -Color-Bold-Green">\</span> <span class=" -Color -Color-Blue">\</span> <span class=" -Color -Color-Green">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span> * <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">e6b32f9 (</span><span class=" -Color -Color-Bold -Color-Bold-Red">origin/rui_fukushima</span><span class=" -Color -Color-Yellow">)</span> fix parameter part according prof. comments
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span> * <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">f73f9c2</span> remove vdp module
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span> * <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">56110fe</span> remove project notebook
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span> * <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">7b64069</span> add lorenz module
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span> * <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">0e84f70</span> adding personal project notebook
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span> * <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">28d072a</span> adding my model vdp.py
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Blue">|</span><span class=" -Color -Color-Green">/</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Green">|/</span><span class=" -Color -Color-Blue">|</span>   
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Blue">|</span>   <span class=" -Color -Color-Yellow">d546ed1</span> Merge pull request #3 from oist/tatsuo
+<span class=" -Color -Color-Blue">|</span><span class=" -Color -Color-Bold -Color-Bold-Blue">\</span> <span class=" -Color -Color-Green">\</span> <span class=" -Color -Color-Blue">\</span>  
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Bold -Color-Bold-Blue">|</span><span class=" -Color -Color-Blue">_</span><span class=" -Color -Color-Green">|</span><span class=" -Color -Color-Blue">/</span>  
+<span class=" -Color -Color-Blue">|/</span><span class=" -Color -Color-Bold -Color-Bold-Blue">|</span> <span class=" -Color -Color-Green">|</span>   
+<span class=" -Color -Color-Blue">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">919412b (</span><span class=" -Color -Color-Bold -Color-Bold-Red">origin/tatsuo</span><span class=" -Color -Color-Yellow">)</span> adding my model tatsuo.py
+<span class=" -Color -Color-Blue">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">7109914</span> adding my model ti.py
+<span class=" -Color -Color-Blue">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">ad683ef</span> adding my model tatsuo.py
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|/</span>  
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">c6538a0 (</span><span class=" -Color -Color-Bold -Color-Bold-Red">origin/fhn</span><span class=" -Color -Color-Yellow">)</span> added pplot method to odesim.py
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">0fb56f7</span> fhn.py module and run_fhn.py for testing it in scripts folder
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">37e5425 (</span><span class=" -Color -Color-Bold -Color-Bold-Red">origin/kazuma-class2022AY1</span><span class=" -Color -Color-Yellow">)</span> Feat: add henonmap and cleanup fhn model
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">409d7b5</span> Feat: add FHN model in odesim.py
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">d510ba8</span> Fix: move all images to outputs dir
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span> *   <span class=" -Color -Color-Yellow">ed3afff</span> Merge branch &#39;main&#39; into kazuma-class2022AY1
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span><span class=" -Color -Color-Blue">\</span>  
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">|</span><span class=" -Color -Color-Blue">_</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span><span class=" -Color -Color-Blue">/</span>  
+<span class=" -Color -Color-Blue">|/</span><span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span>   
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Yellow">576a0aa</span> added outputs folder
+<span class=" -Color -Color-Green">|/</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">/</span>  
+<span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">16b8943</span> Feat: add phase plot and bifuraction diagram
+<span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">4ef681d</span> Feat: add simple fhn plot
+<span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">5d2b871</span> Feat: add FHN model script
+<span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">64e1fbc</span> Feat: add cell executer comment
+<span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">a93c0e4</span> Feat: create a new script
+<span class=" -Color -Color-Green">|/</span>  
+<span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">2ffd690 (</span><span class=" -Color -Color-Bold -Color-Bold-Red">origin/kenji</span><span class=" -Color -Color-Yellow">)</span> adding my model vdp.py
+<span class=" -Color -Color-Green">|/</span>  
+* <span class=" -Color -Color-Yellow">19a1a40 (</span><span class=" -Color -Color-Bold -Color-Bold-Red">origin/initial</span><span class=" -Color -Color-Yellow">)</span> added .gitignore
+* <span class=" -Color -Color-Yellow">eab5bf5</span> initial form
+* <span class=" -Color -Color-Yellow">96d27bf (</span><span class=" -Color -Color-Bold -Color-Bold-Red">origin/clean</span><span class=" -Color -Color-Yellow">)</span> Delete old folders
+* <span class=" -Color -Color-Yellow">680c44b</span> Delete old folders
+* <span class=" -Color -Color-Yellow">d9e432e</span> Delete old folders
+* <span class=" -Color -Color-Yellow">a630596</span> Created for 2022
+* <span class=" -Color -Color-Yellow">1dc906b</span> first three dynamics functions
+* <span class=" -Color -Color-Yellow">ef02eb6</span> original dynamics viewer
+* <span class=" -Color -Color-Yellow">9251e5d</span> Cleanup
+* <span class=" -Color -Color-Yellow">4ed4c6e</span> Create Readme.md
+* <span class=" -Color -Color-Yellow">d505312</span> Update README.md
+* <span class=" -Color -Color-Yellow">205f2b2</span> Cleanup
+* <span class=" -Color -Color-Yellow">bfb02e6</span> Cleanup
+* <span class=" -Color -Color-Yellow">f9de384</span> Cleanup
+* <span class=" -Color -Color-Yellow">c00ceb6</span> Cleanup
+* <span class=" -Color -Color-Yellow">ccf6534</span> Cleanup
+* <span class=" -Color -Color-Yellow">7aa7977</span> Delete Masato-first.py
+*   <span class=" -Color -Color-Yellow">f20fa86</span> Merge pull request #50 from oist/Masato
+<span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Blue">\</span>  
+<span class=" -Color -Color-Yellow">|</span> * <span class=" -Color -Color-Yellow">89fedbd</span> Update Masato-first.py
+<span class=" -Color -Color-Yellow">|</span> * <span class=" -Color -Color-Yellow">e5d01a5</span> Add files via upload
+<span class=" -Color -Color-Yellow">|/</span>  
+*   <span class=" -Color -Color-Yellow">e86fea4</span> Merge pull request #38 from oist/deleting-the-files
+<span class=" -Color -Color-Magenta">|</span><span class=" -Color -Color-Cyan">\</span>  
+<span class=" -Color -Color-Magenta">|</span> * <span class=" -Color -Color-Yellow">8c71105</span> Delete jan-second.py
+<span class=" -Color -Color-Magenta">|</span> * <span class=" -Color -Color-Yellow">00bb569</span> Delete jan-first.py
+<span class=" -Color -Color-Magenta">|/</span>  
+*   <span class=" -Color -Color-Yellow">84971c4</span> Merge pull request #35 from oist/jan-grasic
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span><span class=" -Color -Color-Bold -Color-Bold-Green">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span> * <span class=" -Color -Color-Yellow">f1d48db</span> Add files via upload
+<span class=" -Color -Color-Bold -Color-Bold-Red">|/</span>  
+* <span class=" -Color -Color-Yellow">12c9d16</span> Dynamics viewer
+* <span class=" -Color -Color-Yellow">8470b8e</span> Delete DynaView.py
+* <span class=" -Color -Color-Yellow">b32f02a</span> sample dynamics files
+* <span class=" -Color -Color-Yellow">eae595e</span> Uploaded the same code as 2018
+* <span class=" -Color -Color-Yellow">523a383</span> Create Readme.md
+* <span class=" -Color -Color-Yellow">5b429b5</span> Update Readme.md
+* <span class=" -Color -Color-Yellow">f887d7f</span> Create Readme.md
+*   <span class=" -Color -Color-Yellow">fbf5185</span> Merge pull request #32 from oist/hoching
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span><span class=" -Color -Color-Bold -Color-Bold-Blue">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> * <span class=" -Color -Color-Yellow">5f628fb</span> changed the dynamic function
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|/</span>  
+*   <span class=" -Color -Color-Yellow">56e6fc2</span> Merge pull request #28 from oist/Darshini
+<span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> * <span class=" -Color -Color-Yellow">51bc33d</span> Add files via upload
+* <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span>   <span class=" -Color -Color-Yellow">602fddf</span> Merge pull request #27 from oist/aisulu_maipas
+<span class=" -Color -Color-Red">|</span><span class=" -Color -Color-Green">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span>  
+<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Yellow">65845a7</span> Add files via upload
+<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Yellow">c3c4e9d</span> adding my script
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span>   <span class=" -Color -Color-Yellow">096fe7b</span> Merge pull request #31 from oist/AnzhelikaKoldaeva
+<span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Blue">\</span> <span class=" -Color -Color-Green">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span>  
+<span class=" -Color -Color-Yellow">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Yellow">3750870</span> added new functions to ODE solver
+<span class=" -Color -Color-Yellow">|/</span> <span class=" -Color -Color-Green">/</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">/</span>  
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span>   <span class=" -Color -Color-Yellow">f2455b3</span> Merge pull request #25 from oist/Angela-Kirykowicz
+<span class=" -Color -Color-Green">|</span><span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Green">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span>  
+<span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Cyan">|</span><span class=" -Color -Color-Green">/</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">/</span>  
+<span class=" -Color -Color-Green">|/</span><span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span>   
+<span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Yellow">fd56c93</span> Add files via upload
+<span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|/</span>  
+* <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span>   <span class=" -Color -Color-Yellow">d6fe3f4</span> Merge pull request #26 from oist/lazzat
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span><span class=" -Color -Color-Bold -Color-Bold-Green">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Green">|</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">/</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|/</span><span class=" -Color -Color-Bold -Color-Bold-Green">|</span>   
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> * <span class=" -Color -Color-Yellow">08c9647</span> adding my script
+* <span class=" -Color -Color-Bold -Color-Bold-Green">|</span> <span class=" -Color -Color-Yellow">7f5ef37</span> Delete Lewis_wavy.py due to incorrect location
+<span class=" -Color -Color-Bold -Color-Bold-Green">|/</span>  
+* <span class=" -Color -Color-Yellow">478e839</span> Example
+* <span class=" -Color -Color-Yellow">eaf500d</span> Update lewis_wavy.py
+* <span class=" -Color -Color-Yellow">c91b30a</span> Add files via upload
+* <span class=" -Color -Color-Yellow">c0188d2</span> Update lewis_wavy.py
+*   <span class=" -Color -Color-Yellow">a609a28</span> Merge pull request #24 from oist/module-scan
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span><span class=" -Color -Color-Bold -Color-Bold-Blue">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> *   <span class=" -Color -Color-Yellow">a1ac524</span> Merge branch &#39;master&#39; into module-scan
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|/</span><span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span>   
+* <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Yellow">00b93e4</span> Update DynaView.py
+* <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Yellow">628b8c5</span> Add files via upload
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> * <span class=" -Color -Color-Yellow">6aa4601</span> parameters format changed
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> * <span class=" -Color -Color-Yellow">c18d6e0</span> Parameters and state entry boxes added
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> * <span class=" -Color -Color-Yellow">9fd54f3</span> Update Readme.md
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> * <span class=" -Color -Color-Yellow">4650244</span> moved to &quot;dynamics&quot;
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> * <span class=" -Color -Color-Yellow">d5f6914</span> moved to &quot;dynamics&quot;
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> * <span class=" -Color -Color-Yellow">18871c5</span> Scan modules in &quot;dynamics&quot; folder
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> * <span class=" -Color -Color-Yellow">e9080a9</span> first three modules
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> * <span class=" -Color -Color-Yellow">eab81cb</span> Create Readme.md
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|/</span>  
+* <span class=" -Color -Color-Yellow">9e9ed1b</span> 2017 files
+* <span class=" -Color -Color-Yellow">5319297</span> Delete third_lewis.py
+* <span class=" -Color -Color-Yellow">9a6d07d</span> Delete wataru.py
+* <span class=" -Color -Color-Yellow">fad7706</span> Delete second.py
+* <span class=" -Color -Color-Yellow">beee04f</span> Delete logistic.py
+* <span class=" -Color -Color-Yellow">e26d14a</span> Delete first_nonlinear.py
+* <span class=" -Color -Color-Yellow">309db7b</span> Delete first.py
+* <span class=" -Color -Color-Yellow">751c472</span> Delete Sarah.py
+* <span class=" -Color -Color-Yellow">fed919f</span> Delete Pendulum.py
+* <span class=" -Color -Color-Yellow">b1e1da9</span> Delete FHN.py
+* <span class=" -Color -Color-Yellow">617279c</span> Delete DynaView.py
+* <span class=" -Color -Color-Yellow">fb5acc5</span> 2017 dynamics files merged manually
+*   <span class=" -Color -Color-Yellow">aa5fb68</span> Merge pull request #11 from oist/darya
+<span class=" -Color -Color-Red">|</span><span class=" -Color -Color-Green">\</span>  
+<span class=" -Color -Color-Red">|</span> *   <span class=" -Color -Color-Yellow">1e05d8c</span> Merge branch &#39;master&#39; into darya
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Red">\</span>  
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Red">/</span>  
+<span class=" -Color -Color-Red">|/</span><span class=" -Color -Color-Yellow">|</span>   
+* <span class=" -Color -Color-Yellow">|</span>   <span class=" -Color -Color-Yellow">598ce08</span> Merge pull request #14 from oist/Rachapun
+<span class=" -Color -Color-Magenta">|</span><span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>  
+<span class=" -Color -Color-Magenta">|</span> * <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">b760678</span> Update first_Rachapun.py
+* <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   <span class=" -Color -Color-Yellow">38f4e08</span> Merge pull request #15 from oist/linlingru
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span><span class=" -Color -Color-Bold -Color-Bold-Green">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span> * <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>   <span class=" -Color -Color-Yellow">ae13d99</span> Merge branch &#39;master&#39; into linlingru
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span><span class=" -Color -Color-Bold -Color-Bold-Red">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span><span class=" -Color -Color-Bold -Color-Bold-Red">/</span> <span class=" -Color -Color-Cyan">/</span> <span class=" -Color -Color-Yellow">/</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Red">|/</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   
+* <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   <span class=" -Color -Color-Yellow">8c6b6db</span> Merge pull request #16 from oist/Charles_W_Edits
+<span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> * <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">0135d42</span> Update DynaView.py
+<span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> * <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">2860ee0</span> Update first.py
+<span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> * <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">4e09dca</span> Update second.py
+<span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> * <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">f723342</span> Update first.py
+* <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   <span class=" -Color -Color-Yellow">8f4bdb9</span> Merge pull request #17 from oist/Osamu
+<span class=" -Color -Color-Red">|</span><span class=" -Color -Color-Green">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>  
+<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>   <span class=" -Color -Color-Yellow">a30c13b</span> Merge branch &#39;master&#39; into Osamu
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Red">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>  
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Red">/</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">/</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span> <span class=" -Color -Color-Cyan">/</span> <span class=" -Color -Color-Yellow">/</span>  
+<span class=" -Color -Color-Red">|/</span><span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   
+* <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   <span class=" -Color -Color-Yellow">668a73e</span> Merge pull request #19 from oist/Wataru
+<span class=" -Color -Color-Magenta">|</span><span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>  
+<span class=" -Color -Color-Magenta">|</span> * <span class=" -Color -Color-Yellow">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>   <span class=" -Color -Color-Yellow">bce065e</span> Merge branch &#39;master&#39; into Wataru
+<span class=" -Color -Color-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span><span class=" -Color -Color-Magenta">\</span> <span class=" -Color -Color-Yellow">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>  
+<span class=" -Color -Color-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span><span class=" -Color -Color-Magenta">/</span> <span class=" -Color -Color-Yellow">/</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">/</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span> <span class=" -Color -Color-Cyan">/</span> <span class=" -Color -Color-Yellow">/</span>  
+<span class=" -Color -Color-Magenta">|/</span><span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   
+* <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   <span class=" -Color -Color-Yellow">e81837b</span> Merge pull request #23 from oist/Mizuki_Kato
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span><span class=" -Color -Color-Bold -Color-Bold-Blue">\</span> <span class=" -Color -Color-Bold -Color-Bold-Red">\</span> <span class=" -Color -Color-Yellow">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> * <span class=" -Color -Color-Bold -Color-Bold-Red">\</span> <span class=" -Color -Color-Yellow">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>   <span class=" -Color -Color-Yellow">8f3bb8f</span> Merge branch &#39;master&#39; into Mizuki_Kato
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Bold -Color-Bold-Red">\</span> <span class=" -Color -Color-Yellow">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span> <span class=" -Color -Color-Bold -Color-Bold-Red">/</span> <span class=" -Color -Color-Yellow">/</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">/</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span> <span class=" -Color -Color-Cyan">/</span> <span class=" -Color -Color-Yellow">/</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|/</span><span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   
+* <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   <span class=" -Color -Color-Yellow">7497aa6</span> Merge branch &#39;lewis&#39;
+<span class=" -Color -Color-Red">|</span><span class=" -Color -Color-Green">\</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">\</span> <span class=" -Color -Color-Bold -Color-Bold-Red">\</span> <span class=" -Color -Color-Yellow">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>  
+<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">b771b88</span> Add files via upload
+<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">459f682</span> Add files via upload
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">e3357a6</span> Update Readme.md
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">ab0307c</span> Delete touseef_second.py
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">fc11022</span> Delete touseef_first.py
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">1b0b636</span> Delete hsiaochiao
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">8241eb7</span> Delete DynaView.py
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">05bbfb0</span> Delete Readme.md
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">94bf611</span> Delete Readme.md
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">3b346d4</span> 2018 course material
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">8b2443b</span> Initial files by KD
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">9431195</span> Update Readme.md
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">a58e3e4</span> Create Readme.md
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">2b2726b</span> Create Readme.md
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">e2a4ffa</span> Create Readme.md
+<span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">cf01dbd</span> Add files via upload
+<span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Green">|/</span> <span class=" -Color -Color-Bold -Color-Bold-Red">/</span> <span class=" -Color -Color-Yellow">/</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">/</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span> <span class=" -Color -Color-Cyan">/</span> <span class=" -Color -Color-Yellow">/</span>  
+<span class=" -Color -Color-Green">|/|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   <span class=" -Color -Color-Yellow">a886358</span> Merge pull request #22 from 123miles/123miles-patch-9
+<span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Blue">\</span> <span class=" -Color -Color-Green">\</span> <span class=" -Color -Color-Bold -Color-Bold-Red">\</span> <span class=" -Color -Color-Yellow">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>  
+<span class=" -Color -Color-Yellow">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">b5262f5</span> Add files via upload
+<span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Green">|</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">_</span><span class=" -Color -Color-Bold -Color-Bold-Red">|</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">_</span><span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">/</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span> <span class=" -Color -Color-Cyan">/</span> <span class=" -Color -Color-Yellow">/</span>  
+<span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">|/</span><span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   
+* <span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   <span class=" -Color -Color-Yellow">36feb34</span> Merge pull request #21 from 123miles/readme-edits
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span><span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span> <span class=" -Color -Color-Green">\</span> <span class=" -Color -Color-Bold -Color-Bold-Red">\</span> <span class=" -Color -Color-Yellow">\</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Cyan">|</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">/</span> <span class=" -Color -Color-Green">/</span> <span class=" -Color -Color-Bold -Color-Bold-Red">/</span> <span class=" -Color -Color-Yellow">/</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span> <span class=" -Color -Color-Cyan">/</span> <span class=" -Color -Color-Yellow">/</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|/</span><span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">4bc04b8</span> Merge pull request #1 from 123miles/123miles1
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|/</span><span class=" -Color -Color-Bold -Color-Bold-Green">|</span> <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> 
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Red">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">3e58714</span> Update README.md
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|/</span> <span class=" -Color -Color-Green">/</span> <span class=" -Color -Color-Bold -Color-Bold-Red">/</span> <span class=" -Color -Color-Yellow">/</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span> <span class=" -Color -Color-Cyan">/</span> <span class=" -Color -Color-Yellow">/</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">/</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span> <span class=" -Color -Color-Cyan">/</span> <span class=" -Color -Color-Yellow">/</span> <span class=" -Color -Color-Yellow">7fc4940</span> Add files via upload
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Green">|/</span> <span class=" -Color -Color-Yellow">/</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span> <span class=" -Color -Color-Cyan">/</span> <span class=" -Color -Color-Yellow">/</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">f965764</span> Create logistic.py
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">d21975f</span> Update DynaView.py
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|</span> <span class=" -Color -Color-Green">|</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">/</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span> <span class=" -Color -Color-Cyan">/</span> <span class=" -Color -Color-Yellow">/</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">|/</span><span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Yellow">|</span>   <span class=" -Color -Color-Yellow">31214f0</span> Merge pull request #13 from oist/Rachapun
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span><span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Green">\</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">\</span> <span class=" -Color -Color-Cyan">\</span> <span class=" -Color -Color-Yellow">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|</span> <span class=" -Color -Color-Green">|</span><span class=" -Color -Color-Cyan">_</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span><span class=" -Color -Color-Cyan">/</span> <span class=" -Color -Color-Yellow">/</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Cyan">|/</span><span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Yellow">|</span>   
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">d544025</span> Update DynaView.py
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">11fa29b</span> Add files via upload
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|/</span> <span class=" -Color -Color-Green">/</span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span> <span class=" -Color -Color-Yellow">/</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">c1ee017</span> Update DynaView.py
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">77b19a1</span> Add files via upload
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">a880143</span> Delete linlingru_first.py
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">cf7ef67</span> update first.py
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">c0c018a</span> Add files via upload
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Green">|</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span> <span class=" -Color -Color-Yellow">/</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|/</span><span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">|</span>   
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">de06314</span> Add files via upload
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Green">|</span> * <span class=" -Color -Color-Yellow">aa0c972</span> Update DynaView.py
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|</span> <span class=" -Color -Color-Green">|</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">/</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">|/</span><span class=" -Color -Color-Green">|</span>   
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">558a07e</span> Update Readme.md
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">5bf9e0f</span> Update Readme.md
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">dc803f7</span> Some notes on the exercise
+* <span class=" -Color -Color-Green">|</span>   <span class=" -Color -Color-Yellow">8e2b144</span> Merge pull request #9 from otistwo/master
+<span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">\</span> <span class=" -Color -Color-Green">\</span>  
+<span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">c140ae9</span> changed first and second to otis
+<span class=" -Color -Color-Bold -Color-Bold-Magenta">|</span> <span class=" -Color -Color-Green">|/</span>  
+* <span class=" -Color -Color-Green">|</span>   <span class=" -Color -Color-Yellow">73cdbca</span> Merge pull request #8 from oist/Touseef
+<span class=" -Color -Color-Red">|</span><span class=" -Color -Color-Green">\</span> <span class=" -Color -Color-Green">\</span>  
+<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">66bf463</span> Add files via upload
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|/</span>  
+* <span class=" -Color -Color-Green">/</span> <span class=" -Color -Color-Yellow">c456b82</span> i updated first_Tabbal
+<span class=" -Color -Color-Green">|/</span>  
+* <span class=" -Color -Color-Yellow">69e0154</span> Create hsiaochiao
+* <span class=" -Color -Color-Yellow">fd4d5c5</span> DynaView.py and two dynamics modules
+* <span class=" -Color -Color-Yellow">3d5b491</span> Create Readme.md
+* <span class=" -Color -Color-Yellow">baf2bb6</span> First version for &quot;Software Management&quot;
+* <span class=" -Color -Color-Yellow">50cabde</span> Initialized Readme.md
+* <span class=" -Color -Color-Yellow">b8dc4bb</span> Initial commit
 </pre></div>
 </div>
 </div>
@@ -561,6 +1322,11 @@ Press enter to display the license:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>myname
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Everything up-to-date
 </pre></div>
 </div>
 </div>
@@ -581,10 +1347,29 @@ Press enter to display the license:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull &lt;remote&gt; &lt;branch&gt;
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/&lt;branch&gt; myname
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>branch
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  main
+* <span class=" -Color -Color-Green">myname</span>
 </pre></div>
 </div>
 </div>
@@ -627,7 +1412,7 @@ Press enter to display the license:
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -696,7 +1481,7 @@ By Kenji Doya
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -720,8 +1505,8 @@ By Kenji Doya
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

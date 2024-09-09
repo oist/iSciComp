@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>6. Ordinary Differential Equations &#8212; Introduction to Scientific Computing</title>
   
@@ -15,52 +15,46 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -78,28 +72,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -122,19 +111,19 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
 
-  <header>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <div class="bd-header navbar navbar-expand-lg bd-navbar">
-    </div>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
-  </header>
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -150,6 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="iSciComp.html">
@@ -168,7 +159,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -179,50 +181,50 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="02_Visualization.html">2. Visualization</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="02_Visualization.html">2. Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="02_Visualization_3D.html">3D Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_Visualization_Animation.html">Animation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_Visualization_Ex.html">2. Visualization: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="03_Matrix.html">3. Vectors and Matrices</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="03_Matrix.html">3. Vectors and Matrices</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="03_Matrix_Ex.html">3. Vectors and Matrices: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="04_Function.html">4. Functions and Classes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="04_Function.html">4. Functions and Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="04_Function_Ex.html">4. Functions and Classes: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="05_Iteration.html">5. Iterative Computation</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05_Iteration.html">5. Iterative Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="05_Iteration_Ex.html">5. Iterative Computation: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">6. Ordinary Differential Equations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">6. Ordinary Differential Equations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="06_ODE_Ex.html">6. Ordinary Differential Equations: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="07_PDE.html">7. Partial Differential Equations</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="07_PDE.html">7. Partial Differential Equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="07_PDE_Ex.html">7. Partial Differential Equations: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="08_Optimization.html">8. Optimization</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="08_Optimization.html">8. Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="08_Optimization_Ex.html">8. Optimization: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="09_Stochastic.html">9. Stochastic Methods</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="09_Stochastic.html">9. Stochastic Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="09_Stochastic_Ex.html">9. Stochastic Methods: Exercise</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="10_Management_Ex.html">10. Software Management: Exercise</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Solutions.html">Sample Solutions of Exercises</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Solutions.html">Sample Solutions of Exercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Sol.html">1. Introduction to Python: Exercise Solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_Visualization_Sol.html">2. Visualization: Exercise Solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_Matrix_Sol.html">3. Vectors and Matrices: Exercise Solutions</a></li>
@@ -233,7 +235,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="08_Optimization_Sol.html">8. Optimization: Exercise Solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="09_Stochastic_Sol.html">9. Stochastic Methods: Exercise Solutions</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -249,7 +251,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -258,14 +260,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -343,10 +345,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -354,14 +356,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -558,7 +560,7 @@ with a small time step \)</span>\Delta t$.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/718f48bf3e9f07d567f6444620927f7badef35458e93acdf1be0015262450a4b.png" src="_images/718f48bf3e9f07d567f6444620927f7badef35458e93acdf1be0015262450a4b.png" />
+<img alt="_images/6a3b18d1d12f33fd7722d90041e570c8a286bd95c3f321c8116a3a475361224c.png" src="_images/6a3b18d1d12f33fd7722d90041e570c8a286bd95c3f321c8116a3a475361224c.png" />
 </div>
 </div>
 <p>A second-order ODE
@@ -589,7 +591,7 @@ where
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3afe0635f1655665581c1ba045bf0c6696a7de28c43e447779022d69e2bd67ce.png" src="_images/3afe0635f1655665581c1ba045bf0c6696a7de28c43e447779022d69e2bd67ce.png" />
+<img alt="_images/95efd4035f272243682b3842a7f486e7bc453b2ba9ecda26e100ca955a1bb496.png" src="_images/95efd4035f272243682b3842a7f486e7bc453b2ba9ecda26e100ca955a1bb496.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -600,7 +602,7 @@ where
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d534237216872f194bbbcf627270ba73673bc4709a36982d469ca0dd8d3244bb.png" src="_images/d534237216872f194bbbcf627270ba73673bc4709a36982d469ca0dd8d3244bb.png" />
+<img alt="_images/90e4be2342f3456c0f3c544487a47a82ec686ac1819525ed637afab505505cca.png" src="_images/90e4be2342f3456c0f3c544487a47a82ec686ac1819525ed637afab505505cca.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -611,7 +613,7 @@ where
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/70758203eebfc7fa27c9e82d227fd3ce666d2538197a39cbfd273fbdafa5d653.png" src="_images/70758203eebfc7fa27c9e82d227fd3ce666d2538197a39cbfd273fbdafa5d653.png" />
+<img alt="_images/cfa85e8729c45d30f735595027ab3847cf924dc3b8d5057339d6463481e974f8.png" src="_images/cfa85e8729c45d30f735595027ab3847cf924dc3b8d5057339d6463481e974f8.png" />
 </div>
 </div>
 <p>Let us see how the time step affects the accuracy of the solution.</p>
@@ -627,7 +629,7 @@ where
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bb6b4bbbe56658bc0e9216cdf8b8157443ec6a5ac5d20ad9827cc99c8bc47ede.png" src="_images/bb6b4bbbe56658bc0e9216cdf8b8157443ec6a5ac5d20ad9827cc99c8bc47ede.png" />
+<img alt="_images/86c73b4d3319b4b5c434e33b1565d39b56181c751071e601ec5b16a8ccbe0b92.png" src="_images/86c73b4d3319b4b5c434e33b1565d39b56181c751071e601ec5b16a8ccbe0b92.png" />
 </div>
 </div>
 </section>
@@ -664,27 +666,27 @@ $<span class="math notranslate nohighlight">\( y(t+\Delta t) = y(t) + f(y(t))\De
 
 odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=None, rtol=None, atol=None, tcrit=None, h0=0.0, hmax=0.0, hmin=0.0, ixpr=0, mxstep=0, mxhnil=0, mxordn=12, mxords=5, printmessg=0, tfirst=False)
     Integrate a system of ordinary differential equations.
-    
+
     .. note:: For new code, use `scipy.integrate.solve_ivp` to solve a
               differential equation.
-    
+
     Solve a system of ordinary differential equations using lsoda from the
     FORTRAN library odepack.
-    
+
     Solves the initial value problem for stiff or non-stiff systems
     of first order ode-s::
-    
+
         dy/dt = func(y, t, ...)  [or func(t, y, ...)]
-    
+
     where y can be a vector.
-    
+
     .. note:: By default, the required order of the first two arguments of
               `func` are in the opposite order of the arguments in the system
               definition function used by the `scipy.integrate.ode` class and
               the function `scipy.integrate.solve_ivp`. To use a function with
               the signature ``func(t, y, ...)``, the argument `tfirst` must be
               set to ``True``.
-    
+
     Parameters
     ----------
     func : callable(y, t, ...) or callable(t, y, ...)
@@ -714,9 +716,9 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
     tfirst : bool, optional
         If True, the first two arguments of `func` (and `Dfun`, if given)
         must ``t, y`` instead of the default ``y, t``.
-    
+
         .. versionadded:: 1.1.0
-    
+
     Returns
     -------
     y : array, shape (len(t), len(y0))
@@ -724,7 +726,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
         with the initial value `y0` in the first row.
     infodict : dict, only returned if full_output == True
         Dictionary containing additional output information
-    
+
         =======  ============================================================
         key      meaning
         =======  ============================================================
@@ -747,7 +749,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
         &#39;mused&#39;  a vector of method indicators for each successful time step:
                  1: adams (nonstiff), 2: bdf (stiff)
         =======  ============================================================
-    
+
     Other Parameters
     ----------------
     ml, mu : int, optional
@@ -759,9 +761,9 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
         Thus, the return matrix `jac` from `Dfun` should have shape
         ``(ml + mu + 1, len(y0))`` when ``ml &gt;=0`` or ``mu &gt;=0``.
         The data in `jac` must be stored such that ``jac[i - j + mu, j]``
-        holds the derivative of the `i`th equation with respect to the `j`th
-        state variable.  If `col_deriv` is True, the transpose of this
-        `jac` must be returned.
+        holds the derivative of the ``i``\ th equation with respect to the
+        ``j``\ th state variable.  If `col_deriv` is True, the transpose of
+        this `jac` must be returned.
     rtol, atol : float, optional
         The input parameters `rtol` and `atol` determine the error
         control performed by the solver.  The solver will control the
@@ -791,65 +793,65 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
         Maximum order to be allowed for the non-stiff (Adams) method.
     mxords : int, (0: solver-determined), optional
         Maximum order to be allowed for the stiff (BDF) method.
-    
+
     See Also
     --------
     solve_ivp : solve an initial value problem for a system of ODEs
     ode : a more object-oriented integrator based on VODE
     quad : for finding the area under a curve
-    
+
     Examples
     --------
     The second order differential equation for the angle `theta` of a
     pendulum acted on by gravity with friction can be written::
-    
+
         theta&#39;&#39;(t) + b*theta&#39;(t) + c*sin(theta(t)) = 0
-    
+
     where `b` and `c` are positive constants, and a prime (&#39;) denotes a
     derivative. To solve this equation with `odeint`, we must first convert
     it to a system of first order equations. By defining the angular
     velocity ``omega(t) = theta&#39;(t)``, we obtain the system::
-    
+
         theta&#39;(t) = omega(t)
         omega&#39;(t) = -b*omega(t) - c*sin(theta(t))
-    
+
     Let `y` be the vector [`theta`, `omega`]. We implement this system
     in Python as:
-    
+
     &gt;&gt;&gt; import numpy as np
     &gt;&gt;&gt; def pend(y, t, b, c):
     ...     theta, omega = y
     ...     dydt = [omega, -b*omega - c*np.sin(theta)]
     ...     return dydt
     ...
-    
+
     We assume the constants are `b` = 0.25 and `c` = 5.0:
-    
+
     &gt;&gt;&gt; b = 0.25
     &gt;&gt;&gt; c = 5.0
-    
+
     For initial conditions, we assume the pendulum is nearly vertical
     with `theta(0)` = `pi` - 0.1, and is initially at rest, so
     `omega(0)` = 0.  Then the vector of initial conditions is
-    
+
     &gt;&gt;&gt; y0 = [np.pi - 0.1, 0.0]
-    
+
     We will generate a solution at 101 evenly spaced samples in the interval
     0 &lt;= `t` &lt;= 10.  So our array of times is:
-    
+
     &gt;&gt;&gt; t = np.linspace(0, 10, 101)
-    
+
     Call `odeint` to generate the solution. To pass the parameters
     `b` and `c` to `pend`, we give them to `odeint` using the `args`
     argument.
-    
+
     &gt;&gt;&gt; from scipy.integrate import odeint
     &gt;&gt;&gt; sol = odeint(pend, y0, t, args=(b, c))
-    
+
     The solution is an array with shape (101, 2). The first column
     is `theta(t)`, and the second is `omega(t)`. The following code
     plots both components.
-    
+
     &gt;&gt;&gt; import matplotlib.pyplot as plt
     &gt;&gt;&gt; plt.plot(t, sol[:, 0], &#39;b&#39;, label=&#39;theta(t)&#39;)
     &gt;&gt;&gt; plt.plot(t, sol[:, 1], &#39;g&#39;, label=&#39;omega(t)&#39;)
@@ -871,7 +873,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/88e8ee50dac3d78539c36c9181837beaa70e3cf67c5bd3f7cb02fc035fd3a3ec.png" src="_images/88e8ee50dac3d78539c36c9181837beaa70e3cf67c5bd3f7cb02fc035fd3a3ec.png" />
+<img alt="_images/80aaa443241c5f324e27cde16fda1bb8eb2fe211d3baed322aebb979d328ded5.png" src="_images/80aaa443241c5f324e27cde16fda1bb8eb2fe211d3baed322aebb979d328ded5.png" />
 </div>
 </div>
 <p>Here’s another example of second-order linear ODE.</p>
@@ -884,7 +886,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/83b48dd1cfcf006b760d86e5aff5b09a5f28031a5f7581fa75ee428604153d33.png" src="_images/83b48dd1cfcf006b760d86e5aff5b09a5f28031a5f7581fa75ee428604153d33.png" />
+<img alt="_images/940be91be182302ddf59cff09349ecd2cba7522d63a16489f9d6b8b16265aaf5.png" src="_images/940be91be182302ddf59cff09349ecd2cba7522d63a16489f9d6b8b16265aaf5.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">odeint()</span></code> internally uses adaptive time steps, and returns values of <code class="docutils literal notranslate"><span class="pre">y</span></code> for time points specified in <code class="docutils literal notranslate"><span class="pre">t</span></code> by interpolation.</p>
@@ -900,7 +902,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c4ef136fac32cf1c2437913a61a3c55e3e1b23a27a2f919f3b1f38ca7db24a26.png" src="_images/c4ef136fac32cf1c2437913a61a3c55e3e1b23a27a2f919f3b1f38ca7db24a26.png" />
+<img alt="_images/3f7b2ac96f3ff98a419b2a03d9068915ed27650bf67595ae750462c05431de0f.png" src="_images/3f7b2ac96f3ff98a419b2a03d9068915ed27650bf67595ae750462c05431de0f.png" />
 </div>
 </div>
 </section>
@@ -978,7 +980,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cd6b974a2990e540b135de29f0bf5e64f1b71139960ff538b4233a4e3e961574.png" src="_images/cd6b974a2990e540b135de29f0bf5e64f1b71139960ff538b4233a4e3e961574.png" />
+<img alt="_images/c7023ebae9f6748762a130f07355279fcd6a6e95b698ee55f33524b3379b779e.png" src="_images/c7023ebae9f6748762a130f07355279fcd6a6e95b698ee55f33524b3379b779e.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1012,7 +1014,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0b5c6a8b7f03f76da5ee8b0a03f7a491784fc7242552a7bc3b20844941eae164.png" src="_images/0b5c6a8b7f03f76da5ee8b0a03f7a491784fc7242552a7bc3b20844941eae164.png" />
+<img alt="_images/83874ce8b1d1adea3249c9a4271127a444e9f251d4507b5f9cae31049572d968.png" src="_images/83874ce8b1d1adea3249c9a4271127a444e9f251d4507b5f9cae31049572d968.png" />
 </div>
 </div>
 </section>
@@ -1064,7 +1066,7 @@ Its stability is determined by the eigenvalues of \)</span>A$.</p>
 ev = [-0.5+0.8660254j -0.5-0.8660254j]
 </pre></div>
 </div>
-<img alt="_images/81be7ebf10c8de59c63610e47b6645a3dc2d289a61429f1d49ef5dbe74b62920.png" src="_images/81be7ebf10c8de59c63610e47b6645a3dc2d289a61429f1d49ef5dbe74b62920.png" />
+<img alt="_images/5f6df66bf0528d692b9c2da1037386591fd61b266fc5679504e36b40ef8e2392.png" src="_images/5f6df66bf0528d692b9c2da1037386591fd61b266fc5679504e36b40ef8e2392.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1079,7 +1081,7 @@ ev = [-0.5+0.8660254j -0.5-0.8660254j]
 ev = [0.5+0.8660254j 0.5-0.8660254j]
 </pre></div>
 </div>
-<img alt="_images/cf4f9b160e4282fe8c4bc4ac69bac657b9b88255c9a4cf1d890a340ae1437c3a.png" src="_images/cf4f9b160e4282fe8c4bc4ac69bac657b9b88255c9a4cf1d890a340ae1437c3a.png" />
+<img alt="_images/8e84f8de472fdc50e8ac5bcb626d9078370ce75070870f6b07a102712d99b801.png" src="_images/8e84f8de472fdc50e8ac5bcb626d9078370ce75070870f6b07a102712d99b801.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1094,7 +1096,7 @@ ev = [0.5+0.8660254j 0.5-0.8660254j]
 ev = [-1.  1.]
 </pre></div>
 </div>
-<img alt="_images/29de43ab2ab5d19907a541430548fc4fa81d40785cf8236cac88b44b8e0c11c5.png" src="_images/29de43ab2ab5d19907a541430548fc4fa81d40785cf8236cac88b44b8e0c11c5.png" />
+<img alt="_images/0880babc3a92378773f71668c3030ed0334541717ea4181bc01f22b26fa2afd2.png" src="_images/0880babc3a92378773f71668c3030ed0334541717ea4181bc01f22b26fa2afd2.png" />
 </div>
 </div>
 </section>
@@ -1124,7 +1126,7 @@ $<span class="math notranslate nohighlight">\( \frac{d^2y}{dt^2} - \mu(1-y^2)\fr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/98d02a83181a93ea2ed91b784ab8e241d9490763fd5fc331d7d4057d83c780b1.png" src="_images/98d02a83181a93ea2ed91b784ab8e241d9490763fd5fc331d7d4057d83c780b1.png" />
+<img alt="_images/6e1319be88de29d23e44a8a489748f5c73c00a67277ac9d9f3dcb29bb69190f4.png" src="_images/6e1319be88de29d23e44a8a489748f5c73c00a67277ac9d9f3dcb29bb69190f4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1135,7 +1137,7 @@ $<span class="math notranslate nohighlight">\( \frac{d^2y}{dt^2} - \mu(1-y^2)\fr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/524c08953ee6bcf5d7386c0f182db68ab56e48d04a4f645c7448977dd504a019.png" src="_images/524c08953ee6bcf5d7386c0f182db68ab56e48d04a4f645c7448977dd504a019.png" />
+<img alt="_images/c7f1074c9dc7bf9028cf524bf86821e80cf278f2d570b7b2a2bdd14ed4ac214c.png" src="_images/c7f1074c9dc7bf9028cf524bf86821e80cf278f2d570b7b2a2bdd14ed4ac214c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1147,7 +1149,7 @@ $<span class="math notranslate nohighlight">\( \frac{d^2y}{dt^2} - \mu(1-y^2)\fr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3b2c6e52f85755e11435eb152f046e093ff2f82f60d7eaca3ee11987144bf7b5.png" src="_images/3b2c6e52f85755e11435eb152f046e093ff2f82f60d7eaca3ee11987144bf7b5.png" />
+<img alt="_images/d414106c5587c0013ee9ab518e764d84d87c25902f2d909c513a2013688a982f.png" src="_images/d414106c5587c0013ee9ab518e764d84d87c25902f2d909c513a2013688a982f.png" />
 </div>
 </div>
 </section>
@@ -1187,7 +1189,7 @@ $<span class="math notranslate nohighlight">\( \frac{dx}{dt} = p(y - x) \)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8ef4dc91076042cdd690b17dc10c3afc83a9decaa17f798365d0115ca8d07d9b.png" src="_images/8ef4dc91076042cdd690b17dc10c3afc83a9decaa17f798365d0115ca8d07d9b.png" />
+<img alt="_images/326cb73e65187b9846e1c6d99752286db87593551f3c9b5d358b5b727a50a0cc.png" src="_images/326cb73e65187b9846e1c6d99752286db87593551f3c9b5d358b5b727a50a0cc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2181,7 +2183,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='7a489e2f-19ff-4976-92c8-722038c1e314'></div></div></div>
+</script><div class="output text_html"><div id='24509672-755e-4d61-a38b-a64a4e1e077e'></div></div></div>
 </div>
 </section>
 </section>
@@ -2216,7 +2218,7 @@ if (IPython.notebook.kernel !== null) {
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -2292,7 +2294,7 @@ By Kenji Doya
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -2316,8 +2318,8 @@ By Kenji Doya
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
