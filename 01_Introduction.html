@@ -409,6 +409,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magic-functions">Magic functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-loading-data">Saving and loading data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting help</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-a-new-package">Installing a new package</a></li>
 </ul>
             </nav>
         </div>
@@ -657,13 +658,25 @@ In Python 2, it was truncated to an integer.</p>
 <p>Multiple variables can be assigned at once.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span>
+<span class="n">a</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -672,33 +685,62 @@ In Python 2, it was truncated to an integer.</p>
 <section id="print-function">
 <h2>Print function<a class="headerlink" href="#print-function" title="Permalink to this heading">#</a></h2>
 <p>You can check the content of a variable or an expression by typing it at the bottom of a cell.</p>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">print</span></code> function to check the variables anywhere in a cell, multiple items at once.</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">print()</span></code> function to check the variables anywhere in a cell.
+Multiple items listed by <code class="docutils literal notranslate"><span class="pre">,</span></code> are printed with a space in between.</p>
+<p>A text string is represented by <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;</span>&#160; <span class="pre">&quot;</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a =&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a =&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39;; b =&#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a =&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39; b =&#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a = 2
-a = 2 ; b = 3
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 4
+a = 3
+a = 3  b = 4
 </pre></div>
 </div>
 </div>
 </div>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">.format()</span></code> for elaborate formatting with <code class="docutils literal notranslate"><span class="pre">:d</span></code> for integers, <code class="docutils literal notranslate"><span class="pre">:f</span></code> for floating point numbers, and <code class="docutils literal notranslate"><span class="pre">:s</span></code> for text strings.</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">.format()</span></code>, or simply a string starting with <code class="docutils literal notranslate"><span class="pre">f'</span></code> or <code class="docutils literal notranslate"><span class="pre">F'</span></code> to embed numbers in a text.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">/</span><span class="n">b</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0:2d}</span><span class="s1"> devided by </span><span class="si">{1:3d}</span><span class="s1"> is about </span><span class="si">{2:.4f}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The weight is </span><span class="si">{0}</span><span class="s1">g and the volume is </span><span class="si">{1}</span><span class="s1">cc.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2 devided by   3 is about 0.6667.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The weight is 3g and the volume is 4cc.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s1">&#39;The weight is </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1">g and the volume is </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">cc.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The weight is 3g and the volume is 4cc.
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can specify the length by <code class="docutils literal notranslate"><span class="pre">:</span></code> for text, <code class="docutils literal notranslate"><span class="pre">:d</span></code> for integers, and <code class="docutils literal notranslate"><span class="pre">:f</span></code> for floating point numbers.<br />
+A newline is started by <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s1">&#39;weight </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1"> g</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;volume&#39;</span><span class="si">:</span><span class="s1">10</span><span class="si">}{</span><span class="n">b</span><span class="si">:</span><span class="s1">6d</span><span class="si">}</span><span class="s1"> cc</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;density&#39;</span><span class="si">:</span><span class="s1">10</span><span class="si">}{</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="si">:</span><span class="s1">6.3f</span><span class="si">}</span><span class="s1"> g/cc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>weight 3 g
+volume         4 cc
+density    0.750 g/cc
 </pre></div>
 </div>
 </div>
@@ -867,7 +909,7 @@ a = 2 ; b = 3
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 
 <span class="ne">TypeError</span>: list indices must be integers or slices, not tuple
@@ -1422,6 +1464,25 @@ Don’t forget a colon and indentation.</p>
 </div>
 <p>You can use ‘Help’ menu to jump to a variety of documentations.</p>
 </section>
+<section id="installing-a-new-package">
+<h2>Installing a new package<a class="headerlink" href="#installing-a-new-package" title="Permalink to this heading">#</a></h2>
+<p>A python environment is usually set up with multiple <em>packages</em>, such as numpy.<br />
+You can check the currently installed packages by <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code>, or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code> command if you installed Anaconda.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>list
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you wand to install a new package, you can use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> command, or by Anaconda Navigator.</p>
+<p>For example, if you have not installed <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>, which we will use later, you can install that from your console by</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">scikit-learn</span></code><br />
+or<br />
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">conda</span> <span class="pre">install</span> <span class="pre">scikit-learn</span></code><br />
+from your console.</p>
+<p><code class="docutils literal notranslate"><span class="pre">!pip</span></code> or <code class="docutils literal notranslate"><span class="pre">!conda</span></code> may not work if y/n input is required.</p>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -1515,6 +1576,7 @@ Don’t forget a colon and indentation.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magic-functions">Magic functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-loading-data">Saving and loading data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting help</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-a-new-package">Installing a new package</a></li>
 </ul>
   </nav></div>
 

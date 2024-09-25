@@ -508,13 +508,14 @@ latter are NOT linearly separable from each other.
 </ul>
 <p>The last column is the flower type:</p>
 <ul class="simple">
-<li><p>1:Setosa, 2:Versicolor, 3:Virginica</p></li>
+<li><p>0:Setosa, 1:Versicolor, 2:Virginica</p></li>
 </ul>
-<p>You can read the actual data by <code class="docutils literal notranslate"><span class="pre">.data</span></code></p>
+<p>You can read the actual data by <code class="docutils literal notranslate"><span class="pre">.data</span></code> and the flower type by <code class="docutils literal notranslate"><span class="pre">.target</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -668,7 +669,11 @@ latter are NOT linearly separable from each other.
  [6.3 2.5 5.  1.9]
  [6.5 3.  5.2 2. ]
  [6.2 3.4 5.4 2.3]
- [5.9 3.  5.1 1.8]]
+ [5.9 3.  5.1 1.8]] [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2
+ 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+ 2 2]
 </pre></div>
 </div>
 </div>
