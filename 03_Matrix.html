@@ -747,8 +747,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.95392355,  0.81268671,  0.78161453],
-       [-0.75785215, -0.65011917,  0.53010265]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.89607849, -1.6027127 , -0.66454658],
+       [ 0.32853088, -0.43880436,  0.64587995]])
 </pre></div>
 </div>
 </div>
@@ -760,8 +760,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.39669763, 0.71095786, 0.85234182],
-       [0.21627853, 0.78260765, 0.83203645]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.92762778, 0.20367249, 0.2074894 ],
+       [0.45691918, 0.98750071, 0.87323793]])
 </pre></div>
 </div>
 </div>
@@ -773,8 +773,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.10499127, -0.89196475, -0.88101901],
-       [-0.16605801, -0.84557486, -0.96475598]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.59668777, -0.42938817,  0.48230465],
+       [-0.00485272,  0.62412819,  0.43916836]])
 </pre></div>
 </div>
 </div>
@@ -786,8 +786,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 2, 0],
-       [0, 2, 0]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 2,  2,  1],
+       [ 2, -1, -3]])
 </pre></div>
 </div>
 </div>
@@ -799,8 +799,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4592229839186427184, -4617162713120582962, -4617261303494459526],
-       [-4628221146057886784, -4617580556105657132, -4616507067949115602]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-4619822331701311814, -4621965247399701892,  4602360048108711704],
+       [-4651127206825029888,  4603796866468075004,  4601582973787718864]])
 </pre></div>
 </div>
 </div>
@@ -816,13 +816,16 @@ document.write(`
 </ul>
 <p>The dot product (or inner product) of two vectors
 <span class="math notranslate nohighlight">\(\b{x} = (x_1,...,x_n)\)</span> and <span class="math notranslate nohighlight">\(\b{y} = (y_1,...,y_n)\)</span>
-is defined as<br />
-$<span class="math notranslate nohighlight">\( \b{x} \cdot \b{y} = x_1 y_1 + ... + x_n y_n = \sum_{i=1}^n x_i y_i \)</span>$</p>
-<p>The inner product measures how two vectors match up, giving
-$<span class="math notranslate nohighlight">\( -||\b{x}||\,||\b{y}|| \le \b{x} \cdot \b{y} \le ||\b{x}||\,||\b{y}|| \)</span>$
-with the maximum when two vectors line up, zero when two are orthogonal.</p>
-<p>The length (or norm) of the vector is defined as<br />
-$<span class="math notranslate nohighlight">\( ||\b{x}|| = \sqrt{\sum_{i=1}^n x_i^2} = \sqrt{\b{x} \cdot \b{x}} \)</span>$</p>
+is defined as</p>
+<div class="math notranslate nohighlight">
+\[ \b{x} \cdot \b{y} = x_1 y_1 + ... + x_n y_n = \sum_{i=1}^n x_i y_i \]</div>
+<p>The inner product measures how two vectors match up, giving</p>
+<div class="math notranslate nohighlight">
+\[ -||\b{x}||\,||\b{y}|| \le \b{x} \cdot \b{y} \le ||\b{x}||\,||\b{y}|| \]</div>
+<p>with the maximum when two vectors line up, zero when two are orthogonal.</p>
+<p>The length (or norm) of the vector is defined as</p>
+<div class="math notranslate nohighlight">
+\[ ||\b{x}|| = \sqrt{\sum_{i=1}^n x_i^2} = \sqrt{\b{x} \cdot \b{x}} \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
@@ -871,8 +874,9 @@ For
 <span class="math notranslate nohighlight">\(A = \left(\begin{array}{cc} a &amp; b\\ c &amp; d\end{array}\right)\)</span>
 and
 <span class="math notranslate nohighlight">\(B = \left(\begin{array}{cc} e &amp; f\\ g &amp; h\end{array}\right)\)</span>,
-the matrix product is
-$<span class="math notranslate nohighlight">\( AB = \left(\begin{array}{cc} ae+bg &amp; af+bh \\ ce+dg &amp; cf+dh\end{array}\right). \)</span>$</p>
+the matrix product is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} AB = \left(\begin{array}{cc} ae+bg &amp; af+bh \\ ce+dg &amp; cf+dh\end{array}\right). \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
@@ -935,11 +939,13 @@ $<span class="math notranslate nohighlight">\( AB = \left(\begin{array}{cc} ae+b
 <li><p>transformation to another vector space</p></li>
 <li><p>movement in the space</p></li>
 </ul>
-<p>The product of a 2D matrix <span class="math notranslate nohighlight">\(A\)</span> and a vector <span class="math notranslate nohighlight">\(\b{x}\)</span> is given as
-$<span class="math notranslate nohighlight">\( A \b{x} = \mat{ a &amp; b\\ c &amp; d}\mat{x \\ y} = \mat{ax+by\\ cx+dy}. \)</span><span class="math notranslate nohighlight">\(
-Sepcifically for unit vectors
-\)</span><span class="math notranslate nohighlight">\( A \mat{1 \\ 0} = \mat{ a \\ c } \mbox{and } A \mat{0 \\ 1} = \mat{ b \\ d}\)</span><span class="math notranslate nohighlight">\(
-meaning that each column of \)</span>A$ reporesents how a unit vector in each axis is transformed.</p>
+<p>The product of a 2D matrix <span class="math notranslate nohighlight">\(A\)</span> and a vector <span class="math notranslate nohighlight">\(\b{x}\)</span> is given as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} A \b{x} = \mat{ a &amp; b\\ c &amp; d}\mat{x \\ y} = \mat{ax+by\\ cx+dy}. \end{split}\]</div>
+<p>Specifically for unit vectors</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} A \mat{1 \\ 0} = \mat{ a \\ c } \mbox{and } A \mat{0 \\ 1} = \mat{ b \\ d}\end{split}\]</div>
+<p>meaning that each column of <span class="math notranslate nohighlight">\(A\)</span> represents how a unit vector in each axis is transformed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prepare a set of points in colors</span>
@@ -979,11 +985,11 @@ meaning that each column of \)</span>A$ reporesents how a unit vector in each ax
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.82096631  0.20294252]
- [-0.55931851 -0.56705153]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.01005778  0.52213243]
+ [-0.53952507 -0.60444511]]
 </pre></div>
 </div>
-<img alt="_images/574b1b73902ad89c94c40701bd8469bf89125452fffc8d419c240e5670a678cf.png" src="_images/574b1b73902ad89c94c40701bd8469bf89125452fffc8d419c240e5670a678cf.png" />
+<img alt="_images/465f87ea88ce02e9b63d393aa792e592e00e122762981b744b1fecd4410b069f.png" src="_images/465f87ea88ce02e9b63d393aa792e592e00e122762981b744b1fecd4410b069f.png" />
 </div>
 </div>
 </section>
@@ -993,8 +999,9 @@ meaning that each column of \)</span>A$ reporesents how a unit vector in each ax
 The <em>determinant</em> of a square matrix measures the expansion of the volume.<br />
 For a 2 by 2 matrix
 <span class="math notranslate nohighlight">\(A = \left(\begin{array}{cc} a &amp; b\\ c &amp; d\end{array}\right)\)</span>,<br />
-the determinant is computed by
-$<span class="math notranslate nohighlight">\(\det A = ad - bc.\)</span>$</p>
+the determinant is computed by</p>
+<div class="math notranslate nohighlight">
+\[\det A = ad - bc.\]</div>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">linalg.det()</span></code> for any matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1036,20 +1043,26 @@ where \)</span>I$ is the identity matrix.</p>
 </section>
 <section id="solving-linear-algebraic-equations">
 <h2>Solving linear algebraic equations<a class="headerlink" href="#solving-linear-algebraic-equations" title="Permalink to this heading">#</a></h2>
-<p>Many problems are formed as a set of linear equations:
-$<span class="math notranslate nohighlight">\( a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \vdots \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n = b_m \)</span><span class="math notranslate nohighlight">\(
-This can be expressed by a matrix-vector equation
-\)</span><span class="math notranslate nohighlight">\( A\b{x} =\b{b} \)</span><span class="math notranslate nohighlight">\(
-where
-\)</span><span class="math notranslate nohighlight">\( A = \left(\begin{array}{ccc} a_{11} &amp; \cdots &amp; a_{1n}\\
+<p>Many problems are formed as a set of linear equations:</p>
+<div class="math notranslate nohighlight">
+\[ a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \]</div>
+<div class="math notranslate nohighlight">
+\[ \vdots \]</div>
+<div class="math notranslate nohighlight">
+\[ a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n = b_m \]</div>
+<p>This can be expressed by a matrix-vector equation</p>
+<div class="math notranslate nohighlight">
+\[ A\b{x} =\b{b} \]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} A = \left(\begin{array}{ccc} a_{11} &amp; \cdots &amp; a_{1n}\\
     \vdots &amp;  &amp; \vdots\\
     a_{m1} &amp; \cdots &amp; a_{mn}\end{array}\right), \quad
    \b{x} = \left(\begin{array}{c} x_1\\ \vdots\\ x_n\end{array}\right), \quad
-   \b{b} = \left(\begin{array}{c} b_1\\ \vdots\\ b_m\end{array}\right). \)</span><span class="math notranslate nohighlight">\(
-If \)</span>m=n<span class="math notranslate nohighlight">\( and \)</span>A<span class="math notranslate nohighlight">\( is regular, the solution is given by 
-\)</span><span class="math notranslate nohighlight">\( \b{x} = A^{-1} \b{b}. \)</span>$</p>
+   \b{b} = \left(\begin{array}{c} b_1\\ \vdots\\ b_m\end{array}\right). \end{split}\]</div>
+<p>If <span class="math notranslate nohighlight">\(m=n\)</span> and <span class="math notranslate nohighlight">\(A\)</span> is regular, the solution is given by</p>
+<div class="math notranslate nohighlight">
+\[ \b{x} = A^{-1} \b{b}. \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
@@ -1089,11 +1102,13 @@ Ax = [1.0000000e+00 8.8817842e-16]
 <section id="eigenvalues-and-eigenvectors">
 <h2>Eigenvalues and eigenvectors<a class="headerlink" href="#eigenvalues-and-eigenvectors" title="Permalink to this heading">#</a></h2>
 <p>With a transformation by a symmetrix matrix <span class="math notranslate nohighlight">\(A\)</span>, some vectors keep its own direction. Such a vector is called an <em>eigenvector</em> and its scaling coefficient is called the <em>eigenvalue</em>.<br />
-Eigenvalues and eigenvectors are derived by solving the equation
-$<span class="math notranslate nohighlight">\( A\b{x} = \lambda \b{x} \)</span><span class="math notranslate nohighlight">\(
-which is equivalent to \)</span> A\b{x} - \lambda \b{x} = (A - \lambda I)\b{x} = 0.<span class="math notranslate nohighlight">\(  
-Eigenvalues are derived by solving a polynomial equation
-\)</span><span class="math notranslate nohighlight">\( \det (A - \lambda I) = 0 \)</span>$</p>
+Eigenvalues and eigenvectors are derived by solving the equation</p>
+<div class="math notranslate nohighlight">
+\[ A\b{x} = \lambda \b{x} \]</div>
+<p>which is equivalent to <span class="math notranslate nohighlight">\( A\b{x} - \lambda \b{x} = (A - \lambda I)\b{x} = 0.\)</span><br />
+Eigenvalues are derived by solving a polynomial equation</p>
+<div class="math notranslate nohighlight">
+\[ \det (A - \lambda I) = 0 \]</div>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">linalg.eig()</span></code> function to numerically derive eigenvalues <span class="math notranslate nohighlight">\(\b{\lambda} = (\lambda_1,...,\lambda_n)\)</span> and a matrix of eigenvectors in columns <span class="math notranslate nohighlight">\(V = (\b{v}_1,...,\b{v}_n)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1134,48 +1149,62 @@ Eigenvalues are derived by solving a polynomial equation
 </section>
 <section id="eigendecomposition">
 <h2>Eigendecomposition<a class="headerlink" href="#eigendecomposition" title="Permalink to this heading">#</a></h2>
-<p>For a square matrix <span class="math notranslate nohighlight">\(A\)</span>, consider a matrix consisting of its eigenvalues on the diagonal
-$<span class="math notranslate nohighlight">\( \Lambda = \mbox{diag}(\lambda_1, \cdots, \lambda_n) \)</span><span class="math notranslate nohighlight">\(
-and another matrix made of their eigenvectors in columns
-\)</span><span class="math notranslate nohighlight">\( V = (\b{v}_1, \cdots, \b{v}_n). \)</span>$</p>
-<p>From
-$<span class="math notranslate nohighlight">\( AV = (\lambda_1 \b{v}_1, \cdots, \lambda_n \b{v}_n)
+<p>For a square matrix <span class="math notranslate nohighlight">\(A\)</span>, consider a matrix consisting of its eigenvalues on the diagonal</p>
+<div class="math notranslate nohighlight">
+\[ \Lambda = \mbox{diag}(\lambda_1, \cdots, \lambda_n) \]</div>
+<p>and another matrix made of their eigenvectors in columns</p>
+<div class="math notranslate nohighlight">
+\[ V = (\b{v}_1, \cdots, \b{v}_n). \]</div>
+<p>From</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} AV = (\lambda_1 \b{v}_1, \cdots, \lambda_n \b{v}_n)
  = (\b{v}_1, \cdots, \b{v}_n)
    \mat{\lambda_1 &amp; &amp; \\ &amp; \ddots &amp; \\ &amp; &amp; \lambda_n}
- = V \Lambda, \)</span><span class="math notranslate nohighlight">\(
-if \)</span>V<span class="math notranslate nohighlight">\( is invertible, \)</span>A<span class="math notranslate nohighlight">\( can be represented as
-\)</span><span class="math notranslate nohighlight">\( A = V \Lambda V^{-1}. \)</span>$</p>
+ = V \Lambda, \end{split}\]</div>
+<p>if <span class="math notranslate nohighlight">\(V\)</span> is invertible, <span class="math notranslate nohighlight">\(A\)</span> can be represented as</p>
+<div class="math notranslate nohighlight">
+\[ A = V \Lambda V^{-1}. \]</div>
 <p>This representation of a matrix is called <em>eigendecomposition</em> or <em>spectral decomposition</em>.</p>
-<p>This representation is extremely useful in multiplying <span class="math notranslate nohighlight">\(A\)</span> many times as
-$<span class="math notranslate nohighlight">\( A^k = V \Lambda^k V^{-1} = V \mbox{diag}(\lambda_1^k, \cdots, \lambda_n^k) V^{-1} \)</span>$
-requires only exponentials in the diagonal terms rather than repeated matrix multiplications.</p>
+<p>This representation is extremely useful in multiplying <span class="math notranslate nohighlight">\(A\)</span> many times as</p>
+<div class="math notranslate nohighlight">
+\[ A^k = V \Lambda^k V^{-1} = V \mbox{diag}(\lambda_1^k, \cdots, \lambda_n^k) V^{-1} \]</div>
+<p>requires only exponentials in the diagonal terms rather than repeated matrix multiplications.</p>
 <p>It also helps intutitive understanding of how a point <span class="math notranslate nohighlight">\(\b{x}\)</span> transofrmed by <span class="math notranslate nohighlight">\(A\)</span> many times as <span class="math notranslate nohighlight">\(A\b{x}, A^2\b{x}, A^3\b{x},...\)</span> would move.</p>
 </section>
 <section id="covariance-matrix">
 <h2>Covariance matrix<a class="headerlink" href="#covariance-matrix" title="Permalink to this heading">#</a></h2>
 <p>For <span class="math notranslate nohighlight">\(m\)</span> samples of <span class="math notranslate nohighlight">\(n\)</span>-dimensional variable
 <span class="math notranslate nohighlight">\( \b{x} = (x_1,..., x_n)\)</span>
-we usuall create a data matrix
-$<span class="math notranslate nohighlight">\( X = \left(\begin{array}{ccc} x_1^1 &amp; \cdots &amp; x^1_n\\
+we usuall create a data matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} X = \left(\begin{array}{ccc} x_1^1 &amp; \cdots &amp; x^1_n\\
     \vdots &amp;  &amp; \vdots\\
-    x^m_1 &amp; \cdots &amp; x^m_n\end{array}\right).\)</span>$</p>
-<p>The covariance <span class="math notranslate nohighlight">\(c_{ij}\)</span> of the components <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(x_j\)</span> represents how the two variables change togher around the mean:
-$<span class="math notranslate nohighlight">\( \bar{x}_i = \frac{1}{m} \sum_{k=1}^m x_i^k \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( c_{ij} = \frac{1}{m-1} \sum_{k=1}^m (x_i^k - \bar{x}_i)(x_j^k - \bar{x}_j) \)</span>$</p>
-<p>The covariance matrix <span class="math notranslate nohighlight">\(C\)</span> consists of the covariances of all pairs of components
-$<span class="math notranslate nohighlight">\( C = \begin{pmatrix} c_{11} &amp; \cdots &amp; c_{1n}\\
+    x^m_1 &amp; \cdots &amp; x^m_n\end{array}\right).\end{split}\]</div>
+<p>The covariance <span class="math notranslate nohighlight">\(c_{ij}\)</span> of the components <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(x_j\)</span> represents how the two variables change togher around the mean:</p>
+<div class="math notranslate nohighlight">
+\[ \bar{x}_i = \frac{1}{m} \sum_{k=1}^m x_i^k \]</div>
+<div class="math notranslate nohighlight">
+\[ c_{ij} = \frac{1}{m-1} \sum_{k=1}^m (x_i^k - \bar{x}_i)(x_j^k - \bar{x}_j) \]</div>
+<p>The covariance matrix <span class="math notranslate nohighlight">\(C\)</span> consists of the covariances of all pairs of components</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} C = \begin{pmatrix} c_{11} &amp; \cdots &amp; c_{1n}\\
     \vdots &amp;  &amp; \vdots\\
     c_{n1} &amp; \cdots &amp; c_{nn}\end{pmatrix}
-    = \frac{1}{m-1} \sum_{k=1}^m (\b{x}^k - \bar{\b{x}})^T(\b{x}^k - \bar{\b{x}}) \)</span><span class="math notranslate nohighlight">\(
-where \)</span>\bar{x}<span class="math notranslate nohighlight">\( is the mean vector
-\)</span><span class="math notranslate nohighlight">\( \bar{\b{x}} = (\bar{x}_1,..., \bar{x}_n) = \frac{1}{m} \sum_{j=1}^m \b{x}^k
-\)</span>$</p>
+    = \frac{1}{m-1} \sum_{k=1}^m (\b{x}^k - \bar{\b{x}})^T(\b{x}^k - \bar{\b{x}}) \end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\bar{x}\)</span> is the mean vector</p>
+<div class="math notranslate nohighlight">
+\[ \bar{\b{x}} = (\bar{x}_1,..., \bar{x}_n) = \frac{1}{m} \sum_{j=1}^m \b{x}^k
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in the iris data</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;data/iris.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># flower type</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,:</span><span class="mi">4</span><span class="p">]</span>
+<span class="c1"># X = np.loadtxt(&#39;data/iris.txt&#39;, delimiter=&#39;,&#39;)</span>
+<span class="c1"># Y = X[:,-1]  # flower type</span>
+<span class="c1"># X = X[:,:4]</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
 <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
@@ -1187,7 +1216,7 @@ where \)</span>\bar{x}<span class="math notranslate nohighlight">\( is the mean 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0fb1198ce0b0adfc62bceb595c16ad82884e930aacb4dbdbf7c3b04338ac3738.png" src="_images/0fb1198ce0b0adfc62bceb595c16ad82884e930aacb4dbdbf7c3b04338ac3738.png" />
+<img alt="_images/0add4a659fbc197c9c283c092c70fe3bdac257c283f4136634d4d35d2c55b7dc.png" src="_images/0add4a659fbc197c9c283c092c70fe3bdac257c283f4136634d4d35d2c55b7dc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1203,17 +1232,17 @@ where \)</span>\bar{x}<span class="math notranslate nohighlight">\( is the mean 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>xbar = [5.84333333 3.054      3.75866667 1.19866667]
-C = [[ 0.68569351 -0.03926846  1.27368233  0.5169038 ]
- [-0.03926846  0.18800403 -0.32171275 -0.11798121]
- [ 1.27368233 -0.32171275  3.11317942  1.29638747]
- [ 0.5169038  -0.11798121  1.29638747  0.58241432]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>xbar = [5.84333333 3.05733333 3.758      1.19933333]
+C = [[ 0.68569351 -0.042434    1.27431544  0.51627069]
+ [-0.042434    0.18997942 -0.32965638 -0.12163937]
+ [ 1.27431544 -0.32965638  3.11627785  1.2956094 ]
+ [ 0.51627069 -0.12163937  1.2956094   0.58100626]]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.68569351, -0.03926846,  1.27368233,  0.5169038 ],
-       [-0.03926846,  0.18800403, -0.32171275, -0.11798121],
-       [ 1.27368233, -0.32171275,  3.11317942,  1.29638747],
-       [ 0.5169038 , -0.11798121,  1.29638747,  0.58241432]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.68569351, -0.042434  ,  1.27431544,  0.51627069],
+       [-0.042434  ,  0.18997942, -0.32965638, -0.12163937],
+       [ 1.27431544, -0.32965638,  3.11627785,  1.2956094 ],
+       [ 0.51627069, -0.12163937,  1.2956094 ,  0.58100626]])
 </pre></div>
 </div>
 </div>
@@ -1239,14 +1268,14 @@ The eigenvectors <span class="math notranslate nohighlight">\(\b{v}_i\)</span> o
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lam, V =  [4.22484077 0.24224357 0.07852391 0.02368303] [[ 0.36158968 -0.65653988 -0.58099728  0.31725455]
- [-0.08226889 -0.72971237  0.59641809 -0.32409435]
- [ 0.85657211  0.1757674   0.07252408 -0.47971899]
- [ 0.35884393  0.07470647  0.54906091  0.75112056]]
-lams, Vs =  [4.22484077 0.24224357 0.07852391 0.02368303] [[ 0.36158968 -0.65653988 -0.58099728  0.31725455]
- [-0.08226889 -0.72971237  0.59641809 -0.32409435]
- [ 0.85657211  0.1757674   0.07252408 -0.47971899]
- [ 0.35884393  0.07470647  0.54906091  0.75112056]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lam, V =  [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658877 -0.58202985  0.31548719]
+ [-0.08452251 -0.73016143  0.59791083 -0.3197231 ]
+ [ 0.85667061  0.17337266  0.07623608 -0.47983899]
+ [ 0.3582892   0.07548102  0.54583143  0.75365743]]
+lams, Vs =  [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658877 -0.58202985  0.31548719]
+ [-0.08452251 -0.73016143  0.59791083 -0.3197231 ]
+ [ 0.85667061  0.17337266  0.07623608 -0.47983899]
+ [ 0.3582892   0.07548102  0.54583143  0.75365743]]
 </pre></div>
 </div>
 </div>
@@ -1274,7 +1303,7 @@ lams, Vs =  [4.22484077 0.24224357 0.07852391 0.02368303] [[ 0.36158968 -0.65653
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/668ae866719221e3d3666b2552165a9ab7d2c70ef1e65398ba7a743da6d0876e.png" src="_images/668ae866719221e3d3666b2552165a9ab7d2c70ef1e65398ba7a743da6d0876e.png" />
+<img alt="_images/f226939c6dd00ea05890f20b893b985d38509a3a18aa9aba598203c1b9e580d4.png" src="_images/f226939c6dd00ea05890f20b893b985d38509a3a18aa9aba598203c1b9e580d4.png" />
 </div>
 </div>
 <p>Now let us project the 4D data onto the space spanned by the eigenvectors.</p>
@@ -1294,22 +1323,25 @@ lams, Vs =  [4.22484077 0.24224357 0.07852391 0.02368303] [[ 0.36158968 -0.65653
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/98d5912f015ab7fa4b67dfa516854e7642380cde54b495730d3b3ac0faac7f6f.png" src="_images/98d5912f015ab7fa4b67dfa516854e7642380cde54b495730d3b3ac0faac7f6f.png" />
+<img alt="_images/be9298bd3a1f39310bd046902608a61ba93211c80a490efa072308beda586dce.png" src="_images/be9298bd3a1f39310bd046902608a61ba93211c80a490efa072308beda586dce.png" />
 </div>
 </div>
 </section>
 <section id="singular-value-decomposition-svd">
 <h2>Singular value decomposition (SVD)<a class="headerlink" href="#singular-value-decomposition-svd" title="Permalink to this heading">#</a></h2>
-<p>For a <span class="math notranslate nohighlight">\((m\times n)\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>, a non-negative value <span class="math notranslate nohighlight">\(\sigma&gt;0\)</span> satisfying
-$<span class="math notranslate nohighlight">\( A \b{v} = \sigma \b{u}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( A^T \b{u} = \sigma \b{v}\)</span><span class="math notranslate nohighlight">\(
-for unit vectors \)</span>||\b{u}||=||\b{v}||=1<span class="math notranslate nohighlight">\( is called the *singular value*.   
-\)</span>\b{u}<span class="math notranslate nohighlight">\( and \)</span>\b{v}$ are called left- and right-singular vectors.</p>
-<p>Singular value decomposition (SVD) of a <span class="math notranslate nohighlight">\((m\times n)\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is
-$<span class="math notranslate nohighlight">\( A = U S V^T = \sum_i \sigma_i \b{u}_i \b{v}_i^T \)</span><span class="math notranslate nohighlight">\(
-where \)</span>S=\mbox{diag}(\sigma_1,…,\sigma_k)<span class="math notranslate nohighlight">\( is a diagonal matrix made of \)</span>k=\min(m,n)<span class="math notranslate nohighlight">\( singular values,  
-\)</span>U=(\b{u}_1,…,\b{u}_k)<span class="math notranslate nohighlight">\( is a matrix made of orthogonal left-singular vectors, 
-and \)</span>V=(\b{v}_1,…,\b{v}_k)$ is a matrix made of orthogonal right-singular vectors.</p>
+<p>For a <span class="math notranslate nohighlight">\((m\times n)\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>, a non-negative value <span class="math notranslate nohighlight">\(\sigma&gt;0\)</span> satisfying</p>
+<div class="math notranslate nohighlight">
+\[ A \b{v} = \sigma \b{u}\]</div>
+<div class="math notranslate nohighlight">
+\[ A^T \b{u} = \sigma \b{v}\]</div>
+<p>for unit vectors <span class="math notranslate nohighlight">\(||\b{u}||=||\b{v}||=1\)</span> is called the <em>singular value</em>.<br />
+<span class="math notranslate nohighlight">\(\b{u}\)</span> and <span class="math notranslate nohighlight">\(\b{v}\)</span> are called left- and right-singular vectors.</p>
+<p>Singular value decomposition (SVD) of a <span class="math notranslate nohighlight">\((m\times n)\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[ A = U S V^T = \sum_i \sigma_i \b{u}_i \b{v}_i^T \]</div>
+<p>where <span class="math notranslate nohighlight">\(S=\mbox{diag}(\sigma_1,...,\sigma_k)\)</span> is a diagonal matrix made of <span class="math notranslate nohighlight">\(k=\min(m,n)\)</span> singular values,<br />
+<span class="math notranslate nohighlight">\(U=(\b{u}_1,...,\b{u}_k)\)</span> is a matrix made of orthogonal left-singular vectors,
+and <span class="math notranslate nohighlight">\(V=(\b{v}_1,...,\b{v}_k)\)</span> is a matrix made of orthogonal right-singular vectors.</p>
 <p>SVD represents a matrix by a weighted sum of outer products of column vectors <span class="math notranslate nohighlight">\(\b{u}_i\)</span> and row vectors <span class="math notranslate nohighlight">\(\b{v}_i\)</span>, such as spatial patterns mixed by different time courses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1382,7 +1414,12 @@ and \)</span>V=(\b{v}_1,…,\b{v}_k)$ is a matrix made of orthogonal right-singu
 </section>
 <section id="pca-by-svd">
 <h2>PCA by SVD<a class="headerlink" href="#pca-by-svd" title="Permalink to this heading">#</a></h2>
-<p>From <span class="math notranslate nohighlight">\(X = U SV^T\)</span> and the orothonormal construction of <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span>, we can see <span class="math notranslate nohighlight">\(C = \frac{1}{m-1}X^T X = \frac{1}{m-1}V S^2 V^T\)</span> and <span class="math notranslate nohighlight">\(C\b{v}_i = \frac{1}{m-1}\sigma_i^2\b{v}_i\)</span>.</p>
+<p>From <span class="math notranslate nohighlight">\(X = U SV^T\)</span> and the orothonormal construction of <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span>, we can see</p>
+<div class="math notranslate nohighlight">
+\[C = \frac{1}{m-1}X^T X = \frac{1}{m-1}V S^2 V^T\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[C\b{v}_i = \frac{1}{m-1}\sigma_i^2\b{v}_i.\]</div>
 <p>Thus columns of <span class="math notranslate nohighlight">\(V\)</span> are principal component vectors and <span class="math notranslate nohighlight">\(\frac{\sigma_i^2}{m-1}\)</span> are their eigenvalues.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1394,14 +1431,14 @@ and \)</span>V=(\b{v}_1,…,\b{v}_k)$ is a matrix made of orthogonal right-singu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>by covariance: [4.22484077 0.24224357 0.07852391 0.02368303] [[ 0.36158968 -0.65653988 -0.58099728  0.31725455]
- [-0.08226889 -0.72971237  0.59641809 -0.32409435]
- [ 0.85657211  0.1757674   0.07252408 -0.47971899]
- [ 0.35884393  0.07470647  0.54906091  0.75112056]]
-by SVD: [4.22484077 0.24224357 0.07852391 0.02368303] [[ 0.36158968 -0.65653988  0.58099728  0.31725455]
- [-0.08226889 -0.72971237 -0.59641809 -0.32409435]
- [ 0.85657211  0.1757674  -0.07252408 -0.47971899]
- [ 0.35884393  0.07470647 -0.54906091  0.75112056]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>by covariance: [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658877 -0.58202985  0.31548719]
+ [-0.08452251 -0.73016143  0.59791083 -0.3197231 ]
+ [ 0.85667061  0.17337266  0.07623608 -0.47983899]
+ [ 0.3582892   0.07548102  0.54583143  0.75365743]]
+by SVD: [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658877  0.58202985  0.31548719]
+ [-0.08452251 -0.73016143 -0.59791083 -0.3197231 ]
+ [ 0.85667061  0.17337266 -0.07623608 -0.47983899]
+ [ 0.3582892   0.07548102 -0.54583143  0.75365743]]
 </pre></div>
 </div>
 </div>
@@ -1409,14 +1446,18 @@ by SVD: [4.22484077 0.24224357 0.07852391 0.02368303] [[ 0.36158968 -0.65653988 
 </section>
 <section id="appendix-eigen-values-of-a-2x2-matrix">
 <h2>Appendix: Eigen values of a 2x2 matrix<a class="headerlink" href="#appendix-eigen-values-of-a-2x2-matrix" title="Permalink to this heading">#</a></h2>
-<p>Let us take the simplest and the most important case of 2 by 2 matrix
-$<span class="math notranslate nohighlight">\( A = \pmatrix{a &amp; b \\ c &amp; d}. \)</span>$</p>
-<p>We can analytically derive the eivenvalues from
-$<span class="math notranslate nohighlight">\( \det (A - \lambda I) = (a-\lambda)(d-\lambda) - bc = 0 \)</span><span class="math notranslate nohighlight">\(
-as
-\)</span><span class="math notranslate nohighlight">\( \lambda = \frac{a+d}{2} \pm \sqrt{\frac{(a-d)^2}{4}+ bc}. \)</span>$</p>
-<p>The correctponding eigenvectors are not unique, but given by, for example,
-$<span class="math notranslate nohighlight">\( \b{x} = \mat{b \\ \lambda - a}. \)</span>$</p>
+<p>Let us take the simplest and the most important case of 2 by 2 matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} A = \pmatrix{a &amp; b \\ c &amp; d}. \end{split}\]</div>
+<p>We can analytically derive the eivenvalues from</p>
+<div class="math notranslate nohighlight">
+\[ \det (A - \lambda I) = (a-\lambda)(d-\lambda) - bc = 0 \]</div>
+<p>as</p>
+<div class="math notranslate nohighlight">
+\[ \lambda = \frac{a+d}{2} \pm \sqrt{\frac{(a-d)^2}{4}+ bc}. \]</div>
+<p>The correctponding eigenvectors are not unique, but given by, for example,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \b{x} = \mat{b \\ \lambda - a}. \end{split}\]</div>
 <section id="real-eigenvalues">
 <h3>Real eigenvalues<a class="headerlink" href="#real-eigenvalues" title="Permalink to this heading">#</a></h3>
 <p>When <span class="math notranslate nohighlight">\(\frac{(a-d)^2}{4}+ bc \ge 0\)</span>, <span class="math notranslate nohighlight">\(A\)</span> has two real eigenvalues
@@ -1473,30 +1514,37 @@ V =  [[ 0.70710678 -0.4472136 ]
 </section>
 <section id="complex-eigenvalues">
 <h3>Complex eigenvalues<a class="headerlink" href="#complex-eigenvalues" title="Permalink to this heading">#</a></h3>
-<p>When <span class="math notranslate nohighlight">\(\frac{(a-d)^2}{4}+ bc &lt; 0\)</span>, <span class="math notranslate nohighlight">\(A\)</span> has a pair of complex eigenvalues
-$<span class="math notranslate nohighlight">\( \lambda_1 = \alpha + i\beta \mbox{ and } \lambda_2 = \alpha - i\beta \)</span><span class="math notranslate nohighlight">\(
-where
-\)</span><span class="math notranslate nohighlight">\( \alpha = \frac{a+d}{2} \mbox{ and } \beta^2 = -\frac{(a-d)^2}{4}- bc \)</span><span class="math notranslate nohighlight">\(
-with corresponding eigenvectors
-\)</span><span class="math notranslate nohighlight">\( V = (\b{v}_1, \b{v}_2) = (\b{u}+i\b{w}, \b{u}-i\b{w}).\)</span>$</p>
+<p>When <span class="math notranslate nohighlight">\(\frac{(a-d)^2}{4}+ bc &lt; 0\)</span>, <span class="math notranslate nohighlight">\(A\)</span> has a pair of complex eigenvalues</p>
+<div class="math notranslate nohighlight">
+\[ \lambda_1 = \alpha + i\beta \mbox{ and } \lambda_2 = \alpha - i\beta \]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[ \alpha = \frac{a+d}{2} \mbox{ and } \beta^2 = -\frac{(a-d)^2}{4}- bc \]</div>
+<p>with corresponding eigenvectors</p>
+<div class="math notranslate nohighlight">
+\[ V = (\b{v}_1, \b{v}_2) = (\b{u}+i\b{w}, \b{u}-i\b{w}).\]</div>
 <p>By eigendecomposition
 <span class="math notranslate nohighlight">\( A = V \Lambda V^{-1}, \)</span>
 a point <span class="math notranslate nohighlight">\(\b{x}\)</span> is converted to points in a complex plane and multipled by a complex eigenvalue, which means rotation and scaling.
 Points in the complex plane are then converted back in a real vector spce by multiplication with <span class="math notranslate nohighlight">\(V\)</span>.</p>
-<p>To see the rotation and scaling more explicityly, we can represent <span class="math notranslate nohighlight">\(\Lambda=\mat{\alpha+i\beta &amp; 0 \\ 0 &amp; \alpha-i\beta}\)</span> as
-$<span class="math notranslate nohighlight">\(\Lambda = U R U^{-1}\)</span><span class="math notranslate nohighlight">\( 
-where \)</span>R<span class="math notranslate nohighlight">\( is 
-\)</span><span class="math notranslate nohighlight">\( R = \mat{\alpha &amp; -\beta \\ \beta &amp; \alpha}
- = \mat{r\cos\theta &amp; -r\sin\theta \\ r\sin\theta &amp; r\cos\theta }.\)</span>$</p>
+<p>To see the rotation and scaling more explicityly, we can represent <span class="math notranslate nohighlight">\(\Lambda=\mat{\alpha+i\beta &amp; 0 \\ 0 &amp; \alpha-i\beta}\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[\Lambda = U R U^{-1}\]</div>
+<p>where <span class="math notranslate nohighlight">\(R\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} R = \mat{\alpha &amp; -\beta \\ \beta &amp; \alpha}
+ = \mat{r\cos\theta &amp; -r\sin\theta \\ r\sin\theta &amp; r\cos\theta }.\end{split}\]</div>
 <p>Here <span class="math notranslate nohighlight">\(r=|\lambda|=\sqrt{\alpha^2+\beta^2}\)</span> is the scaling factor and <span class="math notranslate nohighlight">\(\theta\)</span> is the angle of rotation.</p>
-<p>We can choose <span class="math notranslate nohighlight">\(U\)</span> as
-$<span class="math notranslate nohighlight">\( U = \frac{1}{2}\mat{1 &amp; i \\ 1 &amp; -i} \)</span><span class="math notranslate nohighlight">\(
-such that 
-\)</span>VU = (\b{u}, -\b{w})<span class="math notranslate nohighlight">\(.
-Then we have another decomposition of \)</span>A<span class="math notranslate nohighlight">\( as
-\)</span><span class="math notranslate nohighlight">\( A = V \Lambda V^{-1}
+<p>We can choose <span class="math notranslate nohighlight">\(U\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} U = \frac{1}{2}\mat{1 &amp; i \\ 1 &amp; -i} \end{split}\]</div>
+<p>such that
+<span class="math notranslate nohighlight">\(VU = (\b{u}, -\b{w})\)</span>.
+Then we have another decomposition of <span class="math notranslate nohighlight">\(A\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} A = V \Lambda V^{-1}
  = V URU^{-1} V^{-1}
- = (\b{u}, -\b{w}) \mat{r\cos\theta &amp; -r\sin\theta \\ r\sin\theta &amp; r\cos\theta} (\b{u}, -\b{w})^{-1} \)</span>$</p>
+ = (\b{u}, -\b{w}) \mat{r\cos\theta &amp; -r\sin\theta \\ r\sin\theta &amp; r\cos\theta} (\b{u}, -\b{w})^{-1} \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take a 2x2 matrix</span>
