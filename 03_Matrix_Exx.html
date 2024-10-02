@@ -58,11 +58,9 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '03_Matrix_Ex';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03_Matrix_Exx';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4. Functions and Classes" href="04_Function.html" />
-    <link rel="prev" title="3. Vectors and Matrices" href="03_Matrix.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -125,6 +123,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -180,7 +180,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
@@ -191,8 +191,8 @@
 <li class="toctree-l2"><a class="reference internal" href="02_Visualization_Ex.html">2. Visualization: Exercise</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="03_Matrix.html">3. Vectors and Matrices</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3. Vectors and Matrices: Exercise</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="03_Matrix.html">3. Vectors and Matrices</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="03_Matrix_Ex.html">3. Vectors and Matrices: Exercise</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04_Function.html">4. Functions and Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -290,7 +290,7 @@
       
       
       
-      <li><a href="_sources/03_Matrix_Ex.ipynb" target="_blank"
+      <li><a href="_sources/03_Matrix_Exx.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -387,6 +387,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determinant-and-eigenvalues">1) Determinant and eigenvalues</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalues-and-matrix-product">2) Eigenvalues and matrix product</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis">3) Principal component analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-and-for-loop">4) Array and for loop</a></li>
 </ul>
             </nav>
         </div>
@@ -505,6 +506,11 @@ Parallelogram: <span class="math notranslate nohighlight">\( S = S_1 - ... \)</s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1797, 64)
+</pre></div>
+</div>
+</div>
 </div>
 <p>The first ten samples look like these:</p>
 <div class="cell docutils container">
@@ -515,6 +521,9 @@ Parallelogram: <span class="math notranslate nohighlight">\( S = S_1 - ... \)</s
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">target</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/31d72c1f9b8f39bdfa854da774be0cbf5e985ac32f86d18a0778f32036fcc299.png" src="_images/31d72c1f9b8f39bdfa854da774be0cbf5e985ac32f86d18a0778f32036fcc299.png" />
 </div>
 </div>
 <ol class="arabic simple">
@@ -529,6 +538,168 @@ Parallelogram: <span class="math notranslate nohighlight">\( S = S_1 - ... \)</s
 <ol class="arabic simple" start="4">
 <li><p>Take a sample digit, decompose it into principal components, and reconstruct the digit from the first <span class="math notranslate nohighlight">\(m\)</span> components. See how the quality of reproduction depends on <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
 </ol>
+</section>
+<section id="array-and-for-loop">
+<h2>4) Array and for loop<a class="headerlink" href="#array-and-for-loop" title="Permalink to this heading">#</a></h2>
+<p>You can perform vector and matrix computation by component-wise calculations using for loops, but that is much slower. Let us check how much speed benefit we have by using numpy array computation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># matrix dimension</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>  <span class="c1"># nested list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.47752473239989707, 1.4929540850347631, -0.310010822103453, -2.012258219749891, -0.2646182044180956, 0.026812468835817074, -0.26438067456473824, 0.016740247988006492, 0.46407845290747884, 0.012303370033538794], [0.7676164861813122, 0.2932756427181198, 1.0038369266964509, 0.33162656113874855, 1.3403998598866527, -1.84342089762005, -0.9208218091987975, -0.19149404635625833, -1.3386250600379204, -0.5482298892081274], [-1.8613071613618017, -1.1497690358288146, -0.47726840463292164, 0.01703999402845046, -1.8796868409131589, 0.48003945565076345, -0.5675081142803021, 2.1253986142089056, -1.0123287585885874, -1.9101726803290013], [-0.7064623961231508, -0.3743989380311693, -0.5952687483098436, -0.9149091528371626, 0.9616355019131472, -0.9569649489409244, 0.674932473094052, -1.1002811702407675, -0.2951065107686641, -0.6935041649126332], [1.1432854088045754, 0.22487626554115944, 0.4825734244913491, -0.2377572469557019, -0.7800966473231028, -0.9198648936639267, -0.6100453883222778, 3.6677136601951688, 0.5512037515718786, 0.4177522339598041], [0.02334613006896432, -0.04959192148422843, -0.9380672831273686, -2.369374860364797, -0.3332877544557972, 0.3802127467061171, -1.0280131197163926, 0.6317296705335694, 0.8059138832693469, -0.4323277211234928], [0.40211088870621425, -0.1270732093178582, 0.5719682618927754, -0.4223124269566238, -0.753420635957814, 2.122121280542147, 0.9909526045800582, -1.3387215641990384, 0.05088358105740918, 0.3481890043110811], [-0.8945559932308979, 0.5596142890202341, 0.40578181553942455, -0.7805529568038106, -0.9488135053273573, 0.052521094823631986, 0.5285867138545564, 0.023448697004858802, 1.927780926610159, -1.2415585664534283], [-0.729630331356693, -0.9450488628929301, -0.5039103400635846, -0.32950309095501934, -0.19688007493040996, 0.4448418702781053, 0.8348477977806389, 0.08415336635269764, 1.5381064471566686, -1.7293482431598897], [0.707700938765884, 2.160386325138744, -0.22102720965707248, -0.5122489322324051, -1.1947616092391857, -0.24841655120732273, -1.7207574465184525, 3.0980020150446204, -0.8296654188022827, 0.229562985357953]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>  <span class="c1"># numpy array</span>
+<span class="n">B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.47752473,  1.49295409, -0.31001082, -2.01225822, -0.2646182 ,
+         0.02681247, -0.26438067,  0.01674025,  0.46407845,  0.01230337],
+       [ 0.76761649,  0.29327564,  1.00383693,  0.33162656,  1.34039986,
+        -1.8434209 , -0.92082181, -0.19149405, -1.33862506, -0.54822989],
+       [-1.86130716, -1.14976904, -0.4772684 ,  0.01703999, -1.87968684,
+         0.48003946, -0.56750811,  2.12539861, -1.01232876, -1.91017268],
+       [-0.7064624 , -0.37439894, -0.59526875, -0.91490915,  0.9616355 ,
+        -0.95696495,  0.67493247, -1.10028117, -0.29510651, -0.69350416],
+       [ 1.14328541,  0.22487627,  0.48257342, -0.23775725, -0.78009665,
+        -0.91986489, -0.61004539,  3.66771366,  0.55120375,  0.41775223],
+       [ 0.02334613, -0.04959192, -0.93806728, -2.36937486, -0.33328775,
+         0.38021275, -1.02801312,  0.63172967,  0.80591388, -0.43232772],
+       [ 0.40211089, -0.12707321,  0.57196826, -0.42231243, -0.75342064,
+         2.12212128,  0.9909526 , -1.33872156,  0.05088358,  0.348189  ],
+       [-0.89455599,  0.55961429,  0.40578182, -0.78055296, -0.94881351,
+         0.05252109,  0.52858671,  0.0234487 ,  1.92778093, -1.24155857],
+       [-0.72963033, -0.94504886, -0.50391034, -0.32950309, -0.19688007,
+         0.44484187,  0.8348478 ,  0.08415337,  1.53810645, -1.72934824],
+       [ 0.70770094,  2.16038633, -0.22102721, -0.51224893, -1.19476161,
+        -0.24841655, -1.72075745,  3.09800202, -0.82966542,  0.22956299]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#summation</span>
+<span class="o">%</span><span class="k">time</span>
+<span class="n">A</span><span class="o">+</span><span class="n">A</span>
+<span class="o">%</span><span class="k">time</span>
+<span class="n">B</span><span class="o">+</span><span class="n">B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6 μs, sys: 1 μs, total: 7 μs
+Wall time: 10.3 μs
+CPU times: user 4 μs, sys: 1 μs, total: 5 μs
+Wall time: 8.11 μs
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.95504946,  2.98590817, -0.62002164, -4.02451644, -0.52923641,
+         0.05362494, -0.52876135,  0.0334805 ,  0.92815691,  0.02460674],
+       [ 1.53523297,  0.58655129,  2.00767385,  0.66325312,  2.68079972,
+        -3.6868418 , -1.84164362, -0.38298809, -2.67725012, -1.09645978],
+       [-3.72261432, -2.29953807, -0.95453681,  0.03407999, -3.75937368,
+         0.96007891, -1.13501623,  4.25079723, -2.02465752, -3.82034536],
+       [-1.41292479, -0.74879788, -1.1905375 , -1.82981831,  1.923271  ,
+        -1.9139299 ,  1.34986495, -2.20056234, -0.59021302, -1.38700833],
+       [ 2.28657082,  0.44975253,  0.96514685, -0.47551449, -1.56019329,
+        -1.83972979, -1.22009078,  7.33542732,  1.1024075 ,  0.83550447],
+       [ 0.04669226, -0.09918384, -1.87613457, -4.73874972, -0.66657551,
+         0.76042549, -2.05602624,  1.26345934,  1.61182777, -0.86465544],
+       [ 0.80422178, -0.25414642,  1.14393652, -0.84462485, -1.50684127,
+         4.24424256,  1.98190521, -2.67744313,  0.10176716,  0.69637801],
+       [-1.78911199,  1.11922858,  0.81156363, -1.56110591, -1.89762701,
+         0.10504219,  1.05717343,  0.04689739,  3.85556185, -2.48311713],
+       [-1.45926066, -1.89009773, -1.00782068, -0.65900618, -0.39376015,
+         0.88968374,  1.6696956 ,  0.16830673,  3.07621289, -3.45869649],
+       [ 1.41540188,  4.32077265, -0.44205442, -1.02449786, -2.38952322,
+        -0.4968331 , -3.44151489,  6.19600403, -1.65933084,  0.45912597]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A2</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="o">%</span><span class="k">time</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">A2</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3 μs, sys: 1 μs, total: 4 μs
+Wall time: 7.15 μs
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span>
+<span class="n">B2</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3 μs, sys: 1 μs, total: 4 μs
+Wall time: 7.15 μs
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span> <span class="n">B2</span><span class="p">)</span>  <span class="c1">#should be the same</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2.6195639550119956, 1.8307287188056025, 2.162590017645246, 1.3087040693990835, 0.7971886232525306, -1.0656720187241437, -2.436208493253413, 0.7551440262810344, -0.2710701710755974, 0.14037284952556023], [0.3681196873848313, 0.4370551360388475, 1.9473541894801352, 3.5756349668469123, -0.015254760848086413, -4.712841446948868, -0.9293910217591519, 4.8941865231852075, -3.9173487992294804, 1.1643191645216178], [-5.775602853720044, -4.928672024714791, -0.24673517648250487, 2.542658663687765, 2.063706800081659, 2.6672622487602884, 5.48927526887811, -12.628353652014209, 4.600381929878923, -1.009735504316074], [3.186847166709337, -1.7946944303913783, 2.2752089232468493, 5.189393021456853, 0.915110630132208, 1.4280940929313004, 1.683194398788703, -0.3788550554585921, -1.1605319721005811, 4.735778700967491], [-4.557845885818863, 3.6888012117921383, 1.0382349382670368, -2.6361142732444014, -3.849693095770261, -0.5174045306548714, 1.5533591983723705, 0.06432698560257477, 6.180588394247679, -6.417749781217767], [1.148349060891651, 0.6806937396419125, 0.641405362942806, 1.1636812513764574, 0.07841616996424472, 0.6777977901782692, -0.48289900816364084, -0.23960857401341462, 4.61257525154015, 0.5236841766490631], [0.3217038430091533, -0.38207489798782546, -2.7071212522904164, -4.872811815556425, -1.7799305953349975, 4.39238899625935, -2.603187443811488, 0.013635345009436861, -1.5436743635722925, 0.04181082130921103], [-3.3786405146358094, -6.119837518242646, 0.21775432766011837, 2.5671008901942245, 0.8794624176502713, 3.06785063193011, 3.7709440533890817, -6.2388614622401075, 2.24195251682756, -4.434560530198114], [-2.2035319292729802, -5.978691909866953, -0.6793193438038359, 0.40128581598963325, 0.6164859761944705, 5.036104294077374, 5.921155734822259, -7.324530155571333, 5.7890661924743005, -1.445082447899813], [-1.2976366635786665, 5.112082779883108, 2.6563984953930593, -0.9057589005715911, 1.8922994407918583, -6.4898981761065855, -2.567790649233512, -1.8293560170447065, 1.3707789438552038, -3.7479714774896684]] [[  2.61956396   1.83072872   2.16259002   1.30870407   0.79718862
+   -1.06567202  -2.43620849   0.75514403  -0.27107017   0.14037285]
+ [  0.36811969   0.43705514   1.94735419   3.57563497  -0.01525476
+   -4.71284145  -0.92939102   4.89418652  -3.9173488    1.16431916]
+ [ -5.77560285  -4.92867202  -0.24673518   2.54265866   2.0637068
+    2.66726225   5.48927527 -12.62835365   4.60038193  -1.0097355 ]
+ [  3.18684717  -1.79469443   2.27520892   5.18939302   0.91511063
+    1.42809409   1.6831944   -0.37885506  -1.16053197   4.7357787 ]
+ [ -4.55784589   3.68880121   1.03823494  -2.63611427  -3.8496931
+   -0.51740453   1.5533592    0.06432699   6.18058839  -6.41774978]
+ [  1.14834906   0.68069374   0.64140536   1.16368125   0.07841617
+    0.67779779  -0.48289901  -0.23960857   4.61257525   0.52368418]
+ [  0.32170384  -0.3820749   -2.70712125  -4.87281182  -1.7799306
+    4.392389    -2.60318744   0.01363535  -1.54367436   0.04181082]
+ [ -3.37864051  -6.11983752   0.21775433   2.56710089   0.87946242
+    3.06785063   3.77094405  -6.23886146   2.24195252  -4.43456053]
+ [ -2.20353193  -5.97869191  -0.67931934   0.40128582   0.61648598
+    5.03610429   5.92115573  -7.32453016   5.78906619  -1.44508245]
+ [ -1.29763666   5.11208278   2.6563985   -0.9057589    1.89229944
+   -6.48989818  -2.56779065  -1.82935602   1.37077894  -3.74797148]]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -562,24 +733,6 @@ Parallelogram: <span class="math notranslate nohighlight">\( S = S_1 - ... \)</s
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="03_Matrix.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">3. Vectors and Matrices</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="04_Function.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">4. Functions and Classes</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -599,6 +752,7 @@ Parallelogram: <span class="math notranslate nohighlight">\( S = S_1 - ... \)</s
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determinant-and-eigenvalues">1) Determinant and eigenvalues</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalues-and-matrix-product">2) Eigenvalues and matrix product</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis">3) Principal component analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-and-for-loop">4) Array and for loop</a></li>
 </ul>
   </nav></div>
 
