@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -437,14 +439,18 @@ document.write(`
 </div>
 <section id="partial-derivative">
 <h2>Partial derivative<a class="headerlink" href="#partial-derivative" title="Permalink to this heading">#</a></h2>
-<p>For a function with multiple inputs <span class="math notranslate nohighlight">\(f(x_1,...,x_n)\)</span>, a <em>partial derivative</em> is the derivative with respect to an input <span class="math notranslate nohighlight">\(x_i\)</span> while other inputs are held constant.
-$<span class="math notranslate nohighlight">\(\frac{\partial f(x_1,...,x_n)}{\partial x_i}
- = \lim_{\Delta x \rightarrow 0} \frac{f(x_1,...,x_i+\Delta x,...,x_n) - f(x_1,...,x_i,...,x_n)}{\Delta x}\)</span>$</p>
-<p>For example, for
-$<span class="math notranslate nohighlight">\( f(x,y) = e^{x} \sin y, \)</span><span class="math notranslate nohighlight">\(
-partial derivatives are
-\)</span><span class="math notranslate nohighlight">\( \frac{\partial f(x,y)}{\partial x} = e^{x} \sin y \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \frac{\partial f(x,y)}{\partial y} = e^{x} \cos y \)</span>$</p>
+<p>For a function with multiple inputs <span class="math notranslate nohighlight">\(f(x_1,...,x_n)\)</span>, a <em>partial derivative</em> is the derivative with respect to an input <span class="math notranslate nohighlight">\(x_i\)</span> while other inputs are held constant.</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial f(x_1,...,x_n)}{\partial x_i}
+ = \lim_{\Delta x \rightarrow 0} \frac{f(x_1,...,x_i+\Delta x,...,x_n) - f(x_1,...,x_i,...,x_n)}{\Delta x}\]</div>
+<p>For example, for</p>
+<div class="math notranslate nohighlight">
+\[ f(x,y) = e^{x} \sin y, \]</div>
+<p>partial derivatives are</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial f(x,y)}{\partial x} = e^{x} \sin y \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial f(x,y)}{\partial y} = e^{x} \cos y \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
@@ -464,36 +470,48 @@ partial derivatives are
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/80ae0485adc2a4b0d34d76eb0b844dd5b2c5b0dfa3cba4235285a1ae83699d2e.png" src="_images/80ae0485adc2a4b0d34d76eb0b844dd5b2c5b0dfa3cba4235285a1ae83699d2e.png" />
+<img alt="_images/0f66fe5b4367294d92bde7d259429ee041292cc6c25eba19cb553d456730363b.png" src="_images/0f66fe5b4367294d92bde7d259429ee041292cc6c25eba19cb553d456730363b.png" />
 </div>
 </div>
 </section>
 <section id="partial-differential-equation-pde">
 <h2>Partial Differential Equation (PDE)<a class="headerlink" href="#partial-differential-equation-pde" title="Permalink to this heading">#</a></h2>
-<p>A <em>partial differential equation (PDE)</em> is an equation that includes partial derivatives <span class="math notranslate nohighlight">\(\frac{\partial f(x_1,...,x_n)}{\partial x_i}\)</span> of an unknown function <span class="math notranslate nohighlight">\(f(x_1,...,x_n)\)</span>.</p>
+<p>A <em>partial differential equation (PDE)</em> is an equation that includes partial derivatives</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial f(x_1,...,x_n)}{\partial x_i}\]</div>
+<p>of an unknown function <span class="math notranslate nohighlight">\(f(x_1,...,x_n)\)</span>.</p>
 <p>A typical case is a function in space and time <span class="math notranslate nohighlight">\(y(x,t).\)</span></p>
-<p>A simple example is the <em>diffusion equation</em> (or heat equation)
-$<span class="math notranslate nohighlight">\( \frac{\partial y(x,t)}{\partial t} = D \frac{\partial^2 y(x,t)}{\partial x^2} + g(y,x,t)  \)</span><span class="math notranslate nohighlight">\(
-that describes the evolution of concentration (or temperature) \)</span>y<span class="math notranslate nohighlight">\( in space \)</span>x<span class="math notranslate nohighlight">\( and time \)</span>t<span class="math notranslate nohighlight">\( with input \)</span>g(y,x,t)<span class="math notranslate nohighlight">\( and the diffusion coefficient \)</span>D$.</p>
+<p>A simple example is the <em>diffusion equation</em> (or heat equation)</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial y(x,t)}{\partial t} = D \frac{\partial^2 y(x,t)}{\partial x^2} + g(y,x,t)  \]</div>
+<p>that describes the evolution of concentration (or temperature) <span class="math notranslate nohighlight">\(y\)</span> in space <span class="math notranslate nohighlight">\(x\)</span> and time <span class="math notranslate nohighlight">\(t\)</span> with input <span class="math notranslate nohighlight">\(g(y,x,t)\)</span> and the diffusion coefficient <span class="math notranslate nohighlight">\(D\)</span>.</p>
 </section>
 <section id="analytic-solution-of-pde">
 <h2>Analytic Solution of PDE<a class="headerlink" href="#analytic-solution-of-pde" title="Permalink to this heading">#</a></h2>
-<p>For a diffusion equation without input
-$<span class="math notranslate nohighlight">\( \frac{\partial y}{\partial t} = D \frac{\partial^2 y}{\partial x^2}, \)</span>$
-the solution is given by <em>separation of variables</em>.</p>
-<p>By assuming that the solution is a product of temporal and spatial components <span class="math notranslate nohighlight">\(y(x,t) = u(t) v(x)\)</span>, the PDE becomes
-$<span class="math notranslate nohighlight">\( \frac{\partial u(t)}{\partial t} v(x)= D u(t) \frac{\partial^2 v(x)}{\partial x^2} \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \frac{1}{Du(t)}\frac{\partial u(t)}{\partial t} = \frac{1}{v(x)}\frac{\partial^2 v(x)}{\partial x^2} \)</span><span class="math notranslate nohighlight">\(
-For this equation to hold for any \)</span>t<span class="math notranslate nohighlight">\( and \)</span>x<span class="math notranslate nohighlight">\(, a possible solution is for both sides to be a constant \)</span>C<span class="math notranslate nohighlight">\(. Then we have two separate ODEs:
-\)</span><span class="math notranslate nohighlight">\( \frac{du(t)}{dt} = C D u(t) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \frac{d^2v(x)}{dx^2} = C v(x) \)</span>$
-for which we know analitic solutions.</p>
-<p>By setting <span class="math notranslate nohighlight">\(C=-b^2\le 0\)</span>, we have
-$<span class="math notranslate nohighlight">\( u(t) = C_0 e^{-b^2 Dt}, \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( v(x) = C_1 \sin bx + C_2 \cos bx. \)</span>$</p>
-<p>Thus we have a solution
-$<span class="math notranslate nohighlight">\( y(x,t) = e^{-b^2 Dt}( C_1 \sin bx + C_2 \cos bx) \)</span><span class="math notranslate nohighlight">\(
-where \)</span>b<span class="math notranslate nohighlight">\(, \)</span>C_1<span class="math notranslate nohighlight">\( and \)</span>C_2<span class="math notranslate nohighlight">\( are determined by the initial condition \)</span>y(x,0)$.<br />
+<p>For a diffusion equation without input</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial y}{\partial t} = D \frac{\partial^2 y}{\partial x^2}, \]</div>
+<p>the solution is given by <em>separation of variables</em>.</p>
+<p>By assuming that the solution is a product of temporal and spatial components <span class="math notranslate nohighlight">\(y(x,t) = u(t) v(x)\)</span>, the PDE becomes</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial u(t)}{\partial t} v(x)= D u(t) \frac{\partial^2 v(x)}{\partial x^2} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{1}{Du(t)}\frac{\partial u(t)}{\partial t} = \frac{1}{v(x)}\frac{\partial^2 v(x)}{\partial x^2} \]</div>
+<p>For this equation to hold for any <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(x\)</span>, a possible solution is for both sides to be a constant <span class="math notranslate nohighlight">\(C\)</span>. Then we have two separate ODEs:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{du(t)}{dt} = C D u(t) \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{d^2v(x)}{dx^2} = C v(x) \]</div>
+<p>for which we know analitic solutions.</p>
+<p>By setting <span class="math notranslate nohighlight">\(C=-b^2\le 0\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[ u(t) = C_0 e^{-b^2 Dt}, \]</div>
+<div class="math notranslate nohighlight">
+\[ v(x) = C_1 \sin bx + C_2 \cos bx. \]</div>
+<p>Thus we have a solution</p>
+<div class="math notranslate nohighlight">
+\[ y(x,t) = e^{-b^2 Dt}( C_1 \sin bx + C_2 \cos bx) \]</div>
+<p>where <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(C_1\)</span> and <span class="math notranslate nohighlight">\(C_2\)</span> are determined by the initial condition <span class="math notranslate nohighlight">\(y(x,0)\)</span>.<br />
 The equation tells us that higher spatial frequency components decay quiker.</p>
 <section id="boundary-condition">
 <h3>Boundary condition<a class="headerlink" href="#boundary-condition" title="Permalink to this heading">#</a></h3>
@@ -507,14 +525,18 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 </section>
 <section id="from-pde-to-ode">
 <h2>From PDE to ODE<a class="headerlink" href="#from-pde-to-ode" title="Permalink to this heading">#</a></h2>
-<p>The standard way of dealing with space and time on a digital computer is to discretize them. For a PDE
-$<span class="math notranslate nohighlight">\( \frac{\partial y}{\partial t} = D \frac{\partial^2 y}{\partial x^2} + g(y,x,t), \)</span><span class="math notranslate nohighlight">\(
-defined in a range \)</span>x_0 \le x \le x_0+L<span class="math notranslate nohighlight">\(, we consider a spatial discretization by \)</span>\Delta x = L/N<span class="math notranslate nohighlight">\( 
-\)</span><span class="math notranslate nohighlight">\( x_i = x_0 + i\Delta x \)</span><span class="math notranslate nohighlight">\(
-\)</span>(i=1,…,N)<span class="math notranslate nohighlight">\( and
-\)</span><span class="math notranslate nohighlight">\( y_i(t) = y(x_i,t).\)</span>$</p>
-<p>Then the PDE can be approximated by a set of ODEs
-$<span class="math notranslate nohighlight">\( \frac{dy_i}{dt} = D \frac{y_{i+1}-2y_i+y_{i-1}}{\Delta x^2} + g(y_i,x_i,t). \)</span>$</p>
+<p>The standard way of dealing with space and time on a digital computer is to discretize them. For a PDE</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial y}{\partial t} = D \frac{\partial^2 y}{\partial x^2} + g(y,x,t), \]</div>
+<p>defined in a range <span class="math notranslate nohighlight">\(x_0 \le x \le x_0+L\)</span>, we consider a spatial discretization by <span class="math notranslate nohighlight">\(\Delta x = L/N\)</span></p>
+<div class="math notranslate nohighlight">
+\[ x_i = x_0 + i\Delta x \]</div>
+<p><span class="math notranslate nohighlight">\((i=1,...,N)\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[ y_i(t) = y(x_i,t).\]</div>
+<p>Then the PDE can be approximated by a set of ODEs</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dy_i}{dt} = D \frac{y_{i+1}-2y_i+y_{i-1}}{\Delta x^2} + g(y_i,x_i,t). \]</div>
 </section>
 <section id="euler-method">
 <h2>Euler method<a class="headerlink" href="#euler-method" title="Permalink to this heading">#</a></h2>
@@ -584,7 +606,7 @@ $<span class="math notranslate nohighlight">\( \frac{dy_i}{dt} = D \frac{y_{i+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e6e1ee3c8066570049c3bf6bf77f7b2f8fe20306ac6e0931ad16d468bb50ffda.png" src="_images/e6e1ee3c8066570049c3bf6bf77f7b2f8fe20306ac6e0931ad16d468bb50ffda.png" />
+<img alt="_images/9900a599b3c4021a96ab3111c21bf82e3f7f9aeb0836efb0bb2c24440fdfb7a9.png" src="_images/9900a599b3c4021a96ab3111c21bf82e3f7f9aeb0836efb0bb2c24440fdfb7a9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -595,7 +617,7 @@ $<span class="math notranslate nohighlight">\( \frac{dy_i}{dt} = D \frac{y_{i+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6c561e3fd43e6bd5ad84509e90afeacd7475f1b1d64959a99dcf1ea47ab132d8.png" src="_images/6c561e3fd43e6bd5ad84509e90afeacd7475f1b1d64959a99dcf1ea47ab132d8.png" />
+<img alt="_images/ef3bd9d1fa27384f828896fb3ae26a5835e0c9c069984195090ad677f9da1fdf.png" src="_images/ef3bd9d1fa27384f828896fb3ae26a5835e0c9c069984195090ad677f9da1fdf.png" />
 </div>
 </div>
 <p>Let us try a finer spatial division</p>
@@ -614,14 +636,15 @@ $<span class="math notranslate nohighlight">\( \frac{dy_i}{dt} = D \frac{y_{i+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2c963c8357e238037817a5e9ca2308d56de22a3b4e47cdf18bf6e8efac51c86a.png" src="_images/2c963c8357e238037817a5e9ca2308d56de22a3b4e47cdf18bf6e8efac51c86a.png" />
+<img alt="_images/e1de4ed8a33f8085f7e6ad6a8d0cf634633f143e9234e01ea2ca10c86ede577e.png" src="_images/e1de4ed8a33f8085f7e6ad6a8d0cf634633f143e9234e01ea2ca10c86ede577e.png" />
 </div>
 </div>
 <section id="stability">
 <h3>Stability<a class="headerlink" href="#stability" title="Permalink to this heading">#</a></h3>
 <p>For an accurate solution, <span class="math notranslate nohighlight">\(\Delta x\)</span> have to be small. But making <span class="math notranslate nohighlight">\(\Delta x\)</span> small can make the ODE <em>stiff</em> such that solution can be unstable.<br />
-It is known that stable solution by Euler method requires
-$<span class="math notranslate nohighlight">\( \Delta t \le \frac{\Delta x^2}{2D}. \)</span>$</p>
+It is known that stable solution by Euler method requires</p>
+<div class="math notranslate nohighlight">
+\[ \Delta t \le \frac{\Delta x^2}{2D}. \]</div>
 </section>
 </section>
 <section id="by-odeint">
@@ -651,7 +674,7 @@ $<span class="math notranslate nohighlight">\( \Delta t \le \frac{\Delta x^2}{2D
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/97a2480fefecf8e3e7c6bfc7881718ed3698006d0060ee9ee51a18415ec02c43.png" src="_images/97a2480fefecf8e3e7c6bfc7881718ed3698006d0060ee9ee51a18415ec02c43.png" />
+<img alt="_images/93e0a333929ebe12948f9186ca37d2d4c2e77beea86dd09996a5100b546101ff.png" src="_images/93e0a333929ebe12948f9186ca37d2d4c2e77beea86dd09996a5100b546101ff.png" />
 </div>
 </div>
 <p>Let us see the case with an input.</p>
@@ -678,7 +701,7 @@ $<span class="math notranslate nohighlight">\( \Delta t \le \frac{\Delta x^2}{2D
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4d1d3906fb0a7e95d3f2284530d964da8dfc256e6e288e202e5173831876f342.png" src="_images/4d1d3906fb0a7e95d3f2284530d964da8dfc256e6e288e202e5173831876f342.png" />
+<img alt="_images/040e6cc933479a67f346d4db1add55122593e6ab4c50993f0f039f23d77db106.png" src="_images/040e6cc933479a67f346d4db1add55122593e6ab4c50993f0f039f23d77db106.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -690,7 +713,7 @@ $<span class="math notranslate nohighlight">\( \Delta t \le \frac{\Delta x^2}{2D
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/05c8fdb0db3f18856437070d26c51efe34488fc3d06122911f3bda99db0408f0.png" src="_images/05c8fdb0db3f18856437070d26c51efe34488fc3d06122911f3bda99db0408f0.png" />
+<img alt="_images/5907a16128871f5826eaf90c7aa59d4a8298057c5803c1ccbe0e18d31dfd97e7.png" src="_images/5907a16128871f5826eaf90c7aa59d4a8298057c5803c1ccbe0e18d31dfd97e7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -702,7 +725,7 @@ $<span class="math notranslate nohighlight">\( \Delta t \le \frac{\Delta x^2}{2D
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/81afa0d2d956bba9da285210a761b28237b89b6d7a0e55bda10b797f764974f8.png" src="_images/81afa0d2d956bba9da285210a761b28237b89b6d7a0e55bda10b797f764974f8.png" />
+<img alt="_images/d6653ba0e9a52b3b59fe49567c15575ce5fa6e665d99383f2acb74b2b4b2001e.png" src="_images/d6653ba0e9a52b3b59fe49567c15575ce5fa6e665d99383f2acb74b2b4b2001e.png" />
 </div>
 </div>
 </section>
@@ -1701,7 +1724,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='2a088e78-0ce1-4804-8e39-33da22628ed6'></div></div></div>
+</script><div class="output text_html"><div id='3056b42e-ce8b-47ce-a595-a68d9f29412b'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2697,7 +2720,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='36ccc7e3-eed8-4959-b467-28d98638bb56'></div></div></div>
+</script><div class="output text_html"><div id='3028fd21-742d-46bd-8b28-85ff3782b822'></div></div></div>
 </div>
 </section>
 <section id="boundary-conditions">
@@ -2720,14 +2743,18 @@ if (IPython.notebook.kernel !== null) {
 </ul>
 <p>We already implemented Dirichlet boundary condition in <code class="docutils literal notranslate"><span class="pre">diff1D()</span></code>.</p>
 <p>Let us implement a Neumann boundary condition at the right end  <span class="math notranslate nohighlight">\(\left.\frac{\partial y(x,t)}{\partial x}\right|_{x_N}=0\)</span> and see the difference.</p>
-<p>A simple way is to use a one-sided differentiation
-$<span class="math notranslate nohighlight">\( \frac{\partial y}{\partial x} \simeq \frac{y_{N+1}-y_{N}}{\Delta x}=0\)</span><span class="math notranslate nohighlight">\(
-which reduces to \)</span>y_{N+1}=y_{N}<span class="math notranslate nohighlight">\( and 
-\)</span><span class="math notranslate nohighlight">\( \frac{dy_N}{dt} = D \frac{y_{N-1} - y_N}{\Delta x^2} + g(y,x,t).\)</span>$</p>
-<p>A better way is to use a symmetric differentiation
-$<span class="math notranslate nohighlight">\( \frac{\partial y}{\partial x} \simeq \frac{y_{N+1}-y_{N-1}}{2\Delta x}=0\)</span><span class="math notranslate nohighlight">\(
-which reduces to \)</span>y_{N+1}=y_{N-1}<span class="math notranslate nohighlight">\( and 
-\)</span><span class="math notranslate nohighlight">\( \frac{dy_N}{dt} = 2D \frac{y_{N-1} - y_N}{\Delta x^2} + g(y,x,t).\)</span>$</p>
+<p>A simple way is to use a one-sided differentiation</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial y}{\partial x} \simeq \frac{y_{N+1}-y_{N}}{\Delta x}=0\]</div>
+<p>which reduces to <span class="math notranslate nohighlight">\(y_{N+1}=y_{N}\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dy_N}{dt} = D \frac{y_{N-1} - y_N}{\Delta x^2} + g(y,x,t).\]</div>
+<p>A better way is to use a symmetric differentiation</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial y}{\partial x} \simeq \frac{y_{N+1}-y_{N-1}}{2\Delta x}=0\]</div>
+<p>which reduces to <span class="math notranslate nohighlight">\(y_{N+1}=y_{N-1}\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dy_N}{dt} = 2D \frac{y_{N-1} - y_N}{\Delta x^2} + g(y,x,t).\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diff1DN</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -3741,17 +3768,20 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='259085f2-224c-4530-9196-155cc92a3e6f'></div></div></div>
+</script><div class="output text_html"><div id='6de2bfcf-6b52-4e4e-b30e-71d32f0ff99e'></div></div></div>
 </div>
 </section>
 <section id="wave-equation">
 <h2>Wave Equation<a class="headerlink" href="#wave-equation" title="Permalink to this heading">#</a></h2>
-<p>PDE with a second-order dynamics can represent traveling waves. The <em>wave equation</em> has the standard form
-$<span class="math notranslate nohighlight">\( \frac{\partial^2 u}{\partial t^2} + d\frac{\partial u}{\partial t} = c^2 \frac{\partial^2 u}{\partial x^2}\)</span><span class="math notranslate nohighlight">\(
-where \)</span>c<span class="math notranslate nohighlight">\( is the wave speed and \)</span>d$ is the decay rate.</p>
-<p>We convert the second-order system to a set of first order systems by consiering a vector <span class="math notranslate nohighlight">\(y=(u,v)\)</span> representing the amplitude <span class="math notranslate nohighlight">\(u\)</span> and its change rate <span class="math notranslate nohighlight">\(v\)</span>:
-$<span class="math notranslate nohighlight">\( \frac{\partial u}{\partial t} = v \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \frac{\partial v}{\partial t} = c^2 \frac{\partial^2 u}{\partial x^2} - dv \)</span>$</p>
+<p>PDE with a second-order dynamics can represent traveling waves. The <em>wave equation</em> has the standard form</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial^2 u}{\partial t^2} + d\frac{\partial u}{\partial t} = c^2 \frac{\partial^2 u}{\partial x^2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(c\)</span> is the wave speed and <span class="math notranslate nohighlight">\(d\)</span> is the decay rate.</p>
+<p>We convert the second-order system to a set of first order systems by consiering a vector <span class="math notranslate nohighlight">\(y=(u,v)\)</span> representing the amplitude <span class="math notranslate nohighlight">\(u\)</span> and its change rate <span class="math notranslate nohighlight">\(v\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial u}{\partial t} = v \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial v}{\partial t} = c^2 \frac{\partial^2 u}{\partial x^2} - dv \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wave1D</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -4768,7 +4798,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='44ab6fe0-17b2-4e6c-b592-0c3d3c9f760a'></div></div></div>
+</script><div class="output text_html"><div id='b31cdcf7-37ca-44ec-8e24-977a3714b1df'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5756,7 +5786,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='2d47e895-5ded-4472-98b9-9f95a0235b4c'></div></div></div>
+</script><div class="output text_html"><div id='272fb5ec-7725-4528-956e-d9f83a24e5dc'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6745,7 +6775,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='4d042317-7e5d-4380-9e4b-12c641514f93'></div></div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.12/site-packages/matplotlib/animation.py:892: UserWarning: Animation was deleted without rendering anything. This is most likely not intended. To prevent deletion, assign the Animation to a variable, e.g. `anim`, that exists until you output the Animation using `plt.show()` or `anim.save()`.
+</script><div class="output text_html"><div id='954ca769-011d-4b11-91ca-01f4704d6fbf'></div></div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.11/site-packages/matplotlib/animation.py:892: UserWarning: Animation was deleted without rendering anything. This is most likely not intended. To prevent deletion, assign the Animation to a variable, e.g. `anim`, that exists until you output the Animation using `plt.show()` or `anim.save()`.
   warnings.warn(
 </pre></div>
 </div>
@@ -6756,9 +6786,11 @@ if (IPython.notebook.kernel !== null) {
 <h2>Reaction-Diffusion Equation<a class="headerlink" href="#reaction-diffusion-equation" title="Permalink to this heading">#</a></h2>
 <p>Linear waves can decay, reflect, and overlay.<br />
 Some nonlinear waves, like neural spike, can travel without decaying.
-FitzHugh-Nagumo model can be embedded in a diffusive axon model
-$<span class="math notranslate nohighlight">\( \frac{\partial v}{\partial t} = v - \frac{v^3}{3} - w + D\frac{\partial^2 v}{\partial x^2} + I \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \frac{\partial w}{\partial t} = \phi (v + a - bw) \)</span>$</p>
+FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial v}{\partial t} = v - \frac{v^3}{3} - w + D\frac{\partial^2 v}{\partial x^2} + I \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial w}{\partial t} = \phi (v + a - bw) \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fhnaxon</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">phi</span><span class="o">=</span><span class="mf">0.08</span><span class="p">):</span>
@@ -7782,7 +7814,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='a15a89cb-fb45-40e7-9914-cec3dc5efb07'></div></div></div>
+</script><div class="output text_html"><div id='b64fa2ca-44be-4e29-9d7a-9308db10f93a'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -8767,7 +8799,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='9fed636c-810e-492e-bbc2-dc19deb5d7c2'></div></div></div>
+</script><div class="output text_html"><div id='af74b94b-0c87-4cac-bf51-8e64b0909d6a'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -9755,7 +9787,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='f158fa62-156e-4f19-a9a9-ff74e0deb564'></div></div></div>
+</script><div class="output text_html"><div id='3f86e37f-ea63-4167-bbba-3b7bada75a96'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -10744,18 +10776,21 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='751d102b-5ab8-44b1-851b-0249fe060ecd'></div></div></div>
+</script><div class="output text_html"><div id='20fd4442-e825-45d4-b499-c02ba5278287'></div></div></div>
 </div>
 </section>
 <section id="pde-in-2d-space">
 <h2>PDE in 2D space<a class="headerlink" href="#pde-in-2d-space" title="Permalink to this heading">#</a></h2>
 <p>We can also model dynamics in two or higher dimension spate.</p>
-<p>The diffusion equation of a variable <span class="math notranslate nohighlight">\(y(x_1,x_2,t)\)</span> in the 2D space is given by:
-$<span class="math notranslate nohighlight">\(\frac{\partial y}{\partial t} = D\frac{\partial^2 y}{\partial x_1^2} + D\frac{\partial^2 y}{\partial x_2^2} + g(y, x, t)\)</span>$</p>
-<p>Using the Laplace operator (or Laplacian):
-$<span class="math notranslate nohighlight">\(\nabla^2 = \frac{\partial^2}{\partial x_1^2} + \frac{\partial^2}{\partial x_2^2}\)</span><span class="math notranslate nohighlight">\(
-the diffusion equation is represented as
-\)</span><span class="math notranslate nohighlight">\(\frac{\partial y}{\partial t} = D\nabla^2 y + g(y, x, t)\)</span>$</p>
+<p>The diffusion equation of a variable <span class="math notranslate nohighlight">\(y(x_1,x_2,t)\)</span> in the 2D space is given by:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial y}{\partial t} = D\frac{\partial^2 y}{\partial x_1^2} + D\frac{\partial^2 y}{\partial x_2^2} + g(y, x, t)\]</div>
+<p>Using the Laplace operator (or Laplacian):</p>
+<div class="math notranslate nohighlight">
+\[\nabla^2 = \frac{\partial^2}{\partial x_1^2} + \frac{\partial^2}{\partial x_2^2}\]</div>
+<p>the diffusion equation is represented as</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial y}{\partial t} = D\nabla^2 y + g(y, x, t)\]</div>
 <section id="diffusion-equation-in-2d-space">
 <h3>Diffusion equation in 2D space<a class="headerlink" href="#diffusion-equation-in-2d-space" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -11791,7 +11826,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='991bc835-a0ae-4d67-892f-f1f5ddd403e6'></div></div></div>
+</script><div class="output text_html"><div id='95603c1e-1acc-4338-99b9-75d9e34b3b3f'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -12780,7 +12815,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='eba7d030-6f15-4cab-90b5-fd688f5a43c0'></div></div></div>
+</script><div class="output text_html"><div id='c14571fe-653c-448b-864b-b80b8ba3ab95'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -13770,7 +13805,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='76e27a92-5de8-495a-b807-b71418bd46a0'></div></div></div>
+</script><div class="output text_html"><div id='03c109ee-17e4-4034-b4ac-f9e28a02fb92'></div></div></div>
 </div>
 </section>
 </section>

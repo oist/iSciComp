@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -533,7 +535,7 @@ square(x)
 <section id="arguments-and-local-variables">
 <h3>Arguments and local variables<a class="headerlink" href="#arguments-and-local-variables" title="Permalink to this heading">#</a></h3>
 <p>A function can take single, multiple, or no arguments (inputs).<br />
-An argumet can be required, or optional with a default value.<br />
+An argument can be required, or optional with a default value.<br />
 An argument can be specified by the position, or a keyword.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -742,7 +744,7 @@ NAME
 FUNCTIONS
     norm(x, p=2)
         The L^p norm of a vector.
-
+    
     normalize(x, p=2)
         L^p normalization
 
@@ -777,7 +779,7 @@ FILE
 </div>
 </div>
 </div>
-<p>Caution: Python reads in a module only upon the first <code class="docutils literal notranslate"><span class="pre">import</span></code>, as popular modules like <code class="docutils literal notranslate"><span class="pre">numpy</span></code> are imorted in many modules. If you modify your module, you need to restart your kernel or call <code class="docutils literal notranslate"><span class="pre">importlib.reload()</span></code>.</p>
+<p>Caution: Python reads in a module only upon the first <code class="docutils literal notranslate"><span class="pre">import</span></code>, as popular modules like <code class="docutils literal notranslate"><span class="pre">numpy</span></code> are imported in many modules. If you modify your module, you need to restart your kernel or call <code class="docutils literal notranslate"><span class="pre">importlib.reload()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">importlib</span>
@@ -808,7 +810,7 @@ FILE
 </section>
 <section id="object-oriented-programming">
 <h2>Object Oriented Programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this heading">#</a></h2>
-<p>Object Oriented Programming has been advocated since 1980’s in order to avoid naming coflicts and to allow incremental software development by promoting modularity.</p>
+<p>Object Oriented Programming has been advocated since 1980’s in order to avoid naming conflicts and to allow incremental software development by promoting modularity.</p>
 <p>Examples are: SmallTalk, Objective C, C++, Java,… and Python!</p>
 <p>Major features of OOP is:</p>
 <ul class="simple">

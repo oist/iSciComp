@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -475,7 +477,7 @@ where \)</span>y(0)<span class="math notranslate nohighlight">\( is an \)</span>
        [ 0.34372377,  0.80689822]]))
 </pre></div>
 </div>
-<img alt="_images/453ff46337ff8e9cb7f5fb552f070740fbfffe1e685a3ebf50994e6e1b10e02b.png" src="_images/453ff46337ff8e9cb7f5fb552f070740fbfffe1e685a3ebf50994e6e1b10e02b.png" />
+<img alt="_images/9a5ef90b720e8b58b4dc274ba02858792b4368f6f6440e4c2176a07416be7d17.png" src="_images/9a5ef90b720e8b58b4dc274ba02858792b4368f6f6440e4c2176a07416be7d17.png" />
 </div>
 </div>
 <ol class="arabic simple" start="2">
@@ -493,7 +495,7 @@ where \)</span>y(0)<span class="math notranslate nohighlight">\( is an \)</span>
        [ 0.15636505,  0.95335371]]))
 </pre></div>
 </div>
-<img alt="_images/95d1b43a1c9af9dc2a5a8378f359e9b74eb393611066b9a6bda0e6df226a4dcd.png" src="_images/95d1b43a1c9af9dc2a5a8378f359e9b74eb393611066b9a6bda0e6df226a4dcd.png" />
+<img alt="_images/a9b17230fda719fc32e30d2f772cea75b9ab6ed2bc0f929f055eea8a3d6d402f.png" src="_images/a9b17230fda719fc32e30d2f772cea75b9ab6ed2bc0f929f055eea8a3d6d402f.png" />
 </div>
 </div>
 <ol class="arabic simple" start="3">
@@ -511,7 +513,7 @@ where \)</span>y(0)<span class="math notranslate nohighlight">\( is an \)</span>
        [ 0.34372377, -0.80689822]]))
 </pre></div>
 </div>
-<img alt="_images/ee8b29fbd0c543a75dcdf4cbfc4720c7bbd77d3e83c11afcc5063dfbe4d9fabb.png" src="_images/ee8b29fbd0c543a75dcdf4cbfc4720c7bbd77d3e83c11afcc5063dfbe4d9fabb.png" />
+<img alt="_images/29b906e10b5c74a12c352294151290025a87732edd4ec83bbc643598654d3ebb.png" src="_images/29b906e10b5c74a12c352294151290025a87732edd4ec83bbc643598654d3ebb.png" />
 </div>
 </div>
 <ol class="arabic simple" start="4">
@@ -529,7 +531,7 @@ where \)</span>y(0)<span class="math notranslate nohighlight">\( is an \)</span>
        [-0.20412415+0.54006172j, -0.20412415-0.54006172j]]))
 </pre></div>
 </div>
-<img alt="_images/4729ce8425458183cfd852a5baec7a35a1b334d07cd9ca563db37bce2edfbd85.png" src="_images/4729ce8425458183cfd852a5baec7a35a1b334d07cd9ca563db37bce2edfbd85.png" />
+<img alt="_images/5e1fc2a614652c69fa22e4091e911b8bb54ce6db900accbc5599f1bdbc3af004.png" src="_images/5e1fc2a614652c69fa22e4091e911b8bb54ce6db900accbc5599f1bdbc3af004.png" />
 </div>
 </div>
 <ol class="arabic simple" start="5">
@@ -547,7 +549,7 @@ where \)</span>y(0)<span class="math notranslate nohighlight">\( is an \)</span>
        [0.35355339+0.61237244j, 0.35355339-0.61237244j]]))
 </pre></div>
 </div>
-<img alt="_images/09ba170f554c9503d06c91790146bad2f8c45f9055d20e5601136937649e075c.png" src="_images/09ba170f554c9503d06c91790146bad2f8c45f9055d20e5601136937649e075c.png" />
+<img alt="_images/ffc9d62e95189bfe3998d7be518a2077ccd3d5a17192ce5f83f1778ea88b3c66.png" src="_images/ffc9d62e95189bfe3998d7be518a2077ccd3d5a17192ce5f83f1778ea88b3c66.png" />
 </div>
 </div>
 <p>c.f. For a 2 by 2 matrix
@@ -589,13 +591,7 @@ $<span class="math notranslate nohighlight">\( \frac{d\theta}{dt} = \omega \)</s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\o&#39;
-&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\o&#39;
-/var/folders/0z/3cttnw852b959kp4wjh_z_wc0000gn/T/ipykernel_51707/284280705.py:5: SyntaxWarning: invalid escape sequence &#39;\o&#39;
-  plt.xlabel(&#39;t&#39;); plt.ylabel(&#39;$\\theta$, $\omega$&#39;);
-</pre></div>
-</div>
-<img alt="_images/07c70750d3bc03ef6b6a26108368a37eac6c72bf91bc14e3e87a424be770342d.png" src="_images/07c70750d3bc03ef6b6a26108368a37eac6c72bf91bc14e3e87a424be770342d.png" />
+<img alt="_images/fb7170b36a43b19972dae9519af1bafcd961a8172fc38d36a5b640e5b382d7bc.png" src="_images/fb7170b36a43b19972dae9519af1bafcd961a8172fc38d36a5b640e5b382d7bc.png" />
 </div>
 </div>
 <ol class="arabic simple" start="3">
@@ -609,13 +605,7 @@ $<span class="math notranslate nohighlight">\( \frac{d\theta}{dt} = \omega \)</s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:2: SyntaxWarning: invalid escape sequence &#39;\o&#39;
-&lt;&gt;:2: SyntaxWarning: invalid escape sequence &#39;\o&#39;
-/var/folders/0z/3cttnw852b959kp4wjh_z_wc0000gn/T/ipykernel_51707/2133674605.py:2: SyntaxWarning: invalid escape sequence &#39;\o&#39;
-  plt.xlabel(&#39;$\\theta$&#39;); plt.ylabel(&#39;$\omega$&#39;);
-</pre></div>
-</div>
-<img alt="_images/ca1627891f723a28714933e10e5e0f62ad942e254597b30a2a8a12fd8c993ffc.png" src="_images/ca1627891f723a28714933e10e5e0f62ad942e254597b30a2a8a12fd8c993ffc.png" />
+<img alt="_images/b1ec96acf27cd91ac1822105e1a7c729ccb43e5ed420504591309e9e7712fdfa.png" src="_images/b1ec96acf27cd91ac1822105e1a7c729ccb43e5ed420504591309e9e7712fdfa.png" />
 </div>
 </div>
 <p>Option) Implement a nonlinear system with time-dependent input, such as a forced pendulum:
@@ -654,7 +644,7 @@ $<span class="math notranslate nohighlight">\( \frac{dv}{dt} = v - \frac{v^3}{3}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8b453d5ca7162b07e7d2b10ad5b21bfbf407e8ce01e3337d67369509ae6a3151.png" src="_images/8b453d5ca7162b07e7d2b10ad5b21bfbf407e8ce01e3337d67369509ae6a3151.png" />
+<img alt="_images/88185bd9cbf7171c6de20e2351a3fc8c375a4d32f174c73a38c2745f2ddcf203.png" src="_images/88185bd9cbf7171c6de20e2351a3fc8c375a4d32f174c73a38c2745f2ddcf203.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -665,7 +655,7 @@ $<span class="math notranslate nohighlight">\( \frac{dv}{dt} = v - \frac{v^3}{3}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6236f39a06eba720c02b3fdc6829cd7d5f58a740ffda26825fab081e7d778d45.png" src="_images/6236f39a06eba720c02b3fdc6829cd7d5f58a740ffda26825fab081e7d778d45.png" />
+<img alt="_images/8da44db0598994f306fc8aff2f48098149fe9bbdaf64d124781a1eb5439b72aa.png" src="_images/8da44db0598994f306fc8aff2f48098149fe9bbdaf64d124781a1eb5439b72aa.png" />
 </div>
 </div>
 <ol class="arabic simple" start="2">
@@ -684,7 +674,7 @@ $<span class="math notranslate nohighlight">\( \frac{dv}{dt} = v - \frac{v^3}{3}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/78be3f8b7cff1f30f7dc7b7dd8ab16dfd396351efa87359756a4a7963e1da94c.png" src="_images/78be3f8b7cff1f30f7dc7b7dd8ab16dfd396351efa87359756a4a7963e1da94c.png" />
+<img alt="_images/5a63d6c1e01e4351a1a9809d80ac3f2af50b2338f63d6519f6b1d95a5c122573.png" src="_images/5a63d6c1e01e4351a1a9809d80ac3f2af50b2338f63d6519f6b1d95a5c122573.png" />
 </div>
 </div>
 </section>

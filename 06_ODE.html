@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -384,6 +386,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics-of-derivatives">Basics of derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-derivative">Second-order derivative</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytic-solutions">Analytic Solutions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-odes">Linear ODEs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytically-solvable-odes">Analytically solvable ODEs</a></li>
@@ -412,93 +418,128 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="ordinary-differential-equations">
 <h1>6. Ordinary Differential Equations<a class="headerlink" href="#ordinary-differential-equations" title="Permalink to this heading">#</a></h1>
-<p>A differential equation is an equation that includes a derivative <span class="math notranslate nohighlight">\(f\frac{df(x)}{dx}\)</span> of a function <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
-<blockquote>
-<div><p>The derivative of a function <span class="math notranslate nohighlight">\(f(x)\)</span> means its slope, mathematically defined as the limit:
-$<span class="math notranslate nohighlight">\(
+<p>A differential equation is an equation that includes a derivative <span class="math notranslate nohighlight">\(\frac{df(x)}{dx}\)</span> of a function <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
+<p>The derivative of a function <span class="math notranslate nohighlight">\(f(x)\)</span> means its slope, mathematically defined as the limit:</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{df(x)}{dx} = \lim_{\Delta x \rightarrow 0} \frac{f(x+\Delta x) - f(x)}{\Delta x}
-\)</span>$</p>
-</div></blockquote>
-<p>If the independent variable <span class="math notranslate nohighlight">\(x\)</span> is single, such as time, it is called an <em>ordinary differential equation (ODE)</em>.</p>
-<p>If there are multiple independent variables, such as space and time, the equation includes <em>partial derivatives</em> and called a <em>partial differential equation (PDE)</em>.</p>
-<p>Here we consider ODEs of the form
-$<span class="math notranslate nohighlight">\( \frac{dy}{dt} = f(y, t) \)</span><span class="math notranslate nohighlight">\(
-which describes the temporal dynamics of a varibale \)</span>y<span class="math notranslate nohighlight">\( over time \)</span>t$.  It is also called a continuous-time <em>dynamical system</em>.</p>
+\]</div>
+<p>A differential equation including a derivative by only one variable, it is called an <em>ordinary differential equation (ODE)</em>.</p>
+<p>Here we consider ODEs of the form</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dy}{dt} = f(y, t) \]</div>
+<p>which describes the temporal dynamics of a varibale <span class="math notranslate nohighlight">\(y\)</span> over time <span class="math notranslate nohighlight">\(t\)</span>.  It is also called a continuous-time <em>dynamical system</em>.</p>
 <p>Finding the variable as an explicit function of time <span class="math notranslate nohighlight">\(y(t)\)</span> is called <em>solving</em> or <em>integrating</em> the ODE.
 When it is done numerically, it is aslo called <em>simulating</em>.</p>
-<p>References:</p>
+<p><strong>References:</strong></p>
 <ul class="simple">
-<li><p>Stephen Wiggins: Introduction to Applied Nonlinear Dynamical Systems and Chaos, 2nd ed., Springer (2003).</p></li>
-<li><p>Scipy Lecture Notes: Section 6.7 Numerical Integration</p></li>
+<li><p><span id="id1">[<a class="reference internal" href="References.html#id6" title="Steven H. Strogatz. Nonlinear Dynamics And Chaos: With Applications to Physics, Biology, Chemistry, and Engineering. CRC Press, 3rd edition, 2024. ISBN 978-0367026509. doi:10.1201/9780429398490.">Strogatz, 2024</a>]</span> Strogatz SH (2024). Nonlinear Dynamics And Chaos.</p></li>
+<li><p><span id="id2">[<a class="reference internal" href="References.html#id3" title="Gaël Varoquaux, Emmanuelle Gouillart, Olav Vahtras, Pierre de Buyl, K. Jarrod Millman, and Stéfan van der Walt. Scientific python lectures. 2023. URL: https://lectures.scientific-python.org.">Varoquaux <em>et al.</em>, 2023</a>]</span> Scientific Python Lectures: Section 6.7 Numerical Integration<br />
+<a class="reference external" href="https://lectures.scientific-python.org">https://lectures.scientific-python.org</a></p></li>
 </ul>
-<p>Here are some basic properties of the deriative <span class="math notranslate nohighlight">\(f'(x)=\frac{df(x)}{dx}\)</span></p>
+<section id="basics-of-derivatives">
+<h2>Basics of derivatives<a class="headerlink" href="#basics-of-derivatives" title="Permalink to this heading">#</a></h2>
+<p>Here are some basic properties of the derivative <span class="math notranslate nohighlight">\(f'(x)=\frac{df(x)}{dx}\)</span></p>
 <ul class="simple">
-<li><p>The derivative of exponential is itself: <span class="math notranslate nohighlight">\( \frac{d e^x}{dx} = e^x \)</span></p></li>
-<li><p>Derivatives of sine and cosine: <span class="math notranslate nohighlight">\(\sin'(x)=\cos(x)\)</span>, <span class="math notranslate nohighlight">\(\cos'(x)=-\sin(x)\)</span></p></li>
-<li><p>Linearity: <span class="math notranslate nohighlight">\( \frac{d af(x)+bg(x)}{dx} = af'(x)+bg'(x) \)</span></p></li>
-<li><p>Chain rule: <span class="math notranslate nohighlight">\( \frac{d f(g(x))}{dx} = f'(g(x))g'(x) \)</span></p></li>
+<li><p>The derivative of a polynomial:</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[ (x^n)' = n x^{n-1} \]</div>
+<ul class="simple">
+<li><p>The derivative of exponential is itself:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ (e^x)' = e^x \]</div>
+<ul class="simple">
+<li><p>Derivatives of sine and cosine:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \sin'(x)=\cos(x),\]</div>
+<div class="math notranslate nohighlight">
+\[ \cos'(x)=-\sin(x) \]</div>
+<ul class="simple">
+<li><p>Linearity:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ (af(x)+bg(x))' = af'(x)+bg'(x) \]</div>
+<ul class="simple">
+<li><p>Chain rule:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ (f(g(x))' = f'(g(x))g'(x) \]</div>
+<section id="second-order-derivative">
+<h3>Second-order derivative<a class="headerlink" href="#second-order-derivative" title="Permalink to this heading">#</a></h3>
+<p>The second-order derivative <span class="math notranslate nohighlight">\(\frac{d^2f(x)}{dx^2}\)</span> of a function <span class="math notranslate nohighlight">\(f(x)\)</span> is the derivative of the derivative:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d^2f(x)}{dx^2} = \frac{d}{dx}\frac{df(x)}{dx} 
+= \lim_{\Delta x \rightarrow 0} \frac{f(x+\Delta x) - 2f(x) + f(x-\Delta x)}{\Delta x^2}
+\]</div>
+<p>A second-order derivative represents the change in the slope, i.e., the curvature.</p>
+</section>
+</section>
 <section id="analytic-solutions">
 <h2>Analytic Solutions<a class="headerlink" href="#analytic-solutions" title="Permalink to this heading">#</a></h2>
 <p>Solving a differential equation is an inverse problem of differentiation, for which analytic solution may not be available.</p>
-<p>The simplest case where analytic solutions are available is <em>linear</em> differential equations
-$<span class="math notranslate nohighlight">\( \frac{dy}{dt} = A y \)</span><span class="math notranslate nohighlight">\(
-where \)</span>y<span class="math notranslate nohighlight">\( is a real variable or a real vector, and \)</span>A$ is a constant coefficient or a matrix.</p>
+<p>The simplest case where analytic solutions are available is <em>linear</em> differential equations</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dy}{dt} = A y \]</div>
+<p>where <span class="math notranslate nohighlight">\(y\)</span> is a real variable or a real vector, and <span class="math notranslate nohighlight">\(A\)</span> is a constant coefficient or a matrix.</p>
 <section id="linear-odes">
 <h3>Linear ODEs<a class="headerlink" href="#linear-odes" title="Permalink to this heading">#</a></h3>
-<p>In general, a differential equation can have multiple solutions. For example, for a scalar linear ODE
-$<span class="math notranslate nohighlight">\( \frac{dy}{dt} = a y, \)</span><span class="math notranslate nohighlight">\(
-the solution is given by
-\)</span><span class="math notranslate nohighlight">\( y(t) = C e^{at}, \)</span><span class="math notranslate nohighlight">\(
-where \)</span>C$ can be any real value.</p>
+<p>In general, a differential equation can have multiple solutions. For example, for a scalar linear ODE</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dy}{dt} = a y, \]</div>
+<p>the solution is given by</p>
+<div class="math notranslate nohighlight">
+\[ y(t) = C e^{at}, \]</div>
+<p>where <span class="math notranslate nohighlight">\(C\)</span> can be any real value.</p>
 <ul class="simple">
 <li><p>Verify that by differentiating both sides of the equaiton above.</p></li>
 </ul>
 <p>When the value of <span class="math notranslate nohighlight">\(y\)</span> at a certain time is specified, the solution becomes unique.<br />
-For example, by specifying an initial condition
-$<span class="math notranslate nohighlight">\( y(0)=3, \)</span><span class="math notranslate nohighlight">\(
-from \)</span>e^{a0}=e^0=1<span class="math notranslate nohighlight">\(, we have \)</span>C=3<span class="math notranslate nohighlight">\( and a particular solution \)</span><span class="math notranslate nohighlight">\( y(t)=3e^{at}. \)</span>$</p>
-<p>Another example is a second-order linear ODE
-$<span class="math notranslate nohighlight">\( \frac{d^2y}{dt^2} = -a^2 y. \)</span>$</p>
-<blockquote>
-<div><p>The second-order derivative <span class="math notranslate nohighlight">\(\frac{d^2y}{dt^2}\)</span> of a function <span class="math notranslate nohighlight">\(y(t)\)</span> is the devative of the derivative
-$<span class="math notranslate nohighlight">\( \frac{d^2y}{dt^2} = \frac{d \frac{dy}{dt}}{dt} =  \frac{d}{dt} \frac{dy}{dt} \)</span>$
-representing the curvature.</p>
-</div></blockquote>
-<p>In this case, the solution is given by
-$<span class="math notranslate nohighlight">\( y(t) = C_1 \sin at + C_2 \cos at \)</span><span class="math notranslate nohighlight">\(
-where \)</span>C_1<span class="math notranslate nohighlight">\( and \)</span>C_2<span class="math notranslate nohighlight">\( are determined by spedifying \)</span>y<span class="math notranslate nohighlight">\( and \)</span>dy/dt$ at certain time.</p>
+For example, by specifying an initial condition</p>
+<div class="math notranslate nohighlight">
+\[ y(0)=3, \]</div>
+<p>from <span class="math notranslate nohighlight">\(e^{a0}=e^0=1\)</span>, we have <span class="math notranslate nohighlight">\(C=3\)</span> and a particular solution $<span class="math notranslate nohighlight">\( y(t)=3e^{at}. \)</span>$</p>
+<p>For a second-order linear ODE</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d^2y}{dt^2} = -a^2 y, \]</div>
+<p>the solution is given by</p>
+<div class="math notranslate nohighlight">
+\[ y(t) = C_1 \sin at + C_2 \cos at \]</div>
+<p>where <span class="math notranslate nohighlight">\(C_1\)</span> and <span class="math notranslate nohighlight">\(C_2\)</span> are determined by specifying <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(dy/dt\)</span> at certain time.</p>
 <ul class="simple">
-<li><p>Also verify the above.</p></li>
+<li><p>Also verify this by differentiation.</p></li>
 </ul>
 </section>
 <section id="analytically-solvable-odes">
 <h3>Analytically solvable ODEs<a class="headerlink" href="#analytically-solvable-odes" title="Permalink to this heading">#</a></h3>
 <p>Other cases where analytic solutions are well known are:</p>
 <ul class="simple">
-<li><p>Linear time-varying coefficient:
-$<span class="math notranslate nohighlight">\( \frac{dy}{dt} = a(t)y \)</span>$</p></li>
+<li><p>Linear time-varying coefficient:</p></li>
 </ul>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(at\)</span> replaced by time integral
-$<span class="math notranslate nohighlight">\( y(t) = C e^{\int a(t)dt} \)</span>$</p>
-</div></blockquote>
+<div class="math notranslate nohighlight">
+\[ \frac{dy}{dt} = a(t)y \]</div>
+<p><span class="math notranslate nohighlight">\(at\)</span> replaced by time integral <span class="math notranslate nohighlight">\(\int a(t)dt\)</span></p>
+<div class="math notranslate nohighlight">
+\[ y(t) = C e^{\int a(t)dt} \]</div>
 <ul class="simple">
-<li><p>Linear time-varying input:
-$<span class="math notranslate nohighlight">\(\frac{dy}{dt} = a(t)y + b(t)\)</span>$</p></li>
+<li><p>Linear time-varying input:</p></li>
 </ul>
-<blockquote>
-<div><p>using the above solution <span class="math notranslate nohighlight">\(y_0(t)\)</span> for <span class="math notranslate nohighlight">\(b(t)=0\)</span>
-$<span class="math notranslate nohighlight">\( y(t) = Cy_0(t) + y_0(t) \int \frac{b(t)}{y_0(t)}dt \)</span>$</p>
-</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\frac{dy}{dt} = a(t)y + b(t)\]</div>
+<p>using the above solution <span class="math notranslate nohighlight">\(y_0(t)\)</span> for <span class="math notranslate nohighlight">\(b(t)=0\)</span></p>
+<div class="math notranslate nohighlight">
+\[ y(t) = Cy_0(t) + y_0(t) \int \frac{b(t)}{y_0(t)}dt \]</div>
 <ul class="simple">
-<li><p>Separation of variables:
-$<span class="math notranslate nohighlight">\(\frac{dy}{dt} = a(y)b(t)\)</span>$</p></li>
+<li><p>Separation of variables:</p></li>
 </ul>
-<blockquote>
-<div><p>two related integrals
-$<span class="math notranslate nohighlight">\(\int \frac{1}{a(y)}dy = \int b(t)dt + C \)</span>$</p>
-</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\frac{dy}{dt} = a(y)b(t)\]</div>
+<p>two related integrals</p>
+<div class="math notranslate nohighlight">
+\[\int \frac{1}{a(y)}dy = \int b(t)dt + C \]</div>
 <ul class="simple">
 <li><p>Other cases that can be reduced to above by change of variables, etc.</p></li>
 </ul>
@@ -507,12 +548,14 @@ $<span class="math notranslate nohighlight">\(\int \frac{1}{a(y)}dy = \int b(t)d
 </section>
 <section id="euler-method">
 <h2>Euler Method<a class="headerlink" href="#euler-method" title="Permalink to this heading">#</a></h2>
-<p>The most basic way of sovling an ODE numerically is <em>Euler Method</em>.<br />
-For an ODE
-$<span class="math notranslate nohighlight">\( \frac{dy}{dt} = f(y,t) \)</span><span class="math notranslate nohighlight">\(
-with an initial condition \)</span>y(t_0)=y_0<span class="math notranslate nohighlight">\(, the solution is iteratively approximated by
-\)</span><span class="math notranslate nohighlight">\( y(t+\Delta t) = y(t) + f(y,t) \Delta t \)</span><span class="math notranslate nohighlight">\(
-with a small time step \)</span>\Delta t$.</p>
+<p>The most basic way of solving an ODE numerically is <em>Euler Method</em>.<br />
+For an ODE</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dy}{dt} = f(y,t) \]</div>
+<p>with an initial condition <span class="math notranslate nohighlight">\(y(t_0)=y_0\)</span>, the solution is iteratively approximated by</p>
+<div class="math notranslate nohighlight">
+\[ y(t+\Delta t) = y(t) + f(y,t) \Delta t \]</div>
+<p>with a small time step <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -560,19 +603,24 @@ with a small time step \)</span>\Delta t$.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6a3b18d1d12f33fd7722d90041e570c8a286bd95c3f321c8116a3a475361224c.png" src="_images/6a3b18d1d12f33fd7722d90041e570c8a286bd95c3f321c8116a3a475361224c.png" />
+<img alt="_images/e3dfddeb0973708b630adcdac240121aa0d4180c6a0e71ff257b4b1452aae38a.png" src="_images/e3dfddeb0973708b630adcdac240121aa0d4180c6a0e71ff257b4b1452aae38a.png" />
 </div>
 </div>
-<p>A second-order ODE
-$<span class="math notranslate nohighlight">\( \frac{d^2y}{dt^2} = a_2 \frac{dy}{dt} + a_1 y + a_0 \)</span><span class="math notranslate nohighlight">\(
-can be converted into a first-order ODE of a 2-dimensional vector 
-\)</span>{\bf y} = \pmatrix{y_1 \ y_2} =\pmatrix{y \ \frac{dy}{dt}}<span class="math notranslate nohighlight">\( as 
-\)</span><span class="math notranslate nohighlight">\( \frac{dy_1}{dt} = y_2 \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \frac{dy_2}{dt} = a_2 y_2 + a_1 y_1 + a_0 \)</span><span class="math notranslate nohighlight">\(
-or in a vector-matrix form
-\)</span><span class="math notranslate nohighlight">\( \frac{d}{dt}{\bf y} = A{\bf y} + {\bf b}\)</span><span class="math notranslate nohighlight">\(
-where
-\)</span><span class="math notranslate nohighlight">\( A = \pmatrix{0 &amp; 1 \\ a_1 &amp; a_2} \mbox{ and } {\bf b} = \pmatrix{0 \\ a_0}\)</span>$</p>
+<p>A second-order ODE</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d^2y}{dt^2} = a_2 \frac{dy}{dt} + a_1 y + a_0 \]</div>
+<p>can be converted into a first-order ODE of a 2-dimensional vector
+<span class="math notranslate nohighlight">\({\bf y} = \pmatrix{y_1 \\ y_2} =\pmatrix{y \\ \frac{dy}{dt}}\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dy_1}{dt} = y_2 \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{dy_2}{dt} = a_2 y_2 + a_1 y_1 + a_0 \]</div>
+<p>or in a vector-matrix form</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d}{dt}{\bf y} = A{\bf y} + {\bf b}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} A = \pmatrix{0 &amp; 1 \\ a_1 &amp; a_2} \mbox{ and } {\bf b} = \pmatrix{0 \\ a_0}\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">second</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
@@ -591,7 +639,7 @@ where
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/95efd4035f272243682b3842a7f486e7bc453b2ba9ecda26e100ca955a1bb496.png" src="_images/95efd4035f272243682b3842a7f486e7bc453b2ba9ecda26e100ca955a1bb496.png" />
+<img alt="_images/9267ef358b9c38c7c183c8a67a84749741b3c666094ca6e233e3362c5aabe002.png" src="_images/9267ef358b9c38c7c183c8a67a84749741b3c666094ca6e233e3362c5aabe002.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -602,7 +650,7 @@ where
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/90e4be2342f3456c0f3c544487a47a82ec686ac1819525ed637afab505505cca.png" src="_images/90e4be2342f3456c0f3c544487a47a82ec686ac1819525ed637afab505505cca.png" />
+<img alt="_images/f0a811b29f6f9a96fd12bfe93db2054195cba1d2b3997c087b70aa5811c6c0cf.png" src="_images/f0a811b29f6f9a96fd12bfe93db2054195cba1d2b3997c087b70aa5811c6c0cf.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -613,7 +661,7 @@ where
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cfa85e8729c45d30f735595027ab3847cf924dc3b8d5057339d6463481e974f8.png" src="_images/cfa85e8729c45d30f735595027ab3847cf924dc3b8d5057339d6463481e974f8.png" />
+<img alt="_images/fdde2484a8c2eae0049d47000ed339e0ba2c8c0e54e00aece04d0d8d0ea9588e.png" src="_images/fdde2484a8c2eae0049d47000ed339e0ba2c8c0e54e00aece04d0d8d0ea9588e.png" />
 </div>
 </div>
 <p>Let us see how the time step affects the accuracy of the solution.</p>
@@ -629,7 +677,7 @@ where
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/86c73b4d3319b4b5c434e33b1565d39b56181c751071e601ec5b16a8ccbe0b92.png" src="_images/86c73b4d3319b4b5c434e33b1565d39b56181c751071e601ec5b16a8ccbe0b92.png" />
+<img alt="_images/80aff22fcbd936fcd3271c7fd8417d27731c0e1988efceae5cae1d189955f897.png" src="_images/80aff22fcbd936fcd3271c7fd8417d27731c0e1988efceae5cae1d189955f897.png" />
 </div>
 </div>
 </section>
@@ -637,12 +685,21 @@ where
 <h2>Scipy’s Integrate package<a class="headerlink" href="#scipy-s-integrate-package" title="Permalink to this heading">#</a></h2>
 <p>To avoid numerical instability and to improve accuracy and efficiency, there are advanced methods for ODE solutions.</p>
 <ul class="simple">
-<li><p>Backward Euler method: solve
-$<span class="math notranslate nohighlight">\( y(t+\Delta t) = y(t) + f(y(t+\Delta t)) \Delta t\)</span>$</p></li>
-<li><p>Mixture of forward and backward (Crank-Nicolson):
-$<span class="math notranslate nohighlight">\( y(t+\Delta t) = y(t) + \frac{1}{2}\{f(y(t))+f(y(t+\Delta t))\} \Delta t\)</span>$</p></li>
-<li><p>Runge-Kutta method: minimize higher-order erros by Taylor expansion
-$<span class="math notranslate nohighlight">\( y(t+\Delta t) = y(t) + f(y(t))\Delta t + \frac{1}{2} \frac{d}{dt}f(y(t))\Delta t^2 + ...\)</span>$</p></li>
+<li><p>Backward Euler method: solve</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ y(t+\Delta t) = y(t) + f(y(t+\Delta t)) \Delta t\]</div>
+<ul class="simple">
+<li><p>Mixture of forward and backward (Crank-Nicolson):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ y(t+\Delta t) = y(t) + \frac{1}{2}\{f(y(t))+f(y(t+\Delta t))\} \Delta t\]</div>
+<ul class="simple">
+<li><p>Runge-Kutta method: minimize higher-order erros by Taylor expansion</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ y(t+\Delta t) = y(t) + f(y(t))\Delta t + \frac{1}{2} \frac{d}{dt}f(y(t))\Delta t^2 + ...\]</div>
+<ul class="simple">
 <li><p>Adative time step: adjust <span class="math notranslate nohighlight">\(\Delta t\)</span> depending on the scale of <span class="math notranslate nohighlight">\(\frac{df(y(t))}{dt}\)</span>.</p></li>
 </ul>
 <p>The implementation and choice of these methods require a good expertise, but fortunately <code class="docutils literal notranslate"><span class="pre">scipy</span></code> includes <code class="docutils literal notranslate"><span class="pre">integrate</span></code> package which has been well tested and optimized.<br />
@@ -666,27 +723,27 @@ $<span class="math notranslate nohighlight">\( y(t+\Delta t) = y(t) + f(y(t))\De
 
 odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=None, rtol=None, atol=None, tcrit=None, h0=0.0, hmax=0.0, hmin=0.0, ixpr=0, mxstep=0, mxhnil=0, mxordn=12, mxords=5, printmessg=0, tfirst=False)
     Integrate a system of ordinary differential equations.
-
+    
     .. note:: For new code, use `scipy.integrate.solve_ivp` to solve a
               differential equation.
-
+    
     Solve a system of ordinary differential equations using lsoda from the
     FORTRAN library odepack.
-
+    
     Solves the initial value problem for stiff or non-stiff systems
     of first order ode-s::
-
+    
         dy/dt = func(y, t, ...)  [or func(t, y, ...)]
-
+    
     where y can be a vector.
-
+    
     .. note:: By default, the required order of the first two arguments of
               `func` are in the opposite order of the arguments in the system
               definition function used by the `scipy.integrate.ode` class and
               the function `scipy.integrate.solve_ivp`. To use a function with
               the signature ``func(t, y, ...)``, the argument `tfirst` must be
               set to ``True``.
-
+    
     Parameters
     ----------
     func : callable(y, t, ...) or callable(t, y, ...)
@@ -716,9 +773,9 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
     tfirst : bool, optional
         If True, the first two arguments of `func` (and `Dfun`, if given)
         must ``t, y`` instead of the default ``y, t``.
-
+    
         .. versionadded:: 1.1.0
-
+    
     Returns
     -------
     y : array, shape (len(t), len(y0))
@@ -726,7 +783,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
         with the initial value `y0` in the first row.
     infodict : dict, only returned if full_output == True
         Dictionary containing additional output information
-
+    
         =======  ============================================================
         key      meaning
         =======  ============================================================
@@ -749,7 +806,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
         &#39;mused&#39;  a vector of method indicators for each successful time step:
                  1: adams (nonstiff), 2: bdf (stiff)
         =======  ============================================================
-
+    
     Other Parameters
     ----------------
     ml, mu : int, optional
@@ -761,9 +818,9 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
         Thus, the return matrix `jac` from `Dfun` should have shape
         ``(ml + mu + 1, len(y0))`` when ``ml &gt;=0`` or ``mu &gt;=0``.
         The data in `jac` must be stored such that ``jac[i - j + mu, j]``
-        holds the derivative of the ``i``\ th equation with respect to the
-        ``j``\ th state variable.  If `col_deriv` is True, the transpose of
-        this `jac` must be returned.
+        holds the derivative of the `i`th equation with respect to the `j`th
+        state variable.  If `col_deriv` is True, the transpose of this
+        `jac` must be returned.
     rtol, atol : float, optional
         The input parameters `rtol` and `atol` determine the error
         control performed by the solver.  The solver will control the
@@ -793,65 +850,65 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
         Maximum order to be allowed for the non-stiff (Adams) method.
     mxords : int, (0: solver-determined), optional
         Maximum order to be allowed for the stiff (BDF) method.
-
+    
     See Also
     --------
     solve_ivp : solve an initial value problem for a system of ODEs
     ode : a more object-oriented integrator based on VODE
     quad : for finding the area under a curve
-
+    
     Examples
     --------
     The second order differential equation for the angle `theta` of a
     pendulum acted on by gravity with friction can be written::
-
+    
         theta&#39;&#39;(t) + b*theta&#39;(t) + c*sin(theta(t)) = 0
-
+    
     where `b` and `c` are positive constants, and a prime (&#39;) denotes a
     derivative. To solve this equation with `odeint`, we must first convert
     it to a system of first order equations. By defining the angular
     velocity ``omega(t) = theta&#39;(t)``, we obtain the system::
-
+    
         theta&#39;(t) = omega(t)
         omega&#39;(t) = -b*omega(t) - c*sin(theta(t))
-
+    
     Let `y` be the vector [`theta`, `omega`]. We implement this system
     in Python as:
-
+    
     &gt;&gt;&gt; import numpy as np
     &gt;&gt;&gt; def pend(y, t, b, c):
     ...     theta, omega = y
     ...     dydt = [omega, -b*omega - c*np.sin(theta)]
     ...     return dydt
     ...
-
+    
     We assume the constants are `b` = 0.25 and `c` = 5.0:
-
+    
     &gt;&gt;&gt; b = 0.25
     &gt;&gt;&gt; c = 5.0
-
+    
     For initial conditions, we assume the pendulum is nearly vertical
     with `theta(0)` = `pi` - 0.1, and is initially at rest, so
     `omega(0)` = 0.  Then the vector of initial conditions is
-
+    
     &gt;&gt;&gt; y0 = [np.pi - 0.1, 0.0]
-
+    
     We will generate a solution at 101 evenly spaced samples in the interval
     0 &lt;= `t` &lt;= 10.  So our array of times is:
-
+    
     &gt;&gt;&gt; t = np.linspace(0, 10, 101)
-
+    
     Call `odeint` to generate the solution. To pass the parameters
     `b` and `c` to `pend`, we give them to `odeint` using the `args`
     argument.
-
+    
     &gt;&gt;&gt; from scipy.integrate import odeint
     &gt;&gt;&gt; sol = odeint(pend, y0, t, args=(b, c))
-
+    
     The solution is an array with shape (101, 2). The first column
     is `theta(t)`, and the second is `omega(t)`. The following code
     plots both components.
-
+    
     &gt;&gt;&gt; import matplotlib.pyplot as plt
     &gt;&gt;&gt; plt.plot(t, sol[:, 0], &#39;b&#39;, label=&#39;theta(t)&#39;)
     &gt;&gt;&gt; plt.plot(t, sol[:, 1], &#39;g&#39;, label=&#39;omega(t)&#39;)
@@ -873,7 +930,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/80aaa443241c5f324e27cde16fda1bb8eb2fe211d3baed322aebb979d328ded5.png" src="_images/80aaa443241c5f324e27cde16fda1bb8eb2fe211d3baed322aebb979d328ded5.png" />
+<img alt="_images/039fe101c6c24d2849dbb7d299112c09b34b46f06185cee272d79db5dae6ca0b.png" src="_images/039fe101c6c24d2849dbb7d299112c09b34b46f06185cee272d79db5dae6ca0b.png" />
 </div>
 </div>
 <p>Here’s another example of second-order linear ODE.</p>
@@ -886,7 +943,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/940be91be182302ddf59cff09349ecd2cba7522d63a16489f9d6b8b16265aaf5.png" src="_images/940be91be182302ddf59cff09349ecd2cba7522d63a16489f9d6b8b16265aaf5.png" />
+<img alt="_images/8a193d88ce5cd9c263192c0245ae20b7fb87ef0af5d7abd145735bee303d1790.png" src="_images/8a193d88ce5cd9c263192c0245ae20b7fb87ef0af5d7abd145735bee303d1790.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">odeint()</span></code> internally uses adaptive time steps, and returns values of <code class="docutils literal notranslate"><span class="pre">y</span></code> for time points specified in <code class="docutils literal notranslate"><span class="pre">t</span></code> by interpolation.</p>
@@ -902,7 +959,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3f7b2ac96f3ff98a419b2a03d9068915ed27650bf67595ae750462c05431de0f.png" src="_images/3f7b2ac96f3ff98a419b2a03d9068915ed27650bf67595ae750462c05431de0f.png" />
+<img alt="_images/6bee3691a23e8cfdab9ad1480c3ae7dfa9900d501af13eb915cdc7161e34bc99.png" src="_images/6bee3691a23e8cfdab9ad1480c3ae7dfa9900d501af13eb915cdc7161e34bc99.png" />
 </div>
 </div>
 </section>
@@ -980,7 +1037,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c7023ebae9f6748762a130f07355279fcd6a6e95b698ee55f33524b3379b779e.png" src="_images/c7023ebae9f6748762a130f07355279fcd6a6e95b698ee55f33524b3379b779e.png" />
+<img alt="_images/472dcde2c2b8b4535717e4e7b2fbf9043f5709dfde9617a28ae77d8a7b0b9a20.png" src="_images/472dcde2c2b8b4535717e4e7b2fbf9043f5709dfde9617a28ae77d8a7b0b9a20.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1014,16 +1071,17 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/83874ce8b1d1adea3249c9a4271127a444e9f251d4507b5f9cae31049572d968.png" src="_images/83874ce8b1d1adea3249c9a4271127a444e9f251d4507b5f9cae31049572d968.png" />
+<img alt="_images/84ef781800e7a58cde9e6ec8a441240d1739b69e09ddc19e6f5a491cf0be0a7c.png" src="_images/84ef781800e7a58cde9e6ec8a441240d1739b69e09ddc19e6f5a491cf0be0a7c.png" />
 </div>
 </div>
 </section>
 <section id="linear-dynamical-system">
 <h2>Linear dynamical system<a class="headerlink" href="#linear-dynamical-system" title="Permalink to this heading">#</a></h2>
-<p>For a linear dynamical system
-$<span class="math notranslate nohighlight">\( \frac{d}{dt}{\bf y} = A {\bf y} \)</span><span class="math notranslate nohighlight">\(
-where \)</span>{\bf y}<span class="math notranslate nohighlight">\( is an \)</span>n<span class="math notranslate nohighlight">\( dimensional vector and \)</span>A<span class="math notranslate nohighlight">\( is an \)</span>n\times n<span class="math notranslate nohighlight">\( matrix, the origin \)</span>{\bf y}={\bf 0}<span class="math notranslate nohighlight">\( is always a fixed point. 
-Its stability is determined by the eigenvalues of \)</span>A$.</p>
+<p>For a linear dynamical system</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d}{dt}{\bf y} = A {\bf y} \]</div>
+<p>where <span class="math notranslate nohighlight">\({\bf y}\)</span> is an <span class="math notranslate nohighlight">\(n\)</span> dimensional vector and <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix, the origin <span class="math notranslate nohighlight">\({\bf y}={\bf 0}\)</span> is always a fixed point.
+Its stability is determined by the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <ul class="simple">
 <li><p>If the real part of all the eigenvalues are negative or zero, the system is stable.</p></li>
 <li><p>If any of the real part of the eigenvalues is positive, the system is unstable.</p></li>
@@ -1066,7 +1124,7 @@ Its stability is determined by the eigenvalues of \)</span>A$.</p>
 ev = [-0.5+0.8660254j -0.5-0.8660254j]
 </pre></div>
 </div>
-<img alt="_images/5f6df66bf0528d692b9c2da1037386591fd61b266fc5679504e36b40ef8e2392.png" src="_images/5f6df66bf0528d692b9c2da1037386591fd61b266fc5679504e36b40ef8e2392.png" />
+<img alt="_images/38ed11778cb3ec071385273c6edfc441c9e20c729c9dbdecd9dac71bc1cac36a.png" src="_images/38ed11778cb3ec071385273c6edfc441c9e20c729c9dbdecd9dac71bc1cac36a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1081,7 +1139,7 @@ ev = [-0.5+0.8660254j -0.5-0.8660254j]
 ev = [0.5+0.8660254j 0.5-0.8660254j]
 </pre></div>
 </div>
-<img alt="_images/8e84f8de472fdc50e8ac5bcb626d9078370ce75070870f6b07a102712d99b801.png" src="_images/8e84f8de472fdc50e8ac5bcb626d9078370ce75070870f6b07a102712d99b801.png" />
+<img alt="_images/a480677b0b3637605f35f10fbb0d5f377c7712a830ccd26d25d70821b5c135d8.png" src="_images/a480677b0b3637605f35f10fbb0d5f377c7712a830ccd26d25d70821b5c135d8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1096,7 +1154,7 @@ ev = [0.5+0.8660254j 0.5-0.8660254j]
 ev = [-1.  1.]
 </pre></div>
 </div>
-<img alt="_images/0880babc3a92378773f71668c3030ed0334541717ea4181bc01f22b26fa2afd2.png" src="_images/0880babc3a92378773f71668c3030ed0334541717ea4181bc01f22b26fa2afd2.png" />
+<img alt="_images/efa30765506e9d2f208aa3bdaec4711e0e952b275a1707d23dc4a2a6ff9c939a.png" src="_images/efa30765506e9d2f208aa3bdaec4711e0e952b275a1707d23dc4a2a6ff9c939a.png" />
 </div>
 </div>
 </section>
@@ -1105,8 +1163,9 @@ ev = [-1.  1.]
 <p>While the dynamics of a linear ODE can show only convergence, divergence, or neutrally stable oscillations, nonlinear ODEs can show limit-cycle oscillation and chaos.</p>
 <section id="van-der-pol-oscillator">
 <h3>Van der Pol oscillator<a class="headerlink" href="#van-der-pol-oscillator" title="Permalink to this heading">#</a></h3>
-<p>This is a classic equation describing an oscillator circuit with a vacuume tube:
-$<span class="math notranslate nohighlight">\( \frac{d^2y}{dt^2} - \mu(1-y^2)\frac{dy}{dt} + y = 0 \)</span>$</p>
+<p>This is a classic equation describing an oscillator circuit with a vacuume tube:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d^2y}{dt^2} - \mu(1-y^2)\frac{dy}{dt} + y = 0 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vdp</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
@@ -1126,7 +1185,7 @@ $<span class="math notranslate nohighlight">\( \frac{d^2y}{dt^2} - \mu(1-y^2)\fr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6e1319be88de29d23e44a8a489748f5c73c00a67277ac9d9f3dcb29bb69190f4.png" src="_images/6e1319be88de29d23e44a8a489748f5c73c00a67277ac9d9f3dcb29bb69190f4.png" />
+<img alt="_images/bb671ce71b71e7a307a128ac572f99a3bd5496a00e8dc00437611e783292321a.png" src="_images/bb671ce71b71e7a307a128ac572f99a3bd5496a00e8dc00437611e783292321a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1137,7 +1196,7 @@ $<span class="math notranslate nohighlight">\( \frac{d^2y}{dt^2} - \mu(1-y^2)\fr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c7f1074c9dc7bf9028cf524bf86821e80cf278f2d570b7b2a2bdd14ed4ac214c.png" src="_images/c7f1074c9dc7bf9028cf524bf86821e80cf278f2d570b7b2a2bdd14ed4ac214c.png" />
+<img alt="_images/abdcd12295caf4f22d50b2c99b3b43313a27ef95574e63ee5db06fe5b182686b.png" src="_images/abdcd12295caf4f22d50b2c99b3b43313a27ef95574e63ee5db06fe5b182686b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1149,7 +1208,7 @@ $<span class="math notranslate nohighlight">\( \frac{d^2y}{dt^2} - \mu(1-y^2)\fr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d414106c5587c0013ee9ab518e764d84d87c25902f2d909c513a2013688a982f.png" src="_images/d414106c5587c0013ee9ab518e764d84d87c25902f2d909c513a2013688a982f.png" />
+<img alt="_images/315f9f7b0979c9320f630d6078962a1a2381eecff0f7aafe5093c8bece0622fc.png" src="_images/315f9f7b0979c9320f630d6078962a1a2381eecff0f7aafe5093c8bece0622fc.png" />
 </div>
 </div>
 </section>
@@ -1162,10 +1221,13 @@ It implies that there is no chaos in a continuous 2D dynamic system.</p>
 </section>
 <section id="lorenz-attractor">
 <h3>Lorenz attractor<a class="headerlink" href="#lorenz-attractor" title="Permalink to this heading">#</a></h3>
-<p>Edward Lorenz derived a simplified equation describing the convection of atmosphere and found that it shows non-periodic oscillation.
-$<span class="math notranslate nohighlight">\( \frac{dx}{dt} = p(y - x) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \frac{dy}{dt} = -xz + rx - y \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \frac{dz}{dt} = xy - bz \)</span>$</p>
+<p>Edward Lorenz derived a simplified equation describing the convection of atmosphere and found that it shows non-periodic oscillation.</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dx}{dt} = p(y - x) \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{dy}{dt} = -xz + rx - y \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{dz}{dt} = xy - bz \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lorenz</span><span class="p">(</span><span class="n">xyz</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">10.</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">28.</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">8.</span><span class="o">/</span><span class="mi">3</span><span class="p">):</span>
@@ -1189,12 +1251,13 @@ $<span class="math notranslate nohighlight">\( \frac{dx}{dt} = p(y - x) \)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/326cb73e65187b9846e1c6d99752286db87593551f3c9b5d358b5b727a50a0cc.png" src="_images/326cb73e65187b9846e1c6d99752286db87593551f3c9b5d358b5b727a50a0cc.png" />
+<img alt="_images/b83b9f1987866f4d3f9c85feba208e234106d74e1cb53363514b4d0e625b1d11.png" src="_images/b83b9f1987866f4d3f9c85feba208e234106d74e1cb53363514b4d0e625b1d11.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> notebook
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncomment below for interactive viewing</span>
+<span class="c1">#%matplotlib notebook</span>
 </pre></div>
 </div>
 </div>
@@ -1209,981 +1272,8 @@ $<span class="math notranslate nohighlight">\( \frac{dx}{dt} = p(y - x) \)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/javascript">/* Put everything inside the global mpl namespace */
-/* global mpl */
-window.mpl = {};
-
-mpl.get_websocket_type = function () {
-    if (typeof WebSocket !== 'undefined') {
-        return WebSocket;
-    } else if (typeof MozWebSocket !== 'undefined') {
-        return MozWebSocket;
-    } else {
-        alert(
-            'Your browser does not have WebSocket support. ' +
-                'Please try Chrome, Safari or Firefox ≥ 6. ' +
-                'Firefox 4 and 5 are also supported but you ' +
-                'have to enable WebSockets in about:config.'
-        );
-    }
-};
-
-mpl.figure = function (figure_id, websocket, ondownload, parent_element) {
-    this.id = figure_id;
-
-    this.ws = websocket;
-
-    this.supports_binary = this.ws.binaryType !== undefined;
-
-    if (!this.supports_binary) {
-        var warnings = document.getElementById('mpl-warnings');
-        if (warnings) {
-            warnings.style.display = 'block';
-            warnings.textContent =
-                'This browser does not support binary websocket messages. ' +
-                'Performance may be slow.';
-        }
-    }
-
-    this.imageObj = new Image();
-
-    this.context = undefined;
-    this.message = undefined;
-    this.canvas = undefined;
-    this.rubberband_canvas = undefined;
-    this.rubberband_context = undefined;
-    this.format_dropdown = undefined;
-
-    this.image_mode = 'full';
-
-    this.root = document.createElement('div');
-    this.root.setAttribute('style', 'display: inline-block');
-    this._root_extra_style(this.root);
-
-    parent_element.appendChild(this.root);
-
-    this._init_header(this);
-    this._init_canvas(this);
-    this._init_toolbar(this);
-
-    var fig = this;
-
-    this.waiting = false;
-
-    this.ws.onopen = function () {
-        fig.send_message('supports_binary', { value: fig.supports_binary });
-        fig.send_message('send_image_mode', {});
-        if (fig.ratio !== 1) {
-            fig.send_message('set_device_pixel_ratio', {
-                device_pixel_ratio: fig.ratio,
-            });
-        }
-        fig.send_message('refresh', {});
-    };
-
-    this.imageObj.onload = function () {
-        if (fig.image_mode === 'full') {
-            // Full images could contain transparency (where diff images
-            // almost always do), so we need to clear the canvas so that
-            // there is no ghosting.
-            fig.context.clearRect(0, 0, fig.canvas.width, fig.canvas.height);
-        }
-        fig.context.drawImage(fig.imageObj, 0, 0);
-    };
-
-    this.imageObj.onunload = function () {
-        fig.ws.close();
-    };
-
-    this.ws.onmessage = this._make_on_message_function(this);
-
-    this.ondownload = ondownload;
-};
-
-mpl.figure.prototype._init_header = function () {
-    var titlebar = document.createElement('div');
-    titlebar.classList =
-        'ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix';
-    var titletext = document.createElement('div');
-    titletext.classList = 'ui-dialog-title';
-    titletext.setAttribute(
-        'style',
-        'width: 100%; text-align: center; padding: 3px;'
-    );
-    titlebar.appendChild(titletext);
-    this.root.appendChild(titlebar);
-    this.header = titletext;
-};
-
-mpl.figure.prototype._canvas_extra_style = function (_canvas_div) {};
-
-mpl.figure.prototype._root_extra_style = function (_canvas_div) {};
-
-mpl.figure.prototype._init_canvas = function () {
-    var fig = this;
-
-    var canvas_div = (this.canvas_div = document.createElement('div'));
-    canvas_div.setAttribute('tabindex', '0');
-    canvas_div.setAttribute(
-        'style',
-        'border: 1px solid #ddd;' +
-            'box-sizing: content-box;' +
-            'clear: both;' +
-            'min-height: 1px;' +
-            'min-width: 1px;' +
-            'outline: 0;' +
-            'overflow: hidden;' +
-            'position: relative;' +
-            'resize: both;' +
-            'z-index: 2;'
-    );
-
-    function on_keyboard_event_closure(name) {
-        return function (event) {
-            return fig.key_event(event, name);
-        };
-    }
-
-    canvas_div.addEventListener(
-        'keydown',
-        on_keyboard_event_closure('key_press')
-    );
-    canvas_div.addEventListener(
-        'keyup',
-        on_keyboard_event_closure('key_release')
-    );
-
-    this._canvas_extra_style(canvas_div);
-    this.root.appendChild(canvas_div);
-
-    var canvas = (this.canvas = document.createElement('canvas'));
-    canvas.classList.add('mpl-canvas');
-    canvas.setAttribute(
-        'style',
-        'box-sizing: content-box;' +
-            'pointer-events: none;' +
-            'position: relative;' +
-            'z-index: 0;'
-    );
-
-    this.context = canvas.getContext('2d');
-
-    var backingStore =
-        this.context.backingStorePixelRatio ||
-        this.context.webkitBackingStorePixelRatio ||
-        this.context.mozBackingStorePixelRatio ||
-        this.context.msBackingStorePixelRatio ||
-        this.context.oBackingStorePixelRatio ||
-        this.context.backingStorePixelRatio ||
-        1;
-
-    this.ratio = (window.devicePixelRatio || 1) / backingStore;
-
-    var rubberband_canvas = (this.rubberband_canvas = document.createElement(
-        'canvas'
-    ));
-    rubberband_canvas.setAttribute(
-        'style',
-        'box-sizing: content-box;' +
-            'left: 0;' +
-            'pointer-events: none;' +
-            'position: absolute;' +
-            'top: 0;' +
-            'z-index: 1;'
-    );
-
-    // Apply a ponyfill if ResizeObserver is not implemented by browser.
-    if (this.ResizeObserver === undefined) {
-        if (window.ResizeObserver !== undefined) {
-            this.ResizeObserver = window.ResizeObserver;
-        } else {
-            var obs = _JSXTOOLS_RESIZE_OBSERVER({});
-            this.ResizeObserver = obs.ResizeObserver;
-        }
-    }
-
-    this.resizeObserverInstance = new this.ResizeObserver(function (entries) {
-        var nentries = entries.length;
-        for (var i = 0; i < nentries; i++) {
-            var entry = entries[i];
-            var width, height;
-            if (entry.contentBoxSize) {
-                if (entry.contentBoxSize instanceof Array) {
-                    // Chrome 84 implements new version of spec.
-                    width = entry.contentBoxSize[0].inlineSize;
-                    height = entry.contentBoxSize[0].blockSize;
-                } else {
-                    // Firefox implements old version of spec.
-                    width = entry.contentBoxSize.inlineSize;
-                    height = entry.contentBoxSize.blockSize;
-                }
-            } else {
-                // Chrome <84 implements even older version of spec.
-                width = entry.contentRect.width;
-                height = entry.contentRect.height;
-            }
-
-            // Keep the size of the canvas and rubber band canvas in sync with
-            // the canvas container.
-            if (entry.devicePixelContentBoxSize) {
-                // Chrome 84 implements new version of spec.
-                canvas.setAttribute(
-                    'width',
-                    entry.devicePixelContentBoxSize[0].inlineSize
-                );
-                canvas.setAttribute(
-                    'height',
-                    entry.devicePixelContentBoxSize[0].blockSize
-                );
-            } else {
-                canvas.setAttribute('width', width * fig.ratio);
-                canvas.setAttribute('height', height * fig.ratio);
-            }
-            /* This rescales the canvas back to display pixels, so that it
-             * appears correct on HiDPI screens. */
-            canvas.style.width = width + 'px';
-            canvas.style.height = height + 'px';
-
-            rubberband_canvas.setAttribute('width', width);
-            rubberband_canvas.setAttribute('height', height);
-
-            // And update the size in Python. We ignore the initial 0/0 size
-            // that occurs as the element is placed into the DOM, which should
-            // otherwise not happen due to the minimum size styling.
-            if (fig.ws.readyState == 1 && width != 0 && height != 0) {
-                fig.request_resize(width, height);
-            }
-        }
-    });
-    this.resizeObserverInstance.observe(canvas_div);
-
-    function on_mouse_event_closure(name) {
-        /* User Agent sniffing is bad, but WebKit is busted:
-         * https://bugs.webkit.org/show_bug.cgi?id=144526
-         * https://bugs.webkit.org/show_bug.cgi?id=181818
-         * The worst that happens here is that they get an extra browser
-         * selection when dragging, if this check fails to catch them.
-         */
-        var UA = navigator.userAgent;
-        var isWebKit = /AppleWebKit/.test(UA) && !/Chrome/.test(UA);
-        if(isWebKit) {
-            return function (event) {
-                /* This prevents the web browser from automatically changing to
-                 * the text insertion cursor when the button is pressed. We
-                 * want to control all of the cursor setting manually through
-                 * the 'cursor' event from matplotlib */
-                event.preventDefault()
-                return fig.mouse_event(event, name);
-            };
-        } else {
-            return function (event) {
-                return fig.mouse_event(event, name);
-            };
-        }
-    }
-
-    canvas_div.addEventListener(
-        'mousedown',
-        on_mouse_event_closure('button_press')
-    );
-    canvas_div.addEventListener(
-        'mouseup',
-        on_mouse_event_closure('button_release')
-    );
-    canvas_div.addEventListener(
-        'dblclick',
-        on_mouse_event_closure('dblclick')
-    );
-    // Throttle sequential mouse events to 1 every 20ms.
-    canvas_div.addEventListener(
-        'mousemove',
-        on_mouse_event_closure('motion_notify')
-    );
-
-    canvas_div.addEventListener(
-        'mouseenter',
-        on_mouse_event_closure('figure_enter')
-    );
-    canvas_div.addEventListener(
-        'mouseleave',
-        on_mouse_event_closure('figure_leave')
-    );
-
-    canvas_div.addEventListener('wheel', function (event) {
-        if (event.deltaY < 0) {
-            event.step = 1;
-        } else {
-            event.step = -1;
-        }
-        on_mouse_event_closure('scroll')(event);
-    });
-
-    canvas_div.appendChild(canvas);
-    canvas_div.appendChild(rubberband_canvas);
-
-    this.rubberband_context = rubberband_canvas.getContext('2d');
-    this.rubberband_context.strokeStyle = '#000000';
-
-    this._resize_canvas = function (width, height, forward) {
-        if (forward) {
-            canvas_div.style.width = width + 'px';
-            canvas_div.style.height = height + 'px';
-        }
-    };
-
-    // Disable right mouse context menu.
-    canvas_div.addEventListener('contextmenu', function (_e) {
-        event.preventDefault();
-        return false;
-    });
-
-    function set_focus() {
-        canvas.focus();
-        canvas_div.focus();
-    }
-
-    window.setTimeout(set_focus, 100);
-};
-
-mpl.figure.prototype._init_toolbar = function () {
-    var fig = this;
-
-    var toolbar = document.createElement('div');
-    toolbar.classList = 'mpl-toolbar';
-    this.root.appendChild(toolbar);
-
-    function on_click_closure(name) {
-        return function (_event) {
-            return fig.toolbar_button_onclick(name);
-        };
-    }
-
-    function on_mouseover_closure(tooltip) {
-        return function (event) {
-            if (!event.currentTarget.disabled) {
-                return fig.toolbar_button_onmouseover(tooltip);
-            }
-        };
-    }
-
-    fig.buttons = {};
-    var buttonGroup = document.createElement('div');
-    buttonGroup.classList = 'mpl-button-group';
-    for (var toolbar_ind in mpl.toolbar_items) {
-        var name = mpl.toolbar_items[toolbar_ind][0];
-        var tooltip = mpl.toolbar_items[toolbar_ind][1];
-        var image = mpl.toolbar_items[toolbar_ind][2];
-        var method_name = mpl.toolbar_items[toolbar_ind][3];
-
-        if (!name) {
-            /* Instead of a spacer, we start a new button group. */
-            if (buttonGroup.hasChildNodes()) {
-                toolbar.appendChild(buttonGroup);
-            }
-            buttonGroup = document.createElement('div');
-            buttonGroup.classList = 'mpl-button-group';
-            continue;
-        }
-
-        var button = (fig.buttons[name] = document.createElement('button'));
-        button.classList = 'mpl-widget';
-        button.setAttribute('role', 'button');
-        button.setAttribute('aria-disabled', 'false');
-        button.addEventListener('click', on_click_closure(method_name));
-        button.addEventListener('mouseover', on_mouseover_closure(tooltip));
-
-        var icon_img = document.createElement('img');
-        icon_img.src = '_images/' + image + '.png';
-        icon_img.srcset = '_images/' + image + '_large.png 2x';
-        icon_img.alt = tooltip;
-        button.appendChild(icon_img);
-
-        buttonGroup.appendChild(button);
-    }
-
-    if (buttonGroup.hasChildNodes()) {
-        toolbar.appendChild(buttonGroup);
-    }
-
-    var fmt_picker = document.createElement('select');
-    fmt_picker.classList = 'mpl-widget';
-    toolbar.appendChild(fmt_picker);
-    this.format_dropdown = fmt_picker;
-
-    for (var ind in mpl.extensions) {
-        var fmt = mpl.extensions[ind];
-        var option = document.createElement('option');
-        option.selected = fmt === mpl.default_extension;
-        option.innerHTML = fmt;
-        fmt_picker.appendChild(option);
-    }
-
-    var status_bar = document.createElement('span');
-    status_bar.classList = 'mpl-message';
-    toolbar.appendChild(status_bar);
-    this.message = status_bar;
-};
-
-mpl.figure.prototype.request_resize = function (x_pixels, y_pixels) {
-    // Request matplotlib to resize the figure. Matplotlib will then trigger a resize in the client,
-    // which will in turn request a refresh of the image.
-    this.send_message('resize', { width: x_pixels, height: y_pixels });
-};
-
-mpl.figure.prototype.send_message = function (type, properties) {
-    properties['type'] = type;
-    properties['figure_id'] = this.id;
-    this.ws.send(JSON.stringify(properties));
-};
-
-mpl.figure.prototype.send_draw_message = function () {
-    if (!this.waiting) {
-        this.waiting = true;
-        this.ws.send(JSON.stringify({ type: 'draw', figure_id: this.id }));
-    }
-};
-
-mpl.figure.prototype.handle_save = function (fig, _msg) {
-    var format_dropdown = fig.format_dropdown;
-    var format = format_dropdown.options[format_dropdown.selectedIndex].value;
-    fig.ondownload(fig, format);
-};
-
-mpl.figure.prototype.handle_resize = function (fig, msg) {
-    var size = msg['size'];
-    if (size[0] !== fig.canvas.width || size[1] !== fig.canvas.height) {
-        fig._resize_canvas(size[0], size[1], msg['forward']);
-        fig.send_message('refresh', {});
-    }
-};
-
-mpl.figure.prototype.handle_rubberband = function (fig, msg) {
-    var x0 = msg['x0'] / fig.ratio;
-    var y0 = (fig.canvas.height - msg['y0']) / fig.ratio;
-    var x1 = msg['x1'] / fig.ratio;
-    var y1 = (fig.canvas.height - msg['y1']) / fig.ratio;
-    x0 = Math.floor(x0) + 0.5;
-    y0 = Math.floor(y0) + 0.5;
-    x1 = Math.floor(x1) + 0.5;
-    y1 = Math.floor(y1) + 0.5;
-    var min_x = Math.min(x0, x1);
-    var min_y = Math.min(y0, y1);
-    var width = Math.abs(x1 - x0);
-    var height = Math.abs(y1 - y0);
-
-    fig.rubberband_context.clearRect(
-        0,
-        0,
-        fig.canvas.width / fig.ratio,
-        fig.canvas.height / fig.ratio
-    );
-
-    fig.rubberband_context.strokeRect(min_x, min_y, width, height);
-};
-
-mpl.figure.prototype.handle_figure_label = function (fig, msg) {
-    // Updates the figure title.
-    fig.header.textContent = msg['label'];
-};
-
-mpl.figure.prototype.handle_cursor = function (fig, msg) {
-    fig.canvas_div.style.cursor = msg['cursor'];
-};
-
-mpl.figure.prototype.handle_message = function (fig, msg) {
-    fig.message.textContent = msg['message'];
-};
-
-mpl.figure.prototype.handle_draw = function (fig, _msg) {
-    // Request the server to send over a new figure.
-    fig.send_draw_message();
-};
-
-mpl.figure.prototype.handle_image_mode = function (fig, msg) {
-    fig.image_mode = msg['mode'];
-};
-
-mpl.figure.prototype.handle_history_buttons = function (fig, msg) {
-    for (var key in msg) {
-        if (!(key in fig.buttons)) {
-            continue;
-        }
-        fig.buttons[key].disabled = !msg[key];
-        fig.buttons[key].setAttribute('aria-disabled', !msg[key]);
-    }
-};
-
-mpl.figure.prototype.handle_navigate_mode = function (fig, msg) {
-    if (msg['mode'] === 'PAN') {
-        fig.buttons['Pan'].classList.add('active');
-        fig.buttons['Zoom'].classList.remove('active');
-    } else if (msg['mode'] === 'ZOOM') {
-        fig.buttons['Pan'].classList.remove('active');
-        fig.buttons['Zoom'].classList.add('active');
-    } else {
-        fig.buttons['Pan'].classList.remove('active');
-        fig.buttons['Zoom'].classList.remove('active');
-    }
-};
-
-mpl.figure.prototype.updated_canvas_event = function () {
-    // Called whenever the canvas gets updated.
-    this.send_message('ack', {});
-};
-
-// A function to construct a web socket function for onmessage handling.
-// Called in the figure constructor.
-mpl.figure.prototype._make_on_message_function = function (fig) {
-    return function socket_on_message(evt) {
-        if (evt.data instanceof Blob) {
-            var img = evt.data;
-            if (img.type !== 'image/png') {
-                /* FIXME: We get "Resource interpreted as Image but
-                 * transferred with MIME type text/plain:" errors on
-                 * Chrome.  But how to set the MIME type?  It doesn't seem
-                 * to be part of the websocket stream */
-                img.type = 'image/png';
-            }
-
-            /* Free the memory for the previous frames */
-            if (fig.imageObj.src) {
-                (window.URL || window.webkitURL).revokeObjectURL(
-                    fig.imageObj.src
-                );
-            }
-
-            fig.imageObj.src = (window.URL || window.webkitURL).createObjectURL(
-                img
-            );
-            fig.updated_canvas_event();
-            fig.waiting = false;
-            return;
-        } else if (
-            typeof evt.data === 'string' &&
-            evt.data.slice(0, 21) === 'data:image/png;base64'
-        ) {
-            fig.imageObj.src = evt.data;
-            fig.updated_canvas_event();
-            fig.waiting = false;
-            return;
-        }
-
-        var msg = JSON.parse(evt.data);
-        var msg_type = msg['type'];
-
-        // Call the  "handle_{type}" callback, which takes
-        // the figure and JSON message as its only arguments.
-        try {
-            var callback = fig['handle_' + msg_type];
-        } catch (e) {
-            console.log(
-                "No handler for the '" + msg_type + "' message type: ",
-                msg
-            );
-            return;
-        }
-
-        if (callback) {
-            try {
-                // console.log("Handling '" + msg_type + "' message: ", msg);
-                callback(fig, msg);
-            } catch (e) {
-                console.log(
-                    "Exception inside the 'handler_" + msg_type + "' callback:",
-                    e,
-                    e.stack,
-                    msg
-                );
-            }
-        }
-    };
-};
-
-function getModifiers(event) {
-    var mods = [];
-    if (event.ctrlKey) {
-        mods.push('ctrl');
-    }
-    if (event.altKey) {
-        mods.push('alt');
-    }
-    if (event.shiftKey) {
-        mods.push('shift');
-    }
-    if (event.metaKey) {
-        mods.push('meta');
-    }
-    return mods;
-}
-
-/*
- * return a copy of an object with only non-object keys
- * we need this to avoid circular references
- * https://stackoverflow.com/a/24161582/3208463
- */
-function simpleKeys(original) {
-    return Object.keys(original).reduce(function (obj, key) {
-        if (typeof original[key] !== 'object') {
-            obj[key] = original[key];
-        }
-        return obj;
-    }, {});
-}
-
-mpl.figure.prototype.mouse_event = function (event, name) {
-    if (name === 'button_press') {
-        this.canvas.focus();
-        this.canvas_div.focus();
-    }
-
-    // from https://stackoverflow.com/q/1114465
-    var boundingRect = this.canvas.getBoundingClientRect();
-    var x = (event.clientX - boundingRect.left) * this.ratio;
-    var y = (event.clientY - boundingRect.top) * this.ratio;
-
-    this.send_message(name, {
-        x: x,
-        y: y,
-        button: event.button,
-        step: event.step,
-        modifiers: getModifiers(event),
-        guiEvent: simpleKeys(event),
-    });
-
-    return false;
-};
-
-mpl.figure.prototype._key_event_extra = function (_event, _name) {
-    // Handle any extra behaviour associated with a key event
-};
-
-mpl.figure.prototype.key_event = function (event, name) {
-    // Prevent repeat events
-    if (name === 'key_press') {
-        if (event.key === this._key) {
-            return;
-        } else {
-            this._key = event.key;
-        }
-    }
-    if (name === 'key_release') {
-        this._key = null;
-    }
-
-    var value = '';
-    if (event.ctrlKey && event.key !== 'Control') {
-        value += 'ctrl+';
-    }
-    else if (event.altKey && event.key !== 'Alt') {
-        value += 'alt+';
-    }
-    else if (event.shiftKey && event.key !== 'Shift') {
-        value += 'shift+';
-    }
-
-    value += 'k' + event.key;
-
-    this._key_event_extra(event, name);
-
-    this.send_message(name, { key: value, guiEvent: simpleKeys(event) });
-    return false;
-};
-
-mpl.figure.prototype.toolbar_button_onclick = function (name) {
-    if (name === 'download') {
-        this.handle_save(this, null);
-    } else {
-        this.send_message('toolbar_button', { name: name });
-    }
-};
-
-mpl.figure.prototype.toolbar_button_onmouseover = function (tooltip) {
-    this.message.textContent = tooltip;
-};
-
-///////////////// REMAINING CONTENT GENERATED BY embed_js.py /////////////////
-// prettier-ignore
-var _JSXTOOLS_RESIZE_OBSERVER=function(A){var t,i=new WeakMap,n=new WeakMap,a=new WeakMap,r=new WeakMap,o=new Set;function s(e){if(!(this instanceof s))throw new TypeError("Constructor requires 'new' operator");i.set(this,e)}function h(){throw new TypeError("Function is not a constructor")}function c(e,t,i,n){e=0 in arguments?Number(arguments[0]):0,t=1 in arguments?Number(arguments[1]):0,i=2 in arguments?Number(arguments[2]):0,n=3 in arguments?Number(arguments[3]):0,this.right=(this.x=this.left=e)+(this.width=i),this.bottom=(this.y=this.top=t)+(this.height=n),Object.freeze(this)}function d(){t=requestAnimationFrame(d);var s=new WeakMap,p=new Set;o.forEach((function(t){r.get(t).forEach((function(i){var r=t instanceof window.SVGElement,o=a.get(t),d=r?0:parseFloat(o.paddingTop),f=r?0:parseFloat(o.paddingRight),l=r?0:parseFloat(o.paddingBottom),u=r?0:parseFloat(o.paddingLeft),g=r?0:parseFloat(o.borderTopWidth),m=r?0:parseFloat(o.borderRightWidth),w=r?0:parseFloat(o.borderBottomWidth),b=u+f,F=d+l,v=(r?0:parseFloat(o.borderLeftWidth))+m,W=g+w,y=r?0:t.offsetHeight-W-t.clientHeight,E=r?0:t.offsetWidth-v-t.clientWidth,R=b+v,z=F+W,M=r?t.width:parseFloat(o.width)-R-E,O=r?t.height:parseFloat(o.height)-z-y;if(n.has(t)){var k=n.get(t);if(k[0]===M&&k[1]===O)return}n.set(t,[M,O]);var S=Object.create(h.prototype);S.target=t,S.contentRect=new c(u,d,M,O),s.has(i)||(s.set(i,[]),p.add(i)),s.get(i).push(S)}))})),p.forEach((function(e){i.get(e).call(e,s.get(e),e)}))}return s.prototype.observe=function(i){if(i instanceof window.Element){r.has(i)||(r.set(i,new Set),o.add(i),a.set(i,window.getComputedStyle(i)));var n=r.get(i);n.has(this)||n.add(this),cancelAnimationFrame(t),t=requestAnimationFrame(d)}},s.prototype.unobserve=function(i){if(i instanceof window.Element&&r.has(i)){var n=r.get(i);n.has(this)&&(n.delete(this),n.size||(r.delete(i),o.delete(i))),n.size||r.delete(i),o.size||cancelAnimationFrame(t)}},A.DOMRectReadOnly=c,A.ResizeObserver=s,A.ResizeObserverEntry=h,A}; // eslint-disable-line
-mpl.toolbar_items = [["Home", "Reset original view", "fa fa-home", "home"], ["Back", "Back to previous view", "fa fa-arrow-left", "back"], ["Forward", "Forward to next view", "fa fa-arrow-right", "forward"], ["", "", "", ""], ["Pan", "Left button pans, Right button zooms\nx/y fixes axis, CTRL fixes aspect", "fa fa-arrows", "pan"], ["Zoom", "Zoom to rectangle\nx/y fixes axis", "fa fa-square-o", "zoom"], ["", "", "", ""], ["Download", "Download plot", "fa fa-floppy-o", "download"]];
-
-mpl.extensions = ["eps", "jpeg", "pgf", "pdf", "png", "ps", "raw", "svg", "tif", "webp"];
-
-mpl.default_extension = "png";/* global mpl */
-
-var comm_websocket_adapter = function (comm) {
-    // Create a "websocket"-like object which calls the given IPython comm
-    // object with the appropriate methods. Currently this is a non binary
-    // socket, so there is still some room for performance tuning.
-    var ws = {};
-
-    ws.binaryType = comm.kernel.ws.binaryType;
-    ws.readyState = comm.kernel.ws.readyState;
-    function updateReadyState(_event) {
-        if (comm.kernel.ws) {
-            ws.readyState = comm.kernel.ws.readyState;
-        } else {
-            ws.readyState = 3; // Closed state.
-        }
-    }
-    comm.kernel.ws.addEventListener('open', updateReadyState);
-    comm.kernel.ws.addEventListener('close', updateReadyState);
-    comm.kernel.ws.addEventListener('error', updateReadyState);
-
-    ws.close = function () {
-        comm.close();
-    };
-    ws.send = function (m) {
-        //console.log('sending', m);
-        comm.send(m);
-    };
-    // Register the callback with on_msg.
-    comm.on_msg(function (msg) {
-        //console.log('receiving', msg['content']['data'], msg);
-        var data = msg['content']['data'];
-        if (data['blob'] !== undefined) {
-            data = {
-                data: new Blob(msg['buffers'], { type: data['blob'] }),
-            };
-        }
-        // Pass the mpl event to the overridden (by mpl) onmessage function.
-        ws.onmessage(data);
-    });
-    return ws;
-};
-
-mpl.mpl_figure_comm = function (comm, msg) {
-    // This is the function which gets called when the mpl process
-    // starts-up an IPython Comm through the "matplotlib" channel.
-
-    var id = msg.content.data.id;
-    // Get hold of the div created by the display call when the Comm
-    // socket was opened in Python.
-    var element = document.getElementById(id);
-    var ws_proxy = comm_websocket_adapter(comm);
-
-    function ondownload(figure, _format) {
-        window.open(figure.canvas.toDataURL());
-    }
-
-    var fig = new mpl.figure(id, ws_proxy, ondownload, element);
-
-    // Call onopen now - mpl needs it, as it is assuming we've passed it a real
-    // web socket which is closed, not our websocket->open comm proxy.
-    ws_proxy.onopen();
-
-    fig.parent_element = element;
-    fig.cell_info = mpl.find_output_cell("<div id='" + id + "'></div>");
-    if (!fig.cell_info) {
-        console.error('Failed to find cell for figure', id, fig);
-        return;
-    }
-    fig.cell_info[0].output_area.element.on(
-        'cleared',
-        { fig: fig },
-        fig._remove_fig_handler
-    );
-};
-
-mpl.figure.prototype.handle_close = function (fig, msg) {
-    var width = fig.canvas.width / fig.ratio;
-    fig.cell_info[0].output_area.element.off(
-        'cleared',
-        fig._remove_fig_handler
-    );
-    fig.resizeObserverInstance.unobserve(fig.canvas_div);
-
-    // Update the output cell to use the data from the current canvas.
-    fig.push_to_output();
-    var dataURL = fig.canvas.toDataURL();
-    // Re-enable the keyboard manager in IPython - without this line, in FF,
-    // the notebook keyboard shortcuts fail.
-    IPython.keyboard_manager.enable();
-    fig.parent_element.innerHTML =
-        '<img src="' + dataURL + '" width="' + width + '">';
-    fig.close_ws(fig, msg);
-};
-
-mpl.figure.prototype.close_ws = function (fig, msg) {
-    fig.send_message('closing', msg);
-    // fig.ws.close()
-};
-
-mpl.figure.prototype.push_to_output = function (_remove_interactive) {
-    // Turn the data on the canvas into data in the output cell.
-    var width = this.canvas.width / this.ratio;
-    var dataURL = this.canvas.toDataURL();
-    this.cell_info[1]['text/html'] =
-        '<img src="' + dataURL + '" width="' + width + '">';
-};
-
-mpl.figure.prototype.updated_canvas_event = function () {
-    // Tell IPython that the notebook contents must change.
-    IPython.notebook.set_dirty(true);
-    this.send_message('ack', {});
-    var fig = this;
-    // Wait a second, then push the new image to the DOM so
-    // that it is saved nicely (might be nice to debounce this).
-    setTimeout(function () {
-        fig.push_to_output();
-    }, 1000);
-};
-
-mpl.figure.prototype._init_toolbar = function () {
-    var fig = this;
-
-    var toolbar = document.createElement('div');
-    toolbar.classList = 'btn-toolbar';
-    this.root.appendChild(toolbar);
-
-    function on_click_closure(name) {
-        return function (_event) {
-            return fig.toolbar_button_onclick(name);
-        };
-    }
-
-    function on_mouseover_closure(tooltip) {
-        return function (event) {
-            if (!event.currentTarget.disabled) {
-                return fig.toolbar_button_onmouseover(tooltip);
-            }
-        };
-    }
-
-    fig.buttons = {};
-    var buttonGroup = document.createElement('div');
-    buttonGroup.classList = 'btn-group';
-    var button;
-    for (var toolbar_ind in mpl.toolbar_items) {
-        var name = mpl.toolbar_items[toolbar_ind][0];
-        var tooltip = mpl.toolbar_items[toolbar_ind][1];
-        var image = mpl.toolbar_items[toolbar_ind][2];
-        var method_name = mpl.toolbar_items[toolbar_ind][3];
-
-        if (!name) {
-            /* Instead of a spacer, we start a new button group. */
-            if (buttonGroup.hasChildNodes()) {
-                toolbar.appendChild(buttonGroup);
-            }
-            buttonGroup = document.createElement('div');
-            buttonGroup.classList = 'btn-group';
-            continue;
-        }
-
-        button = fig.buttons[name] = document.createElement('button');
-        button.classList = 'btn btn-default';
-        button.href = '#';
-        button.title = name;
-        button.innerHTML = '<i class="fa ' + image + ' fa-lg"></i>';
-        button.addEventListener('click', on_click_closure(method_name));
-        button.addEventListener('mouseover', on_mouseover_closure(tooltip));
-        buttonGroup.appendChild(button);
-    }
-
-    if (buttonGroup.hasChildNodes()) {
-        toolbar.appendChild(buttonGroup);
-    }
-
-    // Add the status bar.
-    var status_bar = document.createElement('span');
-    status_bar.classList = 'mpl-message pull-right';
-    toolbar.appendChild(status_bar);
-    this.message = status_bar;
-
-    // Add the close button to the window.
-    var buttongrp = document.createElement('div');
-    buttongrp.classList = 'btn-group inline pull-right';
-    button = document.createElement('button');
-    button.classList = 'btn btn-mini btn-primary';
-    button.href = '#';
-    button.title = 'Stop Interaction';
-    button.innerHTML = '<i class="fa fa-power-off icon-remove icon-large"></i>';
-    button.addEventListener('click', function (_evt) {
-        fig.handle_close(fig, {});
-    });
-    button.addEventListener(
-        'mouseover',
-        on_mouseover_closure('Stop Interaction')
-    );
-    buttongrp.appendChild(button);
-    var titlebar = this.root.querySelector('.ui-dialog-titlebar');
-    titlebar.insertBefore(buttongrp, titlebar.firstChild);
-};
-
-mpl.figure.prototype._remove_fig_handler = function (event) {
-    var fig = event.data.fig;
-    if (event.target !== this) {
-        // Ignore bubbled events from children.
-        return;
-    }
-    fig.close_ws(fig, {});
-};
-
-mpl.figure.prototype._root_extra_style = function (el) {
-    el.style.boxSizing = 'content-box'; // override notebook setting of border-box.
-};
-
-mpl.figure.prototype._canvas_extra_style = function (el) {
-    // this is important to make the div 'focusable
-    el.setAttribute('tabindex', 0);
-    // reach out to IPython and tell the keyboard manager to turn it's self
-    // off when our div gets focus
-
-    // location in version 3
-    if (IPython.notebook.keyboard_manager) {
-        IPython.notebook.keyboard_manager.register_events(el);
-    } else {
-        // location in version 2
-        IPython.keyboard_manager.register_events(el);
-    }
-};
-
-mpl.figure.prototype._key_event_extra = function (event, _name) {
-    // Check for shift+enter
-    if (event.shiftKey && event.which === 13) {
-        this.canvas_div.blur();
-        // select the cell after this one
-        var index = IPython.notebook.find_cell_index(this.cell_info[0]);
-        IPython.notebook.select(index + 1);
-    }
-};
-
-mpl.figure.prototype.handle_save = function (fig, _msg) {
-    fig.ondownload(fig, null);
-};
-
-mpl.find_output_cell = function (html_output) {
-    // Return the cell and output element which can be found *uniquely* in the notebook.
-    // Note - this is a bit hacky, but it is done because the "notebook_saving.Notebook"
-    // IPython event is triggered only after the cells have been serialised, which for
-    // our purposes (turning an active figure into a static one), is too late.
-    var cells = IPython.notebook.get_cells();
-    var ncells = cells.length;
-    for (var i = 0; i < ncells; i++) {
-        var cell = cells[i];
-        if (cell.cell_type === 'code') {
-            for (var j = 0; j < cell.output_area.outputs.length; j++) {
-                var data = cell.output_area.outputs[j];
-                if (data.data) {
-                    // IPython >= 3 moved mimebundle to data attribute of output
-                    data = data.data;
-                }
-                if (data['text/html'] === html_output) {
-                    return [cell, data, j];
-                }
-            }
-        }
-    }
-};
-
-// Register the function which deals with the matplotlib target/channel.
-// The kernel may be null if the page has been refreshed.
-if (IPython.notebook.kernel !== null) {
-    IPython.notebook.kernel.comm_manager.register_target(
-        'matplotlib',
-        mpl.mpl_figure_comm
-    );
-}
-</script><div class="output text_html"><div id='24509672-755e-4d61-a38b-a64a4e1e077e'></div></div></div>
+<img alt="_images/f9037dac56bce86aef86f6ac837909cef26115bdb6b20a56813054be7ef8305e.png" src="_images/f9037dac56bce86aef86f6ac837909cef26115bdb6b20a56813054be7ef8305e.png" />
+</div>
 </div>
 </section>
 </section>
@@ -2255,6 +1345,10 @@ if (IPython.notebook.kernel !== null) {
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics-of-derivatives">Basics of derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-derivative">Second-order derivative</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytic-solutions">Analytic Solutions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-odes">Linear ODEs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytically-solvable-odes">Analytically solvable ODEs</a></li>

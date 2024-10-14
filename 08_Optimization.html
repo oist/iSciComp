@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -462,21 +464,26 @@ document.write(`
 </div>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
-<p>For the sake of visualization, consider a function in 2D space <span class="math notranslate nohighlight">\(x=(x_1,x_2)\)</span>
-$<span class="math notranslate nohighlight">\( f(x) = x_1^4 - \frac{8}{3}x_1^3 - 6x_1^2 + x_2^4\)</span>$</p>
-<p>The gradient is
-$<span class="math notranslate nohighlight">\( \nabla f(x) = \frac{\partial f(x)}{\partial x} = 
+<p>For the sake of visualization, consider a function in 2D space <span class="math notranslate nohighlight">\(x=(x_1,x_2)\)</span></p>
+<div class="math notranslate nohighlight">
+\[ f(x) = x_1^4 - \frac{8}{3}x_1^3 - 6x_1^2 + x_2^4\]</div>
+<p>The gradient is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \nabla f(x) = \frac{\partial f(x)}{\partial x} = 
     \left(\begin{array}{c} 4x_1^3 - 8x_1^2 - 12x_1\\
-    4x_2^3\end{array}\right).\)</span>$</p>
-<p>By putting <span class="math notranslate nohighlight">\(\nabla f(x)=0\)</span>, we have
-$<span class="math notranslate nohighlight">\( x_1(x_1^2 - 2x_1 - 3) = x_1(x_1 + 1)(x_1 - 3) = 0 \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( x_2^3 = 0, \)</span><span class="math notranslate nohighlight">\(
-so there are three points with zero gradient: \)</span>(-1,0)<span class="math notranslate nohighlight">\(, \)</span>(0,0)<span class="math notranslate nohighlight">\(, \)</span>(3,0)$.</p>
-<p>You can check the second-order derivative, or <em>Hessian</em>, to see if they are a minimum, a saddle point, or a maximum.
-$<span class="math notranslate nohighlight">\( \nabla^2 f(x) = \frac{\partial^2 f(x)}{\partial x^2} = 
+    4x_2^3\end{array}\right).\end{split}\]</div>
+<p>By putting <span class="math notranslate nohighlight">\(\nabla f(x)=0\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[ x_1(x_1^2 - 2x_1 - 3) = x_1(x_1 + 1)(x_1 - 3) = 0 \]</div>
+<div class="math notranslate nohighlight">
+\[ x_2^3 = 0, \]</div>
+<p>so there are three points with zero gradient: <span class="math notranslate nohighlight">\((-1,0)\)</span>, <span class="math notranslate nohighlight">\((0,0)\)</span>, <span class="math notranslate nohighlight">\((3,0)\)</span>.</p>
+<p>You can check the second-order derivative, or <em>Hessian</em>, to see if they are a minimum, a saddle point, or a maximum.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \nabla^2 f(x) = \frac{\partial^2 f(x)}{\partial x^2} = 
     \left(\begin{array}{cc} 12x_1^2 - 16x_1 - 12 &amp; 0\\
-    0 &amp; 12x_2^2\end{array}\right).\)</span><span class="math notranslate nohighlight">\(
-As \)</span>\frac{\partial^2 f(x)}{\partial x_1^2}<span class="math notranslate nohighlight">\( is positive for \)</span>x_1=-1<span class="math notranslate nohighlight">\( and \)</span>x_1=3<span class="math notranslate nohighlight">\( and negative for \)</span>x_1=0<span class="math notranslate nohighlight">\(, \)</span>(-1,0)<span class="math notranslate nohighlight">\( and \)</span>(3,0)<span class="math notranslate nohighlight">\( are minima and \)</span>(0,0)$ is a saddle point.</p>
+    0 &amp; 12x_2^2\end{array}\right).\end{split}\]</div>
+<p>As <span class="math notranslate nohighlight">\(\frac{\partial^2 f(x)}{\partial x_1^2}\)</span> is positive for <span class="math notranslate nohighlight">\(x_1=-1\)</span> and <span class="math notranslate nohighlight">\(x_1=3\)</span> and negative for <span class="math notranslate nohighlight">\(x_1=0\)</span>, <span class="math notranslate nohighlight">\((-1,0)\)</span> and <span class="math notranslate nohighlight">\((3,0)\)</span> are minima and <span class="math notranslate nohighlight">\((0,0)\)</span> is a saddle point.</p>
 <p>Let us visualize this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -518,7 +525,7 @@ As \)</span>\frac{\partial^2 f(x)}{\partial x_1^2}<span class="math notranslate 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.5, &#39;x2&#39;)
 </pre></div>
 </div>
-<img alt="_images/5d9c78104007a26de93bf4b8a9bb89375fff4724ddd6ce81ff2e434cf6c678ec.png" src="_images/5d9c78104007a26de93bf4b8a9bb89375fff4724ddd6ce81ff2e434cf6c678ec.png" />
+<img alt="_images/ba9d606a498aa797ae0882851d9f86c3e1f74b2a80272081ae0cfbfa33dea9dc.png" src="_images/ba9d606a498aa797ae0882851d9f86c3e1f74b2a80272081ae0cfbfa33dea9dc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -534,16 +541,17 @@ As \)</span>\frac{\partial^2 f(x)}{\partial x_1^2}<span class="math notranslate 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-5.0, 5.0, -5.0, 5.0)
 </pre></div>
 </div>
-<img alt="_images/916278780af7505d29352bf190e9167c3139dd6ce34c1ef7221bc2b7d7e6fcfe.png" src="_images/916278780af7505d29352bf190e9167c3139dd6ce34c1ef7221bc2b7d7e6fcfe.png" />
+<img alt="_images/959748546edc1da38b86c8b3e99d48976399ea3ea19cba42f07b9ac56d855685.png" src="_images/959748546edc1da38b86c8b3e99d48976399ea3ea19cba42f07b9ac56d855685.png" />
 </div>
 </div>
 </section>
 <section id="gradient-descent-ascent">
 <h2>Gradient Descent/Ascent<a class="headerlink" href="#gradient-descent-ascent" title="Permalink to this heading">#</a></h2>
 <p><em>Gradient descent/ascent</em> is the most basic method of min/maximization of a function using its gradient.</p>
-<p>From an initial state <span class="math notranslate nohighlight">\(x_0\)</span> and a coefficient <span class="math notranslate nohighlight">\(\eta&gt;0\)</span>, repeat
-$<span class="math notranslate nohighlight">\( x_{i+1} = x_i - \eta\nabla f(x_i) \)</span>$
-for minimization.</p>
+<p>From an initial state <span class="math notranslate nohighlight">\(x_0\)</span> and a coefficient <span class="math notranslate nohighlight">\(\eta&gt;0\)</span>, repeat</p>
+<div class="math notranslate nohighlight">
+\[ x_{i+1} = x_i - \eta\nabla f(x_i) \]</div>
+<p>for minimization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grad_descent</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
@@ -580,19 +588,24 @@ for minimization.</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.        0.1206838] -44.99978787303231
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x106063f20&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1155713d0&gt;]
 </pre></div>
 </div>
-<img alt="_images/7a7e1da429cc2bf7d3daac63f5f2971c30e9d838a69e47f79b33fdaac88d4733.png" src="_images/7a7e1da429cc2bf7d3daac63f5f2971c30e9d838a69e47f79b33fdaac88d4733.png" />
+<img alt="_images/b2defbf3f064cbe6ac332ba0fc13441f73a3c6b1bea1cf46ae8120b43ef94236.png" src="_images/b2defbf3f064cbe6ac332ba0fc13441f73a3c6b1bea1cf46ae8120b43ef94236.png" />
 </div>
 </div>
 </section>
 <section id="newton-raphson-method">
 <h2>Newton-Raphson Method<a class="headerlink" href="#newton-raphson-method" title="Permalink to this heading">#</a></h2>
-<p>A problem with the gradient descence/ascent is the choice of the coefficient <span class="math notranslate nohighlight">\(\eta\)</span>. If the second-order derivative, called the <em>Hessian</em>,
-$<span class="math notranslate nohighlight">\(\nabla^2f(x)=\frac{\partial^2 f}{\partial x^2}\)</span><span class="math notranslate nohighlight">\( 
-is available, we can use the Newton method to find the solution for \)</span>\nabla f(x)=\frac{\partial f}{\partial x}=0<span class="math notranslate nohighlight">\( by repeating
-\)</span><span class="math notranslate nohighlight">\( x_{i+1} = x_i - \nabla^2f(x_i)^{-1} \nabla f(x_i). \)</span>$</p>
+<p>A problem with the gradient descence/ascent is the choice of the coefficient <span class="math notranslate nohighlight">\(\eta\)</span>. If the second-order derivative, called the <em>Hessian</em>,</p>
+<div class="math notranslate nohighlight">
+\[\nabla^2f(x)=\frac{\partial^2 f}{\partial x^2}\]</div>
+<p>is available, we can use the Newton method to find the solution for</p>
+<div class="math notranslate nohighlight">
+\[\nabla f(x)=\frac{\partial f}{\partial x}=0\]</div>
+<p>by repeating</p>
+<div class="math notranslate nohighlight">
+\[ x_{i+1} = x_i - \nabla^2f(x_i)^{-1} \nabla f(x_i). \]</div>
 <p>This is called Newton-Raphson method. It works efficiently when the Hessian is positive definite (<span class="math notranslate nohighlight">\(f(x)\)</span> is like a parabolla), but can be unstable when the Hessian has a negative eigenvalue (near the saddle point).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -630,10 +643,10 @@ is available, we can use the Newton method to find the solution for \)</span>\na
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.         0.01541469] -44.999999943540175
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1036cce30&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x115e32810&gt;]
 </pre></div>
 </div>
-<img alt="_images/3d25911dfccdf963381ca9c9ef99c49b3f4084f495e20510a8e4900e26f3b67f.png" src="_images/3d25911dfccdf963381ca9c9ef99c49b3f4084f495e20510a8e4900e26f3b67f.png" />
+<img alt="_images/627a5cec710d1b71d62c7e93dc23fadb95e757335ce1b7202cb81ef05250905d.png" src="_images/627a5cec710d1b71d62c7e93dc23fadb95e757335ce1b7202cb81ef05250905d.png" />
 </div>
 </div>
 </section>
@@ -760,26 +773,37 @@ is available, we can use the Newton method to find the solution for \)</span>\na
 <h2>Constrained Optimization<a class="headerlink" href="#constrained-optimization" title="Permalink to this heading">#</a></h2>
 <p>Often we want to minimize/maximize <span class="math notranslate nohighlight">\(f(x)\)</span> under constraints on <span class="math notranslate nohighlight">\(x\)</span>, e.g.</p>
 <ul class="simple">
-<li><p>inequality constraints <span class="math notranslate nohighlight">\(g_j(x)\le 0\)</span>, <span class="math notranslate nohighlight">\((j=1,...,m)\)</span></p></li>
-<li><p>equality constraints <span class="math notranslate nohighlight">\(h_j(x)=0\)</span>, <span class="math notranslate nohighlight">\((j=1,...,r)\)</span></p></li>
+<li><p>inequality constraints</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[g_j(x)\le 0$, $(j=1,...,m)\]</div>
+<ul class="simple">
+<li><p>equality constraints</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[h_j(x)=0$, $(j=1,...,r)\]</div>
 <section id="penalty-function">
 <h3>Penalty function<a class="headerlink" href="#penalty-function" title="Permalink to this heading">#</a></h3>
-<p>Define a function with penalty terms:
-$<span class="math notranslate nohighlight">\( P(x,\rho) = f(x) + \sum_j \beta_j(x) g_j(x)^2 + \sum_j \rho h_j(x)^2 \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \beta_j(x) = \left\{ \begin{array}{ccc}
+<p>Define a function with penalty terms:</p>
+<div class="math notranslate nohighlight">
+\[ P(x,\rho) = f(x) + \sum_j \beta_j(x) g_j(x)^2 + \sum_j \rho h_j(x)^2 \]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \beta_j(x) = \left\{ \begin{array}{ccc}
     0 &amp; \mbox{if} &amp; g_j(x)\le 0 \\
-    \rho &amp; \mbox{if} &amp; g_j(x)&gt;0 \end{array}\right.\)</span><span class="math notranslate nohighlight">\(
-and increase \)</span>\rho$ to a large value.</p>
+    \rho &amp; \mbox{if} &amp; g_j(x)&gt;0 \end{array}\right.\end{split}\]</div>
+<p>and increase <span class="math notranslate nohighlight">\(\rho\)</span> to a large value.</p>
 </section>
 <section id="lagrange-multiplyer-method">
 <h3>Lagrange multiplyer method<a class="headerlink" href="#lagrange-multiplyer-method" title="Permalink to this heading">#</a></h3>
 <p>For minimization of <span class="math notranslate nohighlight">\(f(x)\)</span> with equality constraints
-<span class="math notranslate nohighlight">\(h_j(x)=0\)</span>, <span class="math notranslate nohighlight">\((j=1,...,r)\)</span>, define a <em>Lagrangian function</em>
-$<span class="math notranslate nohighlight">\( L(x,\lambda) = f(x) + \sum_j \lambda_j h_j(x). \)</span><span class="math notranslate nohighlight">\(
-The necessary condition for a minimum is:
-\)</span><span class="math notranslate nohighlight">\( \frac{\partial L(x,\lambda)}{\partial x_i} = 0 \qquad (i=1,...,n) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \frac{\partial L(x,\lambda)}{\partial \lambda_j} = 0 \qquad (j=1,...,r) \)</span>$</p>
+<span class="math notranslate nohighlight">\(h_j(x)=0\)</span>, <span class="math notranslate nohighlight">\((j=1,...,r)\)</span>, define a <em>Lagrangian function</em></p>
+<div class="math notranslate nohighlight">
+\[ L(x,\lambda) = f(x) + \sum_j \lambda_j h_j(x). \]</div>
+<p>The necessary condition for a minimum is:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial L(x,\lambda)}{\partial x_i} = 0 \qquad (i=1,...,n) \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial L(x,\lambda)}{\partial \lambda_j} = 0 \qquad (j=1,...,r) \]</div>
 <p>Scipy implements <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code> (Sequential Least SQuares Programming) method. Constraints are defined in a sequence of dictionaries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -807,17 +831,17 @@ The necessary condition for a minimum is:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
-            Current function value: -1.1182207863637768
+            Current function value: -1.1182207863637803
             Iterations: 9
             Function evaluations: 11
             Gradient evaluations: 9
-[0.97276055 1.57276055] -1.1182207863637768
+[0.97276055 1.57276055] -1.1182207863637803
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1082daa20&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x115dc8750&gt;]
 </pre></div>
 </div>
-<img alt="_images/db10ee1c06659ab052a6d80cfae59fa8348d785e2e9536e1273b827f32caada7.png" src="_images/db10ee1c06659ab052a6d80cfae59fa8348d785e2e9536e1273b827f32caada7.png" />
+<img alt="_images/acb2ac20ee28643e5de45ded8367097376d4af3c13df05fe156f2e3b8fe027a8.png" src="_images/acb2ac20ee28643e5de45ded8367097376d4af3c13df05fe156f2e3b8fe027a8.png" />
 </div>
 </div>
 <p>With inequality constraint <span class="math notranslate nohighlight">\(h(x)&gt;0\)</span>.</p>
@@ -842,10 +866,10 @@ The necessary condition for a minimum is:
 [-1.00000016  0.02529561] -2.3333329239019784
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x10834e870&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1271554d0&gt;]
 </pre></div>
 </div>
-<img alt="_images/170abb21377db7f353b8a554ace08ff78223a2088ba4cd08ae3b4a576215105d.png" src="_images/170abb21377db7f353b8a554ace08ff78223a2088ba4cd08ae3b4a576215105d.png" />
+<img alt="_images/484ae78caa6d3dc7a66e6e4295884f5ebb470767ce8e95e78814ccd53c1b6b60.png" src="_images/484ae78caa6d3dc7a66e6e4295884f5ebb470767ce8e95e78814ccd53c1b6b60.png" />
 </div>
 </div>
 </section>
@@ -895,13 +919,16 @@ The necessary condition for a minimum is:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.7143717  0.39541704] -44.961758860685784
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.1356584 0.8964956]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1083c2210&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -44.93368804888648
 </pre></div>
 </div>
-<img alt="_images/f36cb277552ee4d993135c0c2e9c1c49eae8bce0d019cbf68d178c649f90de3c.png" src="_images/f36cb277552ee4d993135c0c2e9c1c49eae8bce0d019cbf68d178c649f90de3c.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1271d1350&gt;]
+</pre></div>
+</div>
+<img alt="_images/c21be9fac2da4d9c92d1f3a8f3a907a3c44762f9e0fea175b722cc5167726ec0.png" src="_images/c21be9fac2da4d9c92d1f3a8f3a907a3c44762f9e0fea175b722cc5167726ec0.png" />
 </div>
 </div>
 <p>For more advanced genetic/evolutionary algorithms, you can use <code class="docutils literal notranslate"><span class="pre">deap</span></code> package: <a class="github reference external" href="https://github.com/DEAP">DEAP</a></p>

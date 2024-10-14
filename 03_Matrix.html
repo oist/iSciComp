@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -401,7 +403,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">Principal component analysis (PCA)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-value-decomposition-svd">Singular value decomposition (SVD)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-by-svd">PCA by SVD</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-eigen-values-of-a-2x2-matrix">Appendix: Eigen values of a 2x2 matrix</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-eigenvalues-of-a-2x2-matrix">Appendix: Eigenvalues of a 2x2 matrix</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-eigenvalues">Real eigenvalues</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-eigenvalues">Complex eigenvalues</a></li>
 </ul>
@@ -419,7 +421,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="vectors-and-matrices">
 <h1>3. Vectors and Matrices<a class="headerlink" href="#vectors-and-matrices" title="Permalink to this heading">#</a></h1>
-<p>Computational Methods, Oct. 2022, Kenji Doya</p>
 <p>Here we work with vectors and matrices, and get acquainted with concepts in linear algebra by computing.</p>
 <div class="math notranslate nohighlight">
 \[ % Latex macros
@@ -563,8 +564,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.12893298,  1.78912526, -0.04017327],
-       [ 0.2929078 , -1.21828434, -0.80126801]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.41524763,  0.32795228,  0.84096221],
+       [ 2.42833317, -0.2047444 , -0.4496151 ]])
 </pre></div>
 </div>
 </div>
@@ -576,8 +577,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.54250529, 0.49541267, 0.89653097],
-       [0.88091709, 0.41138722, 0.09402271]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.59282608, 0.76793722, 0.60484557],
+       [0.68021175, 0.82455006, 0.83309885]])
 </pre></div>
 </div>
 </div>
@@ -589,8 +590,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.89291876, -0.71992314,  0.76313541],
-       [ 0.24354241, -0.19986858,  0.1120739 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.21384784,  0.15498277, -0.77557726],
+       [-0.24638295,  0.93820602, -0.62559212]])
 </pre></div>
 </div>
 </div>
@@ -602,8 +603,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-2, -2,  1],
-       [-3,  1, -3]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-3,  0, -2],
+       [-1,  0,  0]])
 </pre></div>
 </div>
 </div>
@@ -615,8 +616,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4606217916715052690, -4618712326115912166,  4605048932269107198],
-       [ 4597942560221917072, -4627002992121894336,  4592740196510130928]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4596872700610021456,  4594751863031716520, -4618211038429264006],
+       [-4625327135195255064,  4606625828106797696, -4619561984476240062]])
 </pre></div>
 </div>
 </div>
@@ -985,7 +986,7 @@ the matrix product is</p>
    2]]
 </pre></div>
 </div>
-<img alt="_images/59e7118201589be23e6aeb47b29867b8f60305822dec7fe31ab51f733fa72f93.png" src="_images/59e7118201589be23e6aeb47b29867b8f60305822dec7fe31ab51f733fa72f93.png" />
+<img alt="_images/c62dd7def0dc854eaa85bfdfc1ab19016a24cb301271bcb66961788abba4fdfc.png" src="_images/c62dd7def0dc854eaa85bfdfc1ab19016a24cb301271bcb66961788abba4fdfc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1001,11 +1002,11 @@ the matrix product is</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.19847133  0.16376085]
- [-0.88208112 -0.66122752]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.40013252 -0.37874664]
+ [-0.41674593 -0.26660169]]
 </pre></div>
 </div>
-<img alt="_images/a882ee3b799e04ee450f832e91b8857ebf6c9ddda59392b2379d725d7f5796bf.png" src="_images/a882ee3b799e04ee450f832e91b8857ebf6c9ddda59392b2379d725d7f5796bf.png" />
+<img alt="_images/73235894260fbf9475919d77a0db3d7de96f5fabbd15dfee9a83678232ed4ed4.png" src="_images/73235894260fbf9475919d77a0db3d7de96f5fabbd15dfee9a83678232ed4ed4.png" />
 </div>
 </div>
 </section>
@@ -1118,7 +1119,7 @@ Ax = [1.0000000e+00 8.8817842e-16]
 </section>
 <section id="eigenvalues-and-eigenvectors">
 <h2>Eigenvalues and eigenvectors<a class="headerlink" href="#eigenvalues-and-eigenvectors" title="Permalink to this heading">#</a></h2>
-<p>With a transformation by a symmetrix matrix <span class="math notranslate nohighlight">\(A\)</span>, some vectors keep its own direction. Such a vector is called an <em>eigenvector</em> and its scaling coefficient is called the <em>eigenvalue</em>.<br />
+<p>With a transformation by a symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>, some vectors keep its own direction. Such a vector is called an <em>eigenvector</em> and its scaling coefficient is called the <em>eigenvalue</em>.<br />
 Eigenvalues and eigenvectors are derived by solving the equation</p>
 <div class="math notranslate nohighlight">
 \[ A\b{x} = \lambda \b{x} \]</div>
@@ -1160,7 +1161,7 @@ Eigenvalues are derived by solving a polynomial equation</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/eea8d37d02052c1c865ce3c69c80d46bf1406f92c7486a8122ccc003f3bbaa96.png" src="_images/eea8d37d02052c1c865ce3c69c80d46bf1406f92c7486a8122ccc003f3bbaa96.png" />
+<img alt="_images/4a9d92648234fbf136c8b8258a1d3a7ce7f62276888b0ad3c06050a33a6905df.png" src="_images/4a9d92648234fbf136c8b8258a1d3a7ce7f62276888b0ad3c06050a33a6905df.png" />
 </div>
 </div>
 </section>
@@ -1186,7 +1187,7 @@ Eigenvalues are derived by solving a polynomial equation</p>
 <div class="math notranslate nohighlight">
 \[ A^k = V \Lambda^k V^{-1} = V \mbox{diag}(\lambda_1^k, \cdots, \lambda_n^k) V^{-1} \]</div>
 <p>requires only exponentials in the diagonal terms rather than repeated matrix multiplications.</p>
-<p>It also helps intutitive understanding of how a point <span class="math notranslate nohighlight">\(\b{x}\)</span> transofrmed by <span class="math notranslate nohighlight">\(A\)</span> many times as <span class="math notranslate nohighlight">\(A\b{x}, A^2\b{x}, A^3\b{x},...\)</span> would move.</p>
+<p>It also helps intuitive understanding of how a point <span class="math notranslate nohighlight">\(\b{x}\)</span> transformed by <span class="math notranslate nohighlight">\(A\)</span> many times as <span class="math notranslate nohighlight">\(A\b{x}, A^2\b{x}, A^3\b{x},...\)</span> would move.</p>
 </section>
 <section id="covariance-matrix">
 <h2>Covariance matrix<a class="headerlink" href="#covariance-matrix" title="Permalink to this heading">#</a></h2>
@@ -1197,7 +1198,7 @@ we usuall create a data matrix</p>
 \[\begin{split} X = \left(\begin{array}{ccc} x_1^1 &amp; \cdots &amp; x^1_n\\
     \vdots &amp;  &amp; \vdots\\
     x^m_1 &amp; \cdots &amp; x^m_n\end{array}\right).\end{split}\]</div>
-<p>The covariance <span class="math notranslate nohighlight">\(c_{ij}\)</span> of the components <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(x_j\)</span> represents how the two variables change togher around the mean:</p>
+<p>The covariance <span class="math notranslate nohighlight">\(c_{ij}\)</span> of the components <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(x_j\)</span> represents how the two variables change together around the mean:</p>
 <div class="math notranslate nohighlight">
 \[ \bar{x}_i = \frac{1}{m} \sum_{k=1}^m x_i^k \]</div>
 <div class="math notranslate nohighlight">
@@ -1233,7 +1234,7 @@ we usuall create a data matrix</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0add4a659fbc197c9c283c092c70fe3bdac257c283f4136634d4d35d2c55b7dc.png" src="_images/0add4a659fbc197c9c283c092c70fe3bdac257c283f4136634d4d35d2c55b7dc.png" />
+<img alt="_images/41ed2ec34eafa5c363fe443b926c9cc84c1b8b30cbadd0fa4a9f91e0d076a161.png" src="_images/41ed2ec34eafa5c363fe443b926c9cc84c1b8b30cbadd0fa4a9f91e0d076a161.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1268,7 +1269,7 @@ C = [[ 0.68569351 -0.042434    1.27431544  0.51627069]
 <section id="principal-component-analysis-pca">
 <h2>Principal component analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Permalink to this heading">#</a></h2>
 <p>In taking a grasp of high-dimensional data, it is often useful to project the data onto a subspace where the data vary most.</p>
-<p>To do that, we first take the covariance matrix <span class="math notranslate nohighlight">\(C\)</span> of the data, compute its eigenvalues <span class="math notranslate nohighlight">\(\lambda_i\)</span> and eigenvectors <span class="math notranslate nohighlight">\(\b{v}_i\)</span>, and project the data onto the subspace  spanned by the eigenvectors with largest eigen values.<br />
+<p>To do that, we first take the covariance matrix <span class="math notranslate nohighlight">\(C\)</span> of the data, compute its eigenvalues <span class="math notranslate nohighlight">\(\lambda_i\)</span> and eigenvectors <span class="math notranslate nohighlight">\(\b{v}_i\)</span>, and project the data onto the subspace  spanned by the eigenvectors with largest eigenvalues.<br />
 The eigenvectors <span class="math notranslate nohighlight">\(\b{v}_i\)</span> of the covariance matrix is called <em>principal component vectors</em>, ordered by the magnitude of their eigenvalues.</p>
 <p>Each data point <span class="math notranslate nohighlight">\(\b{x}\)</span> is projected to the principal component vectors
 <span class="math notranslate nohighlight">\((\b{v}_1\cdot\b{x}, \b{v}_2\cdot\b{x},...)\)</span> for visualization.</p>
@@ -1320,7 +1321,7 @@ lams, Vs =  [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f226939c6dd00ea05890f20b893b985d38509a3a18aa9aba598203c1b9e580d4.png" src="_images/f226939c6dd00ea05890f20b893b985d38509a3a18aa9aba598203c1b9e580d4.png" />
+<img alt="_images/a152faf3fef54b5df9b22269822d558c7416234d5f829327b701832d488bd673.png" src="_images/a152faf3fef54b5df9b22269822d558c7416234d5f829327b701832d488bd673.png" />
 </div>
 </div>
 <p>Now let us project the 4D data onto the space spanned by the eigenvectors.</p>
@@ -1340,7 +1341,7 @@ lams, Vs =  [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/be9298bd3a1f39310bd046902608a61ba93211c80a490efa072308beda586dce.png" src="_images/be9298bd3a1f39310bd046902608a61ba93211c80a490efa072308beda586dce.png" />
+<img alt="_images/135ab0deafb454aa2dc06cfa37fbe65d9a863609fb44b4fd6ef8575ef3f38f1c.png" src="_images/135ab0deafb454aa2dc06cfa37fbe65d9a863609fb44b4fd6ef8575ef3f38f1c.png" />
 </div>
 </div>
 </section>
@@ -1382,12 +1383,12 @@ and <span class="math notranslate nohighlight">\(V=(\b{v}_1,...,\b{v}_k)\)</span
  [-0.33218358  0.53508568 -0.40349583  0.46377343 -0.47480808]]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4.8756825e-15, 1.0000000e+00, 2.0000000e+00, 3.0000000e+00,
-        4.0000000e+00],
-       [5.0000000e+00, 4.0000000e+00, 3.0000000e+00, 2.0000000e+00,
-        1.0000000e+00],
-       [1.0000000e+00, 3.0000000e+00, 2.0000000e+00, 4.0000000e+00,
-        3.0000000e+00]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4.95020796e-15, 1.00000000e+00, 2.00000000e+00, 3.00000000e+00,
+        4.00000000e+00],
+       [5.00000000e+00, 4.00000000e+00, 3.00000000e+00, 2.00000000e+00,
+        1.00000000e+00],
+       [1.00000000e+00, 3.00000000e+00, 2.00000000e+00, 4.00000000e+00,
+        3.00000000e+00]])
 </pre></div>
 </div>
 </div>
@@ -1410,7 +1411,7 @@ and <span class="math notranslate nohighlight">\(V=(\b{v}_1,...,\b{v}_k)\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ba26f7870514cb2e8f444c77edc908ae30fea6d4be8bf5b06d6e353d035e8cdc.png" src="_images/ba26f7870514cb2e8f444c77edc908ae30fea6d4be8bf5b06d6e353d035e8cdc.png" />
+<img alt="_images/acde5e84a4c4343a36bb94c8a9af9d016bfe6857c60abaac76cae27887d093bd.png" src="_images/acde5e84a4c4343a36bb94c8a9af9d016bfe6857c60abaac76cae27887d093bd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1425,13 +1426,13 @@ and <span class="math notranslate nohighlight">\(V=(\b{v}_1,...,\b{v}_k)\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cc7b5773f008a4dac9233cffd23fce13490bafa9fa3c90f72c384d073d0a004b.png" src="_images/cc7b5773f008a4dac9233cffd23fce13490bafa9fa3c90f72c384d073d0a004b.png" />
+<img alt="_images/6a25cb452db054a2f080b60971fbc18224159885ba423c87087b699695600636.png" src="_images/6a25cb452db054a2f080b60971fbc18224159885ba423c87087b699695600636.png" />
 </div>
 </div>
 </section>
 <section id="pca-by-svd">
 <h2>PCA by SVD<a class="headerlink" href="#pca-by-svd" title="Permalink to this heading">#</a></h2>
-<p>From <span class="math notranslate nohighlight">\(X = U SV^T\)</span> and the orothonormal construction of <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span>, we can see</p>
+<p>From <span class="math notranslate nohighlight">\(X = U SV^T\)</span> and the orthonormal construction of <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span>, we can see</p>
 <div class="math notranslate nohighlight">
 \[C = \frac{1}{m-1}X^T X = \frac{1}{m-1}V S^2 V^T\]</div>
 <p>and</p>
@@ -1461,18 +1462,18 @@ by SVD: [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658877 
 </div>
 </div>
 </section>
-<section id="appendix-eigen-values-of-a-2x2-matrix">
-<h2>Appendix: Eigen values of a 2x2 matrix<a class="headerlink" href="#appendix-eigen-values-of-a-2x2-matrix" title="Permalink to this heading">#</a></h2>
+<section id="appendix-eigenvalues-of-a-2x2-matrix">
+<h2>Appendix: Eigenvalues of a 2x2 matrix<a class="headerlink" href="#appendix-eigenvalues-of-a-2x2-matrix" title="Permalink to this heading">#</a></h2>
 <p>Let us take the simplest and the most important case of 2 by 2 matrix</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} A = \pmatrix{a &amp; b \\ c &amp; d}. \end{split}\]</div>
-<p>We can analytically derive the eivenvalues from</p>
+<p>We can analytically derive the eigenvalues from</p>
 <div class="math notranslate nohighlight">
 \[ \det (A - \lambda I) = (a-\lambda)(d-\lambda) - bc = 0 \]</div>
 <p>as</p>
 <div class="math notranslate nohighlight">
 \[ \lambda = \frac{a+d}{2} \pm \sqrt{\frac{(a-d)^2}{4}+ bc}. \]</div>
-<p>The correctponding eigenvectors are not unique, but given by, for example,</p>
+<p>The corresponding eigenvectors are not unique, but given by, for example,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \b{x} = \mat{b \\ \lambda - a}. \end{split}\]</div>
 <section id="real-eigenvalues">
@@ -1525,7 +1526,7 @@ V =  [[ 0.70710678 -0.4472136 ]
  [ 0.70710678  0.89442719]]
 </pre></div>
 </div>
-<img alt="_images/936427d2c7ad48ff3f7585247d43897b33adcc74436ec636972d32fc73f20922.png" src="_images/936427d2c7ad48ff3f7585247d43897b33adcc74436ec636972d32fc73f20922.png" />
+<img alt="_images/f7fd813147b31ceb7bb200e9f629ef6c1cf158a03d8ee81d6f581b867972dd30.png" src="_images/f7fd813147b31ceb7bb200e9f629ef6c1cf158a03d8ee81d6f581b867972dd30.png" />
 </div>
 </div>
 </section>
@@ -1542,9 +1543,9 @@ V =  [[ 0.70710678 -0.4472136 ]
 \[ V = (\b{v}_1, \b{v}_2) = (\b{u}+i\b{w}, \b{u}-i\b{w}).\]</div>
 <p>By eigendecomposition
 <span class="math notranslate nohighlight">\( A = V \Lambda V^{-1}, \)</span>
-a point <span class="math notranslate nohighlight">\(\b{x}\)</span> is converted to points in a complex plane and multipled by a complex eigenvalue, which means rotation and scaling.
-Points in the complex plane are then converted back in a real vector spce by multiplication with <span class="math notranslate nohighlight">\(V\)</span>.</p>
-<p>To see the rotation and scaling more explicityly, we can represent <span class="math notranslate nohighlight">\(\Lambda=\mat{\alpha+i\beta &amp; 0 \\ 0 &amp; \alpha-i\beta}\)</span> as</p>
+a point <span class="math notranslate nohighlight">\(\b{x}\)</span> is converted to points in a complex plane and multiplied by a complex eigenvalue, which means rotation and scaling.
+Points in the complex plane are then converted back in a real vector space by multiplication with <span class="math notranslate nohighlight">\(V\)</span>.</p>
+<p>To see the rotation and scaling more explicitly, we can represent <span class="math notranslate nohighlight">\(\Lambda=\mat{\alpha+i\beta &amp; 0 \\ 0 &amp; \alpha-i\beta}\)</span> as</p>
 <div class="math notranslate nohighlight">
 \[\Lambda = U R U^{-1}\]</div>
 <p>where <span class="math notranslate nohighlight">\(R\)</span> is</p>
@@ -1556,8 +1557,8 @@ Points in the complex plane are then converted back in a real vector spce by mul
 <div class="math notranslate nohighlight">
 \[\begin{split} U = \frac{1}{2}\mat{1 &amp; i \\ 1 &amp; -i} \end{split}\]</div>
 <p>such that
-<span class="math notranslate nohighlight">\(VU = (\b{u}, -\b{w})\)</span>.
-Then we have another decomposition of <span class="math notranslate nohighlight">\(A\)</span> as</p>
+<span class="math notranslate nohighlight">\(VU = (\b{u}, -\b{w})\)</span>.</p>
+<p>Then we have another decomposition of <span class="math notranslate nohighlight">\(A\)</span> as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} A = V \Lambda V^{-1}
  = V URU^{-1} V^{-1}
@@ -1613,15 +1614,15 @@ Then we have another decomposition of <span class="math notranslate nohighlight"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L = [0.75+0.96824584j 0.75-0.96824584j]
-V =  [[-0.70710678+0.j        -0.70710678-0.j       ]
- [-0.1767767 +0.6846532j -0.1767767 -0.6846532j]]
+V =  [[0.1767767 +0.6846532j 0.1767767 -0.6846532j]
+ [0.70710678+0.j        0.70710678-0.j       ]]
 R = [[ 0.75       -0.96824584]
  [ 0.96824584  0.75      ]]
-VU = [[-0.70710678 -0.        ]
- [-0.1767767  -0.6846532 ]]
+VU = [[ 0.1767767  -0.6846532 ]
+ [ 0.70710678 -0.        ]]
 </pre></div>
 </div>
-<img alt="_images/ba979eadd1a3e58b4d235d8fb3be8b862ff8619959954ea322bb2c1e9bdb75f2.png" src="_images/ba979eadd1a3e58b4d235d8fb3be8b862ff8619959954ea322bb2c1e9bdb75f2.png" />
+<img alt="_images/3d7aab64e6fb8192585835ee04e6809a2bc857e46d4ef8ff29d9ae5f0a74a82d.png" src="_images/3d7aab64e6fb8192585835ee04e6809a2bc857e46d4ef8ff29d9ae5f0a74a82d.png" />
 </div>
 </div>
 <p>The trajectory in the complex space or the <span class="math notranslate nohighlight">\((\b{u},-\b{w})\)</span> space is a regular spirals, which is mapped to a skewed spiral in the original space.</p>
@@ -1712,7 +1713,7 @@ VU = [[-0.70710678 -0.        ]
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">Principal component analysis (PCA)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-value-decomposition-svd">Singular value decomposition (SVD)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-by-svd">PCA by SVD</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-eigen-values-of-a-2x2-matrix">Appendix: Eigen values of a 2x2 matrix</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-eigenvalues-of-a-2x2-matrix">Appendix: Eigenvalues of a 2x2 matrix</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-eigenvalues">Real eigenvalues</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-eigenvalues">Complex eigenvalues</a></li>
 </ul>
