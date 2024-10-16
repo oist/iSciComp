@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,10 +43,8 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -406,7 +404,8 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="functions-and-classes">
 <h1>4. Functions and Classes<a class="headerlink" href="#functions-and-classes" title="Permalink to this heading">#</a></h1>
 <p>Let us learn how to define your own <em>functions</em>, and further organize them into a <em>class</em> for neatness and extensibility.</p>
-<p>References: Python Tutorial (<a class="reference external" href="https://docs.python.org/3/tutorial/">https://docs.python.org/3/tutorial/</a>)</p>
+<p><strong>References</strong><br />
+Python Tutorial (<a class="reference external" href="https://docs.python.org/3/tutorial/">https://docs.python.org/3/tutorial/</a>)</p>
 <ul class="simple">
 <li><p>Section 4.7-4.8: Functions</p></li>
 <li><p>Chapter 6: Modules</p></li>
@@ -744,7 +743,7 @@ NAME
 FUNCTIONS
     norm(x, p=2)
         The L^p norm of a vector.
-    
+
     normalize(x, p=2)
         L^p normalization
 
@@ -797,12 +796,55 @@ FILE
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># see how numpy is organized</span>
-<span class="o">%</span><span class="k">ls</span> $CONDA_PREFIX/lib/python3.9/site-packages/numpy
+<span class="o">%</span><span class="k">ls</span> $CONDA_PREFIX/lib/python*/site-packages/numpy
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ls: /opt/anaconda3/lib/python3.9/site-packages/numpy: No such file or directory
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.1.c~/site-packages/numpy:
+__config__.py           <span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
+__init__.cython-30.pxd  <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
+__init__.pxd            <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
+__init__.py             conftest.py             <span class=" -Color -Color-Blue">ma</span>/
+__init__.pyi            <span class=" -Color -Color-Blue">core</span>/                   matlib.py
+<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
+<span class=" -Color -Color-Blue">_core</span>/                  ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
+_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    py.typed
+_globals.py             dtypes.py               <span class=" -Color -Color-Blue">random</span>/
+<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">testing</span>/
+_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">tests</span>/
+_pytesttester.pyi       exceptions.pyi          <span class=" -Color -Color-Blue">typing</span>/
+<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/                   version.py
+
+/opt/anaconda3/lib/python3.1/site-packages/numpy:
+__config__.py           <span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
+__init__.cython-30.pxd  <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
+__init__.pxd            <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
+__init__.py             conftest.py             <span class=" -Color -Color-Blue">ma</span>/
+__init__.pyi            <span class=" -Color -Color-Blue">core</span>/                   matlib.py
+<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
+<span class=" -Color -Color-Blue">_core</span>/                  ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
+_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    py.typed
+_globals.py             dtypes.py               <span class=" -Color -Color-Blue">random</span>/
+<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">testing</span>/
+_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">tests</span>/
+_pytesttester.pyi       exceptions.pyi          <span class=" -Color -Color-Blue">typing</span>/
+<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/                   version.py
+
+/opt/anaconda3/lib/python3.12/site-packages/numpy:
+__config__.py           <span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
+__init__.cython-30.pxd  <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
+__init__.pxd            <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
+__init__.py             conftest.py             <span class=" -Color -Color-Blue">ma</span>/
+__init__.pyi            <span class=" -Color -Color-Blue">core</span>/                   matlib.py
+<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
+<span class=" -Color -Color-Blue">_core</span>/                  ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
+_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    py.typed
+_globals.py             dtypes.py               <span class=" -Color -Color-Blue">random</span>/
+<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">testing</span>/
+_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">tests</span>/
+_pytesttester.pyi       exceptions.pyi          <span class=" -Color -Color-Blue">typing</span>/
+<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/                   version.py
 </pre></div>
 </div>
 </div>
@@ -826,40 +868,36 @@ FILE
 <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">ClassName(BaseClass):</span></code><br />
 and include</p>
 <ul class="simple">
-<li><p>definition of attributes</p></li>
+<li><p>any definition of attributes</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method called when a new instance is created</p></li>
 <li><p>definition of other methods</p></li>
 </ul>
 <p>The first argument of a method specifies the instance, which is named <code class="docutils literal notranslate"><span class="pre">self</span></code> by convention.</p>
+<p>Here’s a simple class for describing cells in 2D space.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vector</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A class for vector calculation.&quot;&quot;&quot;</span>
-    <span class="n">default_p</span> <span class="o">=</span> <span class="mi">2</span>
-    
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>  <span class="c1"># make a new instance</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>     <span class="c1"># array is registered as a vector</span>
-    
-    <span class="k">def</span> <span class="nf">norm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Give the L^p norm of a vector.&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_p</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vector</span><span class="p">)</span> <span class="o">**</span> <span class="n">p</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">p</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;normalize the vector&quot;&quot;&quot;</span>
-        <span class="n">u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vector</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">vector</span> <span class="o">=</span> <span class="n">u</span>
-    
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cell</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for a cell&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Make a new cell&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+     
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Visualize as a circule&quot;&quot;&quot;</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>A new instance is created by calling the class like a function.</p>
+<p>Let’s create an instance of a class by calling like a function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cell</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -867,130 +905,174 @@ and include</p>
 <p>Attributes and methods are referenced by <code class="docutils literal notranslate"><span class="pre">.</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">vector</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cell</span><span class="o">.</span><span class="n">position</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cell</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.23606797749979
-</pre></div>
-</div>
+<img alt="_images/6cbc034b54d535d25600d68cb94dc1568584de82d7c44e3316f95ee172843a61.png" src="_images/6cbc034b54d535d25600d68cb94dc1568584de82d7c44e3316f95ee172843a61.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cell</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span>
+<span class="n">cell</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.080083823051904
+<img alt="_images/f4667fc965db15704d89b1beb2f8ca8b2a4223079b95eea2b9d9f2323fd64667.png" src="_images/f4667fc965db15704d89b1beb2f8ca8b2a4223079b95eea2b9d9f2323fd64667.png" />
+</div>
+</div>
+<p>You can create an array of class instances.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">cells</span> <span class="o">=</span> <span class="p">[</span><span class="n">Cell</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">default_p</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">cells</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
-<span class="n">x</span><span class="o">.</span><span class="n">vector</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.33333333, 0.66666667])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># another instance</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.7416573867739413
-</pre></div>
-</div>
+<img alt="_images/f7588975716ddc02af24551f22aba2d5c0d12840bd99c49743bf58dfc4eb9d1a.png" src="_images/f7588975716ddc02af24551f22aba2d5c0d12840bd99c49743bf58dfc4eb9d1a.png" />
 </div>
 </div>
 <p>A subclass can inherit attributes and methods of base class.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vector2</span><span class="p">(</span><span class="n">Vector</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;For more vector calculation.&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">gCell</span><span class="p">(</span><span class="n">Cell</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class of growing cell based on Cell class&quot;&quot;&quot;</span>
     
-    <span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">u</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">vector</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">vector</span> <span class="o">=</span> <span class="n">u</span>
+    <span class="k">def</span> <span class="nf">grow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Grow the area of the cell&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span>
         
+    <span class="k">def</span> <span class="nf">duplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Make a copy with a random shift&quot;&quot;&quot;</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">gCell</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">c</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="n">z</span><span class="o">.</span><span class="n">vector</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c0</span> <span class="o">=</span> <span class="n">gCell</span><span class="p">()</span>
+<span class="n">c0</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">c0</span><span class="o">.</span><span class="n">duplicate</span><span class="p">()</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">grow</span><span class="p">()</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3])
+<img alt="_images/d20cba29ac2711b325ad6ef2aa8dfb5a328f242d9075fe4e9340b26115e758ed.png" src="_images/d20cba29ac2711b325ad6ef2aa8dfb5a328f242d9075fe4e9340b26115e758ed.png" />
+</div>
+</div>
+<p>Let us make a new class using gCell class</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Culture</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for a cell culture&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Make a cell culture with n cells&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="n">n</span>  <span class="c1"># nuber of cells</span>
+        <span class="k">if</span> <span class="n">position</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># random position if not specified</span>
+            <span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># random colors if not specified</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cells</span> <span class="o">=</span> <span class="p">[</span><span class="n">gCell</span><span class="p">(</span><span class="n">position</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Visualize as a circules&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">grow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Grow the area of each cell&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grow</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">duplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Make a copy of each cell&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number</span><span class="p">):</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">duplicate</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">*=</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">.</span><span class="n">double</span><span class="p">()</span>
-<span class="n">z</span><span class="o">.</span><span class="n">vector</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">culture</span> <span class="o">=</span> <span class="n">Culture</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">culture</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">position</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 4, 6])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.81139217, 0.42339961])
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">culture</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7d0be1c1feccc5cafda57041491b5d4b31ba12085553fadd2fcf8231346b3b1c.png" src="_images/7d0be1c1feccc5cafda57041491b5d4b31ba12085553fadd2fcf8231346b3b1c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">culture</span><span class="o">.</span><span class="n">grow</span><span class="p">()</span>
+<span class="n">culture</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/88b0855b3fc8125277546560d3c6e111c06a27c58d9a47c3261897a1138f3a75.png" src="_images/88b0855b3fc8125277546560d3c6e111c06a27c58d9a47c3261897a1138f3a75.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">culture</span><span class="o">.</span><span class="n">duplicate</span><span class="p">()</span>
+<span class="n">culture</span><span class="o">.</span><span class="n">grow</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">culture</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/bbb9baa3e90ad6cafdee077ce7ebc551c247dedb0a966aaa0e2db474dc689d00.png" src="_images/bbb9baa3e90ad6cafdee077ce7ebc551c247dedb0a966aaa0e2db474dc689d00.png" />
 </div>
 </div>
 </section>
