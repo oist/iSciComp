@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -387,7 +389,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-and-global-variables">Local and global variables</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts-modules-and-packages">Scripts, modules, and packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#script">Script</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module">Module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package">Package</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-oriented-programming">Object Oriented Programming</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-basic-class">Defining a basic class</a></li>
 </ul>
@@ -662,44 +668,84 @@ An argument can be specified by the position, or a keyword.</p>
 </div>
 </section>
 </section>
-<section id="scripts-modules-and-packages">
-<h2>Scripts, modules, and packages<a class="headerlink" href="#scripts-modules-and-packages" title="Permalink to this heading">#</a></h2>
+<section id="script">
+<h2>Script<a class="headerlink" href="#script" title="Permalink to this heading">#</a></h2>
 <p>Before Jupyter (iPython) notebook was created, to reuse any code, you had to store it in a text file, with <code class="docutils literal notranslate"><span class="pre">.py</span></code> extension by convention. This is called a <em>script</em>.</p>
+<p>This magic command creates a simple script file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cat</span> haisai.py
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> hello.py
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>print(&#39;Haisai!&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting hello.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cat</span> hello.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>print(&#39;Hello!&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 <p>The standard way of running a script is to type in a terminal:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python haisai.py
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python hello.py
 </pre></div>
 </div>
 <p>In a Jupyter notebook, you can use <code class="docutils literal notranslate"><span class="pre">%run</span></code> magic command.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> haisai.py
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> hello.py
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Haisai!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello!
 </pre></div>
 </div>
 </div>
 </div>
 <p>You can edit a python script by any text editor.</p>
 <p>In Jupyter notebook’s <code class="docutils literal notranslate"><span class="pre">Files</span></code> window, you can make a new script as a Text file by <code class="docutils literal notranslate"><span class="pre">New</span></code> menu, or edit an existing script by clicking the file name.</p>
+<section id="module">
+<h3>Module<a class="headerlink" href="#module" title="Permalink to this heading">#</a></h3>
 <p>A script with function definitions is called a <em>module</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cat</span> lp.py
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> lpnorm.py
+<span class="sd">&quot;&quot;&quot;L^p norm module&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The L^p norm of a vector.&quot;&quot;&quot;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="n">p</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">p</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;L^p normalization&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">/</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting lpnorm.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cat</span> lpnorm.py
 </pre></div>
 </div>
 </div>
@@ -723,32 +769,32 @@ def normalize(x, p=2):
 <p>You can import a module and use its function by <code class="docutils literal notranslate"><span class="pre">module.function()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lpnorm</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">lp</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">lpnorm</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on module lp:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on module lpnorm:
 
 NAME
-    lp - L^p norm module
+    lpnorm - L^p norm module
 
 FUNCTIONS
     norm(x, p=2)
         The L^p norm of a vector.
-
+    
     normalize(x, p=2)
         L^p normalization
 
 FILE
-    /Users/doya/OIST Dropbox/kenji doya/Python/iSciComp/lp.py
+    /Users/doya/OIST Dropbox/kenji doya/Python/iSciComp/lpnorm.py
 </pre></div>
 </div>
 </div>
@@ -756,7 +802,7 @@ FILE
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">lpnorm</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -768,12 +814,24 @@ FILE
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lpnorm</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.42857143,  0.57142857])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lpnorm</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.6,  0.8])
 </pre></div>
 </div>
 </div>
@@ -782,16 +840,19 @@ FILE
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">importlib</span>
-<span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">lp</span><span class="p">)</span>
+<span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">lpnorm</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;module &#39;lp&#39; from &#39;/Users/doya/OIST Dropbox/kenji doya/Python/iSciComp/lp.py&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;module &#39;lpnorm&#39; from &#39;/Users/doya/OIST Dropbox/kenji doya/Python/iSciComp/lpnorm.py&#39;&gt;
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="package">
+<h3>Package<a class="headerlink" href="#package" title="Permalink to this heading">#</a></h3>
 <p>A collection of modules are put in a directory as a <em>package</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -802,53 +863,57 @@ FILE
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.1.c~/site-packages/numpy:
-__config__.py           <span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
-__init__.cython-30.pxd  <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
-__init__.pxd            <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
-__init__.py             conftest.py             <span class=" -Color -Color-Blue">ma</span>/
-__init__.pyi            <span class=" -Color -Color-Blue">core</span>/                   matlib.py
-<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
-<span class=" -Color -Color-Blue">_core</span>/                  ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
-_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    py.typed
-_globals.py             dtypes.py               <span class=" -Color -Color-Blue">random</span>/
-<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">testing</span>/
-_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">tests</span>/
-_pytesttester.pyi       exceptions.pyi          <span class=" -Color -Color-Blue">typing</span>/
-<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/                   version.py
+__config__.py           <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
+__init__.cython-30.pxd  <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
+__init__.pxd            conftest.py             <span class=" -Color -Color-Blue">ma</span>/
+__init__.py             <span class=" -Color -Color-Blue">core</span>/                   matlib.py
+__init__.pyi            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
+<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
+<span class=" -Color -Color-Blue">_core</span>/                  <span class=" -Color -Color-Blue">distutils</span>/              py.typed
+_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    <span class=" -Color -Color-Blue">random</span>/
+_globals.py             dtypes.py               <span class=" -Color -Color-Blue">testing</span>/
+<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">tests</span>/
+_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">typing</span>/
+_pytesttester.pyi       exceptions.pyi          version.py
+<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/
+<span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
 
 /opt/anaconda3/lib/python3.1/site-packages/numpy:
-__config__.py           <span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
-__init__.cython-30.pxd  <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
-__init__.pxd            <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
-__init__.py             conftest.py             <span class=" -Color -Color-Blue">ma</span>/
-__init__.pyi            <span class=" -Color -Color-Blue">core</span>/                   matlib.py
-<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
-<span class=" -Color -Color-Blue">_core</span>/                  ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
-_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    py.typed
-_globals.py             dtypes.py               <span class=" -Color -Color-Blue">random</span>/
-<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">testing</span>/
-_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">tests</span>/
-_pytesttester.pyi       exceptions.pyi          <span class=" -Color -Color-Blue">typing</span>/
-<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/                   version.py
+__config__.py           <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
+__init__.cython-30.pxd  <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
+__init__.pxd            conftest.py             <span class=" -Color -Color-Blue">ma</span>/
+__init__.py             <span class=" -Color -Color-Blue">core</span>/                   matlib.py
+__init__.pyi            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
+<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
+<span class=" -Color -Color-Blue">_core</span>/                  <span class=" -Color -Color-Blue">distutils</span>/              py.typed
+_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    <span class=" -Color -Color-Blue">random</span>/
+_globals.py             dtypes.py               <span class=" -Color -Color-Blue">testing</span>/
+<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">tests</span>/
+_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">typing</span>/
+_pytesttester.pyi       exceptions.pyi          version.py
+<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/
+<span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
 
-/opt/anaconda3/lib/python3.12/site-packages/numpy:
-__config__.py           <span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
-__init__.cython-30.pxd  <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
-__init__.pxd            <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
-__init__.py             conftest.py             <span class=" -Color -Color-Blue">ma</span>/
-__init__.pyi            <span class=" -Color -Color-Blue">core</span>/                   matlib.py
-<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
-<span class=" -Color -Color-Blue">_core</span>/                  ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
-_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    py.typed
-_globals.py             dtypes.py               <span class=" -Color -Color-Blue">random</span>/
-<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">testing</span>/
-_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">tests</span>/
-_pytesttester.pyi       exceptions.pyi          <span class=" -Color -Color-Blue">typing</span>/
-<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/                   version.py
+/opt/anaconda3/lib/python3.11/site-packages/numpy:
+__config__.py           <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
+__init__.cython-30.pxd  <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
+__init__.pxd            conftest.py             <span class=" -Color -Color-Blue">ma</span>/
+__init__.py             <span class=" -Color -Color-Blue">core</span>/                   matlib.py
+__init__.pyi            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
+<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
+<span class=" -Color -Color-Blue">_core</span>/                  <span class=" -Color -Color-Blue">distutils</span>/              py.typed
+_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    <span class=" -Color -Color-Blue">random</span>/
+_globals.py             dtypes.py               <span class=" -Color -Color-Blue">testing</span>/
+<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">tests</span>/
+_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">typing</span>/
+_pytesttester.pyi       exceptions.pyi          version.py
+<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/
+<span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="object-oriented-programming">
 <h2>Object Oriented Programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this heading">#</a></h2>
@@ -922,7 +987,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6cbc034b54d535d25600d68cb94dc1568584de82d7c44e3316f95ee172843a61.png" src="_images/6cbc034b54d535d25600d68cb94dc1568584de82d7c44e3316f95ee172843a61.png" />
+<img alt="_images/b9abdcf388f047ef3806da207633072df754e861b71586ebccd6fcddaadb4976.png" src="_images/b9abdcf388f047ef3806da207633072df754e861b71586ebccd6fcddaadb4976.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -933,7 +998,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f4667fc965db15704d89b1beb2f8ca8b2a4223079b95eea2b9d9f2323fd64667.png" src="_images/f4667fc965db15704d89b1beb2f8ca8b2a4223079b95eea2b9d9f2323fd64667.png" />
+<img alt="_images/7f135620833b3eab136f7142c5c0757002cc5bfab3a38a13afc3d71559399f19.png" src="_images/7f135620833b3eab136f7142c5c0757002cc5bfab3a38a13afc3d71559399f19.png" />
 </div>
 </div>
 <p>You can create an array of class instances.</p>
@@ -953,7 +1018,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f7588975716ddc02af24551f22aba2d5c0d12840bd99c49743bf58dfc4eb9d1a.png" src="_images/f7588975716ddc02af24551f22aba2d5c0d12840bd99c49743bf58dfc4eb9d1a.png" />
+<img alt="_images/9fa3f34558e5723d9f33dce74231cde274e12338c65392835d2e7b767e658001.png" src="_images/9fa3f34558e5723d9f33dce74231cde274e12338c65392835d2e7b767e658001.png" />
 </div>
 </div>
 <p>A subclass can inherit attributes and methods of base class.</p>
@@ -985,7 +1050,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d20cba29ac2711b325ad6ef2aa8dfb5a328f242d9075fe4e9340b26115e758ed.png" src="_images/d20cba29ac2711b325ad6ef2aa8dfb5a328f242d9075fe4e9340b26115e758ed.png" />
+<img alt="_images/06a93cfe3d9cbfed8c6fe545bbade1347a33f3220ece84cdbd964a7c94d33ace.png" src="_images/06a93cfe3d9cbfed8c6fe545bbade1347a33f3220ece84cdbd964a7c94d33ace.png" />
 </div>
 </div>
 <p>Let us make a new class using gCell class</p>
@@ -1037,7 +1102,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.81139217, 0.42339961])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.26803075, 0.43884196])
 </pre></div>
 </div>
 </div>
@@ -1049,7 +1114,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7d0be1c1feccc5cafda57041491b5d4b31ba12085553fadd2fcf8231346b3b1c.png" src="_images/7d0be1c1feccc5cafda57041491b5d4b31ba12085553fadd2fcf8231346b3b1c.png" />
+<img alt="_images/ed8257f1a0cd19c38c9fb36cbc3b546068552900a3a7bdc5c0150d4a51951bb7.png" src="_images/ed8257f1a0cd19c38c9fb36cbc3b546068552900a3a7bdc5c0150d4a51951bb7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1060,7 +1125,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/88b0855b3fc8125277546560d3c6e111c06a27c58d9a47c3261897a1138f3a75.png" src="_images/88b0855b3fc8125277546560d3c6e111c06a27c58d9a47c3261897a1138f3a75.png" />
+<img alt="_images/81d3aaed987406b6780cae9dee7c945c72fef7d1778609b4da1dc0255b9e9f5b.png" src="_images/81d3aaed987406b6780cae9dee7c945c72fef7d1778609b4da1dc0255b9e9f5b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1072,7 +1137,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bbb9baa3e90ad6cafdee077ce7ebc551c247dedb0a966aaa0e2db474dc689d00.png" src="_images/bbb9baa3e90ad6cafdee077ce7ebc551c247dedb0a966aaa0e2db474dc689d00.png" />
+<img alt="_images/c3c46117f48cbff33e1bb6435f9a218d1660c9b4311005215c079e705df99366.png" src="_images/c3c46117f48cbff33e1bb6435f9a218d1660c9b4311005215c079e705df99366.png" />
 </div>
 </div>
 </section>
@@ -1149,7 +1214,11 @@ and include</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-and-global-variables">Local and global variables</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts-modules-and-packages">Scripts, modules, and packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#script">Script</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module">Module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package">Package</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-oriented-programming">Object Oriented Programming</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-basic-class">Defining a basic class</a></li>
 </ul>

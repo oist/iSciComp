@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -478,7 +480,7 @@ where \)</span>y(0)<span class="math notranslate nohighlight">\( is an \)</span>
        [0., 1.]]))
 </pre></div>
 </div>
-<img alt="_images/9ecb93c1cde06684aef4b8b569e70bca105b82486ff6fd916453b129c9cde1c3.png" src="_images/9ecb93c1cde06684aef4b8b569e70bca105b82486ff6fd916453b129c9cde1c3.png" />
+<img alt="_images/603a1bd6c986f6591a0b67e7130a64b30e72fd6e9454268fbb83628057de99e8.png" src="_images/603a1bd6c986f6591a0b67e7130a64b30e72fd6e9454268fbb83628057de99e8.png" />
 </div>
 </div>
 <ol class="arabic simple" start="2">
@@ -566,16 +568,15 @@ $<span class="math notranslate nohighlight">\( \frac{dv}{dt} = v - \frac{v^3}{3}
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">fhn</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,))</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.12/site-packages/scipy/integrate/_odepack_py.py:243,</span> in <span class="ni">odeint</span><span class="nt">(func, y0, t, args, Dfun, col_deriv, full_output, ml, mu, rtol, atol, tcrit, h0, hmax, hmin, ixpr, mxstep, mxhnil, mxordn, mxords, printmessg, tfirst)</span>
-<span class="g g-Whitespace">    </span><span class="mi">241</span> <span class="n">t</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">242</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">243</span> <span class="n">output</span> <span class="o">=</span> <span class="n">_odepack</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">Dfun</span><span class="p">,</span> <span class="n">col_deriv</span><span class="p">,</span> <span class="n">ml</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span>                          <span class="n">full_output</span><span class="p">,</span> <span class="n">rtol</span><span class="p">,</span> <span class="n">atol</span><span class="p">,</span> <span class="n">tcrit</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">hmax</span><span class="p">,</span> <span class="n">hmin</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">245</span>                          <span class="n">ixpr</span><span class="p">,</span> <span class="n">mxstep</span><span class="p">,</span> <span class="n">mxhnil</span><span class="p">,</span> <span class="n">mxordn</span><span class="p">,</span> <span class="n">mxords</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">246</span>                          <span class="nb">int</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">tfirst</span><span class="p">)))</span>
-<span class="g g-Whitespace">    </span><span class="mi">247</span> <span class="k">if</span> <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">248</span>     <span class="n">warning_msg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_msgs</span><span class="p">[</span><span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span><span class="si">}</span><span class="s2"> Run with full_output = 1 to &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span>                    <span class="sa">f</span><span class="s2">&quot;get quantitative information.&quot;</span><span class="p">)</span>
+<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/scipy/integrate/_odepack_py.py:242,</span> in <span class="ni">odeint</span><span class="nt">(func, y0, t, args, Dfun, col_deriv, full_output, ml, mu, rtol, atol, tcrit, h0, hmax, hmin, ixpr, mxstep, mxhnil, mxordn, mxords, printmessg, tfirst)</span>
+<span class="g g-Whitespace">    </span><span class="mi">240</span> <span class="n">t</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">241</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">242</span> <span class="n">output</span> <span class="o">=</span> <span class="n">_odepack</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">Dfun</span><span class="p">,</span> <span class="n">col_deriv</span><span class="p">,</span> <span class="n">ml</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">243</span>                          <span class="n">full_output</span><span class="p">,</span> <span class="n">rtol</span><span class="p">,</span> <span class="n">atol</span><span class="p">,</span> <span class="n">tcrit</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">hmax</span><span class="p">,</span> <span class="n">hmin</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">244</span>                          <span class="n">ixpr</span><span class="p">,</span> <span class="n">mxstep</span><span class="p">,</span> <span class="n">mxhnil</span><span class="p">,</span> <span class="n">mxordn</span><span class="p">,</span> <span class="n">mxords</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">245</span>                          <span class="nb">int</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">tfirst</span><span class="p">)))</span>
+<span class="g g-Whitespace">    </span><span class="mi">246</span> <span class="k">if</span> <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">247</span>     <span class="n">warning_msg</span> <span class="o">=</span> <span class="n">_msgs</span><span class="p">[</span><span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="s2">&quot; Run with full_output = 1 to get quantitative information.&quot;</span>
 
 <span class="ne">RuntimeError</span>: The size of the array returned by func (1) does not match the size of y0 (2).
 </pre></div>

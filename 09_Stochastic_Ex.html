@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -452,7 +454,7 @@ with the shape parameter \)</span>k&gt;0<span class="math notranslate nohighligh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;f(x)&#39;)
 </pre></div>
 </div>
-<img alt="_images/52a4cd52fbad1ad28cd163830b1e20fe2b41c49b47320a3216323fc9c4bf205d.png" src="_images/52a4cd52fbad1ad28cd163830b1e20fe2b41c49b47320a3216323fc9c4bf205d.png" />
+<img alt="_images/50ab596083fa8d216369bb1bff196d035c2a4bf97bfc03a882211a177536f446.png" src="_images/50ab596083fa8d216369bb1bff196d035c2a4bf97bfc03a882211a177536f446.png" />
 </div>
 </div>
 <ol class="arabic simple">
@@ -521,40 +523,40 @@ the ratio \)</span>\frac{p(x;k,\theta)}{q(x;\mu)}<span class="math notranslate n
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="o">*</span><span class="n">p_exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="o">*</span><span class="n">theta</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.12/site-packages/matplotlib/pyplot.py:3590,</span> in <span class="ni">plot</span><span class="nt">(scalex, scaley, data, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3582</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3583</span> <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3584</span>     <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/matplotlib/pyplot.py:3578,</span> in <span class="ni">plot</span><span class="nt">(scalex, scaley, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3570</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3571</span> <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3572</span>     <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
    <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3588</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3589</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Line2D</span><span class="p">]:</span>
-<span class="ne">-&gt; </span><span class="mi">3590</span>     <span class="k">return</span> <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3591</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3592</span>         <span class="n">scalex</span><span class="o">=</span><span class="n">scalex</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3593</span>         <span class="n">scaley</span><span class="o">=</span><span class="n">scaley</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3594</span>         <span class="o">**</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}),</span>
-<span class="g g-Whitespace">   </span><span class="mi">3595</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3596</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3576</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3577</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Line2D</span><span class="p">]:</span>
+<span class="ne">-&gt; </span><span class="mi">3578</span>     <span class="k">return</span> <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3579</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3580</span>         <span class="n">scalex</span><span class="o">=</span><span class="n">scalex</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3581</span>         <span class="n">scaley</span><span class="o">=</span><span class="n">scaley</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3582</span>         <span class="o">**</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}),</span>
+<span class="g g-Whitespace">   </span><span class="mi">3583</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3584</span>     <span class="p">)</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.12/site-packages/matplotlib/axes/_axes.py:1724,</span> in <span class="ni">Axes.plot</span><span class="nt">(self, scalex, scaley, data, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1481</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1482</span><span class="sd"> Plot y versus x as lines and/or markers.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1483</span><span class="sd"> </span>
+<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/matplotlib/axes/_axes.py:1721,</span> in <span class="ni">Axes.plot</span><span class="nt">(self, scalex, scaley, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1478</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1479</span><span class="sd"> Plot y versus x as lines and/or markers.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1480</span><span class="sd"> </span>
 <span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1721</span><span class="sd"> (``&#39;green&#39;``) or hex strings (``&#39;#008000&#39;``).</span>
-<span class="g g-Whitespace">   </span><span class="mi">1722</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1723</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">normalize_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">mlines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1724</span> <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1725</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1726</span>     <span class="bp">self</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1718</span><span class="sd"> (``&#39;green&#39;``) or hex strings (``&#39;#008000&#39;``).</span>
+<span class="g g-Whitespace">   </span><span class="mi">1719</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1720</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">normalize_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">mlines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1721</span> <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1722</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1723</span>     <span class="bp">self</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.12/site-packages/matplotlib/axes/_base.py:303,</span> in <span class="ni">_process_plot_var_args.__call__</span><span class="nt">(self, axes, data, *args, **kwargs)</span>
+<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/matplotlib/axes/_base.py:303,</span> in <span class="ni">_process_plot_var_args.__call__</span><span class="nt">(self, axes, data, *args, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">301</span>     <span class="n">this</span> <span class="o">+=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
 <span class="g g-Whitespace">    </span><span class="mi">302</span>     <span class="n">args</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 <span class="ne">--&gt; </span><span class="mi">303</span> <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plot_args</span><span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">304</span>     <span class="n">axes</span><span class="p">,</span> <span class="n">this</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">ambiguous_fmt_datakey</span><span class="o">=</span><span class="n">ambiguous_fmt_datakey</span><span class="p">)</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.12/site-packages/matplotlib/axes/_base.py:460,</span> in <span class="ni">_process_plot_var_args._plot_args</span><span class="nt">(self, axes, tup, kwargs, return_kwargs, ambiguous_fmt_datakey)</span>
+<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/matplotlib/axes/_base.py:460,</span> in <span class="ni">_process_plot_var_args._plot_args</span><span class="nt">(self, axes, tup, kwargs, return_kwargs, ambiguous_fmt_datakey)</span>
 <span class="g g-Whitespace">    </span><span class="mi">457</span> <span class="c1"># Don&#39;t allow any None value; these would be up-converted to one</span>
 <span class="g g-Whitespace">    </span><span class="mi">458</span> <span class="c1"># element array of None which causes problems downstream.</span>
 <span class="g g-Whitespace">    </span><span class="mi">459</span> <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tup</span><span class="p">):</span>
@@ -566,7 +568,7 @@ the ratio \)</span>\frac{p(x;k,\theta)}{q(x;\mu)}<span class="math notranslate n
 <span class="ne">ValueError</span>: x, y, and format string must not be None
 </pre></div>
 </div>
-<img alt="_images/ed677fe7b0f5f38d48caa0ab8c4daf4732bb40f161b78a8109858b641c89bf0d.png" src="_images/ed677fe7b0f5f38d48caa0ab8c4daf4732bb40f161b78a8109858b641c89bf0d.png" />
+<img alt="_images/e90d8f2c9f70eecb88a02eac39b631f0c6b659a1fe7234099703577c13a60cca.png" src="_images/e90d8f2c9f70eecb88a02eac39b631f0c6b659a1fe7234099703577c13a60cca.png" />
 </div>
 </div>
 <ol class="arabic simple" start="4">

@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -445,7 +447,7 @@ let us verify that <span class="math notranslate nohighlight">\(\det A = ad - bc
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ccd79dfa063c31d530538328158a032ea90b42b1bfd07d77dfa3e8003c0d80a9.png" src="_images/ccd79dfa063c31d530538328158a032ea90b42b1bfd07d77dfa3e8003c0d80a9.png" />
+<img alt="_images/81a92c31244cd5dacca0986a5acdaecc48b29a8c71b36c41c2a8035746c0d823.png" src="_images/81a92c31244cd5dacca0986a5acdaecc48b29a8c71b36c41c2a8035746c0d823.png" />
 </div>
 </div>
 <p>A unit square is transformed into a parallelogram. Its area <span class="math notranslate nohighlight">\(S\)</span> can be derived as follows:<br />
@@ -473,14 +475,13 @@ $<span class="math notranslate nohighlight">\( S = S_1 - 2S_2 - 2S_3 - 2S_4 = ad
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2.21870452  0.22777683  0.49062535 -1.20379103]
- [ 1.27321107 -0.34064818 -0.86902621 -0.27267416]
- [-0.86497463 -0.07736374  0.76218285  1.45849811]
- [ 0.64765207  0.45423519 -0.76135014 -0.18853485]]
-eigenvalues =  [ 1.63214421+0.j          0.77310147+1.20296372j  0.77310147-1.20296372j
- -0.72664281+0.j        ]
-product =  (-2.42511289373055-2.1886132102022422e-17j)
-detrminant =  -2.4251128937305526
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5.45542385e-01 -2.20519582e-01 -1.00093348e+00 -7.79434128e-01]
+ [-6.13314596e-01 -3.96926053e-01 -4.97468948e-01  5.15591034e-04]
+ [-1.91404618e-01 -1.22982455e-01 -1.10178748e-01 -1.01669224e+00]
+ [ 1.25756939e-01  4.44229024e-01 -1.03021059e+00 -1.84100099e+00]]
+eigenvalues =  [-2.20091347 -0.89375775  0.81075442  0.4813534 ]
+product =  0.7676728022249856
+detrminant =  0.7676728022249867
 </pre></div>
 </div>
 </div>
@@ -506,12 +507,11 @@ detrminant =  -2.4251128937305526
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =  [[ 0.04640631 -2.67803168 -0.16122105  0.00426928]
- [-1.12843377  0.16367164 -0.86802851  0.56363173]
- [-0.30433202  1.22632783 -0.8545533   0.69923014]
- [-0.96084281 -1.38025999  0.19917172  0.76945175]]
-eigenvalues =  [-1.11368443+0.91108294j -1.11368443-0.91108294j  1.67194652+0.j
-  0.68039873+0.j        ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =  [[ 1.25188065 -0.12235248  1.35319957 -2.12852047]
+ [ 0.1766467   1.14780248  0.29037648  0.5586045 ]
+ [ 1.30831802  1.19827856  0.36111231 -1.24021182]
+ [-0.4795464  -0.60459659  0.18031139  0.17892941]]
+eigenvalues =  [ 2.66318512 -0.34155192 -0.30702629  0.92511795]
 </pre></div>
 </div>
 </div>
@@ -531,7 +531,7 @@ eigenvalues =  [-1.11368443+0.91108294j -1.11368443-0.91108294j  1.67194652+0.j
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d75e9681866bcbd61348cda1397bd25f8f94c223f57a7ef22d7cae540c598c35.png" src="_images/d75e9681866bcbd61348cda1397bd25f8f94c223f57a7ef22d7cae540c598c35.png" />
+<img alt="_images/843d44b52499f534250615270d81fe8b1db454a2af5d64fe9d8f9acf0948dc10.png" src="_images/843d44b52499f534250615270d81fe8b1db454a2af5d64fe9d8f9acf0948dc10.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -541,10 +541,10 @@ eigenvalues =  [-1.11368443+0.91108294j -1.11368443-0.91108294j  1.67194652+0.j
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11280e600&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11f0c0310&gt;]
 </pre></div>
 </div>
-<img alt="_images/e4b3dd0a716742379ebb377b0384990396d3ca8bf0c324827e2276a908e29854.png" src="_images/e4b3dd0a716742379ebb377b0384990396d3ca8bf0c324827e2276a908e29854.png" />
+<img alt="_images/09e604c88e6f3adaa4fdf25debc375fea36e724d540bd5bb0bb4fea3446ac69a.png" src="_images/09e604c88e6f3adaa4fdf25debc375fea36e724d540bd5bb0bb4fea3446ac69a.png" />
 </div>
 </div>
 <ol class="arabic simple" start="2">
@@ -565,15 +565,15 @@ eigenvalues =  [-1.11368443+0.91108294j -1.11368443-0.91108294j  1.67194652+0.j
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =  [[ 0.34343671  0.6203797  -0.27991731  0.49753228]
- [ 0.80869126 -0.79013009  1.33606112 -0.61244516]
- [-0.04801573  0.16350748 -1.07791893 -1.81961676]
- [ 0.02862075 -0.38790372 -0.01325451 -0.14142925]]
-eigenvalues =  [ 0.72024219+0.j        0.41483302+0.j       -1.40055838+0.579119j
- -1.40055838-0.579119j]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =  [[-1.46532403 -1.93433014 -0.93120479 -1.3575415 ]
+ [-0.83951306  0.45803988  0.78332454  0.82356139]
+ [ 0.81621379 -0.75379644 -0.74401646  2.73137449]
+ [-0.03206452  2.21503575  0.99268179  1.46530216]]
+eigenvalues =  [ 3.2605552 +0.j         -0.77889859+0.72010259j -0.77889859-0.72010259j
+ -1.98875647+0.j        ]
 </pre></div>
 </div>
-<img alt="_images/b178d2a1af8c86a529d64302372e15de277e4ad59c32719e1abda43bba4b7013.png" src="_images/b178d2a1af8c86a529d64302372e15de277e4ad59c32719e1abda43bba4b7013.png" />
+<img alt="_images/12b5a692b7cb1f1e660089baad243024e5ea381c17e4ba26fc37708d0b509b4c.png" src="_images/12b5a692b7cb1f1e660089baad243024e5ea381c17e4ba26fc37708d0b509b4c.png" />
 </div>
 </div>
 </section>
@@ -608,7 +608,7 @@ eigenvalues =  [ 0.72024219+0.j        0.41483302+0.j       -1.40055838+0.579119
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e8c25a2be478200705560ddf84b2c5ab9b45ef8ab3e4a510f105a2c66dd54e1d.png" src="_images/e8c25a2be478200705560ddf84b2c5ab9b45ef8ab3e4a510f105a2c66dd54e1d.png" />
+<img alt="_images/d2b1d8b2373c72025e80ea39f590f2efbc31be32b7cc3e951de000cded79b7a6.png" src="_images/d2b1d8b2373c72025e80ea39f590f2efbc31be32b7cc3e951de000cded79b7a6.png" />
 </div>
 </div>
 <ol class="arabic simple">
@@ -663,7 +663,7 @@ eigenvalues =  [ 0.72024219+0.j        0.41483302+0.j       -1.40055838+0.579119
    0.        ]]
 </pre></div>
 </div>
-<img alt="_images/850f427149a407c45ae7820e3a471c5e2d01c4ce262d789cffffdfee26d2ea1b.png" src="_images/850f427149a407c45ae7820e3a471c5e2d01c4ce262d789cffffdfee26d2ea1b.png" />
+<img alt="_images/0a069e05de0ac9c8cc4e46ac0f1d61391395ac872f148521e7ba8aba6b5b2853.png" src="_images/0a069e05de0ac9c8cc4e46ac0f1d61391395ac872f148521e7ba8aba6b5b2853.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -700,15 +700,15 @@ eigenvalues =  [ 0.72024219+0.j        0.41483302+0.j       -1.40055838+0.579119
  [ 1.68358559e-18 -1.83420720e-02 -1.26475543e-01 ... -2.32084163e-01
   -1.67026563e-01 -3.48043832e-02]
  ...
- [ 0.00000000e+00  5.01431234e-17 -9.75867742e-17 ... -6.93889390e-17
-   5.55111512e-17 -3.46944695e-18]
- [ 0.00000000e+00  4.27173158e-16 -3.24255744e-16 ...  1.11022302e-16
-  -5.55111512e-17  1.38777878e-16]
+ [ 0.00000000e+00 -1.74205890e-16 -2.29802501e-17 ...  2.22044605e-16
+  -3.88578059e-16  3.19189120e-16]
+ [ 0.00000000e+00 -9.57740791e-17  8.79116595e-17 ... -9.71445147e-17
+   1.38777878e-17 -1.14491749e-16]
  [-1.00000000e+00  1.68983002e-17 -5.73338351e-18 ... -8.66631300e-18
    1.57615962e-17 -4.07058917e-18]]
 </pre></div>
 </div>
-<img alt="_images/850f427149a407c45ae7820e3a471c5e2d01c4ce262d789cffffdfee26d2ea1b.png" src="_images/850f427149a407c45ae7820e3a471c5e2d01c4ce262d789cffffdfee26d2ea1b.png" />
+<img alt="_images/0a069e05de0ac9c8cc4e46ac0f1d61391395ac872f148521e7ba8aba6b5b2853.png" src="_images/0a069e05de0ac9c8cc4e46ac0f1d61391395ac872f148521e7ba8aba6b5b2853.png" />
 </div>
 </div>
 <ol class="arabic simple" start="2">
@@ -726,7 +726,7 @@ eigenvalues =  [ 0.72024219+0.j        0.41483302+0.j       -1.40055838+0.579119
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/708352ece4d0302117d37762bda33cf31ee16822b54234e24a1b5ff8f6c8f57e.png" src="_images/708352ece4d0302117d37762bda33cf31ee16822b54234e24a1b5ff8f6c8f57e.png" />
+<img alt="_images/b36603fa45fbc407c0ee081db03d8c5751d6afbfca78fc4ff5ff274679f19280.png" src="_images/b36603fa45fbc407c0ee081db03d8c5751d6afbfca78fc4ff5ff274679f19280.png" />
 </div>
 </div>
 <ol class="arabic simple" start="3">
@@ -743,7 +743,7 @@ eigenvalues =  [ 0.72024219+0.j        0.41483302+0.j       -1.40055838+0.579119
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2e7c6614c566b383a75a036105000d596d2a2584c3ce8fd5f5ff93e1b39aa14a.png" src="_images/2e7c6614c566b383a75a036105000d596d2a2584c3ce8fd5f5ff93e1b39aa14a.png" />
+<img alt="_images/ed65a8594c26ef088864c1744e14166eef292c329c1ab2b8e4784a9bc206e47f.png" src="_images/ed65a8594c26ef088864c1744e14166eef292c329c1ab2b8e4784a9bc206e47f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -758,7 +758,7 @@ eigenvalues =  [ 0.72024219+0.j        0.41483302+0.j       -1.40055838+0.579119
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/886f36b421582e12734ab13866d7294e255ba0f6794bf0a30818b5e147d0898f.png" src="_images/886f36b421582e12734ab13866d7294e255ba0f6794bf0a30818b5e147d0898f.png" />
+<img alt="_images/f4702778c18bb2a824e4c86e2ed2f1df6d6c23e1c602012e737f7a74323b5bb6.png" src="_images/f4702778c18bb2a824e4c86e2ed2f1df6d6c23e1c602012e737f7a74323b5bb6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -775,7 +775,7 @@ eigenvalues =  [ 0.72024219+0.j        0.41483302+0.j       -1.40055838+0.579119
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9cd587d80ab363c83208934bedea474833ae02e255cd1973070eb471d3a84fd1.png" src="_images/9cd587d80ab363c83208934bedea474833ae02e255cd1973070eb471d3a84fd1.png" />
+<img alt="_images/252a69c47e877ce4733f99de7c04d9bc79811ff74286e7f7edcc2bae07ea55e3.png" src="_images/252a69c47e877ce4733f99de7c04d9bc79811ff74286e7f7edcc2bae07ea55e3.png" />
 </div>
 </div>
 <ol class="arabic simple" start="4">
@@ -800,7 +800,7 @@ eigenvalues =  [ 0.72024219+0.j        0.41483302+0.j       -1.40055838+0.579119
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0bb539ddb753d2e82148e320a873d5a687546ec5c617877ce180cc14ba7be570.png" src="_images/0bb539ddb753d2e82148e320a873d5a687546ec5c617877ce180cc14ba7be570.png" />
+<img alt="_images/a4c5894c7d6b077a98c1dcfc750d9287854dedef7503771726f45884672d5f41.png" src="_images/a4c5894c7d6b077a98c1dcfc750d9287854dedef7503771726f45884672d5f41.png" />
 </div>
 </div>
 </section>

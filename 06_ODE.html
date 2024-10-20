@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -601,7 +603,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6a3b18d1d12f33fd7722d90041e570c8a286bd95c3f321c8116a3a475361224c.png" src="_images/6a3b18d1d12f33fd7722d90041e570c8a286bd95c3f321c8116a3a475361224c.png" />
+<img alt="_images/e3dfddeb0973708b630adcdac240121aa0d4180c6a0e71ff257b4b1452aae38a.png" src="_images/e3dfddeb0973708b630adcdac240121aa0d4180c6a0e71ff257b4b1452aae38a.png" />
 </div>
 </div>
 <p>A second-order ODE</p>
@@ -637,7 +639,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/95efd4035f272243682b3842a7f486e7bc453b2ba9ecda26e100ca955a1bb496.png" src="_images/95efd4035f272243682b3842a7f486e7bc453b2ba9ecda26e100ca955a1bb496.png" />
+<img alt="_images/9267ef358b9c38c7c183c8a67a84749741b3c666094ca6e233e3362c5aabe002.png" src="_images/9267ef358b9c38c7c183c8a67a84749741b3c666094ca6e233e3362c5aabe002.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -648,7 +650,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/90e4be2342f3456c0f3c544487a47a82ec686ac1819525ed637afab505505cca.png" src="_images/90e4be2342f3456c0f3c544487a47a82ec686ac1819525ed637afab505505cca.png" />
+<img alt="_images/f0a811b29f6f9a96fd12bfe93db2054195cba1d2b3997c087b70aa5811c6c0cf.png" src="_images/f0a811b29f6f9a96fd12bfe93db2054195cba1d2b3997c087b70aa5811c6c0cf.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -659,7 +661,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cfa85e8729c45d30f735595027ab3847cf924dc3b8d5057339d6463481e974f8.png" src="_images/cfa85e8729c45d30f735595027ab3847cf924dc3b8d5057339d6463481e974f8.png" />
+<img alt="_images/fdde2484a8c2eae0049d47000ed339e0ba2c8c0e54e00aece04d0d8d0ea9588e.png" src="_images/fdde2484a8c2eae0049d47000ed339e0ba2c8c0e54e00aece04d0d8d0ea9588e.png" />
 </div>
 </div>
 <p>Let us see how the time step affects the accuracy of the solution.</p>
@@ -675,7 +677,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/86c73b4d3319b4b5c434e33b1565d39b56181c751071e601ec5b16a8ccbe0b92.png" src="_images/86c73b4d3319b4b5c434e33b1565d39b56181c751071e601ec5b16a8ccbe0b92.png" />
+<img alt="_images/80aff22fcbd936fcd3271c7fd8417d27731c0e1988efceae5cae1d189955f897.png" src="_images/80aff22fcbd936fcd3271c7fd8417d27731c0e1988efceae5cae1d189955f897.png" />
 </div>
 </div>
 </section>
@@ -721,27 +723,27 @@ For an ODE</p>
 
 odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=None, rtol=None, atol=None, tcrit=None, h0=0.0, hmax=0.0, hmin=0.0, ixpr=0, mxstep=0, mxhnil=0, mxordn=12, mxords=5, printmessg=0, tfirst=False)
     Integrate a system of ordinary differential equations.
-
+    
     .. note:: For new code, use `scipy.integrate.solve_ivp` to solve a
               differential equation.
-
+    
     Solve a system of ordinary differential equations using lsoda from the
     FORTRAN library odepack.
-
+    
     Solves the initial value problem for stiff or non-stiff systems
     of first order ode-s::
-
+    
         dy/dt = func(y, t, ...)  [or func(t, y, ...)]
-
+    
     where y can be a vector.
-
+    
     .. note:: By default, the required order of the first two arguments of
               `func` are in the opposite order of the arguments in the system
               definition function used by the `scipy.integrate.ode` class and
               the function `scipy.integrate.solve_ivp`. To use a function with
               the signature ``func(t, y, ...)``, the argument `tfirst` must be
               set to ``True``.
-
+    
     Parameters
     ----------
     func : callable(y, t, ...) or callable(t, y, ...)
@@ -771,9 +773,9 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
     tfirst : bool, optional
         If True, the first two arguments of `func` (and `Dfun`, if given)
         must ``t, y`` instead of the default ``y, t``.
-
+    
         .. versionadded:: 1.1.0
-
+    
     Returns
     -------
     y : array, shape (len(t), len(y0))
@@ -781,7 +783,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
         with the initial value `y0` in the first row.
     infodict : dict, only returned if full_output == True
         Dictionary containing additional output information
-
+    
         =======  ============================================================
         key      meaning
         =======  ============================================================
@@ -804,7 +806,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
         &#39;mused&#39;  a vector of method indicators for each successful time step:
                  1: adams (nonstiff), 2: bdf (stiff)
         =======  ============================================================
-
+    
     Other Parameters
     ----------------
     ml, mu : int, optional
@@ -816,9 +818,9 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
         Thus, the return matrix `jac` from `Dfun` should have shape
         ``(ml + mu + 1, len(y0))`` when ``ml &gt;=0`` or ``mu &gt;=0``.
         The data in `jac` must be stored such that ``jac[i - j + mu, j]``
-        holds the derivative of the ``i``\ th equation with respect to the
-        ``j``\ th state variable.  If `col_deriv` is True, the transpose of
-        this `jac` must be returned.
+        holds the derivative of the `i`th equation with respect to the `j`th
+        state variable.  If `col_deriv` is True, the transpose of this
+        `jac` must be returned.
     rtol, atol : float, optional
         The input parameters `rtol` and `atol` determine the error
         control performed by the solver.  The solver will control the
@@ -848,65 +850,65 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
         Maximum order to be allowed for the non-stiff (Adams) method.
     mxords : int, (0: solver-determined), optional
         Maximum order to be allowed for the stiff (BDF) method.
-
+    
     See Also
     --------
     solve_ivp : solve an initial value problem for a system of ODEs
     ode : a more object-oriented integrator based on VODE
     quad : for finding the area under a curve
-
+    
     Examples
     --------
     The second order differential equation for the angle `theta` of a
     pendulum acted on by gravity with friction can be written::
-
+    
         theta&#39;&#39;(t) + b*theta&#39;(t) + c*sin(theta(t)) = 0
-
+    
     where `b` and `c` are positive constants, and a prime (&#39;) denotes a
     derivative. To solve this equation with `odeint`, we must first convert
     it to a system of first order equations. By defining the angular
     velocity ``omega(t) = theta&#39;(t)``, we obtain the system::
-
+    
         theta&#39;(t) = omega(t)
         omega&#39;(t) = -b*omega(t) - c*sin(theta(t))
-
+    
     Let `y` be the vector [`theta`, `omega`]. We implement this system
     in Python as:
-
+    
     &gt;&gt;&gt; import numpy as np
     &gt;&gt;&gt; def pend(y, t, b, c):
     ...     theta, omega = y
     ...     dydt = [omega, -b*omega - c*np.sin(theta)]
     ...     return dydt
     ...
-
+    
     We assume the constants are `b` = 0.25 and `c` = 5.0:
-
+    
     &gt;&gt;&gt; b = 0.25
     &gt;&gt;&gt; c = 5.0
-
+    
     For initial conditions, we assume the pendulum is nearly vertical
     with `theta(0)` = `pi` - 0.1, and is initially at rest, so
     `omega(0)` = 0.  Then the vector of initial conditions is
-
+    
     &gt;&gt;&gt; y0 = [np.pi - 0.1, 0.0]
-
+    
     We will generate a solution at 101 evenly spaced samples in the interval
     0 &lt;= `t` &lt;= 10.  So our array of times is:
-
+    
     &gt;&gt;&gt; t = np.linspace(0, 10, 101)
-
+    
     Call `odeint` to generate the solution. To pass the parameters
     `b` and `c` to `pend`, we give them to `odeint` using the `args`
     argument.
-
+    
     &gt;&gt;&gt; from scipy.integrate import odeint
     &gt;&gt;&gt; sol = odeint(pend, y0, t, args=(b, c))
-
+    
     The solution is an array with shape (101, 2). The first column
     is `theta(t)`, and the second is `omega(t)`. The following code
     plots both components.
-
+    
     &gt;&gt;&gt; import matplotlib.pyplot as plt
     &gt;&gt;&gt; plt.plot(t, sol[:, 0], &#39;b&#39;, label=&#39;theta(t)&#39;)
     &gt;&gt;&gt; plt.plot(t, sol[:, 1], &#39;g&#39;, label=&#39;omega(t)&#39;)
@@ -928,7 +930,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/80aaa443241c5f324e27cde16fda1bb8eb2fe211d3baed322aebb979d328ded5.png" src="_images/80aaa443241c5f324e27cde16fda1bb8eb2fe211d3baed322aebb979d328ded5.png" />
+<img alt="_images/039fe101c6c24d2849dbb7d299112c09b34b46f06185cee272d79db5dae6ca0b.png" src="_images/039fe101c6c24d2849dbb7d299112c09b34b46f06185cee272d79db5dae6ca0b.png" />
 </div>
 </div>
 <p>Here’s another example of second-order linear ODE.</p>
@@ -941,7 +943,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/940be91be182302ddf59cff09349ecd2cba7522d63a16489f9d6b8b16265aaf5.png" src="_images/940be91be182302ddf59cff09349ecd2cba7522d63a16489f9d6b8b16265aaf5.png" />
+<img alt="_images/8a193d88ce5cd9c263192c0245ae20b7fb87ef0af5d7abd145735bee303d1790.png" src="_images/8a193d88ce5cd9c263192c0245ae20b7fb87ef0af5d7abd145735bee303d1790.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">odeint()</span></code> internally uses adaptive time steps, and returns values of <code class="docutils literal notranslate"><span class="pre">y</span></code> for time points specified in <code class="docutils literal notranslate"><span class="pre">t</span></code> by interpolation.</p>
@@ -957,7 +959,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3f7b2ac96f3ff98a419b2a03d9068915ed27650bf67595ae750462c05431de0f.png" src="_images/3f7b2ac96f3ff98a419b2a03d9068915ed27650bf67595ae750462c05431de0f.png" />
+<img alt="_images/6bee3691a23e8cfdab9ad1480c3ae7dfa9900d501af13eb915cdc7161e34bc99.png" src="_images/6bee3691a23e8cfdab9ad1480c3ae7dfa9900d501af13eb915cdc7161e34bc99.png" />
 </div>
 </div>
 </section>
@@ -1035,7 +1037,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c7023ebae9f6748762a130f07355279fcd6a6e95b698ee55f33524b3379b779e.png" src="_images/c7023ebae9f6748762a130f07355279fcd6a6e95b698ee55f33524b3379b779e.png" />
+<img alt="_images/472dcde2c2b8b4535717e4e7b2fbf9043f5709dfde9617a28ae77d8a7b0b9a20.png" src="_images/472dcde2c2b8b4535717e4e7b2fbf9043f5709dfde9617a28ae77d8a7b0b9a20.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1069,7 +1071,7 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/83874ce8b1d1adea3249c9a4271127a444e9f251d4507b5f9cae31049572d968.png" src="_images/83874ce8b1d1adea3249c9a4271127a444e9f251d4507b5f9cae31049572d968.png" />
+<img alt="_images/84ef781800e7a58cde9e6ec8a441240d1739b69e09ddc19e6f5a491cf0be0a7c.png" src="_images/84ef781800e7a58cde9e6ec8a441240d1739b69e09ddc19e6f5a491cf0be0a7c.png" />
 </div>
 </div>
 </section>
@@ -1122,7 +1124,7 @@ Its stability is determined by the eigenvalues of <span class="math notranslate 
 ev = [-0.5+0.8660254j -0.5-0.8660254j]
 </pre></div>
 </div>
-<img alt="_images/5f6df66bf0528d692b9c2da1037386591fd61b266fc5679504e36b40ef8e2392.png" src="_images/5f6df66bf0528d692b9c2da1037386591fd61b266fc5679504e36b40ef8e2392.png" />
+<img alt="_images/38ed11778cb3ec071385273c6edfc441c9e20c729c9dbdecd9dac71bc1cac36a.png" src="_images/38ed11778cb3ec071385273c6edfc441c9e20c729c9dbdecd9dac71bc1cac36a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1137,7 +1139,7 @@ ev = [-0.5+0.8660254j -0.5-0.8660254j]
 ev = [0.5+0.8660254j 0.5-0.8660254j]
 </pre></div>
 </div>
-<img alt="_images/8e84f8de472fdc50e8ac5bcb626d9078370ce75070870f6b07a102712d99b801.png" src="_images/8e84f8de472fdc50e8ac5bcb626d9078370ce75070870f6b07a102712d99b801.png" />
+<img alt="_images/a480677b0b3637605f35f10fbb0d5f377c7712a830ccd26d25d70821b5c135d8.png" src="_images/a480677b0b3637605f35f10fbb0d5f377c7712a830ccd26d25d70821b5c135d8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1152,7 +1154,7 @@ ev = [0.5+0.8660254j 0.5-0.8660254j]
 ev = [-1.  1.]
 </pre></div>
 </div>
-<img alt="_images/0880babc3a92378773f71668c3030ed0334541717ea4181bc01f22b26fa2afd2.png" src="_images/0880babc3a92378773f71668c3030ed0334541717ea4181bc01f22b26fa2afd2.png" />
+<img alt="_images/efa30765506e9d2f208aa3bdaec4711e0e952b275a1707d23dc4a2a6ff9c939a.png" src="_images/efa30765506e9d2f208aa3bdaec4711e0e952b275a1707d23dc4a2a6ff9c939a.png" />
 </div>
 </div>
 </section>
@@ -1183,7 +1185,7 @@ ev = [-1.  1.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6e1319be88de29d23e44a8a489748f5c73c00a67277ac9d9f3dcb29bb69190f4.png" src="_images/6e1319be88de29d23e44a8a489748f5c73c00a67277ac9d9f3dcb29bb69190f4.png" />
+<img alt="_images/bb671ce71b71e7a307a128ac572f99a3bd5496a00e8dc00437611e783292321a.png" src="_images/bb671ce71b71e7a307a128ac572f99a3bd5496a00e8dc00437611e783292321a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1194,7 +1196,7 @@ ev = [-1.  1.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c7f1074c9dc7bf9028cf524bf86821e80cf278f2d570b7b2a2bdd14ed4ac214c.png" src="_images/c7f1074c9dc7bf9028cf524bf86821e80cf278f2d570b7b2a2bdd14ed4ac214c.png" />
+<img alt="_images/abdcd12295caf4f22d50b2c99b3b43313a27ef95574e63ee5db06fe5b182686b.png" src="_images/abdcd12295caf4f22d50b2c99b3b43313a27ef95574e63ee5db06fe5b182686b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1206,7 +1208,7 @@ ev = [-1.  1.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d414106c5587c0013ee9ab518e764d84d87c25902f2d909c513a2013688a982f.png" src="_images/d414106c5587c0013ee9ab518e764d84d87c25902f2d909c513a2013688a982f.png" />
+<img alt="_images/315f9f7b0979c9320f630d6078962a1a2381eecff0f7aafe5093c8bece0622fc.png" src="_images/315f9f7b0979c9320f630d6078962a1a2381eecff0f7aafe5093c8bece0622fc.png" />
 </div>
 </div>
 </section>
@@ -1249,7 +1251,7 @@ It implies that there is no chaos in a continuous 2D dynamic system.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/326cb73e65187b9846e1c6d99752286db87593551f3c9b5d358b5b727a50a0cc.png" src="_images/326cb73e65187b9846e1c6d99752286db87593551f3c9b5d358b5b727a50a0cc.png" />
+<img alt="_images/b83b9f1987866f4d3f9c85feba208e234106d74e1cb53363514b4d0e625b1d11.png" src="_images/b83b9f1987866f4d3f9c85feba208e234106d74e1cb53363514b4d0e625b1d11.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1270,7 +1272,7 @@ It implies that there is no chaos in a continuous 2D dynamic system.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/225bebe44467e7194fa2070649ee6f88fe55bb10469917c599e2e53aa78abecf.png" src="_images/225bebe44467e7194fa2070649ee6f88fe55bb10469917c599e2e53aa78abecf.png" />
+<img alt="_images/f9037dac56bce86aef86f6ac837909cef26115bdb6b20a56813054be7ef8305e.png" src="_images/f9037dac56bce86aef86f6ac837909cef26115bdb6b20a56813054be7ef8305e.png" />
 </div>
 </div>
 </section>
