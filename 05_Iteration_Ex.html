@@ -421,20 +421,23 @@ document.write(`
 </div>
 <section id="newton-s-method-in-n-dimension">
 <h2>1. Newton’s method in n dimension<a class="headerlink" href="#newton-s-method-in-n-dimension" title="Permalink to this heading">#</a></h2>
-<p>Newton’s method can be generalized for <span class="math notranslate nohighlight">\(n\)</span> dimensional vector <span class="math notranslate nohighlight">\(x \in \Re^n\)</span> and <span class="math notranslate nohighlight">\(n\)</span> dimensional function <span class="math notranslate nohighlight">\(f(x)={\bf0} \in \Re^n\)</span> as
-$<span class="math notranslate nohighlight">\( x_{k+1} = x_k - J(x_k)^{-1}f(x_k) \)</span><span class="math notranslate nohighlight">\(
-where \)</span>J(x)<span class="math notranslate nohighlight">\( is the *Jacobian matrix*
-\)</span><span class="math notranslate nohighlight">\( J(x) = \mat{\p{f_1}{x_1} &amp; \cdots &amp; \p{f_1}{x_n}\\
+<p>Newton’s method can be generalized for <span class="math notranslate nohighlight">\(n\)</span> dimensional vector <span class="math notranslate nohighlight">\(x \in \Re^n\)</span> and <span class="math notranslate nohighlight">\(n\)</span> dimensional function <span class="math notranslate nohighlight">\(f(x)={\bf0} \in \Re^n\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[ x_{k+1} = x_k - J(x_k)^{-1}f(x_k) \]</div>
+<p>where <span class="math notranslate nohighlight">\(J(x)\)</span> is the <em>Jacobian matrix</em></p>
+<div class="math notranslate nohighlight">
+\[\begin{split} J(x) = \mat{\p{f_1}{x_1} &amp; \cdots &amp; \p{f_1}{x_n}\\
     \vdots &amp; &amp; \vdots\\
-    \p{f_n}{x_1} &amp; \cdots &amp; \p{f_n}{x_n}} \)</span>$</p>
+    \p{f_n}{x_1} &amp; \cdots &amp; \p{f_n}{x_n}} \end{split}\]</div>
 <ol class="arabic simple">
-<li><p>Define a function that computes
-$<span class="math notranslate nohighlight">\( f(x) = 
- \left(\begin{array}{c} a_0 + a_1 x_1^2 + a_2 x_2^2\\
- b_0 + b_1 x_1 + b_2 x_2\end{array}\right)
-\)</span>$
-and its Jacobian.</p></li>
+<li><p>Define a function that computes</p></li>
 </ol>
+<div class="math notranslate nohighlight">
+\[\begin{split} f(x) = 
+    \left(\begin{array}{c} a_0 + a_1 x_1^2 + a_2 x_2^2\\
+    b_0 + b_1 x_1 + b_2 x_2\end{array}\right)
+\end{split}\]</div>
+<p>and its Jacobian.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">deriv</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -546,9 +549,13 @@ and its Jacobian.</p></li>
 </section>
 <section id="bifurcation-and-chaos">
 <h2>2. Bifurcation and Chaos<a class="headerlink" href="#bifurcation-and-chaos" title="Permalink to this heading">#</a></h2>
-<p>A value of <span class="math notranslate nohighlight">\(x_k\)</span> that stays unchanged after applying a map <span class="math notranslate nohighlight">\(f\)</span> to it (i.e. <span class="math notranslate nohighlight">\(x_k = f(x_k) = x_{k+1}\)</span>) is called a “fixed point” of <span class="math notranslate nohighlight">\(f\)</span>.</p>
-<p>Let us consider the logistic map
-$<span class="math notranslate nohighlight">\( x_{k+1} = a x_k(1 - x_k) \)</span>$</p>
+<p>A value of <span class="math notranslate nohighlight">\(x_k\)</span> that stays unchanged after applying a map <span class="math notranslate nohighlight">\(f\)</span> to it, i.e.</p>
+<div class="math notranslate nohighlight">
+\[x_k = f(x_k) = x_{k+1}\]</div>
+<p>is called a <em>fixed point</em> of <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>Let us consider the logistic map</p>
+<div class="math notranslate nohighlight">
+\[ x_{k+1} = a x_k(1 - x_k) \]</div>
 <ol class="arabic simple">
 <li><p>Plot <span class="math notranslate nohighlight">\(x_{k+1}=ax_k(1-x_k)\)</span> along with <span class="math notranslate nohighlight">\(x_{k+1}=x_k\)</span> for <span class="math notranslate nohighlight">\(a=0.5, 2, 3.3\)</span>.</p></li>
 </ol>
@@ -572,7 +579,7 @@ draw the bifurcation diagram for parameter <span class="math notranslate nohighl
 </section>
 <section id="recursive-call-and-fractal">
 <h2>3. Recursive call and fractal<a class="headerlink" href="#recursive-call-and-fractal" title="Permalink to this heading">#</a></h2>
-<p>Draw the Sherpinski gasket as below.</p>
+<p>Draw the <em>Sherpinski gasket</em> like below.</p>
 <p><img alt="shelpinski" src="_images/shelpinski.png" /></p>
 </section>
 </section>
