@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,10 +43,8 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -789,7 +787,7 @@ NAME
 FUNCTIONS
     norm(x, p=2)
         The L^p norm of a vector.
-    
+
     normalize(x, p=2)
         L^p normalization
 
@@ -863,52 +861,49 @@ FILE
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.1.c~/site-packages/numpy:
-__config__.py           <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
-__init__.cython-30.pxd  <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
-__init__.pxd            conftest.py             <span class=" -Color -Color-Blue">ma</span>/
-__init__.py             <span class=" -Color -Color-Blue">core</span>/                   matlib.py
-__init__.pyi            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
-<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
-<span class=" -Color -Color-Blue">_core</span>/                  <span class=" -Color -Color-Blue">distutils</span>/              py.typed
-_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    <span class=" -Color -Color-Blue">random</span>/
-_globals.py             dtypes.py               <span class=" -Color -Color-Blue">testing</span>/
-<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">tests</span>/
-_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">typing</span>/
-_pytesttester.pyi       exceptions.pyi          version.py
-<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/
-<span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
+__config__.py           <span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
+__init__.cython-30.pxd  <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
+__init__.pxd            <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
+__init__.py             conftest.py             <span class=" -Color -Color-Blue">ma</span>/
+__init__.pyi            <span class=" -Color -Color-Blue">core</span>/                   matlib.py
+<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
+<span class=" -Color -Color-Blue">_core</span>/                  ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
+_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    py.typed
+_globals.py             dtypes.py               <span class=" -Color -Color-Blue">random</span>/
+<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">testing</span>/
+_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">tests</span>/
+_pytesttester.pyi       exceptions.pyi          <span class=" -Color -Color-Blue">typing</span>/
+<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/                   version.py
 
 /opt/anaconda3/lib/python3.1/site-packages/numpy:
-__config__.py           <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
-__init__.cython-30.pxd  <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
-__init__.pxd            conftest.py             <span class=" -Color -Color-Blue">ma</span>/
-__init__.py             <span class=" -Color -Color-Blue">core</span>/                   matlib.py
-__init__.pyi            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
-<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
-<span class=" -Color -Color-Blue">_core</span>/                  <span class=" -Color -Color-Blue">distutils</span>/              py.typed
-_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    <span class=" -Color -Color-Blue">random</span>/
-_globals.py             dtypes.py               <span class=" -Color -Color-Blue">testing</span>/
-<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">tests</span>/
-_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">typing</span>/
-_pytesttester.pyi       exceptions.pyi          version.py
-<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/
-<span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
+__config__.py           <span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
+__init__.cython-30.pxd  <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
+__init__.pxd            <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
+__init__.py             conftest.py             <span class=" -Color -Color-Blue">ma</span>/
+__init__.pyi            <span class=" -Color -Color-Blue">core</span>/                   matlib.py
+<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
+<span class=" -Color -Color-Blue">_core</span>/                  ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
+_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    py.typed
+_globals.py             dtypes.py               <span class=" -Color -Color-Blue">random</span>/
+<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">testing</span>/
+_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">tests</span>/
+_pytesttester.pyi       exceptions.pyi          <span class=" -Color -Color-Blue">typing</span>/
+<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/                   version.py
 
-/opt/anaconda3/lib/python3.11/site-packages/numpy:
-__config__.py           <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
-__init__.cython-30.pxd  <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
-__init__.pxd            conftest.py             <span class=" -Color -Color-Blue">ma</span>/
-__init__.py             <span class=" -Color -Color-Blue">core</span>/                   matlib.py
-__init__.pyi            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
-<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
-<span class=" -Color -Color-Blue">_core</span>/                  <span class=" -Color -Color-Blue">distutils</span>/              py.typed
-_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    <span class=" -Color -Color-Blue">random</span>/
-_globals.py             dtypes.py               <span class=" -Color -Color-Blue">testing</span>/
-<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">tests</span>/
-_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">typing</span>/
-_pytesttester.pyi       exceptions.pyi          version.py
-<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/
-<span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
+/opt/anaconda3/lib/python3.12/site-packages/numpy:
+__config__.py           <span class=" -Color -Color-Blue">_utils</span>/                 <span class=" -Color -Color-Blue">fft</span>/
+__init__.cython-30.pxd  <span class=" -Color -Color-Blue">array_api</span>/              <span class=" -Color -Color-Blue">lib</span>/
+__init__.pxd            <span class=" -Color -Color-Blue">compat</span>/                 <span class=" -Color -Color-Blue">linalg</span>/
+__init__.py             conftest.py             <span class=" -Color -Color-Blue">ma</span>/
+__init__.pyi            <span class=" -Color -Color-Blue">core</span>/                   matlib.py
+<span class=" -Color -Color-Blue">__pycache__</span>/            ctypeslib.py            <span class=" -Color -Color-Blue">matrixlib</span>/
+<span class=" -Color -Color-Blue">_core</span>/                  ctypeslib.pyi           <span class=" -Color -Color-Blue">polynomial</span>/
+_distributor_init.py    <span class=" -Color -Color-Blue">doc</span>/                    py.typed
+_globals.py             dtypes.py               <span class=" -Color -Color-Blue">random</span>/
+<span class=" -Color -Color-Blue">_pyinstaller</span>/           dtypes.pyi              <span class=" -Color -Color-Blue">testing</span>/
+_pytesttester.py        exceptions.py           <span class=" -Color -Color-Blue">tests</span>/
+_pytesttester.pyi       exceptions.pyi          <span class=" -Color -Color-Blue">typing</span>/
+<span class=" -Color -Color-Blue">_typing</span>/                <span class=" -Color -Color-Blue">f2py</span>/                   version.py
 </pre></div>
 </div>
 </div>
@@ -987,7 +982,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b9abdcf388f047ef3806da207633072df754e861b71586ebccd6fcddaadb4976.png" src="_images/b9abdcf388f047ef3806da207633072df754e861b71586ebccd6fcddaadb4976.png" />
+<img alt="_images/6cbc034b54d535d25600d68cb94dc1568584de82d7c44e3316f95ee172843a61.png" src="_images/6cbc034b54d535d25600d68cb94dc1568584de82d7c44e3316f95ee172843a61.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -998,7 +993,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7f135620833b3eab136f7142c5c0757002cc5bfab3a38a13afc3d71559399f19.png" src="_images/7f135620833b3eab136f7142c5c0757002cc5bfab3a38a13afc3d71559399f19.png" />
+<img alt="_images/f4667fc965db15704d89b1beb2f8ca8b2a4223079b95eea2b9d9f2323fd64667.png" src="_images/f4667fc965db15704d89b1beb2f8ca8b2a4223079b95eea2b9d9f2323fd64667.png" />
 </div>
 </div>
 <p>You can create an array of class instances.</p>
@@ -1018,7 +1013,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9fa3f34558e5723d9f33dce74231cde274e12338c65392835d2e7b767e658001.png" src="_images/9fa3f34558e5723d9f33dce74231cde274e12338c65392835d2e7b767e658001.png" />
+<img alt="_images/38e930b8ceadbceeefb40d63b1b3d63b832677df9a165b331ea39daec2569329.png" src="_images/38e930b8ceadbceeefb40d63b1b3d63b832677df9a165b331ea39daec2569329.png" />
 </div>
 </div>
 <p>A subclass can inherit attributes and methods of base class.</p>
@@ -1050,7 +1045,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/06a93cfe3d9cbfed8c6fe545bbade1347a33f3220ece84cdbd964a7c94d33ace.png" src="_images/06a93cfe3d9cbfed8c6fe545bbade1347a33f3220ece84cdbd964a7c94d33ace.png" />
+<img alt="_images/5355c535716974bfaf22cb197bdc51f1cd7a41451dab2e351a44609ab19cf3dc.png" src="_images/5355c535716974bfaf22cb197bdc51f1cd7a41451dab2e351a44609ab19cf3dc.png" />
 </div>
 </div>
 <p>Let us make a new class using gCell class</p>
@@ -1102,7 +1097,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.26803075, 0.43884196])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.95913507, 0.23307791])
 </pre></div>
 </div>
 </div>
@@ -1114,7 +1109,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ed8257f1a0cd19c38c9fb36cbc3b546068552900a3a7bdc5c0150d4a51951bb7.png" src="_images/ed8257f1a0cd19c38c9fb36cbc3b546068552900a3a7bdc5c0150d4a51951bb7.png" />
+<img alt="_images/970f5907e9aafcbc5556eb70b9c7b116892cec5ee7be90f03e7e606ea93a8069.png" src="_images/970f5907e9aafcbc5556eb70b9c7b116892cec5ee7be90f03e7e606ea93a8069.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1125,7 +1120,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/81d3aaed987406b6780cae9dee7c945c72fef7d1778609b4da1dc0255b9e9f5b.png" src="_images/81d3aaed987406b6780cae9dee7c945c72fef7d1778609b4da1dc0255b9e9f5b.png" />
+<img alt="_images/d84848db117f9b8e295a321441d5f75a11f8549a3b33259597f38c5d12c9a1f3.png" src="_images/d84848db117f9b8e295a321441d5f75a11f8549a3b33259597f38c5d12c9a1f3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1137,7 +1132,7 @@ and include</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c3c46117f48cbff33e1bb6435f9a218d1660c9b4311005215c079e705df99366.png" src="_images/c3c46117f48cbff33e1bb6435f9a218d1660c9b4311005215c079e705df99366.png" />
+<img alt="_images/0887f0691afa22b2c8e77b5a2ec93bcf69d87d99bb2011f8a0e7b5176d44f1c8.png" src="_images/0887f0691afa22b2c8e77b5a2ec93bcf69d87d99bb2011f8a0e7b5176d44f1c8.png" />
 </div>
 </div>
 </section>
