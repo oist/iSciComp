@@ -432,9 +432,11 @@ When it is done numerically, it is aslo called <em>simulating</em>.</p>
 <p><strong>References:</strong></p>
 <ul class="simple">
 <li><p><span id="id1">[<a class="reference internal" href="References.html#id6" title="Steven H. Strogatz. Nonlinear Dynamics And Chaos: With Applications to Physics, Biology, Chemistry, and Engineering. CRC Press, 3rd edition, 2024. ISBN 978-0367026509. doi:10.1201/9780429398490.">Strogatz, 2024</a>]</span> Strogatz SH (2024). Nonlinear Dynamics And Chaos.</p></li>
-<li><p><span id="id2">[<a class="reference internal" href="References.html#id3" title="Gaël Varoquaux, Emmanuelle Gouillart, Olav Vahtras, Pierre de Buyl, K. Jarrod Millman, and Stéfan van der Walt. Scientific python lectures. 2023. URL: https://lectures.scientific-python.org.">Varoquaux <em>et al.</em>, 2023</a>]</span> Scientific Python Lectures: Section 6.7 Numerical Integration<br />
+<li><p><span id="id2">[<a class="reference internal" href="References.html#id3" title="Gaël Varoquaux, Emmanuelle Gouillart, Olav Vahtras, Pierre de Buyl, K. Jarrod Millman, and Stéfan van der Walt. Scientific python lectures. 2023. URL: https://lectures.scientific-python.org.">Varoquaux <em>et al.</em>, 2023</a>]</span> Scientific Python Lectures: Section 1.5.7 Numerical Integration<br />
 <a class="reference external" href="https://lectures.scientific-python.org">https://lectures.scientific-python.org</a></p></li>
 </ul>
+<p><strong>Note</strong>
+In recent scipy, a new function <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code> was introduced. This chapter still uses the conventional function <code class="docutils literal notranslate"><span class="pre">odeint()</span></code>.</p>
 <section id="basics-of-derivatives">
 <h2>Basics of derivatives<a class="headerlink" href="#basics-of-derivatives" title="Permalink to this heading">#</a></h2>
 <p>Here are some basic properties of the derivative <span class="math notranslate nohighlight">\(f'(x)=\frac{df(x)}{dx}\)</span></p>
@@ -595,13 +597,30 @@ For an ODE</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="c1"># time step</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">5</span>    <span class="c1"># time span</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>  <span class="c1"># steps</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6a3b18d1d12f33fd7722d90041e570c8a286bd95c3f321c8116a3a475361224c.png" src="_images/6a3b18d1d12f33fd7722d90041e570c8a286bd95c3f321c8116a3a475361224c.png" />
+<img alt="_images/06e048c4aec67695c16685ab291671b1b190c77c581b39e1311f1316c5a5f0c1.png" src="_images/06e048c4aec67695c16685ab291671b1b190c77c581b39e1311f1316c5a5f0c1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/507a78afe216310de8ccc8a2671070d9375dd2965b5802897450fd15d81545e7.png" src="_images/507a78afe216310de8ccc8a2671070d9375dd2965b5802897450fd15d81545e7.png" />
 </div>
 </div>
 <p>A second-order ODE</p>
@@ -631,51 +650,77 @@ For an ODE</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">second</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># time step</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">10</span>    <span class="c1"># time span</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>  <span class="c1"># steps</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">second</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/95efd4035f272243682b3842a7f486e7bc453b2ba9ecda26e100ca955a1bb496.png" src="_images/95efd4035f272243682b3842a7f486e7bc453b2ba9ecda26e100ca955a1bb496.png" />
+<img alt="_images/fc0595bae0cde56c00bb22899163cffc2d4aa02adebe23c9a57873d270f91cc4.png" src="_images/fc0595bae0cde56c00bb22899163cffc2d4aa02adebe23c9a57873d270f91cc4.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">second</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">second</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/90e4be2342f3456c0f3c544487a47a82ec686ac1819525ed637afab505505cca.png" src="_images/90e4be2342f3456c0f3c544487a47a82ec686ac1819525ed637afab505505cca.png" />
+<img alt="_images/5ab181c6f01ed993a3fef31bd379a35703fb0ad7e2561b7241a5d7f781fb8101.png" src="_images/5ab181c6f01ed993a3fef31bd379a35703fb0ad7e2561b7241a5d7f781fb8101.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># phase plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;y1&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y2&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cfa85e8729c45d30f735595027ab3847cf924dc3b8d5057339d6463481e974f8.png" src="_images/cfa85e8729c45d30f735595027ab3847cf924dc3b8d5057339d6463481e974f8.png" />
+<img alt="_images/010eb1b64ef7841bffff2eb0bc06a554db4971a340e7d71012336328e00d5965.png" src="_images/010eb1b64ef7841bffff2eb0bc06a554db4971a340e7d71012336328e00d5965.png" />
 </div>
 </div>
 <p>Let us see how the time step affects the accuracy of the solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steps</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
-<span class="n">tend</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="k">for</span> <span class="n">dt</span> <span class="ow">in</span> <span class="n">steps</span><span class="p">:</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">tend</span><span class="o">/</span><span class="n">dt</span><span class="p">),</span> <span class="n">a</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tend</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>  <span class="c1"># steps</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">steps</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/86c73b4d3319b4b5c434e33b1565d39b56181c751071e601ec5b16a8ccbe0b92.png" src="_images/86c73b4d3319b4b5c434e33b1565d39b56181c751071e601ec5b16a8ccbe0b92.png" />
+<img alt="_images/c8d51238a6da1b1df44575e0f6474d98f7e0e1609ae7a72f179ce75dec833cf3.png" src="_images/c8d51238a6da1b1df44575e0f6474d98f7e0e1609ae7a72f179ce75dec833cf3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<span class="k">for</span> <span class="n">dt</span> <span class="ow">in</span> <span class="n">steps</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>  <span class="c1"># steps</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">steps</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c30fd18b48f11b0c389ffb6b797c331a8b137f33315124a0c2c388cf6f3ddc52.png" src="_images/c30fd18b48f11b0c389ffb6b797c331a8b137f33315124a0c2c388cf6f3ddc52.png" />
 </div>
 </div>
 </section>
@@ -712,208 +757,7 @@ For an ODE</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">odeint</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function odeint in module scipy.integrate._odepack_py:
-
-odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=None, rtol=None, atol=None, tcrit=None, h0=0.0, hmax=0.0, hmin=0.0, ixpr=0, mxstep=0, mxhnil=0, mxordn=12, mxords=5, printmessg=0, tfirst=False)
-    Integrate a system of ordinary differential equations.
-
-    .. note:: For new code, use `scipy.integrate.solve_ivp` to solve a
-              differential equation.
-
-    Solve a system of ordinary differential equations using lsoda from the
-    FORTRAN library odepack.
-
-    Solves the initial value problem for stiff or non-stiff systems
-    of first order ode-s::
-
-        dy/dt = func(y, t, ...)  [or func(t, y, ...)]
-
-    where y can be a vector.
-
-    .. note:: By default, the required order of the first two arguments of
-              `func` are in the opposite order of the arguments in the system
-              definition function used by the `scipy.integrate.ode` class and
-              the function `scipy.integrate.solve_ivp`. To use a function with
-              the signature ``func(t, y, ...)``, the argument `tfirst` must be
-              set to ``True``.
-
-    Parameters
-    ----------
-    func : callable(y, t, ...) or callable(t, y, ...)
-        Computes the derivative of y at t.
-        If the signature is ``callable(t, y, ...)``, then the argument
-        `tfirst` must be set ``True``.
-    y0 : array
-        Initial condition on y (can be a vector).
-    t : array
-        A sequence of time points for which to solve for y. The initial
-        value point should be the first element of this sequence.
-        This sequence must be monotonically increasing or monotonically
-        decreasing; repeated values are allowed.
-    args : tuple, optional
-        Extra arguments to pass to function.
-    Dfun : callable(y, t, ...) or callable(t, y, ...)
-        Gradient (Jacobian) of `func`.
-        If the signature is ``callable(t, y, ...)``, then the argument
-        `tfirst` must be set ``True``.
-    col_deriv : bool, optional
-        True if `Dfun` defines derivatives down columns (faster),
-        otherwise `Dfun` should define derivatives across rows.
-    full_output : bool, optional
-        True if to return a dictionary of optional outputs as the second output
-    printmessg : bool, optional
-        Whether to print the convergence message
-    tfirst : bool, optional
-        If True, the first two arguments of `func` (and `Dfun`, if given)
-        must ``t, y`` instead of the default ``y, t``.
-
-        .. versionadded:: 1.1.0
-
-    Returns
-    -------
-    y : array, shape (len(t), len(y0))
-        Array containing the value of y for each desired time in t,
-        with the initial value `y0` in the first row.
-    infodict : dict, only returned if full_output == True
-        Dictionary containing additional output information
-
-        =======  ============================================================
-        key      meaning
-        =======  ============================================================
-        &#39;hu&#39;     vector of step sizes successfully used for each time step
-        &#39;tcur&#39;   vector with the value of t reached for each time step
-                 (will always be at least as large as the input times)
-        &#39;tolsf&#39;  vector of tolerance scale factors, greater than 1.0,
-                 computed when a request for too much accuracy was detected
-        &#39;tsw&#39;    value of t at the time of the last method switch
-                 (given for each time step)
-        &#39;nst&#39;    cumulative number of time steps
-        &#39;nfe&#39;    cumulative number of function evaluations for each time step
-        &#39;nje&#39;    cumulative number of jacobian evaluations for each time step
-        &#39;nqu&#39;    a vector of method orders for each successful step
-        &#39;imxer&#39;  index of the component of largest magnitude in the
-                 weighted local error vector (e / ewt) on an error return, -1
-                 otherwise
-        &#39;lenrw&#39;  the length of the double work array required
-        &#39;leniw&#39;  the length of integer work array required
-        &#39;mused&#39;  a vector of method indicators for each successful time step:
-                 1: adams (nonstiff), 2: bdf (stiff)
-        =======  ============================================================
-
-    Other Parameters
-    ----------------
-    ml, mu : int, optional
-        If either of these are not None or non-negative, then the
-        Jacobian is assumed to be banded. These give the number of
-        lower and upper non-zero diagonals in this banded matrix.
-        For the banded case, `Dfun` should return a matrix whose
-        rows contain the non-zero bands (starting with the lowest diagonal).
-        Thus, the return matrix `jac` from `Dfun` should have shape
-        ``(ml + mu + 1, len(y0))`` when ``ml &gt;=0`` or ``mu &gt;=0``.
-        The data in `jac` must be stored such that ``jac[i - j + mu, j]``
-        holds the derivative of the ``i``\ th equation with respect to the
-        ``j``\ th state variable.  If `col_deriv` is True, the transpose of
-        this `jac` must be returned.
-    rtol, atol : float, optional
-        The input parameters `rtol` and `atol` determine the error
-        control performed by the solver.  The solver will control the
-        vector, e, of estimated local errors in y, according to an
-        inequality of the form ``max-norm of (e / ewt) &lt;= 1``,
-        where ewt is a vector of positive error weights computed as
-        ``ewt = rtol * abs(y) + atol``.
-        rtol and atol can be either vectors the same length as y or scalars.
-        Defaults to 1.49012e-8.
-    tcrit : ndarray, optional
-        Vector of critical points (e.g., singularities) where integration
-        care should be taken.
-    h0 : float, (0: solver-determined), optional
-        The step size to be attempted on the first step.
-    hmax : float, (0: solver-determined), optional
-        The maximum absolute step size allowed.
-    hmin : float, (0: solver-determined), optional
-        The minimum absolute step size allowed.
-    ixpr : bool, optional
-        Whether to generate extra printing at method switches.
-    mxstep : int, (0: solver-determined), optional
-        Maximum number of (internally defined) steps allowed for each
-        integration point in t.
-    mxhnil : int, (0: solver-determined), optional
-        Maximum number of messages printed.
-    mxordn : int, (0: solver-determined), optional
-        Maximum order to be allowed for the non-stiff (Adams) method.
-    mxords : int, (0: solver-determined), optional
-        Maximum order to be allowed for the stiff (BDF) method.
-
-    See Also
-    --------
-    solve_ivp : solve an initial value problem for a system of ODEs
-    ode : a more object-oriented integrator based on VODE
-    quad : for finding the area under a curve
-
-    Examples
-    --------
-    The second order differential equation for the angle `theta` of a
-    pendulum acted on by gravity with friction can be written::
-
-        theta&#39;&#39;(t) + b*theta&#39;(t) + c*sin(theta(t)) = 0
-
-    where `b` and `c` are positive constants, and a prime (&#39;) denotes a
-    derivative. To solve this equation with `odeint`, we must first convert
-    it to a system of first order equations. By defining the angular
-    velocity ``omega(t) = theta&#39;(t)``, we obtain the system::
-
-        theta&#39;(t) = omega(t)
-        omega&#39;(t) = -b*omega(t) - c*sin(theta(t))
-
-    Let `y` be the vector [`theta`, `omega`]. We implement this system
-    in Python as:
-
-    &gt;&gt;&gt; import numpy as np
-    &gt;&gt;&gt; def pend(y, t, b, c):
-    ...     theta, omega = y
-    ...     dydt = [omega, -b*omega - c*np.sin(theta)]
-    ...     return dydt
-    ...
-
-    We assume the constants are `b` = 0.25 and `c` = 5.0:
-
-    &gt;&gt;&gt; b = 0.25
-    &gt;&gt;&gt; c = 5.0
-
-    For initial conditions, we assume the pendulum is nearly vertical
-    with `theta(0)` = `pi` - 0.1, and is initially at rest, so
-    `omega(0)` = 0.  Then the vector of initial conditions is
-
-    &gt;&gt;&gt; y0 = [np.pi - 0.1, 0.0]
-
-    We will generate a solution at 101 evenly spaced samples in the interval
-    0 &lt;= `t` &lt;= 10.  So our array of times is:
-
-    &gt;&gt;&gt; t = np.linspace(0, 10, 101)
-
-    Call `odeint` to generate the solution. To pass the parameters
-    `b` and `c` to `pend`, we give them to `odeint` using the `args`
-    argument.
-
-    &gt;&gt;&gt; from scipy.integrate import odeint
-    &gt;&gt;&gt; sol = odeint(pend, y0, t, args=(b, c))
-
-    The solution is an array with shape (101, 2). The first column
-    is `theta(t)`, and the second is `omega(t)`. The following code
-    plots both components.
-
-    &gt;&gt;&gt; import matplotlib.pyplot as plt
-    &gt;&gt;&gt; plt.plot(t, sol[:, 0], &#39;b&#39;, label=&#39;theta(t)&#39;)
-    &gt;&gt;&gt; plt.plot(t, sol[:, 1], &#39;g&#39;, label=&#39;omega(t)&#39;)
-    &gt;&gt;&gt; plt.legend(loc=&#39;best&#39;)
-    &gt;&gt;&gt; plt.xlabel(&#39;t&#39;)
-    &gt;&gt;&gt; plt.grid()
-    &gt;&gt;&gt; plt.show()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#help(odeint)</span>
 </pre></div>
 </div>
 </div>
@@ -921,43 +765,47 @@ odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=
 <p>Here is an example of first-order linear ODE.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># time points</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># time points</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/80aaa443241c5f324e27cde16fda1bb8eb2fe211d3baed322aebb979d328ded5.png" src="_images/80aaa443241c5f324e27cde16fda1bb8eb2fe211d3baed322aebb979d328ded5.png" />
+<img alt="_images/a4cf9b901fe871194055643e81193b723fa3275a5381d3903ecad02e59d81c07.png" src="_images/a4cf9b901fe871194055643e81193b723fa3275a5381d3903ecad02e59d81c07.png" />
 </div>
 </div>
 <p>Here’s another example of second-order linear ODE.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>  <span class="c1"># time points</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># time points</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">second</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/940be91be182302ddf59cff09349ecd2cba7522d63a16489f9d6b8b16265aaf5.png" src="_images/940be91be182302ddf59cff09349ecd2cba7522d63a16489f9d6b8b16265aaf5.png" />
+<img alt="_images/37cddedd66f57c7aed0824d4e557a39e17ecf92b4716a9ed310c3d4f023e7f4b.png" src="_images/37cddedd66f57c7aed0824d4e557a39e17ecf92b4716a9ed310c3d4f023e7f4b.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">odeint()</span></code> internally uses adaptive time steps, and returns values of <code class="docutils literal notranslate"><span class="pre">y</span></code> for time points specified in <code class="docutils literal notranslate"><span class="pre">t</span></code> by interpolation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If you are interested in the internal time steps used...</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># time points</span>
-<span class="n">y</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,),</span> <span class="n">full_output</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># time points</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">second</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],),</span> <span class="n">full_output</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#y, info = odeint(first, 1, t, args=(-1,), full_output=1)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">)</span>
 <span class="c1"># the crosses show the time points actually used</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;tcur&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;tcur&#39;</span><span class="p">]),</span> <span class="s1">&#39;+&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3f7b2ac96f3ff98a419b2a03d9068915ed27650bf67595ae750462c05431de0f.png" src="_images/3f7b2ac96f3ff98a419b2a03d9068915ed27650bf67595ae750462c05431de0f.png" />
+<img alt="_images/558b8d5e967965474e34bb1c7479bea36650e7e3e94afddede4f2b170b6664ca.png" src="_images/558b8d5e967965474e34bb1c7479bea36650e7e3e94afddede4f2b170b6664ca.png" />
 </div>
 </div>
 </section>
@@ -1179,34 +1027,37 @@ ev = [-1.  1.]
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">vdp</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6e1319be88de29d23e44a8a489748f5c73c00a67277ac9d9f3dcb29bb69190f4.png" src="_images/6e1319be88de29d23e44a8a489748f5c73c00a67277ac9d9f3dcb29bb69190f4.png" />
+<img alt="_images/8fdd89a3ce65289ecbd6710c43e529ebd7924b7143ae30aa9665dd9bc2b48eed.png" src="_images/8fdd89a3ce65289ecbd6710c43e529ebd7924b7143ae30aa9665dd9bc2b48eed.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># phase plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;y1&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y2&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c7f1074c9dc7bf9028cf524bf86821e80cf278f2d570b7b2a2bdd14ed4ac214c.png" src="_images/c7f1074c9dc7bf9028cf524bf86821e80cf278f2d570b7b2a2bdd14ed4ac214c.png" />
+<img alt="_images/72e817f587d7e4b29bdc8c13b7f89cd0b9d8c409db78201bd11e9cf78fbe0b84.png" src="_images/72e817f587d7e4b29bdc8c13b7f89cd0b9d8c409db78201bd11e9cf78fbe0b84.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from outside</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">vdp</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">vdp</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;y1&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y2&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d414106c5587c0013ee9ab518e764d84d87c25902f2d909c513a2013688a982f.png" src="_images/d414106c5587c0013ee9ab518e764d84d87c25902f2d909c513a2013688a982f.png" />
+<img alt="_images/7eb71b7820ea564dc783ea7ca7fbcd44fe2e149efaede3e9cfd6735bba0872d4.png" src="_images/7eb71b7820ea564dc783ea7ca7fbcd44fe2e149efaede3e9cfd6735bba0872d4.png" />
 </div>
 </div>
 </section>
@@ -1241,15 +1092,16 @@ It implies that there is no chaos in a continuous 2D dynamic system.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">lorenz</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">8.</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x,y,z&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/326cb73e65187b9846e1c6d99752286db87593551f3c9b5d358b5b727a50a0cc.png" src="_images/326cb73e65187b9846e1c6d99752286db87593551f3c9b5d358b5b727a50a0cc.png" />
+<img alt="_images/bfeea0505fa33baaf0d1f6f93c8f8e36f0d0aa35d93205ab5b770b0ef3c7dc08.png" src="_images/bfeea0505fa33baaf0d1f6f93c8f8e36f0d0aa35d93205ab5b770b0ef3c7dc08.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1266,11 +1118,12 @@ It implies that there is no chaos in a continuous 2D dynamic system.</p>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/225bebe44467e7194fa2070649ee6f88fe55bb10469917c599e2e53aa78abecf.png" src="_images/225bebe44467e7194fa2070649ee6f88fe55bb10469917c599e2e53aa78abecf.png" />
+<img alt="_images/5d4e7ce3d98f2f6972f39abc614bbb7c36def977895640a75f6c73c3467db7b8.png" src="_images/5d4e7ce3d98f2f6972f39abc614bbb7c36def977895640a75f6c73c3467db7b8.png" />
 </div>
 </div>
 </section>
