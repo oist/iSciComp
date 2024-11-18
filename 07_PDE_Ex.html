@@ -413,9 +413,10 @@ document.write(`
 </div>
 <section id="diffusion-equation">
 <h2>1. Diffusion Equation<a class="headerlink" href="#diffusion-equation" title="Permalink to this heading">#</a></h2>
-<p>For the diffusion equation with Dirichlet boundary condition, take initial states with different spatial frequencyes, such as
-$<span class="math notranslate nohighlight">\( y(x, 0) = \sin(\frac{nx}{L}\pi ) \)</span><span class="math notranslate nohighlight">\(
-with different \)</span>n$, and see how quickly they decay in time.</p>
+<p>For the diffusion equation with Dirichlet boundary condition, take initial states with different spatial frequencyes, such as</p>
+<div class="math notranslate nohighlight">
+\[ y(x, 0) = \sin(\frac{nx}{L}\pi ) \]</div>
+<p>with different <span class="math notranslate nohighlight">\(n\)</span>, and see how quickly they decay in time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="mi">1</span>
@@ -427,7 +428,7 @@ with different \)</span>n$, and see how quickly they decay in time.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1134397f0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x10f3d9a60&gt;]
 </pre></div>
 </div>
 <img alt="_images/c1bafbdd020668b79e3ec035285ddc0f2aa315f0c512b99ad520ae9e422cae02.png" src="_images/c1bafbdd020668b79e3ec035285ddc0f2aa315f0c512b99ad520ae9e422cae02.png" />
@@ -436,14 +437,16 @@ with different \)</span>n$, and see how quickly they decay in time.</p>
 </section>
 <section id="wave-equation">
 <h2>2. Wave Equation<a class="headerlink" href="#wave-equation" title="Permalink to this heading">#</a></h2>
-<p>While the wave equation with Dirichlet boundary condition simulates oscillation of a string, that with Neumann condition
-$<span class="math notranslate nohighlight">\( \left.\frac{\partial y(x,t)}{\partial x}\right|_{x_0}=\left.\frac{\partial y(x,t)}{\partial x}\right|_{x_N}=0 \)</span>$
-can simulate water wave.</p>
+<p>While the wave equation with Dirichlet boundary condition simulates oscillation of a string, that with Neumann condition</p>
+<div class="math notranslate nohighlight">
+\[ \left.\frac{\partial y(x,t)}{\partial x}\right|_{x_0}=\left.\frac{\partial y(x,t)}{\partial x}\right|_{x_N}=0 \]</div>
+<p>can simulate water wave.</p>
 <ol class="arabic simple">
-<li><p>Implement a wave equation with a decay term
-$<span class="math notranslate nohighlight">\( \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2} - d \frac{\partial u}{\partial t} \)</span>$
-with the Neumann boundary conditions and see how the wave ripples.</p></li>
+<li><p>Implement a wave equation with a decay term</p></li>
 </ol>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2} - d \frac{\partial u}{\partial t} \]</div>
+<p>with the Neumann boundary conditions and see how the wave ripples.</p>
 <ol class="arabic simple" start="2">
 <li><p>See how the waves vary with the initial condition or stimulum.</p></li>
 </ol>
