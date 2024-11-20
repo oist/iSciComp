@@ -399,7 +399,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-plot-and-animation">3D plot and animation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">Boundary Conditions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-equation">Wave Equation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-diffusion-equation">Reaction-Diffusion Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-diffusion-equation">Reaction-Diffusion Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclic-boundary-condition">Cyclic Boundary Condition</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pde-in-2d-space">PDE in 2D space</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffusion-equation-in-2d-space">Diffusion equation in 2D space</a></li>
 </ul>
@@ -529,9 +532,20 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 <p>defined in a range <span class="math notranslate nohighlight">\(x_0 \le x \le x_0+L\)</span>, we consider a spatial discretization by <span class="math notranslate nohighlight">\(\Delta x = L/N\)</span></p>
 <div class="math notranslate nohighlight">
 \[ x_i = x_0 + i\Delta x \]</div>
-<p><span class="math notranslate nohighlight">\((i=1,...,N)\)</span> and</p>
+<p><span class="math notranslate nohighlight">\((i=0,...,N)\)</span> and</p>
 <div class="math notranslate nohighlight">
 \[ y_i(t) = y(x_i,t).\]</div>
+<p>The derivative of <span class="math notranslate nohighlight">\(y\)</span> with respect to <span class="math notranslate nohighlight">\(x\)</span> at <span class="math notranslate nohighlight">\(x=x_i\)</span> can be approximated by</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial y}{\partial x} \simeq \frac{y_{i+1}-y_i}{\Delta x} \]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial y}{\partial x} \simeq \frac{y_i-y_{i-1}}{\Delta x} \]</div>
+<p>The second order derivative is approximated, to make it symmetric in both directions, as</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial^2 y}{\partial x^2}
+\simeq \frac{\frac{y_{i+1}-y_i}{\Delta x} - \frac{y_i-y_{i-1}}{\Delta x}}{\Delta x}
+= \frac{y_{i+1}-2y_i+y_{i-1}}{\Delta x^2} \]</div>
 <p>Then the PDE can be approximated by a set of ODEs</p>
 <div class="math notranslate nohighlight">
 \[ \frac{dy_i}{dt} = D \frac{y_{i+1}-2y_i+y_{i-1}}{\Delta x^2} + g(y_i,x_i,t). \]</div>
@@ -559,6 +573,7 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 </div>
 </div>
 </div>
+<p>The second order derivative can be computed by shifting the array <span class="math notranslate nohighlight">\(y\)</span> to left and right, and subtracting double the original array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diff1D</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -569,7 +584,7 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 <span class="sd">    D: diffusion coefficient</span>
 <span class="sd">    input: function(y,x,t)&quot;&quot;&quot;</span>
     <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># space step</span>
-    <span class="c1"># shift to left and right and subtract</span>
+    <span class="c1"># shift to left and right and subtract, with both ends cut</span>
     <span class="n">d2ydx2</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
     <span class="c1"># add 0 to both ends for Dirichlet boundary condition</span>
     <span class="n">d2ydx2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">d2ydx2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
@@ -581,13 +596,14 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 </div>
 </div>
 </div>
+<p>Let us try with an initial peak somewhere in the middle.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Lx</span> <span class="o">=</span> <span class="mi">5</span>   <span class="c1"># length</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>   <span class="c1"># division in space</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># positions</span>
 <span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># initial condition</span>
-<span class="n">y0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># 1 at left end</span>
+<span class="n">y0</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># 1 at left end</span>
 </pre></div>
 </div>
 </div>
@@ -596,45 +612,73 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># diffusion constant</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="c1"># time step</span>
-<span class="n">ts</span> <span class="o">=</span> <span class="mf">15.</span>   <span class="c1"># time for solution</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">diff1D</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ts</span><span class="o">/</span><span class="n">dt</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">))</span>  
+<span class="n">ts</span> <span class="o">=</span> <span class="mf">10.</span>   <span class="c1"># time for solution</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">diff1D</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ts</span><span class="o">/</span><span class="n">dt</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">))</span>
+<span class="c1"># spatial pattern at different time</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e6e1ee3c8066570049c3bf6bf77f7b2f8fe20306ac6e0931ad16d468bb50ffda.png" src="_images/e6e1ee3c8066570049c3bf6bf77f7b2f8fe20306ac6e0931ad16d468bb50ffda.png" />
+<img alt="_images/ec2c9263403b879b4c1e08a8d0fb057b40a8f3d3deea8165deee3b0b55dc39ba.png" src="_images/ec2c9263403b879b4c1e08a8d0fb057b40a8f3d3deea8165deee3b0b55dc39ba.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># evolution of each point in time</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ts</span><span class="o">+</span><span class="n">dt</span><span class="p">,</span><span class="n">dt</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6c561e3fd43e6bd5ad84509e90afeacd7475f1b1d64959a99dcf1ea47ab132d8.png" src="_images/6c561e3fd43e6bd5ad84509e90afeacd7475f1b1d64959a99dcf1ea47ab132d8.png" />
+<img alt="_images/1761ad9396a35965149dce01464fcb19a4b2754de00ea2b1c0c857877e7a0b5e.png" src="_images/1761ad9396a35965149dce01464fcb19a4b2754de00ea2b1c0c857877e7a0b5e.png" />
 </div>
 </div>
-<p>Let us try a finer spatial division</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot in space and time</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/33ea4cf2608aa6f685e7d53097f70fddf1fb3fd52684926a2ba2b44a6b4fce91.png" src="_images/33ea4cf2608aa6f685e7d53097f70fddf1fb3fd52684926a2ba2b44a6b4fce91.png" />
+</div>
+</div>
+<p>The accuracy of solution depends on the fineness of discretization in space and time.</p>
+<p>Let us try a finer spatial division.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">40</span>  <span class="c1"># discretization in space</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># initial condition</span>
-<span class="n">y0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># 1 at left end</span>
-<span class="n">D</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># diffusion constant</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">diff1D</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ts</span><span class="o">/</span><span class="n">dt</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">))</span>  
+<span class="n">y0</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># initial peak at x=10/50</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">euler</span><span class="p">(</span><span class="n">diff1D</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ts</span><span class="o">/</span><span class="n">dt</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">))</span>
+<span class="c1"># evolution of spatial pattern</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2c963c8357e238037817a5e9ca2308d56de22a3b4e47cdf18bf6e8efac51c86a.png" src="_images/2c963c8357e238037817a5e9ca2308d56de22a3b4e47cdf18bf6e8efac51c86a.png" />
+<img alt="_images/b173d19e98aa337d6d046cb15e2511dda3e1efe206bd70b153104e2ce5e6adfe.png" src="_images/b173d19e98aa337d6d046cb15e2511dda3e1efe206bd70b153104e2ce5e6adfe.png" />
+</div>
+</div>
+<p>In the diffusion equation, peaks are pulled down and dips are pushed up, and that can cause spatial instability if the time step is too large.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot in space and time</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b14306bb5fb1ba0e7ac57f0bcd87d72c911387f215686fee2c46a92d5e991730.png" src="_images/b14306bb5fb1ba0e7ac57f0bcd87d72c911387f215686fee2c46a92d5e991730.png" />
 </div>
 </div>
 <section id="stability">
@@ -643,6 +687,19 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 It is known that stable solution by Euler method requires</p>
 <div class="math notranslate nohighlight">
 \[ \Delta t \le \frac{\Delta x^2}{2D}. \]</div>
+<p>In the above example, <span class="math notranslate nohighlight">\(\Delta t=0.1\)</span> was over the limit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Lx</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.078125
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="by-odeint">
@@ -658,21 +715,23 @@ It is known that stable solution by Euler method requires</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Lx</span> <span class="o">=</span> <span class="mi">5</span>   <span class="c1"># length</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">40</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># initial condition</span>
-<span class="n">y0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y0</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">D</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># diffusion constant</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">diff1D</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">))</span>
+<span class="c1"># evolution of spatial pattern</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/97a2480fefecf8e3e7c6bfc7881718ed3698006d0060ee9ee51a18415ec02c43.png" src="_images/97a2480fefecf8e3e7c6bfc7881718ed3698006d0060ee9ee51a18415ec02c43.png" />
+<img alt="_images/6cecff606207b42365f37d418f7c59153cde43d5e98600c9fccc91034acacb42.png" src="_images/6cecff606207b42365f37d418f7c59153cde43d5e98600c9fccc91034acacb42.png" />
 </div>
 </div>
 <p>Let us see the case with an input.</p>
@@ -687,48 +746,25 @@ It is known that stable solution by Euler method requires</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">50</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">40</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># initial condition</span>
-<span class="n">ts</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">diff1D</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pulse</span><span class="p">))</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/4d1d3906fb0a7e95d3f2284530d964da8dfc256e6e288e202e5173831876f342.png" src="_images/4d1d3906fb0a7e95d3f2284530d964da8dfc256e6e288e202e5173831876f342.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot of each point in time</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/05c8fdb0db3f18856437070d26c51efe34488fc3d06122911f3bda99db0408f0.png" src="_images/05c8fdb0db3f18856437070d26c51efe34488fc3d06122911f3bda99db0408f0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot in space and time</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">diff1D</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">pulse</span><span class="p">))</span>
+<span class="c1"># plot in space and time</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/81afa0d2d956bba9da285210a761b28237b89b6d7a0e55bda10b797f764974f8.png" src="_images/81afa0d2d956bba9da285210a761b28237b89b6d7a0e55bda10b797f764974f8.png" />
+<img alt="_images/9e1be2d289e0bda08045fea5e119796fdf69eb759295caf4f82ee709f5e94c0c.png" src="_images/9e1be2d289e0bda08045fea5e119796fdf69eb759295caf4f82ee709f5e94c0c.png" />
 </div>
 </div>
 </section>
 <section id="d-plot-and-animation">
 <h2>3D plot and animation<a class="headerlink" href="#d-plot-and-animation" title="Permalink to this heading">#</a></h2>
+<p>For more intuitive visualization of the space-time dynamics, you may want to use 3D plot or animation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment the line below for interactive graphics</span>
@@ -749,7 +785,7 @@ It is known that stable solution by Euler method requires</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d0c43c6a281dd6cc1a842ddeb8ddfa5899fb5e7950e7268c25bfb45c05610b24.png" src="_images/d0c43c6a281dd6cc1a842ddeb8ddfa5899fb5e7950e7268c25bfb45c05610b24.png" />
+<img alt="_images/99be2b41e1e7993b102869f058615d6f87d45fcd434812a5f9239569264aeeba.png" src="_images/99be2b41e1e7993b102869f058615d6f87d45fcd434812a5f9239569264aeeba.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -764,7 +800,7 @@ It is known that stable solution by Euler method requires</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># prepare frame</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ti</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
     <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>    
 <span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">ArtistAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span> <span class="n">interval</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
@@ -772,7 +808,14 @@ It is known that stable solution by Euler method requires</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/655f897104d6b56851d668785ec5482068d24f4799cf57aded8134803b8c8e16.png" src="_images/655f897104d6b56851d668785ec5482068d24f4799cf57aded8134803b8c8e16.png" />
+<img alt="_images/77205ea7a9f0e74be51a06e856836f1f9cc329ace2af21e3b5fe1ded23acb8df.png" src="_images/77205ea7a9f0e74be51a06e856836f1f9cc329ace2af21e3b5fe1ded23acb8df.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -801,13 +844,15 @@ It is known that stable solution by Euler method requires</p>
 \[ \frac{\partial y}{\partial x} \simeq \frac{y_{N+1}-y_{N}}{\Delta x}=0\]</div>
 <p>which reduces to <span class="math notranslate nohighlight">\(y_{N+1}=y_{N}\)</span> and</p>
 <div class="math notranslate nohighlight">
-\[ \frac{dy_N}{dt} = D \frac{y_{N-1} - y_N}{\Delta x^2} + g(y,x,t).\]</div>
+\[ \frac{dy_N}{dt} = D \frac{y_{N-1} - 2y_N + y_{N+1}}{\Delta x^2} 
+= D \frac{y_{N-1} - y_N}{\Delta x^2}.\]</div>
 <p>A better way is to use a symmetric differentiation</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\partial y}{\partial x} \simeq \frac{y_{N+1}-y_{N-1}}{2\Delta x}=0\]</div>
 <p>which reduces to <span class="math notranslate nohighlight">\(y_{N+1}=y_{N-1}\)</span> and</p>
 <div class="math notranslate nohighlight">
-\[ \frac{dy_N}{dt} = 2D \frac{y_{N-1} - y_N}{\Delta x^2} + g(y,x,t).\]</div>
+\[ \frac{dy_N}{dt} = D \frac{y_{N-1} - 2y_N + y_{N+1}}{\Delta x^2} 
+= 2D \frac{y_{N-1} - y_N}{\Delta x^2}.\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diff1DN</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -832,22 +877,24 @@ It is known that stable solution by Euler method requires</p>
 </div>
 </div>
 </div>
+<p>For example, from the initial bump in the center, the spreads to both sides are quite different.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># initial condition</span>
-<span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">diff1DN</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">y0</span><span class="p">[</span><span class="mi">16</span><span class="p">:</span><span class="mi">25</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">diff1DN</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">))</span>
+<span class="c1"># evolution of spatial pattern</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5860221058e4b8af1ca71aa99855fbf48479739881859adf66faf6470535bf26.png" src="_images/5860221058e4b8af1ca71aa99855fbf48479739881859adf66faf6470535bf26.png" />
+<img alt="_images/459756f55d65e7cb7d10787d2912fb8b5ca39025831bf86bc5a6dff7c69da5ad.png" src="_images/459756f55d65e7cb7d10787d2912fb8b5ca39025831bf86bc5a6dff7c69da5ad.png" />
 </div>
 </div>
 </section>
@@ -890,14 +937,29 @@ It is known that stable solution by Euler method requires</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Lx</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># initial condition</span>
 <span class="n">c</span> <span class="o">=</span> <span class="mf">1.</span>  <span class="c1"># wave speed</span>
 <span class="n">d</span> <span class="o">=</span> <span class="mf">0.1</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># initial condition</span>
+<span class="c1">#y0[20:40] = 1</span>
+<span class="c1">#y = odeint(wave1D, y0, t, (x, c, d))</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">wave1D</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">pulse</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="c1"># plot in space and time</span>
+<span class="c1"># show only first dimension</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="p">[:,:</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b3a1740ec97c8064a255e446d2eccf86468b7cdf680c051fb368c3d2efbe8d8b.png" src="_images/b3a1740ec97c8064a255e446d2eccf86468b7cdf680c051fb368c3d2efbe8d8b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#evolution in spatial pattern</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">[:,:</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># only first dimension</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;u&quot;</span><span class="p">);</span> 
 </pre></div>
@@ -950,7 +1012,7 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 \[ \frac{\partial w}{\partial t} = \phi (v + a - bw) \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fhnaxon</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">inp</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">phi</span><span class="o">=</span><span class="mf">0.08</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fhnaxon</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">phi</span><span class="o">=</span><span class="mf">0.08</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;FitzHugh-Nagumo axon model</span>
 <span class="sd">    y: state vector hstack(v, w)</span>
 <span class="sd">    t: time</span>
@@ -963,7 +1025,8 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
     <span class="c1"># finite difference approximation</span>
     <span class="n">d2vdx2</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
     <span class="n">d2vdx2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">d2vdx2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># add 0 to both ends</span>
-    <span class="n">dvdt</span> <span class="o">=</span> <span class="n">v</span> <span class="o">-</span> <span class="n">v</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span> <span class="o">-</span> <span class="n">w</span> <span class="o">+</span> <span class="n">D</span><span class="o">*</span><span class="n">d2vdx2</span> <span class="o">+</span> <span class="n">inp</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">inp</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span> <span class="k">else</span> <span class="n">inp</span> <span class="c1"># function or constant</span>
+    <span class="n">dvdt</span> <span class="o">=</span> <span class="n">v</span> <span class="o">-</span> <span class="n">v</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span> <span class="o">-</span> <span class="n">w</span> <span class="o">+</span> <span class="n">D</span><span class="o">*</span><span class="n">d2vdx2</span> <span class="o">+</span> <span class="n">I</span>
     <span class="n">dwdt</span> <span class="o">=</span> <span class="n">phi</span><span class="o">*</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="n">a</span> <span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
     <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">dvdt</span><span class="p">,</span> <span class="n">dwdt</span><span class="p">)))</span>
 </pre></div>
@@ -981,35 +1044,42 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Lx</span> <span class="o">=</span> <span class="mi">50</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Lx</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># initial condition</span>
-<span class="n">y0</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>  <span class="c1"># reset </span>
+<span class="n">y0</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.2</span>  <span class="c1"># initialize near the resting state</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">fhnaxon</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pulse2</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="c1"># evolution of spatial pattern in time</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">[:,:</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># plot in space</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b302edae26e75508adf50c41f8237125c6b70dc1207e871934eeaafef4aeb146.png" src="_images/b302edae26e75508adf50c41f8237125c6b70dc1207e871934eeaafef4aeb146.png" />
+<img alt="_images/1647a29746a4d671100912155a35182d35932cde652434aa6c3c3d3b4a6c5278.png" src="_images/1647a29746a4d671100912155a35182d35932cde652434aa6c3c3d3b4a6c5278.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># in space and time</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="p">[:,:</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0045df19ede303c2996cc5a9ce35674d68c02548158c69775684b37ffaf52ad2.png" src="_images/0045df19ede303c2996cc5a9ce35674d68c02548158c69775684b37ffaf52ad2.png" />
+<img alt="_images/c070b653887ec52ce728fc629b68bb9910cf425061a32c55b2097b367df5c94a.png" src="_images/c070b653887ec52ce728fc629b68bb9910cf425061a32c55b2097b367df5c94a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%matplotlib notebook</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1024,7 +1094,7 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c1072265502cbbc44e64b9d632376be0f4e0105d2d78b291a41bb6da182edbe9.png" src="_images/c1072265502cbbc44e64b9d632376be0f4e0105d2d78b291a41bb6da182edbe9.png" />
+<img alt="_images/3060c13e46ac021ce73bb1791ba5039c50701cd6298a0cb40469b595d84e1b40.png" src="_images/3060c13e46ac021ce73bb1791ba5039c50701cd6298a0cb40469b595d84e1b40.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1040,9 +1110,51 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c39287ab8db69676944cd9ed5ffe59fcd57b68ca3ad5c8a358d0dcc99e5bfb75.png" src="_images/c39287ab8db69676944cd9ed5ffe59fcd57b68ca3ad5c8a358d0dcc99e5bfb75.png" />
+<img alt="_images/b56bfff4227cbc414bd9e12ea24c44d08b4023e90440613d9de3387ca33693a6.png" src="_images/b56bfff4227cbc414bd9e12ea24c44d08b4023e90440613d9de3387ca33693a6.png" />
 </div>
 </div>
+<section id="cyclic-boundary-condition">
+<h3>Cyclic Boundary Condition<a class="headerlink" href="#cyclic-boundary-condition" title="Permalink to this heading">#</a></h3>
+<p>A practical way to approximate an infinitely large space without the effect of boundaries is to use the cyclic or periodic boundary condition, in which both ends of the space is assumed to be connected, like a ring, torus, etc.</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">np.roll</span></code> function to shift the contents of an array as a ring.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fhnaxon_cb</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">phi</span><span class="o">=</span><span class="mf">0.08</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;FitzHugh-Nagumo axon model</span>
+<span class="sd">    y: state vector hstack(v, w)</span>
+<span class="sd">    t: time</span>
+<span class="sd">    x: positions</span>
+<span class="sd">    I: input current</span>
+<span class="sd">    D: diffusion coefficient</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="n">n</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">:]</span>
+    <span class="c1"># cyclic boundary condition</span>
+    <span class="n">d2vdx2</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">v</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
+    <span class="c1"># If inp is a function, call it with arguments. Otherwise take it as a constant</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">inp</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span> <span class="k">else</span> <span class="n">inp</span>
+    <span class="n">dvdt</span> <span class="o">=</span> <span class="n">v</span> <span class="o">-</span> <span class="n">v</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span> <span class="o">-</span> <span class="n">w</span> <span class="o">+</span> <span class="n">D</span><span class="o">*</span><span class="n">d2vdx2</span> <span class="o">+</span> <span class="n">I</span>
+    <span class="n">dwdt</span> <span class="o">=</span> <span class="n">phi</span><span class="o">*</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="n">a</span> <span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">dvdt</span><span class="p">,</span> <span class="n">dwdt</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">fhnaxon_cb</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pulse2</span><span class="p">))</span>
+<span class="c1"># in space and time</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="p">[:,:</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fb1cfc5bea5993d31fe96f8d06fcc19f257b37c73c95ed9e5996d3da8be2f6f4.png" src="_images/fb1cfc5bea5993d31fe96f8d06fcc19f257b37c73c95ed9e5996d3da8be2f6f4.png" />
+</div>
+</div>
+<p>In this example, the propagate in both directions and the one left at the bottom reappears from the top. Then the two spikes collide and disappear.</p>
+</section>
 </section>
 <section id="pde-in-2d-space">
 <h2>PDE in 2D space<a class="headerlink" href="#pde-in-2d-space" title="Permalink to this heading">#</a></h2>
@@ -1058,22 +1170,24 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 \[\frac{\partial y}{\partial t} = D\nabla^2 y + g(y, x, t)\]</div>
 <section id="diffusion-equation-in-2d-space">
 <h3>Diffusion equation in 2D space<a class="headerlink" href="#diffusion-equation-in-2d-space" title="Permalink to this heading">#</a></h3>
+<p>Like the case in 1D space, we discretize the space in a 2D grid, and covert the PDF to ODE.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diff2D</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;1D Diffusion equaiton with constant boundary condition</span>
 <span class="sd">    y: states at (x0, x1)</span>
 <span class="sd">    t: time</span>
-<span class="sd">    x: positions (x0, x1): transposed meshgrid</span>
+<span class="sd">    x: positions (x0, x1) in meshgrid format</span>
 <span class="sd">    D: diffusion coefficient</span>
 <span class="sd">    inp: function(y,x,t) or number&quot;&quot;&quot;</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># grid size (n0, n1)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="c1"># grid size (n0, n1)</span>
     <span class="n">nn</span> <span class="o">=</span> <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># grid points n0*n1</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># linear to 2D</span>
-    <span class="n">dx</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>  <span class="c1"># space step</span>
-    <span class="c1"># Laplacian with cyclic boundary</span>
-    <span class="n">Ly</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
-    <span class="n">Ly</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Ly</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ly</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ly</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Dirichlet boundary</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>  <span class="c1"># space step</span>
+    <span class="c1"># Laplacian with cyclic boundary condition</span>
+    <span class="n">Ly</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+    <span class="c1"># fix the boundaris to 0 for Dirichlet condition</span>
+    <span class="n">Ly</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Ly</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Ly</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ly</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">dydt</span> <span class="o">=</span> <span class="n">D</span><span class="o">*</span><span class="n">Ly</span> <span class="o">+</span> <span class="p">(</span><span class="n">inp</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span> <span class="k">else</span> <span class="n">inp</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">dydt</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
 </pre></div>
@@ -1082,50 +1196,42 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pulse3</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;1 for 0.2&lt;x0&lt;0.3 at 1&lt;t&lt;2&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">(</span><span class="mf">0.2</span><span class="o">&lt;</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">0.3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.4</span><span class="o">&lt;</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">0.6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># (x0,x1) in last dimention</span>
-<span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>  <span class="c1"># initial condition</span>
-<span class="n">y0</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># </span>
-<span class="n">ts</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">)))</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+<span class="n">D</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>  <span class="c1"># initial condition</span>
+<span class="n">y0</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># initial bump</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">diff2D</span><span class="p">,</span> <span class="n">y0</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">diff2D</span><span class="p">,</span> <span class="n">y0</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">5</span><span class="o">*</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;t=</span><span class="si">{:1.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">5</span><span class="o">*</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">10</span><span class="o">*</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;t=</span><span class="si">{:1.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">10</span><span class="o">*</span><span class="n">i</span><span class="p">]))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/413a9ae91b4807f3d0c1209655f692f390649cafee16145671e48baa891e6af8.png" src="_images/413a9ae91b4807f3d0c1209655f692f390649cafee16145671e48baa891e6af8.png" />
+<img alt="_images/c91685a4d2e72fd5be42dc77de5667b5cfab622750f802de221feda6df863903.png" src="_images/c91685a4d2e72fd5be42dc77de5667b5cfab622750f802de221feda6df863903.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># animation</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># prepare frame</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ti</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">))</span>
     <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">p</span><span class="p">])</span>    
 <span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">ArtistAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span> <span class="n">interval</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">);</span>
@@ -1133,24 +1239,7 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e1f7fee59f338f684787f193e18fcde8b47549548041cbc05a961dd2688ab941.png" src="_images/e1f7fee59f338f684787f193e18fcde8b47549548041cbc05a961dd2688ab941.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># prepare frame</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ti</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
-    <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">p</span><span class="p">])</span>    
-<span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">ArtistAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span> <span class="n">interval</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/572b503e590f8dc53b34bcb969a2307d87569517e4ea74901ebacba1820ce6cc.png" src="_images/572b503e590f8dc53b34bcb969a2307d87569517e4ea74901ebacba1820ce6cc.png" />
+<img alt="_images/e53f3ddd40af95289c20ed529e6193ebdd95fa426d7c6324e7587a749c54d295.png" src="_images/e53f3ddd40af95289c20ed529e6193ebdd95fa426d7c6324e7587a749c54d295.png" />
 </div>
 </div>
 </section>
@@ -1247,7 +1336,10 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-plot-and-animation">3D plot and animation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">Boundary Conditions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-equation">Wave Equation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-diffusion-equation">Reaction-Diffusion Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-diffusion-equation">Reaction-Diffusion Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclic-boundary-condition">Cyclic Boundary Condition</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pde-in-2d-space">PDE in 2D space</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffusion-equation-in-2d-space">Diffusion equation in 2D space</a></li>
 </ul>
