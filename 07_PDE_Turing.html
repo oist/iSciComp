@@ -1,0 +1,1817 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>7. Partial Differential Equations &#8212; Introduction to Scientific Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '07_PDE_Turing';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="iSciComp.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/SC_logo.png" class="logo__image only-light" alt="Introduction to Scientific Computing - Home"/>
+    <script>document.write(`<img src="_static/SC_logo.png" class="logo__image only-dark" alt="Introduction to Scientific Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="iSciComp.html">
+                    Introduction to Scientific Computing
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="02_Visualization.html">2. Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_3D.html">3D Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_Animation.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_Ex.html">2. Visualization: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="03_Matrix.html">3. Vectors and Matrices</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="03_Matrix_Ex.html">3. Vectors and Matrices: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="04_Function.html">4. Functions and Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="04_Function_Ex.html">4. Functions and Classes: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05_Iteration.html">5. Iterative Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="05_Iteration_Ex.html">5. Iterative Computation: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="06_ODE.html">6. Ordinary Differential Equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="06_ODE_Ex.html">6. Ordinary Differential Equations: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="07_PDE.html">7. Partial Differential Equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="07_PDE_Ex.html">7. Partial Differential Equations: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="08_Optimization.html">8. Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="08_Optimization_Ex.html">8. Optimization: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="09_Stochastic.html">9. Stochastic Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="09_Stochastic_Ex.html">9. Stochastic Methods: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_Ex.html">10. Software Management: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Solutions.html">Sample Solutions of Exercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_Introduction_Sol.html">1. Introduction to Python: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_Sol.html">2. Visualization: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_Matrix_Sol.html">3. Vectors and Matrices: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_Function_Sol.html">4. Functions and Classes: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_Iteration_Sol.html">5. Iterative Computation: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_ODE_Sol.html">6. Ordinary Differential Equations: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_PDE_Sol.html">7. Partial Differential Equations: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_Optimization_Sol.html">8. Optimization: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_Stochastic_Sol.html">9. Stochastic Methods: Exercise Solutions</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/07_PDE_Turing.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>7. Partial Differential Equations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-diffusion-equation">Reaction-Diffusion Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffusion-equation-in-2d-space">Diffusion equation in 2D space</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="partial-differential-equations">
+<h1>7. Partial Differential Equations<a class="headerlink" href="#partial-differential-equations" title="Permalink to this heading">#</a></h1>
+<p>References:</p>
+<ul class="simple">
+<li><p>Svein Linge &amp; Hans Petter Langtangen: Programming for Computations – Python. Springer (2016).</p>
+<ul>
+<li><p>Chapter 5: Solving Partial Differential Equations</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="reaction-diffusion-equation">
+<h2>Reaction-Diffusion Equation<a class="headerlink" href="#reaction-diffusion-equation" title="Permalink to this heading">#</a></h2>
+<p>Linear waves can decay, reflect, and overlay.<br />
+Some nonlinear waves, like neural spike, can travel without decaying.
+FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial v}{\partial t} = v - \frac{v^3}{3} - w + D\frac{\partial^2 v}{\partial x^2} + I \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial w}{\partial t} = \phi (v + a - bw) \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fhn</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">I</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">phi</span><span class="o">=</span><span class="mf">0.08</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;FitzHugh-Nagumo model&quot;&quot;&quot;</span>
+    <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">dv</span> <span class="o">=</span> <span class="n">v</span> <span class="o">-</span> <span class="n">v</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span> <span class="o">-</span> <span class="n">w</span> <span class="o">+</span> <span class="p">(</span><span class="n">I</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="k">else</span> <span class="n">I</span><span class="p">)</span>
+    <span class="n">dw</span> <span class="o">=</span> <span class="n">phi</span><span class="o">*</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dv</span><span class="p">,</span> <span class="n">dw</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fhn</span><span class="p">(</span> <span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fhn</span><span class="p">(</span> <span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;A&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RDE_1D</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;1D Reaction-Diffusion equaiton</span>
+<span class="sd">    y: linearized ny*nx state vector</span>
+<span class="sd">    t: time</span>
+<span class="sd">    x: nx positions</span>
+<span class="sd">    D: diffusion coefficient</span>
+<span class="sd">    g: constant or function g(y,x,t)</span>
+<span class="sd">    boundary: 0=cyclic, 1=Dirichlet, 2=Neumann&quot;&quot;&quot;</span>
+    <span class="c1"># spatial step</span>
+    <span class="n">nx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ny</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="c1">#print(ny,nx,dx)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">ny</span><span class="p">,</span><span class="n">nx</span><span class="p">))</span> <span class="c1"># to matrix</span>
+    <span class="c1"># shift array to left and right</span>
+    <span class="n">d2ydx2</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># Cyclic</span>
+    <span class="k">if</span> <span class="n">boundary</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> <span class="c1"># Dirichlet</span>
+        <span class="n">d2ydx2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">d2ydx2</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">boundary</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>  <span class="c1"># Neumann</span>
+        <span class="n">d2ydx2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">d2ydx2</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">dydt</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">ny</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">d2ydx2</span> <span class="o">+</span> <span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">args</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="k">else</span> <span class="n">g</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dydt</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pulse2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;1 for 5&lt;x&lt;10 at 5&lt;t&lt;10&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">5</span><span class="o">&lt;</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">5</span><span class="o">&lt;</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Lx</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># initial condition</span>
+<span class="n">y0</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.2</span>  <span class="c1"># initialize near the resting state</span>
+<span class="n">y0</span><span class="p">[</span><span class="n">N</span><span class="o">+</span><span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
+<span class="n">y0</span><span class="p">[</span><span class="mi">130</span><span class="p">:</span><span class="mi">135</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">RDE_1D</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">fhn</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="c1"># in space and time</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="p">[:,:</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8ae0846a33c5b1d80391ef27b4dbc333f2577f1f6ebd5a225bb7c5e1276e4117.png" src="_images/8ae0846a33c5b1d80391ef27b4dbc333f2577f1f6ebd5a225bb7c5e1276e4117.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1],
+       [0]])
+</pre></div>
+</div>
+</div>
+</div>
+<section id="diffusion-equation-in-2d-space">
+<h3>Diffusion equation in 2D space<a class="headerlink" href="#diffusion-equation-in-2d-space" title="Permalink to this heading">#</a></h3>
+<p>Like the case in 1D space, we discretize the space in a 2D grid, and covert the PDF to ODE.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diff2D</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;1D Diffusion equaiton with constant boundary condition</span>
+<span class="sd">    y: states at (x0, x1)</span>
+<span class="sd">    t: time</span>
+<span class="sd">    x: positions (x0, x1) in meshgrid format</span>
+<span class="sd">    D: diffusion coefficient</span>
+<span class="sd">    inp: function(y,x,t) or number&quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="c1"># grid size (n0, n1)</span>
+    <span class="n">nn</span> <span class="o">=</span> <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># grid points n0*n1</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># linear to 2D</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>  <span class="c1"># space step</span>
+    <span class="c1"># Laplacian with cyclic boundary condition</span>
+    <span class="n">Ly</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+    <span class="c1"># fix the boundaris to 0 for Dirichlet condition</span>
+    <span class="n">Ly</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Ly</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Ly</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ly</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">dydt</span> <span class="o">=</span> <span class="n">D</span><span class="o">*</span><span class="n">Ly</span> <span class="o">+</span> <span class="p">(</span><span class="n">inp</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span> <span class="k">else</span> <span class="n">inp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dydt</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diff_2D</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;1D Diffusion equaiton with constant boundary condition</span>
+<span class="sd">    y: linearized (ny,nx1,nx2) dim state</span>
+<span class="sd">    t: time</span>
+<span class="sd">    x: positions (x1, x2) in meshgrid format</span>
+<span class="sd">    D: diffusion coefficients</span>
+<span class="sd">    g: reaction function g(y,x,t) or constant&quot;&quot;&quot;</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>  <span class="c1"># space step</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># 2, nx1, nx2</span>
+    <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">n</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># ny</span>
+    <span class="c1">#nn = n[0]*n[1]  # grid points n0*n1</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># linear to (ny,nx1,nx2)</span>
+    <span class="c1"># Laplacian with cyclic boundary condition</span>
+    <span class="n">Ly</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">dx</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+    <span class="c1"># fix the boundaris to 0 for Dirichlet condition</span>
+    <span class="c1">#Ly[:,0,:] = Ly[:,-1,:] = Ly[:,:,0] = Ly[:,:,-1] = 0</span>
+    <span class="n">dydt</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">Ly</span> <span class="o">+</span> <span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="k">else</span> <span class="n">g</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dydt</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fhn</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.005</span><span class="p">,</span><span class="mi">10</span><span class="p">]):</span>
+    <span class="n">du</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">dv</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">du</span><span class="p">,</span> <span class="n">dv</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">)))</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="mi">2000</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">10.</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.0005</span><span class="p">])</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>  <span class="c1"># initial condition</span>
+<span class="c1">#y0[0,5:10,10:15] = 1  # initial bump</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">diff_2D</span><span class="p">,</span> <span class="n">y0</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">fhn</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">skip</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">//</span><span class="n">skip</span>  <span class="c1"># frames</span>
+<span class="n">nc</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># columns</span>
+<span class="n">nr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="n">nc</span><span class="p">))</span>  <span class="c1">#rows</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">nr</span><span class="p">,</span> <span class="n">nc</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">skip</span><span class="o">*</span><span class="n">i</span><span class="p">,:</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1">#, vmin=0, vmax=1, origin=&#39;lower&#39;, extent=(0,L,0,L))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;t=</span><span class="si">{:1.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">skip</span><span class="o">*</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([]);</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0a8626f37f1180b3b245f1127978e1924425f520e7753fa8f45e959c73dff34a.png" src="_images/0a8626f37f1180b3b245f1127978e1924425f520e7753fa8f45e959c73dff34a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>  <span class="c1"># initial condition</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">diff_2D</span><span class="p">,</span> <span class="n">y0</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">fhn</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">skip</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">//</span><span class="n">skip</span>  <span class="c1"># frames</span>
+<span class="n">nc</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># columns</span>
+<span class="n">nr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="n">nc</span><span class="p">))</span>  <span class="c1">#rows</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">nr</span><span class="p">,</span> <span class="n">nc</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">skip</span><span class="o">*</span><span class="n">i</span><span class="p">,:</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1">#, vmin=0, vmax=1, origin=&#39;lower&#39;, extent=(0,L,0,L))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;t=</span><span class="si">{:1.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">skip</span><span class="o">*</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([]);</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f10bd73616ea9e0fc5b08367dff603308f6b8b114b801e7607fe6eb481a5be02.png" src="_images/f10bd73616ea9e0fc5b08367dff603308f6b8b114b801e7607fe6eb481a5be02.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> notebook
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># animation</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># prepare frame</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ti</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">,:</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1">#, vmin=0, vmax=1, origin=&#39;lower&#39;, extent=(0,L,0,L))</span>
+    <span class="c1">#plt.title(&#39;t={:1.1f}&#39;.format(t[i]))</span>
+    <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">p</span><span class="p">])</span>    
+<span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">ArtistAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span> <span class="n">interval</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">/* Put everything inside the global mpl namespace */
+/* global mpl */
+window.mpl = {};
+
+mpl.get_websocket_type = function () {
+    if (typeof WebSocket !== 'undefined') {
+        return WebSocket;
+    } else if (typeof MozWebSocket !== 'undefined') {
+        return MozWebSocket;
+    } else {
+        alert(
+            'Your browser does not have WebSocket support. ' +
+                'Please try Chrome, Safari or Firefox ≥ 6. ' +
+                'Firefox 4 and 5 are also supported but you ' +
+                'have to enable WebSockets in about:config.'
+        );
+    }
+};
+
+mpl.figure = function (figure_id, websocket, ondownload, parent_element) {
+    this.id = figure_id;
+
+    this.ws = websocket;
+
+    this.supports_binary = this.ws.binaryType !== undefined;
+
+    if (!this.supports_binary) {
+        var warnings = document.getElementById('mpl-warnings');
+        if (warnings) {
+            warnings.style.display = 'block';
+            warnings.textContent =
+                'This browser does not support binary websocket messages. ' +
+                'Performance may be slow.';
+        }
+    }
+
+    this.imageObj = new Image();
+
+    this.context = undefined;
+    this.message = undefined;
+    this.canvas = undefined;
+    this.rubberband_canvas = undefined;
+    this.rubberband_context = undefined;
+    this.format_dropdown = undefined;
+
+    this.image_mode = 'full';
+
+    this.root = document.createElement('div');
+    this.root.setAttribute('style', 'display: inline-block');
+    this._root_extra_style(this.root);
+
+    parent_element.appendChild(this.root);
+
+    this._init_header(this);
+    this._init_canvas(this);
+    this._init_toolbar(this);
+
+    var fig = this;
+
+    this.waiting = false;
+
+    this.ws.onopen = function () {
+        fig.send_message('supports_binary', { value: fig.supports_binary });
+        fig.send_message('send_image_mode', {});
+        if (fig.ratio !== 1) {
+            fig.send_message('set_device_pixel_ratio', {
+                device_pixel_ratio: fig.ratio,
+            });
+        }
+        fig.send_message('refresh', {});
+    };
+
+    this.imageObj.onload = function () {
+        if (fig.image_mode === 'full') {
+            // Full images could contain transparency (where diff images
+            // almost always do), so we need to clear the canvas so that
+            // there is no ghosting.
+            fig.context.clearRect(0, 0, fig.canvas.width, fig.canvas.height);
+        }
+        fig.context.drawImage(fig.imageObj, 0, 0);
+    };
+
+    this.imageObj.onunload = function () {
+        fig.ws.close();
+    };
+
+    this.ws.onmessage = this._make_on_message_function(this);
+
+    this.ondownload = ondownload;
+};
+
+mpl.figure.prototype._init_header = function () {
+    var titlebar = document.createElement('div');
+    titlebar.classList =
+        'ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix';
+    var titletext = document.createElement('div');
+    titletext.classList = 'ui-dialog-title';
+    titletext.setAttribute(
+        'style',
+        'width: 100%; text-align: center; padding: 3px;'
+    );
+    titlebar.appendChild(titletext);
+    this.root.appendChild(titlebar);
+    this.header = titletext;
+};
+
+mpl.figure.prototype._canvas_extra_style = function (_canvas_div) {};
+
+mpl.figure.prototype._root_extra_style = function (_canvas_div) {};
+
+mpl.figure.prototype._init_canvas = function () {
+    var fig = this;
+
+    var canvas_div = (this.canvas_div = document.createElement('div'));
+    canvas_div.setAttribute('tabindex', '0');
+    canvas_div.setAttribute(
+        'style',
+        'border: 1px solid #ddd;' +
+            'box-sizing: content-box;' +
+            'clear: both;' +
+            'min-height: 1px;' +
+            'min-width: 1px;' +
+            'outline: 0;' +
+            'overflow: hidden;' +
+            'position: relative;' +
+            'resize: both;' +
+            'z-index: 2;'
+    );
+
+    function on_keyboard_event_closure(name) {
+        return function (event) {
+            return fig.key_event(event, name);
+        };
+    }
+
+    canvas_div.addEventListener(
+        'keydown',
+        on_keyboard_event_closure('key_press')
+    );
+    canvas_div.addEventListener(
+        'keyup',
+        on_keyboard_event_closure('key_release')
+    );
+
+    this._canvas_extra_style(canvas_div);
+    this.root.appendChild(canvas_div);
+
+    var canvas = (this.canvas = document.createElement('canvas'));
+    canvas.classList.add('mpl-canvas');
+    canvas.setAttribute(
+        'style',
+        'box-sizing: content-box;' +
+            'pointer-events: none;' +
+            'position: relative;' +
+            'z-index: 0;'
+    );
+
+    this.context = canvas.getContext('2d');
+
+    var backingStore =
+        this.context.backingStorePixelRatio ||
+        this.context.webkitBackingStorePixelRatio ||
+        this.context.mozBackingStorePixelRatio ||
+        this.context.msBackingStorePixelRatio ||
+        this.context.oBackingStorePixelRatio ||
+        this.context.backingStorePixelRatio ||
+        1;
+
+    this.ratio = (window.devicePixelRatio || 1) / backingStore;
+
+    var rubberband_canvas = (this.rubberband_canvas = document.createElement(
+        'canvas'
+    ));
+    rubberband_canvas.setAttribute(
+        'style',
+        'box-sizing: content-box;' +
+            'left: 0;' +
+            'pointer-events: none;' +
+            'position: absolute;' +
+            'top: 0;' +
+            'z-index: 1;'
+    );
+
+    // Apply a ponyfill if ResizeObserver is not implemented by browser.
+    if (this.ResizeObserver === undefined) {
+        if (window.ResizeObserver !== undefined) {
+            this.ResizeObserver = window.ResizeObserver;
+        } else {
+            var obs = _JSXTOOLS_RESIZE_OBSERVER({});
+            this.ResizeObserver = obs.ResizeObserver;
+        }
+    }
+
+    this.resizeObserverInstance = new this.ResizeObserver(function (entries) {
+        var nentries = entries.length;
+        for (var i = 0; i < nentries; i++) {
+            var entry = entries[i];
+            var width, height;
+            if (entry.contentBoxSize) {
+                if (entry.contentBoxSize instanceof Array) {
+                    // Chrome 84 implements new version of spec.
+                    width = entry.contentBoxSize[0].inlineSize;
+                    height = entry.contentBoxSize[0].blockSize;
+                } else {
+                    // Firefox implements old version of spec.
+                    width = entry.contentBoxSize.inlineSize;
+                    height = entry.contentBoxSize.blockSize;
+                }
+            } else {
+                // Chrome <84 implements even older version of spec.
+                width = entry.contentRect.width;
+                height = entry.contentRect.height;
+            }
+
+            // Keep the size of the canvas and rubber band canvas in sync with
+            // the canvas container.
+            if (entry.devicePixelContentBoxSize) {
+                // Chrome 84 implements new version of spec.
+                canvas.setAttribute(
+                    'width',
+                    entry.devicePixelContentBoxSize[0].inlineSize
+                );
+                canvas.setAttribute(
+                    'height',
+                    entry.devicePixelContentBoxSize[0].blockSize
+                );
+            } else {
+                canvas.setAttribute('width', width * fig.ratio);
+                canvas.setAttribute('height', height * fig.ratio);
+            }
+            /* This rescales the canvas back to display pixels, so that it
+             * appears correct on HiDPI screens. */
+            canvas.style.width = width + 'px';
+            canvas.style.height = height + 'px';
+
+            rubberband_canvas.setAttribute('width', width);
+            rubberband_canvas.setAttribute('height', height);
+
+            // And update the size in Python. We ignore the initial 0/0 size
+            // that occurs as the element is placed into the DOM, which should
+            // otherwise not happen due to the minimum size styling.
+            if (fig.ws.readyState == 1 && width != 0 && height != 0) {
+                fig.request_resize(width, height);
+            }
+        }
+    });
+    this.resizeObserverInstance.observe(canvas_div);
+
+    function on_mouse_event_closure(name) {
+        /* User Agent sniffing is bad, but WebKit is busted:
+         * https://bugs.webkit.org/show_bug.cgi?id=144526
+         * https://bugs.webkit.org/show_bug.cgi?id=181818
+         * The worst that happens here is that they get an extra browser
+         * selection when dragging, if this check fails to catch them.
+         */
+        var UA = navigator.userAgent;
+        var isWebKit = /AppleWebKit/.test(UA) && !/Chrome/.test(UA);
+        if(isWebKit) {
+            return function (event) {
+                /* This prevents the web browser from automatically changing to
+                 * the text insertion cursor when the button is pressed. We
+                 * want to control all of the cursor setting manually through
+                 * the 'cursor' event from matplotlib */
+                event.preventDefault()
+                return fig.mouse_event(event, name);
+            };
+        } else {
+            return function (event) {
+                return fig.mouse_event(event, name);
+            };
+        }
+    }
+
+    canvas_div.addEventListener(
+        'mousedown',
+        on_mouse_event_closure('button_press')
+    );
+    canvas_div.addEventListener(
+        'mouseup',
+        on_mouse_event_closure('button_release')
+    );
+    canvas_div.addEventListener(
+        'dblclick',
+        on_mouse_event_closure('dblclick')
+    );
+    // Throttle sequential mouse events to 1 every 20ms.
+    canvas_div.addEventListener(
+        'mousemove',
+        on_mouse_event_closure('motion_notify')
+    );
+
+    canvas_div.addEventListener(
+        'mouseenter',
+        on_mouse_event_closure('figure_enter')
+    );
+    canvas_div.addEventListener(
+        'mouseleave',
+        on_mouse_event_closure('figure_leave')
+    );
+
+    canvas_div.addEventListener('wheel', function (event) {
+        if (event.deltaY < 0) {
+            event.step = 1;
+        } else {
+            event.step = -1;
+        }
+        on_mouse_event_closure('scroll')(event);
+    });
+
+    canvas_div.appendChild(canvas);
+    canvas_div.appendChild(rubberband_canvas);
+
+    this.rubberband_context = rubberband_canvas.getContext('2d');
+    this.rubberband_context.strokeStyle = '#000000';
+
+    this._resize_canvas = function (width, height, forward) {
+        if (forward) {
+            canvas_div.style.width = width + 'px';
+            canvas_div.style.height = height + 'px';
+        }
+    };
+
+    // Disable right mouse context menu.
+    canvas_div.addEventListener('contextmenu', function (_e) {
+        event.preventDefault();
+        return false;
+    });
+
+    function set_focus() {
+        canvas.focus();
+        canvas_div.focus();
+    }
+
+    window.setTimeout(set_focus, 100);
+};
+
+mpl.figure.prototype._init_toolbar = function () {
+    var fig = this;
+
+    var toolbar = document.createElement('div');
+    toolbar.classList = 'mpl-toolbar';
+    this.root.appendChild(toolbar);
+
+    function on_click_closure(name) {
+        return function (_event) {
+            return fig.toolbar_button_onclick(name);
+        };
+    }
+
+    function on_mouseover_closure(tooltip) {
+        return function (event) {
+            if (!event.currentTarget.disabled) {
+                return fig.toolbar_button_onmouseover(tooltip);
+            }
+        };
+    }
+
+    fig.buttons = {};
+    var buttonGroup = document.createElement('div');
+    buttonGroup.classList = 'mpl-button-group';
+    for (var toolbar_ind in mpl.toolbar_items) {
+        var name = mpl.toolbar_items[toolbar_ind][0];
+        var tooltip = mpl.toolbar_items[toolbar_ind][1];
+        var image = mpl.toolbar_items[toolbar_ind][2];
+        var method_name = mpl.toolbar_items[toolbar_ind][3];
+
+        if (!name) {
+            /* Instead of a spacer, we start a new button group. */
+            if (buttonGroup.hasChildNodes()) {
+                toolbar.appendChild(buttonGroup);
+            }
+            buttonGroup = document.createElement('div');
+            buttonGroup.classList = 'mpl-button-group';
+            continue;
+        }
+
+        var button = (fig.buttons[name] = document.createElement('button'));
+        button.classList = 'mpl-widget';
+        button.setAttribute('role', 'button');
+        button.setAttribute('aria-disabled', 'false');
+        button.addEventListener('click', on_click_closure(method_name));
+        button.addEventListener('mouseover', on_mouseover_closure(tooltip));
+
+        var icon_img = document.createElement('img');
+        icon_img.src = '_images/' + image + '.png';
+        icon_img.srcset = '_images/' + image + '_large.png 2x';
+        icon_img.alt = tooltip;
+        button.appendChild(icon_img);
+
+        buttonGroup.appendChild(button);
+    }
+
+    if (buttonGroup.hasChildNodes()) {
+        toolbar.appendChild(buttonGroup);
+    }
+
+    var fmt_picker = document.createElement('select');
+    fmt_picker.classList = 'mpl-widget';
+    toolbar.appendChild(fmt_picker);
+    this.format_dropdown = fmt_picker;
+
+    for (var ind in mpl.extensions) {
+        var fmt = mpl.extensions[ind];
+        var option = document.createElement('option');
+        option.selected = fmt === mpl.default_extension;
+        option.innerHTML = fmt;
+        fmt_picker.appendChild(option);
+    }
+
+    var status_bar = document.createElement('span');
+    status_bar.classList = 'mpl-message';
+    toolbar.appendChild(status_bar);
+    this.message = status_bar;
+};
+
+mpl.figure.prototype.request_resize = function (x_pixels, y_pixels) {
+    // Request matplotlib to resize the figure. Matplotlib will then trigger a resize in the client,
+    // which will in turn request a refresh of the image.
+    this.send_message('resize', { width: x_pixels, height: y_pixels });
+};
+
+mpl.figure.prototype.send_message = function (type, properties) {
+    properties['type'] = type;
+    properties['figure_id'] = this.id;
+    this.ws.send(JSON.stringify(properties));
+};
+
+mpl.figure.prototype.send_draw_message = function () {
+    if (!this.waiting) {
+        this.waiting = true;
+        this.ws.send(JSON.stringify({ type: 'draw', figure_id: this.id }));
+    }
+};
+
+mpl.figure.prototype.handle_save = function (fig, _msg) {
+    var format_dropdown = fig.format_dropdown;
+    var format = format_dropdown.options[format_dropdown.selectedIndex].value;
+    fig.ondownload(fig, format);
+};
+
+mpl.figure.prototype.handle_resize = function (fig, msg) {
+    var size = msg['size'];
+    if (size[0] !== fig.canvas.width || size[1] !== fig.canvas.height) {
+        fig._resize_canvas(size[0], size[1], msg['forward']);
+        fig.send_message('refresh', {});
+    }
+};
+
+mpl.figure.prototype.handle_rubberband = function (fig, msg) {
+    var x0 = msg['x0'] / fig.ratio;
+    var y0 = (fig.canvas.height - msg['y0']) / fig.ratio;
+    var x1 = msg['x1'] / fig.ratio;
+    var y1 = (fig.canvas.height - msg['y1']) / fig.ratio;
+    x0 = Math.floor(x0) + 0.5;
+    y0 = Math.floor(y0) + 0.5;
+    x1 = Math.floor(x1) + 0.5;
+    y1 = Math.floor(y1) + 0.5;
+    var min_x = Math.min(x0, x1);
+    var min_y = Math.min(y0, y1);
+    var width = Math.abs(x1 - x0);
+    var height = Math.abs(y1 - y0);
+
+    fig.rubberband_context.clearRect(
+        0,
+        0,
+        fig.canvas.width / fig.ratio,
+        fig.canvas.height / fig.ratio
+    );
+
+    fig.rubberband_context.strokeRect(min_x, min_y, width, height);
+};
+
+mpl.figure.prototype.handle_figure_label = function (fig, msg) {
+    // Updates the figure title.
+    fig.header.textContent = msg['label'];
+};
+
+mpl.figure.prototype.handle_cursor = function (fig, msg) {
+    fig.canvas_div.style.cursor = msg['cursor'];
+};
+
+mpl.figure.prototype.handle_message = function (fig, msg) {
+    fig.message.textContent = msg['message'];
+};
+
+mpl.figure.prototype.handle_draw = function (fig, _msg) {
+    // Request the server to send over a new figure.
+    fig.send_draw_message();
+};
+
+mpl.figure.prototype.handle_image_mode = function (fig, msg) {
+    fig.image_mode = msg['mode'];
+};
+
+mpl.figure.prototype.handle_history_buttons = function (fig, msg) {
+    for (var key in msg) {
+        if (!(key in fig.buttons)) {
+            continue;
+        }
+        fig.buttons[key].disabled = !msg[key];
+        fig.buttons[key].setAttribute('aria-disabled', !msg[key]);
+    }
+};
+
+mpl.figure.prototype.handle_navigate_mode = function (fig, msg) {
+    if (msg['mode'] === 'PAN') {
+        fig.buttons['Pan'].classList.add('active');
+        fig.buttons['Zoom'].classList.remove('active');
+    } else if (msg['mode'] === 'ZOOM') {
+        fig.buttons['Pan'].classList.remove('active');
+        fig.buttons['Zoom'].classList.add('active');
+    } else {
+        fig.buttons['Pan'].classList.remove('active');
+        fig.buttons['Zoom'].classList.remove('active');
+    }
+};
+
+mpl.figure.prototype.updated_canvas_event = function () {
+    // Called whenever the canvas gets updated.
+    this.send_message('ack', {});
+};
+
+// A function to construct a web socket function for onmessage handling.
+// Called in the figure constructor.
+mpl.figure.prototype._make_on_message_function = function (fig) {
+    return function socket_on_message(evt) {
+        if (evt.data instanceof Blob) {
+            var img = evt.data;
+            if (img.type !== 'image/png') {
+                /* FIXME: We get "Resource interpreted as Image but
+                 * transferred with MIME type text/plain:" errors on
+                 * Chrome.  But how to set the MIME type?  It doesn't seem
+                 * to be part of the websocket stream */
+                img.type = 'image/png';
+            }
+
+            /* Free the memory for the previous frames */
+            if (fig.imageObj.src) {
+                (window.URL || window.webkitURL).revokeObjectURL(
+                    fig.imageObj.src
+                );
+            }
+
+            fig.imageObj.src = (window.URL || window.webkitURL).createObjectURL(
+                img
+            );
+            fig.updated_canvas_event();
+            fig.waiting = false;
+            return;
+        } else if (
+            typeof evt.data === 'string' &&
+            evt.data.slice(0, 21) === 'data:image/png;base64'
+        ) {
+            fig.imageObj.src = evt.data;
+            fig.updated_canvas_event();
+            fig.waiting = false;
+            return;
+        }
+
+        var msg = JSON.parse(evt.data);
+        var msg_type = msg['type'];
+
+        // Call the  "handle_{type}" callback, which takes
+        // the figure and JSON message as its only arguments.
+        try {
+            var callback = fig['handle_' + msg_type];
+        } catch (e) {
+            console.log(
+                "No handler for the '" + msg_type + "' message type: ",
+                msg
+            );
+            return;
+        }
+
+        if (callback) {
+            try {
+                // console.log("Handling '" + msg_type + "' message: ", msg);
+                callback(fig, msg);
+            } catch (e) {
+                console.log(
+                    "Exception inside the 'handler_" + msg_type + "' callback:",
+                    e,
+                    e.stack,
+                    msg
+                );
+            }
+        }
+    };
+};
+
+function getModifiers(event) {
+    var mods = [];
+    if (event.ctrlKey) {
+        mods.push('ctrl');
+    }
+    if (event.altKey) {
+        mods.push('alt');
+    }
+    if (event.shiftKey) {
+        mods.push('shift');
+    }
+    if (event.metaKey) {
+        mods.push('meta');
+    }
+    return mods;
+}
+
+/*
+ * return a copy of an object with only non-object keys
+ * we need this to avoid circular references
+ * https://stackoverflow.com/a/24161582/3208463
+ */
+function simpleKeys(original) {
+    return Object.keys(original).reduce(function (obj, key) {
+        if (typeof original[key] !== 'object') {
+            obj[key] = original[key];
+        }
+        return obj;
+    }, {});
+}
+
+mpl.figure.prototype.mouse_event = function (event, name) {
+    if (name === 'button_press') {
+        this.canvas.focus();
+        this.canvas_div.focus();
+    }
+
+    // from https://stackoverflow.com/q/1114465
+    var boundingRect = this.canvas.getBoundingClientRect();
+    var x = (event.clientX - boundingRect.left) * this.ratio;
+    var y = (event.clientY - boundingRect.top) * this.ratio;
+
+    this.send_message(name, {
+        x: x,
+        y: y,
+        button: event.button,
+        step: event.step,
+        modifiers: getModifiers(event),
+        guiEvent: simpleKeys(event),
+    });
+
+    return false;
+};
+
+mpl.figure.prototype._key_event_extra = function (_event, _name) {
+    // Handle any extra behaviour associated with a key event
+};
+
+mpl.figure.prototype.key_event = function (event, name) {
+    // Prevent repeat events
+    if (name === 'key_press') {
+        if (event.key === this._key) {
+            return;
+        } else {
+            this._key = event.key;
+        }
+    }
+    if (name === 'key_release') {
+        this._key = null;
+    }
+
+    var value = '';
+    if (event.ctrlKey && event.key !== 'Control') {
+        value += 'ctrl+';
+    }
+    else if (event.altKey && event.key !== 'Alt') {
+        value += 'alt+';
+    }
+    else if (event.shiftKey && event.key !== 'Shift') {
+        value += 'shift+';
+    }
+
+    value += 'k' + event.key;
+
+    this._key_event_extra(event, name);
+
+    this.send_message(name, { key: value, guiEvent: simpleKeys(event) });
+    return false;
+};
+
+mpl.figure.prototype.toolbar_button_onclick = function (name) {
+    if (name === 'download') {
+        this.handle_save(this, null);
+    } else {
+        this.send_message('toolbar_button', { name: name });
+    }
+};
+
+mpl.figure.prototype.toolbar_button_onmouseover = function (tooltip) {
+    this.message.textContent = tooltip;
+};
+
+///////////////// REMAINING CONTENT GENERATED BY embed_js.py /////////////////
+// prettier-ignore
+var _JSXTOOLS_RESIZE_OBSERVER=function(A){var t,i=new WeakMap,n=new WeakMap,a=new WeakMap,r=new WeakMap,o=new Set;function s(e){if(!(this instanceof s))throw new TypeError("Constructor requires 'new' operator");i.set(this,e)}function h(){throw new TypeError("Function is not a constructor")}function c(e,t,i,n){e=0 in arguments?Number(arguments[0]):0,t=1 in arguments?Number(arguments[1]):0,i=2 in arguments?Number(arguments[2]):0,n=3 in arguments?Number(arguments[3]):0,this.right=(this.x=this.left=e)+(this.width=i),this.bottom=(this.y=this.top=t)+(this.height=n),Object.freeze(this)}function d(){t=requestAnimationFrame(d);var s=new WeakMap,p=new Set;o.forEach((function(t){r.get(t).forEach((function(i){var r=t instanceof window.SVGElement,o=a.get(t),d=r?0:parseFloat(o.paddingTop),f=r?0:parseFloat(o.paddingRight),l=r?0:parseFloat(o.paddingBottom),u=r?0:parseFloat(o.paddingLeft),g=r?0:parseFloat(o.borderTopWidth),m=r?0:parseFloat(o.borderRightWidth),w=r?0:parseFloat(o.borderBottomWidth),b=u+f,F=d+l,v=(r?0:parseFloat(o.borderLeftWidth))+m,W=g+w,y=r?0:t.offsetHeight-W-t.clientHeight,E=r?0:t.offsetWidth-v-t.clientWidth,R=b+v,z=F+W,M=r?t.width:parseFloat(o.width)-R-E,O=r?t.height:parseFloat(o.height)-z-y;if(n.has(t)){var k=n.get(t);if(k[0]===M&&k[1]===O)return}n.set(t,[M,O]);var S=Object.create(h.prototype);S.target=t,S.contentRect=new c(u,d,M,O),s.has(i)||(s.set(i,[]),p.add(i)),s.get(i).push(S)}))})),p.forEach((function(e){i.get(e).call(e,s.get(e),e)}))}return s.prototype.observe=function(i){if(i instanceof window.Element){r.has(i)||(r.set(i,new Set),o.add(i),a.set(i,window.getComputedStyle(i)));var n=r.get(i);n.has(this)||n.add(this),cancelAnimationFrame(t),t=requestAnimationFrame(d)}},s.prototype.unobserve=function(i){if(i instanceof window.Element&&r.has(i)){var n=r.get(i);n.has(this)&&(n.delete(this),n.size||(r.delete(i),o.delete(i))),n.size||r.delete(i),o.size||cancelAnimationFrame(t)}},A.DOMRectReadOnly=c,A.ResizeObserver=s,A.ResizeObserverEntry=h,A}; // eslint-disable-line
+mpl.toolbar_items = [["Home", "Reset original view", "fa fa-home", "home"], ["Back", "Back to previous view", "fa fa-arrow-left", "back"], ["Forward", "Forward to next view", "fa fa-arrow-right", "forward"], ["", "", "", ""], ["Pan", "Left button pans, Right button zooms\nx/y fixes axis, CTRL fixes aspect", "fa fa-arrows", "pan"], ["Zoom", "Zoom to rectangle\nx/y fixes axis", "fa fa-square-o", "zoom"], ["", "", "", ""], ["Download", "Download plot", "fa fa-floppy-o", "download"]];
+
+mpl.extensions = ["eps", "jpeg", "pgf", "pdf", "png", "ps", "raw", "svg", "tif", "webp"];
+
+mpl.default_extension = "png";/* global mpl */
+
+var comm_websocket_adapter = function (comm) {
+    // Create a "websocket"-like object which calls the given IPython comm
+    // object with the appropriate methods. Currently this is a non binary
+    // socket, so there is still some room for performance tuning.
+    var ws = {};
+
+    ws.binaryType = comm.kernel.ws.binaryType;
+    ws.readyState = comm.kernel.ws.readyState;
+    function updateReadyState(_event) {
+        if (comm.kernel.ws) {
+            ws.readyState = comm.kernel.ws.readyState;
+        } else {
+            ws.readyState = 3; // Closed state.
+        }
+    }
+    comm.kernel.ws.addEventListener('open', updateReadyState);
+    comm.kernel.ws.addEventListener('close', updateReadyState);
+    comm.kernel.ws.addEventListener('error', updateReadyState);
+
+    ws.close = function () {
+        comm.close();
+    };
+    ws.send = function (m) {
+        //console.log('sending', m);
+        comm.send(m);
+    };
+    // Register the callback with on_msg.
+    comm.on_msg(function (msg) {
+        //console.log('receiving', msg['content']['data'], msg);
+        var data = msg['content']['data'];
+        if (data['blob'] !== undefined) {
+            data = {
+                data: new Blob(msg['buffers'], { type: data['blob'] }),
+            };
+        }
+        // Pass the mpl event to the overridden (by mpl) onmessage function.
+        ws.onmessage(data);
+    });
+    return ws;
+};
+
+mpl.mpl_figure_comm = function (comm, msg) {
+    // This is the function which gets called when the mpl process
+    // starts-up an IPython Comm through the "matplotlib" channel.
+
+    var id = msg.content.data.id;
+    // Get hold of the div created by the display call when the Comm
+    // socket was opened in Python.
+    var element = document.getElementById(id);
+    var ws_proxy = comm_websocket_adapter(comm);
+
+    function ondownload(figure, _format) {
+        window.open(figure.canvas.toDataURL());
+    }
+
+    var fig = new mpl.figure(id, ws_proxy, ondownload, element);
+
+    // Call onopen now - mpl needs it, as it is assuming we've passed it a real
+    // web socket which is closed, not our websocket->open comm proxy.
+    ws_proxy.onopen();
+
+    fig.parent_element = element;
+    fig.cell_info = mpl.find_output_cell("<div id='" + id + "'></div>");
+    if (!fig.cell_info) {
+        console.error('Failed to find cell for figure', id, fig);
+        return;
+    }
+    fig.cell_info[0].output_area.element.on(
+        'cleared',
+        { fig: fig },
+        fig._remove_fig_handler
+    );
+};
+
+mpl.figure.prototype.handle_close = function (fig, msg) {
+    var width = fig.canvas.width / fig.ratio;
+    fig.cell_info[0].output_area.element.off(
+        'cleared',
+        fig._remove_fig_handler
+    );
+    fig.resizeObserverInstance.unobserve(fig.canvas_div);
+
+    // Update the output cell to use the data from the current canvas.
+    fig.push_to_output();
+    var dataURL = fig.canvas.toDataURL();
+    // Re-enable the keyboard manager in IPython - without this line, in FF,
+    // the notebook keyboard shortcuts fail.
+    IPython.keyboard_manager.enable();
+    fig.parent_element.innerHTML =
+        '<img src="' + dataURL + '" width="' + width + '">';
+    fig.close_ws(fig, msg);
+};
+
+mpl.figure.prototype.close_ws = function (fig, msg) {
+    fig.send_message('closing', msg);
+    // fig.ws.close()
+};
+
+mpl.figure.prototype.push_to_output = function (_remove_interactive) {
+    // Turn the data on the canvas into data in the output cell.
+    var width = this.canvas.width / this.ratio;
+    var dataURL = this.canvas.toDataURL();
+    this.cell_info[1]['text/html'] =
+        '<img src="' + dataURL + '" width="' + width + '">';
+};
+
+mpl.figure.prototype.updated_canvas_event = function () {
+    // Tell IPython that the notebook contents must change.
+    IPython.notebook.set_dirty(true);
+    this.send_message('ack', {});
+    var fig = this;
+    // Wait a second, then push the new image to the DOM so
+    // that it is saved nicely (might be nice to debounce this).
+    setTimeout(function () {
+        fig.push_to_output();
+    }, 1000);
+};
+
+mpl.figure.prototype._init_toolbar = function () {
+    var fig = this;
+
+    var toolbar = document.createElement('div');
+    toolbar.classList = 'btn-toolbar';
+    this.root.appendChild(toolbar);
+
+    function on_click_closure(name) {
+        return function (_event) {
+            return fig.toolbar_button_onclick(name);
+        };
+    }
+
+    function on_mouseover_closure(tooltip) {
+        return function (event) {
+            if (!event.currentTarget.disabled) {
+                return fig.toolbar_button_onmouseover(tooltip);
+            }
+        };
+    }
+
+    fig.buttons = {};
+    var buttonGroup = document.createElement('div');
+    buttonGroup.classList = 'btn-group';
+    var button;
+    for (var toolbar_ind in mpl.toolbar_items) {
+        var name = mpl.toolbar_items[toolbar_ind][0];
+        var tooltip = mpl.toolbar_items[toolbar_ind][1];
+        var image = mpl.toolbar_items[toolbar_ind][2];
+        var method_name = mpl.toolbar_items[toolbar_ind][3];
+
+        if (!name) {
+            /* Instead of a spacer, we start a new button group. */
+            if (buttonGroup.hasChildNodes()) {
+                toolbar.appendChild(buttonGroup);
+            }
+            buttonGroup = document.createElement('div');
+            buttonGroup.classList = 'btn-group';
+            continue;
+        }
+
+        button = fig.buttons[name] = document.createElement('button');
+        button.classList = 'btn btn-default';
+        button.href = '#';
+        button.title = name;
+        button.innerHTML = '<i class="fa ' + image + ' fa-lg"></i>';
+        button.addEventListener('click', on_click_closure(method_name));
+        button.addEventListener('mouseover', on_mouseover_closure(tooltip));
+        buttonGroup.appendChild(button);
+    }
+
+    if (buttonGroup.hasChildNodes()) {
+        toolbar.appendChild(buttonGroup);
+    }
+
+    // Add the status bar.
+    var status_bar = document.createElement('span');
+    status_bar.classList = 'mpl-message pull-right';
+    toolbar.appendChild(status_bar);
+    this.message = status_bar;
+
+    // Add the close button to the window.
+    var buttongrp = document.createElement('div');
+    buttongrp.classList = 'btn-group inline pull-right';
+    button = document.createElement('button');
+    button.classList = 'btn btn-mini btn-primary';
+    button.href = '#';
+    button.title = 'Stop Interaction';
+    button.innerHTML = '<i class="fa fa-power-off icon-remove icon-large"></i>';
+    button.addEventListener('click', function (_evt) {
+        fig.handle_close(fig, {});
+    });
+    button.addEventListener(
+        'mouseover',
+        on_mouseover_closure('Stop Interaction')
+    );
+    buttongrp.appendChild(button);
+    var titlebar = this.root.querySelector('.ui-dialog-titlebar');
+    titlebar.insertBefore(buttongrp, titlebar.firstChild);
+};
+
+mpl.figure.prototype._remove_fig_handler = function (event) {
+    var fig = event.data.fig;
+    if (event.target !== this) {
+        // Ignore bubbled events from children.
+        return;
+    }
+    fig.close_ws(fig, {});
+};
+
+mpl.figure.prototype._root_extra_style = function (el) {
+    el.style.boxSizing = 'content-box'; // override notebook setting of border-box.
+};
+
+mpl.figure.prototype._canvas_extra_style = function (el) {
+    // this is important to make the div 'focusable
+    el.setAttribute('tabindex', 0);
+    // reach out to IPython and tell the keyboard manager to turn it's self
+    // off when our div gets focus
+
+    // location in version 3
+    if (IPython.notebook.keyboard_manager) {
+        IPython.notebook.keyboard_manager.register_events(el);
+    } else {
+        // location in version 2
+        IPython.keyboard_manager.register_events(el);
+    }
+};
+
+mpl.figure.prototype._key_event_extra = function (event, _name) {
+    // Check for shift+enter
+    if (event.shiftKey && event.which === 13) {
+        this.canvas_div.blur();
+        // select the cell after this one
+        var index = IPython.notebook.find_cell_index(this.cell_info[0]);
+        IPython.notebook.select(index + 1);
+    }
+};
+
+mpl.figure.prototype.handle_save = function (fig, _msg) {
+    fig.ondownload(fig, null);
+};
+
+mpl.find_output_cell = function (html_output) {
+    // Return the cell and output element which can be found *uniquely* in the notebook.
+    // Note - this is a bit hacky, but it is done because the "notebook_saving.Notebook"
+    // IPython event is triggered only after the cells have been serialised, which for
+    // our purposes (turning an active figure into a static one), is too late.
+    var cells = IPython.notebook.get_cells();
+    var ncells = cells.length;
+    for (var i = 0; i < ncells; i++) {
+        var cell = cells[i];
+        if (cell.cell_type === 'code') {
+            for (var j = 0; j < cell.output_area.outputs.length; j++) {
+                var data = cell.output_area.outputs[j];
+                if (data.data) {
+                    // IPython >= 3 moved mimebundle to data attribute of output
+                    data = data.data;
+                }
+                if (data['text/html'] === html_output) {
+                    return [cell, data, j];
+                }
+            }
+        }
+    }
+};
+
+// Register the function which deals with the matplotlib target/channel.
+// The kernel may be null if the page has been refreshed.
+if (IPython.notebook.kernel !== null) {
+    IPython.notebook.kernel.comm_manager.register_target(
+        'matplotlib',
+        mpl.mpl_figure_comm
+    );
+}
+</script><div class="output text_html"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAAPACAYAAABq3NR5AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAFAKADAAQAAAABAAADwAAAAADIn4SfAABAAElEQVR4AezdCZgdVZk47tP7ko1gIAJB9iX83ZBFEBBUFhEVHndFAWVwVHAZRdz5wbiiozLgwvjEEVB0wJkRFRTFhU1ARFEYATUOaAhLCEv23vvPKedeb5LuTufee7rr3nrreZquW1XnO+e8X/Xt5kvVrZbRJ5ZgIUCAAAECBAgQIECAAAECBAgQIECgKQVam3JWJkWAAAECBAgQIECAAAECBAgQIECAQCagAOhEIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAgQIECAAAECBAgQINDEAgqATZxcUyNAgAABAgQIECBAgAABAgQIECCgAOgcIECAAAECBAg0scAVV1wRTjjhhLDrrruGWbNmhZkzZ4bddtstvO51rwtxXzXL7373u/DOd74zPOMZzwhbbrll6O7uDjvssEM46qijwqJFi8LatWs3O+yDDz4Y/vmf/zkcfPDBYf78+aGrqys8+clPDgcccED4xCc+EZYuXbrZMTe3wU9/+tPMavfddw8zZszI5vb0pz89vPe97w1333335oZzPAECBAgQIEAgNwIto08suRmNgRAgQIAAAQIEGkBgxx13DH/5y1+ykd5zzz0hvs7b8te//jW8+tWvDjfffPOEQzviiCPChRdeGLbddtsJj4s7+/r6wqmnnhq+9rWvhYn+hIzFxosvvjgceOCBm4wZDzjvvPPC+9///rBu3bpxj4/Fy3PPPTe86U1vGveYanesXLkyvPnNbw6XXnrpuCE6OjrC2WefHT7wgQ+Me4wdBAgQIECAAIG8CigA5jUzxkWAAAECBAjkViDvBcBYnHz2s58dHnroobLhU5/61PCsZz0rtLe3h7vuuiv88pe/DCMjI9n+PffcM9x4441h7ty55eM3XBkYGAixWHjdddeVd8WiYbxib86cOWHJkiXZvtLVf/EKumuuuSbsu+++5ePHWomFv3POOae8Kxb6nvvc52YFycceeyyLuWzZsvL+L33pS+Gtb31r+XWtK4ODg+Hoo48O8eq/0hKt9tlnn6wgGecbr04sLbEIeOaZZ5Ze+k6AAAECBAgQaAgBBcCGSJNBEiBAgAABAnkSyHMBMF6ZF4t/v/rVrzKyefPmhUsuuSQceeSR6xHecccd4ZWvfGX4wx/+kG0/7rjjwne+8531jql8cfrpp4fPfvaz2aa2trbw6U9/OrsNOK6Xlocffjiccsop4bvf/W62abvttgt//OMfQ29vb+mQ9b7HW5Bf8pKXlLe94Q1vyK4G3GKLLcrbYuEx3gIcC29xif3dcsstWTGzfFANK7GY99GPfjSLEG9ljlc3vuY1rylHjP1/+MMfDp/5zGfK22Jh89BDDy2/tkKAAAECBAgQyLuAAmDeM2R8BAgQIECAQO4E8lwAjEW8l73sZZlZa2truOGGG8a9Ffe+++4L8TPu4pV2cbn++uuzK/qyFxX/eeCBB8JOO+0U+vv7s63xir0zzjij4oi/rw4PD4dDDjkk3HTTTdnGj33sY+FDH/rQ3w+oWIufIXj77bdnW+JVeD/4wQ8q9q6/GvsrFeEOP/zwcPXVV69/QBWv4pWFO++8c1izZk3W+oILLgj/+I//OGakWBQs3SIcb22OV0xaCBAgQIAAAQKNIuAhII2SKeMkQIAAAQIECExC4LLLLisfFa+um+hz+BYsWBBOO+208vHxs/jGWr73ve+Vi39bb711eNe73jXWYdm2eIVeLPqVli984QvlW41L2+L3eOVhqfgXX8er/CZa4lV48QEmcfnJT34S7rzzzokOn9S+iy66qFz8iw/+iJ8DON4Sr3iMBdW4xOLmbbfdNt6hthMgQIAAAQIEciegAJi7lBgQAQIECBAgkEeBe++9N7S0tGRfpQeAxHHGK+NK2yu/x9tEp2OpfOhHvKpuU8uLXvSi8iHxCryxHsRRGfP5z39+6OzsLLcZayXeHhs/AzAu8fPzfvGLX2x0WGXMbbbZJjzzmc/c6JjKDbNnzw4HHXRQedN//dd/lderXbn88svLTU866aQsj+UNG6w85SlPCS94wQvKWye6Xbp8kBUCBAgQIECAQE4EFABzkgjDIECAAAECBAjUQ6DywR877LDDJkNWHhNvhY0PB9lw2dyY8SrA+Pl/paXyARulbZUxY3FtMkvlWMeKOZkYpWPiE40ri5CHHXZYade43yuP+dnPfjbucXYQIECAAAECBPIm0J63ARkPAQIECBAgQCCPAvEKtFNPPTUb2sUXXxxWrVqVrZ9wwgkhPrl2w6WyALbhvql6Ha9I3Nzl97//fagsdMX28cEipaXamKX2pe8pYpZiT+Z7vAW59BTkOKe99957k83iU5RLS3ySsoUAAQIECBAg0CgCCoCNkinjJECAAAECBKZVYMsttwzx8+ziEp9eWyoAxqfT7rjjjtn28f4Tb62d6AEX47WbaHt8Ym582u+GS3zq75IlS7LN8bblTS2VtzPHY8cqbG211VblMJOJGR8EsnTp0nKbTcXccAzlhhusVB63fPnyEL/ifKtZSk8/jm3j5xrGJwBvaqm8UvHRRx8N8anHlTabam8/AQIECBAgQGC6BBQAp0tevwQIECBAgEBhBG655ZbwxS9+sa7z3XfffccsAMbtpQLgD3/4w3GfalsazIaFyVjY2nCJMb/+9a9nm+OtrwMDAxN+DuC1115bfrhGbDRezFI/8SnDv/3tbyf8HMCVK1du9FmCMW61BcBHHnmk1H2YP39+eX2ilSc/+cnr7Y79KwCuR+IFAQIECBAgkFMBnwGY08QYFgECBAgQIECgGoGXvvSl5Wbf//73syfWljdssBKv0itd1VjaVbqysfQ6fj/mmGPKT8BdtmxZOPfccyt3r7cer/6LT+ytXMaK+bSnPS17gErpuA996EOl1TG/xycLr169er19Y8Vd74AJXlTG6unpmeDIv+/a8LjKGH8/yhoBAgQIECBAIH8CCoD5y4kRESBAgAABAk0mcNZZZ2Wfoxc/965eX/GptWMtxx9/fLmwFj/jLhYEf/zjH2906B133BEOP/zw8Nhjj623b6ynAO+yyy7hta99bfm4D37wg+Hzn/98iMW+yiXeEvuKV7xio6LjWDHj5+7FOKUlXol44oknhscff7y0KfserzaMt1l/5jOfWW97fDFW3I0OGmdDfAhIadnUU41Lx3V1dZVWs++19L9eIC8IECBAgAABAokF3AKcGFh4AgQIECBAgMBUCnR0dITLLrssHHLIISEWueLn5B111FEhXnEXH2LR3t6efc5ffAJuLBDGq9qe85znhNJTdcd6oEkcf7xSMD4hePHixVnh793vfnf47Gc/Gw4++OAwZ86c7LbjeOvv2rVrs+m+5CUvCfEKxLiMF/Mf/uEfsuLkt7/97ey4+HCV73znO9lDSLbZZpusOHndddeF0hODK2NOFDcLton/VH7mXywyTmbp7+9f77ANrwhcb6cXBAgQIECAAIEcCSgA5igZ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57z437TLjK3S/mPRnN60/6AWdWa2pT9n1yYuAM5cl/59PFpV/m0eX1sIEGhugbS/CZvbzuwINLTAX//613D66aeHhQsXhhkzZoQtt9wy+3y+f/mXfwlr165t6LkZPAECBAgQIECAAAECBAgQIPB3AVcA/t3CGoHCCFx55ZXh+OOPDytWrCjPORb9fvWrX2VfixYtCj/4wQ/CzjvvXN5vhQABAgQIECBAgAABAgQIEGhMAVcANmbejJpA1QK/+93vwqte9aqs+Ddz5szw8Y9/PNx4443hpz/9aTjllFOyuH/4wx/CMcccE1avTv+5ZFVPREMCBAgQIECAAAECBAgQIEBgUgKuAJwUk4MINI/Au971ruwW3/iZHz/+8Y/DgQceWJ7c85///LDbbruFM844I9x9993hc5/7XDjzzDPL+60QIECAAAECBAgQIECAAAECjSfgCsDGy5kRE6haIN7ie80112TtTz755PWKf6Wg73nPe7LPBYyvzz333DA4mP4Jq6W+fSdAgAABAgQIECBAgAABAgTqL6AAWH9TEQnkVuDyyy8vj+2Nb3xjeb1ypbW1NZxwwgnZpscee6xcMKw8xjoBAgQIECBAgAABAgQIECDQOAIKgI2TKyMlULPA9ddfn8WIT/3dZ599xo136KGHlvfdcMMN5XUrBAgQIECAAAECBAgQIECAQOMJKAA2Xs6MmEDVAnfddVfWdtdddw3xMwDHW/bcc8/yrlKb8gYrBAgQIECAAAECBAgQIECAQEMJjF8BaKhpGCwBApsS6OvrC8uXL88OW7BgwYSHz507N8SrBNesWROWLFky4bGVO++7777KlxutP/DAAxtts4EAAQIECBAgQIAAAQIECBBIK6AAmNZXdAK5EVi1alV5LDNnziyvj7dSKgCuXr16vEM22r799ttvtM0GAgQIECBAgAABAgQIECBAYHoF3AI8vf56JzBlAvEKwNLS2dlZWh33e1dXV7Zv3bp14x5jBwECBAgQIECAAAECBAgQIJB/AVcA5j9HRkigLgLd3d3lOAMDA+X18Vb6+/uzXT09PeMdstH2Td0uHG8B3n///TdqZwMBAgQIECBAgAABAgQIECCQTkABMJ2tyARyJTBr1qzyeCZzW2/8/L+4TOZ24VLgTX22YOk43wkQIECAAAECBAgQIECAAIGpE3AL8NRZ64nAtArEKwDnzZuXjWFTD+t47LHHsgeAxIN9rt+0pk3nBAgQIECAAAECBAgQIECgZgEFwJoJBSDQOAILFy7MBrt48eIwNDQ07sDvvvvu8r5Sm/IGKwQIECBAgAABAgQIECBAgEBDCSgANlS6DJZAbQIHH3xwFiDe3vvrX/963GDXXntted9BBx1UXrdCgAABAgQIECBAgAABAgQINJ6AAmDj5cyICVQtcNxxx5Xbfu1rXyuvV66MjIyEiy++ONu0xRZbhOc973mVu60TIECAAAECBAgQIECAAAECDSagANhgCTNcArUIxCfwHnLIIVmIr371q+Gmm27aKNxnP/vZcNddd2Xb3/nOd4aOjo6NjrGBAAECBAgQIECAAAECBAgQaBwBTwFunFwZKYG6CPzrv/5riLf1rlu3Lhx55JHhgx/8YHaVX3z9H//xH+ErX/lK1s/uu+8e3vOe99SlT0EIECBAgAABAgQIECBAgACB6RNQAJw+ez0TmBaBvffeO1x66aXh9a9/fVi5cmVWANxwILH4d+WVV4ZZs2ZtuMtrAgQIECBAgAABAgQIECBAoMEE3ALcYAkzXAL1EHjJS14Sbr/99vBP//RPIRb7ent7Q/y8v3333Tecc8454bbbbgu77rprPboSgwABAgQIECBAgAABAgQIEJhmAVcATnMCdE9gugR22GGH8LnPfS77mo4xPLRiVuhon5Os68GVXclix8Ct69L/+0nLSNIpZMFHU09jNP0cRoZbknfSN5j21+WKge7kc2idghNqqLMt7Tw604aP0ee0r0veSVfLUNI+tulemTR+DL56btr32NjH3Yl/7laPzIzdJF1GOlO/yYbQvTztZ/W29SclyoIPT8HPduq3wLY16XP92Mre5MlY3DUvaR/9I4l/Tzwx+p62waRziMFXDab9vX3/mnR/I/evWJXcRwcECORTIP1vqnzO26gIECBAgAABAgQIECBAgAABAgQIFEJAAbAQaTZJAgQIECBAgAABAgQIECBAgACBogooABY18+ZNgAABAgQIECBAgAABAgQIECBQCAEFwEKk2SQJECBAgAABAgQIECBAgAABAgSKKqAAWNTMmzcBAgQIECBAgAABAgQIECBAgEAhBBQAC5FmkyRAgAABAgQIECBAgAABAgQIECiqgAJgUTNv3gQIECBAgAABAgQIECBAgAABAoUQUAAsRJpNkgABAgQIECBAgAABAgQIECBAoKgCCoBFzbx5EyBAgAABAgQIECBAgAABAgQIFEJAAbAQaTZJAgQIECBAgAABAgQIECBAgACBogooABY18+ZNgAABAgQIECBAgAABAgQIECBQCAEFwEKk2SQJECBAgAABAgQIECBAgAABAgSKKqAAWNTMmzcBAgQIECBAgAABAgQIECBAgEAhBBQAC5FmkyRAgAABAgQIECBAgAABAgQIECiqgAJgUTNv3gQIECBAgAABAgQIECBAgAABAoUQUAAsRJpNkgABAgQIECBAgAABAgQIECBAoKgCCoBFzbx5EyBAgAABAgQIECBAgAABAgQIFEJAAbAQaTZJAgQIECBAgAABAgQIECBAgACBogooABY18+ZNgAABAgQIECBAgAABAgQIECBQCAEFwEKk2SQJECBAgAABAgQIECBAgAABAgSKKqAAWNTMmzcBAgQIECBAgAABAgQIECBAgEAhBBQAC5FmkyRAgAABAgQIECBAgAABAgQIECiqgAJgUTNv3gQIECBAgAABAgQIECBAgAABAoUQaC/ELE2SAIHcCfQ/1h2GQ0+ycbWtTvvvG62DLcnGXg48BV2MtoyWu0uxMtqWNn4cc2viOcQ+RkfTJmN4JO35GucwMjoFfYS0TnEeqZfWkP6c7W3rTzqNtpaRpPFj8AW9Hcn7WDW3O2kf9w6k/zN43UjaOUSgkfa0P9sda5KmIQveMpy+j9RvT2396d//BlZ0Joda2jonaR8r+7qSxo/B21rTv4/3DaZ9/1i7Jt17x9Ajad8zkidYBwQIVC3gp79qOg0JECBAgAABAgQIECBAgAABAgQI5F9AATD/OTJCAgQIECBAgAABAgQIECBAgAABAlULKABWTachAQIECBAgQIAAAQIECBAgQIAAgfwLKADmP0dGSIAAAQIECBAgQIAAAQIECBAgQKBqAQXAquk0JECAAAECBAgQIECAAAECBAgQIJB/AQXA/OfICAkQIECAAAECBAgQIECAAAECBAhULaAAWDWdhgQIECBAgAABAgQIECBAgAABAgTyL6AAmP8cGSEBAgQIECBAgAABAgQIECBAgACBqgUUAKum05AAAQIECBAgQIAAAQIECBAgQIBA/gUUAPOfIyMkQIAAAQIECBAgQIAAAQIECBAgULWAAmDVdBoSIECAAAECBAgQIECAAAECBAgQyL+AAmD+c2SEBAgQIECAAAECBAgQIECAAAECBKoWUACsmk5DAgQIECBAgAABAgQIECBAgAABAvkXUADMf46MkAABAgQIECBAgAABAgQIECBAgEDVAgqAVdNpSIAAAQIECBAgQIAAAQIECBAgQCD/AgqA+c+RERIgQIAAAQIECBAgQIAAAQIECBCoWkABsGo6DQkQIECAAAECBAgQIECAAAECBAjkX0ABMP85MkICBAgQIECAAAECBAgQIECAAAECVQsoAFZNpyEBAgQIECBAgAABAgQIECBAgACB/AsoAOY/R0ZIgAABAgQIECBAgAABAgQIECBAoGoBBcCq6TQkQIAAAQIECBAgQIAAAQIECBAgkH8BBcD858gICRAgQIAAAQIECBAgQIAAAQIECFQtoABYNZ2GBAgQIECAAAECBAgQIECAAAECBPIvoACY/xwZIQECBAgQIECAAAECBAgQIECAAIGqBdqrbqkhAQIEahBoX9EW2lvaaogwcdPW4Yn317p3NN3Qy0Mb6Rgtr6daGe4dSRU6i9syYyhp/Bi8u3cgeR+ze/qS9rFF97qk8WPwuV1rk/exZceapH3MaU/v1NvWn3QOMXhHS9o3qJGW9P++29Wa/md7Rnvan+3e3vS5Xjk7/Z/aA8Np+xhtS38+taZNdfKf6dhBa39L8n7i306pl6HhnqRdPLqqK2n8LHhL+r+fwlDan4vWdenijz7emT4HeiBAIJcC6d5ZcjldgyJAgAABAgQIECBAgAABAgQIECBQLAEFwGLl22wJECBAgAABAgQIECBAgAABAgQKJqAAWLCEmy4BAgQIECBAgAABAgQIECBAgECxBBQAi5VvsyVAgAABAgQIECBAgAABAgQIECiYgAJgwRJuugQIECBAgAABAgQIECBAgAABAsUSUAAsVr7NlgABAgQIECBAgAABAgQIECBAoGACCoAFS7jpEiBAgAABAgQIECBAgAABAgQIFEtAAbBY+TZbAgQIECBAgAABAgQIECBAgACBggkoABYs4aZLgAABAgQIECBAgAABAgQIECBQLAEFwGLl22wJECBAgAABAgQIECBAgAABAgQKJqAAWLCEmy4BAgQIECBAgAABAgQIECBAgECxBBQAi5VvsyVAgAABAgQIECBAgAABAgQIECiYgAJgwRJuugQIECBAgAABAgQIECBAgAABAsUSUAAsVr7NlgABAgQIECBAgAABAgQIECBAoGACCoAFS7jpEiBAgAABAgQIECBAgAABAgQIFEtAAbBY+TZbAgQIECBAgAABAgQIECBAgACBggkoABYs4aZLgAABAgQIECBAgAABAgQIECBQLAEFwGLl22wJECBAgAABAgQIECBAgAABAgQKJqAAWLCEmy4BAgQIECBAgAABAgQIECBAgECxBBQAi5VvsyVAgAABAgQIECBAgAABAgQIECiYgAJgwRJuugQIECBAgAABAgQIECBAgAABAsUSUAAsVr7NlgABAgQIECBAgAABAgQIECBAoGACCoAFS7jpEiBAgAABAgQIECBAgAABAgQIFEtAAbBY+TZbAgQIECBAgAABAgQIECBAgACBggm0F2y+pkuAQE4EWgdDaBtIN5jhznSxY+ThGSNpO3gi+ujMoeR99MzqT9rH3Jlrk8aPwZ/UMwV9dK1JOo8tO9LGj4Of3d6XdA4xeG9b2vOpuyX9z0RrS/qf7cHRtqS5WDXcnTR+DL5yKH0ffcNp/0wdTa4UQktH+vNppCftTIaG08aPaWhrbUmejfh3R8qlNf3bU+hYnd6pvS/t+9NI2xRcf5KeKST/VTGacBKrpiAHKX/YxCZAoGoBP/1V02lIgAABAgQIECBAgAABAgQIECBAIP8CCoD5z5EREiBAgAABAgQIECBAgAABAgQIEKhaQAGwajoNCRAgQIAAAQIECBAgQIAAAQIECORfQAEw/zkyQgIECBAgQIAAAQIECBAgQIAAAQJVCygAVk2nIQECBAgQIECAAAECBAgQIECAAIH8CygA5j9HRkiAAAECBAgQIECAAAECBAgQIECgagEFwKrpNCRAgAABAgQIECBAgAABAgQIECCQfwEFwPznyAgJECBAgAABAgQIECBAgAABAgQIVC2gAFg1nYYECBAgQIAAAQIECBAgQIAAAQIE8i+gAJj/HBkhAQIECBAgQIAAAQIECBAgQIAAgaoFFACrptOQAAECBAgQIECAAAECBAgQIECAQP4FFADznyMjJECAAAECBAgQIECAAAECBAgQIFC1gAJg1XQaEiBAgAABAgQIECBAgAABAgQIEMi/gAJg/nNkhAQIECBAgAABAgQIECBAgAABAgSqFlAArJpOQwIECBAgQIAAAQIECBAgQIAAAQL5F1AAzH+OjJAAAQIECBAgQIAAAQIECBAgQIBA1QIKgFXTaUiAAAECBAgQIECAAAECBAgQIEAg/wIKgPnPkRESIECAAAECBAgQIECAAAECBAgQqFpAAbBqOg0JECBAgAABAgQIECBAgAABAgQI5F9AATD/OTJCAgQIECBAgAABAgQIECBAgAABAlULKABWTachAQIECBAgQIAAAQIECBAgQIAAgfwLKADmP0dGSIAAAQIECBAgQIAAAQIECBAgQKBqAQXAquk0JECAAAECBAgQIECAAAECBAgQIJB/gfb8D9EICRBoSoG2EEaf+Eq1DM8aSRU6i9s2tz9p/Bh8/pYrk/ex4+xHk/axXc/jSePH4PM6ViXvo7d1IGkfHS3DSePH4G0h7c9E7GM4pP13xcGUbxpxAk8sa0c6/7aS8L8rhnoTRg/h4YGZSePH4A+tm528jxX93Un7GBpK+Evo/0be0jKadA4x+EhH2p/t4bSn6998WtK+d/xfJ3/7lui/bX2JAleEbV9b8SLRaupfRy2jLYlG/vewo1NwOo0k/r/olL+KRtL+SfP3RFgjQCB3AlPw9pi7ORsQAQIECBAgQIAAAQIECBAgQIAAgcIIKAAWJtUmSoAAAQIECBAgQIAAAQIECBAgUEQBBcAiZt2cCRAgQIAAAQIECBAgQIAAAQIECiOgAFiYVJsogRBaWlom9XXYYYfhIkCAAAECBAgQIECAAAECBJpEQAGwSRJpGgQIECBAgAABAgQIECBAgAABAgTGEkj8/KKxurSNAIHpFnjrW98a3va2t407jBkzZoy7zw4CBAgQIECAAAECBAgQIECgsQQUABsrX0ZLoC4CW2+9dXjqU59al1iCECBAgAABAgQIECBAgAABAvkWcAtwvvNjdAQIECBAgAABAgQIECBAgAABAgRqElAArIlPYwIECBAgQIAAAQIECBAgQIAAAQL5FlAAzHd+jI4AAQIECBAgQIAAAQIECBAgQIBATQIKgDXxaUygMQW+/e1vhz322CP09PSEWbNmhd122y2ceOKJ4ec//3ljTsioCRAgQIAAAQIECBAgQIAAgXEFPARkXBo7CDSvwJ133rne5BYvXhzi18UXXxyOO+64cOGFF4Y5c+asd8xkXtx3330THvbAAw9MuN9OAgQIECBAgAABAgQIECBAoP4CCoD1NxWRQG4Fent7w0tf+tLwghe8IOy5555h5syZ4eGHHw7XXnttuOCCC8IjjzwSLr/88nDssceGq6++OnR0dGzWXLbffvvNOt7BBAgQIECAAAECBAgQIECAQHoBBcD0xnogkBuBpUuXhi222GKj8RxxxBHh7W9/ezj66KPDbbfdlhUEv/zlL4d3vOMdGx1rAwECBAgQIECAAAECBAgQINBYAgqAjZUvoyVQk8BYxb9SwPnz54f//M//DAsXLgwDAwPh/PPP3+wC4JIlS0rhxvwebwHef//9x9xnIwECBAgQIECAAAECBAgQIJBGQAEwjauoBBpSYOeddw7xasArr7wy+0zA+++/P2y77baTnsuCBQsmfawDCRAgQIAAAQIECBAgQIAAgakR8BTgqXHWC4GGEdhrr73KY423DFsIECBAgAABAgQIECBAgACBxhZQAGzs/Bk9gboLjI6O1j2mgAQIECBAgAABAgQIECBAgMD0CSgATp+9ngnkUuDOO+8sj2tzbv8tN7JCgAABAgQIECBAgAABAgQI5EpAATBX6TAYAtMr8L//+7/h6quvzgYRPw9wu+22m94B6Z0AAQIECBAgQIAAAQIECBCoWUABsGZCAQg0hsD3v//9MDQ0NO5gH3roofCKV7wiDA4OZseceuqp4x5rBwECBAgQIECAAAECBAgQINA4Ap4C3Di5MlICNQm8/e1vz4p7L3/5y8OBBx4Ydtxxx9DT0xOWL18errnmmnDBBReERx55JOvj4IMPDgqANXFrTIAAAQIECBAgQIAAAQIEciOgAJibVBgIgfQC999/fzj//POzr/F6iwXCRYsWha6urvEOsZ0AAQIECBAgQIAAAQIECBBoIAEFwAZKlqESqEXgoosuCtdee2246aabQvysv3jl38qVK8PMmTPD9ttvH57znOeEE088Mbs6sJZ+tCVAgAABAgQIECBAgAABAgTyJaAAmK98GA2BZAKHHnpoiF95WYa7RkNL92iy4bTO7U8WOwZ+ytaPJo0fgz9z7n3J+9ir9/6kfTy54/Gk8WPwGS0DyfsYGG1L2seqkZ6k8WPwx4d7k/exYjjtPB4bnJF8Do8PpXd6fCCtU+r4MQkr+ruT52Jtf2fSPkZGWpLGj8Fb2tL9nisNvrVn/M/3LR1Ty/eR9rTvf3FsQ1PgFEbSzqOtL/351NZXSyYn17ZjbdpztmV4cuOo5ajEv7KzoQ32ps33QEctAptomzbFm+jcbgIEplPAQ0CmU1/fBAgQIECAAAECBAgQIECAAAECBBILKAAmBhaeAAECBAgQIECAAAECBAgQIECAwHQKKABOp76+CRAgQIAAAQIECBAgQIAAAQIECCQWUABMDCw8AQIECBAgQIAAAQIECBAgQIAAgekUUACcTn19EyBAgAABAgQIECBAgAABAgQIEEgsoACYGFh4AgQIECBAgAABAgQIECBAgAABAtMpoAA4nfr6JkCAAAECBAgQIECAAAECBAgQIJBYQAEwMbDwBAgQIECAAAECBAgQIECAAAECBKZTQAFwOvX1TYAAAQIECBAgQIAAAQIECBAgQCCxgAJgYmDhCRAgQIAAAQIECBAgQIAAAQIECEyngALgdOrrmwABAgQIECBAgAABAgQIECBAgEBiAQXAxMDCEyBAgAABAgQIECBAgAABAgQIEJhOAQXA6dTXNwECBAgQIECAAAECBAgQIECAAIHEAgqAiYGFJ0CAAAECBAgQIECAAAECBAgQIDCdAgqA06mvbwIECBAgQIAAAQIECBAgQIAAAQKJBRQAEwMLT4AAAQIECBAgQIAAAQIECBAgQGA6BRQAp1Nf3wQIECBAgAABAgQIECBAgAABAgQSCygAJgYWngABAgQIECBAgAABAgQIECBAgMB0CigATqe+vgkQIECAAAECBAgQIECAAAECBAgkFlAATAwsPAECBAgQIECAAAECBAgQIECAAIHpFFAAnE59fRMgQIAAAQIECBAgQIAAAQIECBBILKAAmBhYeAIECBAgQIAAAQIECBAgQIAAAQLTKaAAOJ36+iZAgAABAgQIECBAgAABAgQIECCQWEABMDGw8AQIECBAgAABAgQIECBAgAABAgSmU6B9OjvXNwECxRUY7h0JLTNGkgHMm702WewYeI85y5LGj8H36r0/eR+7dT2YtI8tWvuSxo/B+0bbkvexZnhW0j4eHJqTNH4Mfm/fvOR9LF23RdI+HumbkTR+DL56sDN5HwNDaf/8Gh5pST6HoZH0/4Y8Opp2Hu3t6X4HlRLQ0TFcWm3Y78PD6XPd157+5254MO08RlelPV/jCdQ6NJr8POpYm7aPtoH0P3fDnWlzHZMwnPiUHW1Pdz6Npv0VlPwc1QEBAtULpH93rH5sWhIgQIAAAQIECBAgQIAAAQIECBAgUKOAAmCNgJoTIECAAAECBAgQIECAAAECBAgQyLOAAmCes2NsBAgQIECAAAECBAgQIECAAAECBGoUUACsEVBzAgQIECBAgAABAgQIECBAgAABAnkWUADMc3aMjQABAgQIECBAgAABAgQIECBAgECNAgqANQJqToAAAQIECBAgQIAAAQIECBAgQCDPAgqAec6OsREgQIAAAQIECBAgQIAAAQIECBCoUUABsEZAzQkQIECAAAECBAgQIECAAAECBAjkWUABMM/ZMTYCBAgQIECAAAECBAgQIECAAAECNQooANYIqDkBAgQIECBAgAABAgQIECBAgACBPAsoAOY5O8ZGgAABAgQIECBAgAABAgQIECBAoEYBBcAaATUnQIAAAQIECBAgQIAAAQIECBAgkGcBBcA8Z8fYCBAgQIAAAQIECBAgQIAAAQIECNQooABYI6DmBAgQIECAAAECBAgQIECAAAECBPIsoACY5+wYGwECBAgQIECAAAECBAgQIECAAIEaBRQAawTUnAABAgQIECBAgAABAgQIECBAgECeBRQA85wdYyNAgAABAgQIECBAgAABAgQIECBQo4ACYI2AmhMgQIAAAQIECBAgQIAAAQIECBDIs4ACYJ6zY2wECBAgQIAAAQIECBAgQIAAAQIEahRQAKwRUHMCBAgQIECAAAECBAgQIECAAAECeRZQAMxzdoyNAAECBAgQIECAAAECBAgQIECAQI0CCoA1AmpOgAABAgQIECBAgAABAgQIECBAIM8CCoB5zo6xESBAgAABAgQIECBAgAABAgQIEKhRoL3G9poTIECgKoGWnuHQ0jtUVdvJNHpS75rJHFb1MVt1rqq67WQbzmpbN9lDc3vc4yPdycf26PDM5H38qX9+0j7uXr1N0vgx+J9WbJW8j4dXps1F/9qO5HMYHZyCfxtN3EVr53Byp47OdO/fpcF3Ju6juyP9HLra0/fR3jpSIkvyfXAk8Qn7xKgfbxlNMvbKoGvXtVW+rPv6aHt6pylgCm0Dac+ntr70uR6dCqjQUvdzqDLgcGc6p5GOdLEr52CdAIH8CaT/TZW/ORsRAQIECBAgQIAAAQIECBAgQIAAgcIIKAAWJtUmSoAAAQIECBAgQIAAAQIECBAgUEQBBcAiZt2cCRAgQIAAAQIECBAgQIAAAQIECiOgAFiYVJsoAQIECBAgQIAAAQIECBAgQIBAEQUUAIuYdXMm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AVcANlzKDJhACNtvv3048sgjq6L48Ic/XC7+7b333uFb3/pWuOWWW7Lv8XVcYnHwIx/5SFXxNSJAgAABAgQIECBAgAABAgTyJeAKwHzlw2gIjCsQb/3db7/9sq94NeC9994bdtppp3GPH2vH4sWLw6c//els17777huuu+660NPzt8eYxdgvfelLw6GHHhpuvfXWcM4554Q3vvGNYZdddhkrlG0ECBAgQIAAAQIECBAgQIBAgwi4ArBBEmWYBM4+++zw4he/ONRyK/DnP//5MDQ0lGGef/755eJfSbe3tzfE7XGJx5177rmlXb4TIECAAAECBAgQIECAAAECDSqgANigiTNsApsrED/777vf/W7WbM899wwHHHDAmCHi9j322CPbd/nll4fYzkKAAAECBAgQIECAAAECBAg0roACYOPmzsgJbJbAPffcE+KDPuISb/OdaCntv++++7JbjSc61j4CBAgQIECAAAECBAgQIEAg3wIKgPnOj9ERqJvAXXfdVY4VrwCcaKncX9luojb2ESBAgAABAgQIECBAgAABAvkU8BCQfObFqAjUXWDJkiXlmAsWLCivj7USnzJcWirblbaN9z1eMTjR8sADD0y02z4CBAgQIECAAAECBAgQIEAggYACYAJUIQnkUWDVqlXlYc2cObO8PtbKjBkzyptXr15dXt/USmXhcFPH2k+AAAECBAgQIECAAAECBAhMjYBbgKfGWS8Epl2gr6+vPIbOzs7y+lgrXV1d5c3r1q0rr1shQIAAAQIECBAgQIAAAQIEGk/AFYCNlzMjJlCVQHd3d7ndwMBAeX2slf7+/vLmnp6e8vqmVjZ1u3C8BXj//fffVBj7CRAgQIAAAQIECBAgQIAAgToKKADWEVMoAnkWmDVrVnl4m7qtd82aNeVjN3W7cPnAJ1Y29dmClcdaJ0CAAAECBAgQIECAAAECBKZGwC3AU+OsFwLTLlBZnNvUwzoqr+TzuX7TnjoDIECAAAECBAgQIECAAAECNQkoANbEpzGBxhHYa6+9yoO9++67y+tjrVTuX7hw4ViH2EaAAAECBAgQIECAAAECBAg0iIACYIMkyjAJ1Cqw0047hW233TYLc+21104Y7rrrrsv2b7fddmHHHXec8Fg7CRAgQIAAAQIECBAgQIAAgXwLKADmOz9GR6BuAi0tLeHYY4/N4sUr/G6++eYxY8ftpSsA4/GxnYUAAQIECBAgQIAAAQIECBBoXAEFwMbNnZET2GyBd73rXaG9/W/P/nn7298e1q1bt16M+Dpuj0s8Lh5vIUCAAAECBAgQIECAAAECBBpbwFOAGzt/Rl8ggRtuuCEsXry4POPly5eX1+P2Cy+8sPw6rpx00knrvY4vdt9993D66aeHT33qU+HWW28NBx10UHjf+94Xdtlll/DnP/85nHPOOeG2227L2r33ve8Nu+2220YxbCBAgAABAgQIECBAgAABAgQaS0ABsLHyZbQFFli0aFG46KKLxhT4xS9+EeJX5TJWATDu//jHPx6WLVsW/v3f/z0r9r3mNa+pbJatn3zyyeFjH/vYRtttIECAAAECBAgQIECAAAECBBpPwC3AjZczIyZQk0Bra2v46le/Gq688srsMwHjg0E6OzuzB4TEz/z7wQ9+EGKxMR5nIUCAAAECBAgQIECAAAECBBpfwBWAjZ9DMyiIQLzFd8PbfGuZ+ote9KIQv6Zr6W4fDl0dQ8m672kbTBZ7qgL3j3Qk72pwtC1pH6njx8GPjKYvVo+Mpn0Yzuhw2vjRqb0vfR+dK0djV8mWnkdGksUuBW4dSjuH2E9/X9pzdqQjbfw4h6EZad87Yh8DvWn/TF3d3hW7SboMj6TPRVtr2p+L0cTvfzEBA0Ppz6eW1rQ/28NdaeNHp8GZ6d/H+9el7aN9Kt6fetPOIeZiuCf+N90y2j2cLPhoV9r3jGQDF5gAgZoF0v9VUvMQBSBAgAABAgQIECBAgAABAgQIECBAoFoBBcBq5bQjQIAAAQIECBAgQIAAAQIECBAg0AACCoANkCRDJECAAAECBAgQIECAAAECBAgQIFCtgAJgtXLaESBAgAABAgQIECBAgAABAgQIEGgAAQXABkiSIRIgQIAAAQIECBAgQIAAAQIECBCoVkABsFo57QgQIECAAAECBAgQIECAAAECBAg0gIACYAMkyRAJECBAgAABAgQIECBAgAABAgQIVCugAFitnHYECBAgQIAAAQIECBAgQIAAAQIEGkBAAbABkmSIBAgQIECAAAECBAgQIECAAAECBKoVUACsVk47AgQIECBAgAABAgQIECBAgAABAg0goADYAEkyRAIECBAgQIAAAQIECBAgQIAAAQLVCigAViunHQECBAgQIECAAAECBAgQIECAAIEGEFAAbIAkGSIBAgQIECBAgAABAgQIECBAgACBagUUAKuV044AAQIECBAgQIAAAQIECBAgQIBAAwgoADZAkgyRAAECBAgQIECAAAECBAgQIECAQLUCCoDVymlHgAABAgQIECBAgAABAgQIECBAoAEEFAAbIEmGSIAAAQIECBAgQIAAAQIECBAgQKBaAQXAauW0I0CAAAECBAgQIECAAAECBAgQINAAAgqADZAkQyRAgAABAgQIECBAgAABAgQIECBQrYACYLVy2hEgQIAAAQIECBAgQIAAAQIECBBoAAEFwAZIkiESIECAAAECBAgQIECAAAECBAgQqFZAAbBaOe0IECBAgAABAgQIECBAgAABAgQINICAAmADJMkQCRAgQIAAAQIECBAgQIAAAQIECFQroABYrZx2BAgQIECAAAECBAgQIECAAAECBBpAoL0BxmiIBAg0oUBry2iIX6mW/pG0b2/9o2njZy4jqXSmLm5362DyzrboWJu8j7ldafu4v3NO8jmMtiXvIrQkPmfb+hJ38ARRW3/6PkbaW5Imo31d0vBZ8La+tHOInQyuS/s+29eW7ndQKQNDQ+l/8Nra0p6zra1p45esUn/v6BxK2kX/zLTnaxz8wBT83LUOpv3ZHl6XNn50GumM/027DHclfv9I+f6UMnZadtEJEKhRwBWANQJqToAAAQIECBAgQIAAAQIECBAgQCDPAgqAec6OsREgQIAAAQIECBAgQIAAAQIECBCoUUABsEZAzQkQIECAAAECBAgQIECAAAECBAjkWUABMM/ZMTYCBAgQIECAAAECBAgQIECAAAECNQooANYIqDkBAgQIECBAgAABAgQIECBAgACBPAsoAOY5O8ZGgAABAgQIECBAgAABAgQIECBAoEYBBcAaATUnQIAAAQIECBAgQIAAAQIECBAgkGcBBcA8Z8fYCBAgQIAAAQIECBAgQIAAAQIECNQooABYI6DmBAgQIECAAAECBAgQIECAAAECBPIsoACY5+wYGwECBAgQIECAAAECBAgQIECAAIEaBRQAawTUnAABAgQIECBAgAABAgQIECBAgECeBRQA85wdYyNAgAABAgQIECBAgAABAgQIECBQo4ACYI2AmhMgQIAAAQIECBAgQIAAAQIECBDIs4ACYJ6zY2wECBAgQIAAAQIECBAgQIAAAQIEahRQAKwRUHMCBAgQIECAAAECBAgQIECAAAECeRZQAMxzdoyNAAECBAgQIECAAAECBAgQIECAQI0CCoA1AmpOgAABAgQIECBAgAABAgQIECBAIM8CCoB5zo6xESBAgAABAgQIECBAgAABAgQIEKhRQAGwRkDNCRAgQIAAAQIECBAgQIAAAQIECORZQAEwz9kxNgIECBAgQIAAAQIECBAgQIAAAQI1CigA1gioOQECBAgQIECAAAECBAgQIECAAIE8CygA5jk7xkaAAAECBAgQIECAAAECBAgQIECgRgEFwBoBNSdAgAABAgQIECBAgAABAgQIECCQZwEFwDxnx9gIECBAgAABAgQIECBAgAABAgQI1CjQXmN7zQkQIFCVwKq+rtC3rruqtpNp9EDX7MkcVvUxQ6Pp//1kRttA1eObbMOexH30Jo4f59nVOjTZ6VZ93MyO/qrbTqZhd9fgZA6r6Zg1naM1tZ9M45GOlskcVvUxo+1p48eBjaZPRQjpp1G18WQbtqQ/nUIYSQs1PJT+fXyynnk+rqNtOPnwervS/74bSdzHyraR5E5rR3qT99EynPZ/Dzum4H08OdJUdDCY8P1pMO1761Tw6IMAgeoEEr6zVDcgrQgQIECAAAECBAgQIECAAAECBAgQqJ+AAmD9LEUiQIAAAQIECBAgQIAAAQIECBAgkDsBBcDcpcSACBAgQIAAAQIECBAgQIAAAQIECNRPQAGwfpYiESBAgAABAgQIECBAgAABAgQIEMidgAJg7lJiQAQIECBAgAABAgQIECBAgAABAgTqJ6AAWD9LkQgQIECAAAECBAgQIECAAAECBAjkTkABMHcpMSACBAgQIECAAAECBAgQIECAAAEC9RNQAKyfpUgECBAgQIAAAQIECBAgQIAAAQIEciegAJi7lBgQAQIECBAgQIAAAQIECBAgQIAAgfoJKADWz1IkAgQIECBAgAABAgQIECBAgAABArkTUADMXUoMiAABAgQIECBAgAABAgQIECBAgED9BBQA62cpEgECBAgQIECAAAECBAgQIECAAIHcCSgA5i4lBkSAAAECBAgQIECAAAECBAgQIECgfgIKgPWzFIkAAQIECBAgQIAAAQIECBAgQIBA7gQUAHOXEgMiQIAAAQIECBAgQIAAAQIECBAgUD8BBcD6WYpEgAABAgQIECBAgAABAgQIECBAIHcCCoC5S4kBESBAgAABAgQI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FV2Ka1lAaRQwqUXBKpeogWBIiCH3c5s/37YzPcm5n9nfyd4zz17rMHv25d3v97yzJ4f37JlNoGgCbgJStIrIp5ACN954Y9bsi1cFxqv+4rR+/foQPwJ82GGHhRkzZhQy79GSuvfee2ur16xZE+LPj3/843DllVeGq6++Opxzzjm19eOdWbFixaibrly5ctT1VhIgQIAAAQIECBAgQIAAAQL5C2gA5m8qYgMJrFq1KpxxxhlZ8y82/mKj78ILLww33XRTeOKJJ7LH++67L9x2223hkEMOKcXI999//3DiiSeGBQsW1O5sHMdy5513hsWLF4ctW7aEc889N/suw0WLFk1oTCPdKXlCQWxMgAABAgQIECBAgAABAgQI5CrgI8C5cgrWSALf/OY3w2te85pa8y82+P7rv/4rXHTRReGnP/1pOP3007OrAR977LHwhje8IcS79MaPBhd5OuGEE0LM93Of+1zWBJw/f36IP+9617uyqxn//d//PbvpSRzDBz7wgfDMM88UeThyI0CAAAECBAgQIECAAAECBMYhoAE4DiSbNJ/Aeeedl33n37PPPhtaW1uz78a7//77wwEHHJBhxCsB41WAX/nKV8Luu+8e+vr6wt/+7d9mjcB4NV1Rp1133XXUuxQff/zx4eKLL87S37RpU4gffZ7IFG+MMtrPAw88MJFwtiVAgAABAgQIECBAgAABAgRyENAAzAFRiMYT+PznP59d3Tdv3rxwzz33ZM29tra2IQM96aSTwsMPP5zdFTh+RPhHP/pRiDcNKfN09tln15qEg78ncDxj2meffcJoP3vttdd4wtiGAAECBAgQIECAAAECBAgQyFFAAzBHTKEaS+A973lP9lHfeJOP0abY1Lr77ruzm2d0dXWFDRs2jLZ54dftscce2V2BY6LuCFz4ckmQAAECBAgQIECAAAECBAiMKaABOCaRDZpR4Etf+lL44he/GGbNmjXu4cfvzIsfcf2jP/qjce9T1A2rdzouan7yIkCAAAECBAgQIECAAAECBMYvoAE4fitbNpHAu9/97kmNNt405MEHH5zUvkXZKd75eM2aNVk6c+fOLUpa8iBAgAABAgQIECBAgAABAgQmKaABOEk4uxEYSaCzs3OkVaVYfv3112fffxiTPeKII0qRsyQJECBAgAABAgQIECBAgACBkQU0AEe2sYZAQwksX748LFu2bNQx3XXXXeHTn/50tk13d3c444wzRt3eSgIECBAgQIAAAQIECBAgQKD4Au3FT1GGBAhEgR/+8Ifhscceq2GsXr26Nh+X33zzzbXncWbhwoXbPY8NwCOPPDIsWLAgvPWtbw0HHXRQiDf8iN/398QTT4TFixdnP9Xv/7viiivC3nvvvV0MTwgQIECAAAECBAgQIECAAIHyCWgAlq9mMm5SgRtuuCHccsstw47+/vvvD/Fn8LRjA7C6bsmSJSH+jDRNnz49XHXVVWHRokUjbWI5AQIECBAgQIAAAQIECBAgUCIBDcASFUuqBOoROPjgg8Ntt92WNf8eeuihsHLlyhCvIuzr6wuzZ88Or371q8PRRx8dzjrrrOzKwHqOZV8CBAgQIECAAAECBAgQIECgOAIagMWphUwIjCoQP+K748d8R91hh5WzZs0Kp5xySvazwypPCRAgQIAAAQIECBAgQIAAgQYW0ABs4OIaGoEiC3SsawkdlZaEKaaMHULLQMLU/zd0pbUt+UEGOjuSHqNnZlfS+DH4pln9yY+x7cWa9hj9aV+vMfm2vrRDiNH7p6V12tKa3qmS/rQLfTPSOvXtlr7YHbN6kr+gZkxLe4wZXWnjR6A50zYmdzpg5rNJj3HwjOVJ48fgr+l6OvkxulvS/luxS9uW5GP41fQ9kh9jefcLkh5joD3t7x1Z8un/qQitvUmZkv6eWdmcNnfRCRAoroC7ABe3NjIjQIAAAQIECBAgQIAAAQIECBAgULeABmDdhAIQIECAAAECBAgQIECAAAECBAgQKK6ABmBxayMzAgQIECBAgAABAgQIECBAgAABAnULaADWTSgAAQIECBAgQIAAAQIECBAgQIAAgeIKaAAWtzYyI0CAAAECBAgQIECAAAECBAgQIFC3gAZg3YQCECBAgAABAgQIECBAgAABAgQIECiugAZgcWsjMwIECBAgQIAAAQIECBAgQIAAAQJ1C2gA1k0oAAECBAgQIECAAAECBAgQIECAAIHiCmgAFrc2MiNAgAABAgQIECBAgAABAgQIECBQt4AGYN2EAhAgQIAAAQIECBAgQIAAAQIECBAoroAGYHFrIzMCBAgQIECAAAECBAgQIECAAAECdQtoANZNKAABAgQIECBAgAABAgQIECBAgACB4gpoABa3NjIjQIAAAQIECBAgQIAAAQIECBAgULeABmDdhAIQIECAAAECBAgQIECAAAECBAgQKK6ABmBxayMzAgQIECBAgAABAgQIECBAgAABAnULaADWTSgAAQIECBAgQIAAAQIECBAgQIAAgeIKaAAWtzYyI0CAAAECBAgQIECAAAECBAgQIFC3gAZg3YQCECBAgAABAgQIECBAgAABAgQIECiugAZgcWsjMwIECBAgQIAAAQIECBAgQIAAAQJ1C2gA1k0oAAECBAgQIECAAAECBAgQIECAAIHiCmgAFrc2MiNAgAABAgQIECBAgAABAgQIECBQt4AGYN2EAhAgQIAAAQIECBAgQIAAAQIECBAoroAGYHFrIzMCBAgQIECAAAECBAgQIECAAAECdQu01x1BAAIECExCoK0nhLatk9hxnLu0b6qMc8vJbdaxMW38mFVb7+Rym8heA4n/FeiZ1TKRdCa17dbZiQexLaveWWnr3d85qaFPbKeWtGOIyfRNm1hKE956+sCEd5noDgOd6Z0qM/onmtaEtu+Yse0NNvE0Y1r6Y3R3pn0T7GrvS6wUQnd72jHEAbygY2PScezbsSZp/Bh8v/a25MfoaulKeozfDzyXNH4MvmfX88mP0dWd9jW7tTttHSJQ37T0v3u0Jv7VozXhPxMVlwAlP48cgEBRBZz+Ra2MvAgQIECAAAECBAgQIECAAAECBAjkIKABmAOiEAQIECBAgAABAgQIECBAgAABAgSKKqABWNTKyIsAAQIECBAgQIAAAQIECBAgQIBADgIagDkgCkGAAAECBAgQIECAAAECBAgQIECgqAIagEWtjLwIECBAgAABAgQIECBAgAABAgQI5CCgAZgDohAECBAgQIAAAQIECBAgQIAAAQIEiiqgAVjUysiLAAECBAgQIECAAAECBAgQIECAQA4CGoA5IApBgAABAgQIECBAgAABAgQIECBAoKgCGoBFrYy8CBAgQIAAAQIECBAgQIAAAQIECOQgoAGYA6IQBAgQIECAAAECBAgQIECAAAECBIoqoAFY1MrIiwABAgQIECBAgAABAgQIECBAgEAOAhqAOSAKQYAAAQIECBAgQIAAAQIECBAgQKCoAhqARa2MvAgQIECAAAECBAgQIECAAAECBAjkIKABmAOiEAQIECBAgAABAgQIECBAgAABAgSKKqABWNTKyIsAAQIECBAgQIAAAQIECBAgQIBADgIagDkgCkGAAAECBAgQIECAAAECBAgQIECgqAIagEWtjLwIECBAgAABAgQIECBAgAABAgQI5CCgAZgDohAECBAgQIAAAQIECBAgQIAAAQIEiiqgAVjUysiLAAECBAgQIECAAAECBAgQIECAQA4CGoA5IApBgAABAgQIECBAgAABAgQIECBAoKgCGoBFrYy8CBAgQIAAAQIECBAgQIAAAQIECOQgoAGYA6IQBAgQIECAAAECBAgQIECAAAECBIoqoAFY1MrIiwABAgQIECBAgAABAgQIECBAgEAOAhqAOSAKQYAAAQIECBAgQIAAAQIECBAgQKCoAu1FTUxeBAg0tkBfdwgt09KNsWN9utgxcte6gbQH2Ba98/c9yY+R+gA9u3WmPkRo7W1LfoxQaUl6jMqulaTxY/D+hOdbNflKZ9rzotKRNn4cR+u0vupwkj12dac9Rndnb7Lcq4E72vurs8keK4nPuy196X8N3tDblcynGnhd4pN740D6MQyE9P/etbWkve5hVmv68+4FHRurZU/2OHvmpmSxY+CVu6d/PW3tTH9ut/Sk/b2gLWH8vtb0v3MkfREJToDApAXS/ks46bTsSIAAAQIECBAgQIAAAQIECBAgQIBAHgIagHkoikGAAAECBAgQIECAAAECBAgQIECgoAIagAUtjLQIECBAgAABAgQIECBAgAABAgQI5CGgAZiHohgECBAgQIAAAQIECBAgQIAAAQIECiqgAVjQwkiLAAECBAgQIECAAAECBAgQIECAQB4CGoB5KIpBgAABAgQIECBAgAABAgQIECBAoKACGoAFLYy0CBAgQIAAAQIECBAgQIAAAQIECOQhoAGYh6IYBAgQIECAAAECBAgQIECAAAECBAoqoAFY0MJIiwABAgQIECBAgAABAgQIECBAgEAeAhqAeSiKQYAAAQIECBAgQIAAAQIECBAgQKCgAhqABS2MtAgQIECAAAECBAgQIECAAAECBAjkIaABmIeiGAQIECBAgAABAgQIECBAgAABAgQKKqABWNDCSIsAAQIECBAgQIAAAQIECBAgQIBAHgIagHkoikGAAAECBAgQIECAAAECBAgQIECgoAIagAUtjLQIECBAgAABAgQIECBAgAABAgQI5CGgAZiHohgECBAgQIAAAQIECBAgQIAAAQIECiqgAVjQwkiLAAECBAgQIECAAAECBAgQIECAQB4CGoB5KIpBgAABAgQIECBAgAABAgQIECBAoKACGoAFLYy0CBAgQIAAAQIECBAgQIAAAQIECOQhoAGYh6IYBAgQIECAAAECBAgQIECAAAECBAoqoAFY0MJIiwABAgQIECBAgAABAgQIECBAgEAeAhqAeSiKQYAAAQIECBAgQIAAAQIECBAgQKCgAhqABS2MtAgQIECAAAECBAgQIECAAAECBAjkIaABmIeiGAQIECBAgAABAgQIECBAgAABAgQKKtBe0LykRYBAgwv0zB4IA7sNJBtl5/Np/77R2ldJlns1cPvzW6qzyR5b+tLVIFnSOwTumdW9w5L8n7b0t+QfdFDEStqXa3akge4pqHV3/6BR5T/b3pU2fsy4s6s3/8R3iNjdmfYYHW3paz1QSXtORLLNPR07yOX7tH8g/Ym3pTf9r9qdrX35wuwQba/OvXdYkv/TF7X/Iv+gO0Tct23TDkvK93ROx/rkSe+3y3NJj5H+nSOETYnfOyJQb39bUqdNG7uSxe+ftjVZbIEJECi2QPrffIo9ftkRIECAAAECBAgQIECAAAECBAgQaGgBDcCGLq/BESBAgAABAgQIECBAgAABAgQINLuABmCzvwKMnwABAgQIECBAgAABAgQIECBAoKEFNAAburwGR4AAAQIECBAgQIAAAQIECBAg0OwCGoDN/gowfgIECBAgQIAAAQIECBAgQIAAgYYW0ABs6PIaHAECBAgQIECAAAECBAgQIECAQLMLaAA2+yvA+AkQIECAAAECBAgQIECAAAECBBpaQAOwoctrcAQIECBAgAABAgQIECBAgAABAs0uoAHY7K8A4ydAgAABAgQIECBAgAABAgQIEGhoAQ3Ahi6vwREgQIAAAQIECBAgQIAAAQIECDS7gAZgs78CjJ8AAQIECBAgQIAAAQIECBAgQKChBTQAG7q8BkeAAAECBAgQIECAAAECBAgQINDsAhqAzf4KMH4CBAgQIECAAAECBAgQIECAAIGGFtAAbOjyGhwBAgQIECBAgAABAgQIECBAgECzC2gANvsrwPgJECBAgAABAgQIECBAgAABAgQaWkADsKHLa3AECBAgQIAAAQIECBAgQIAAAQLNLqAB2OyvAOMnQIAAAQIECBAgQIAAAQIECBBoaAENwIYur8ERIECAAAECBAgQIECAAAECBAg0u4AGYLO/AoyfAAECBAgQIECAAAECBAgQIECgoQU0ABu6vAZHgAABAgQIECBAgAABAgQIECDQ7AIagM3+CjB+AgQIECBAgAABAgQIECBAgACBhhbQAGzo8hocAQIECBAgQIAAAQIECBAgQIBAswtoADb7K8D4CRAgQIAAAQIECBAgQIAAAQIEGlqgvaFHZ3AECBRWoDKnJ1ResDVZfr2rpyWLHQNXpuDPJy1b+5KOIQZv6elNeozWvu6k8acq+EBH2iP1T6ukPcC26C3T+pMfo7077eupszP9GDrb0593ne1px9Hakv711Nub/lfILVvTnni9m9PGjyfcppD+PXBLT9pxtLcOJH/vmN7ak/wYA91PJj1GR0t6p707nks6hhj8/+3ym6TH2Hva75PGj8EHKi3Jj7F1IO174PKNL0g2hs1dG8KKZNEFJkCgyAJT8L+wRR6+3AgQIECAAAECBAgQIECAAAECBAg0toAGYGPX1+gIECBAgAABAgQIECBAgAABAgSaXEADsMlfAIZfHoGlS5eGSy+9NBx77LFh3333DV1dXWHmzJnhwAMPDAsXLgw/+MEPJjSY73znO+HEE08M++yzTxYrPsbncbmJAAECBAgQIECAAAECBAgQaByBtF9e0DhORkJgpwocccQR4b777huSQ09PT/jVr36V/dxyyy3h1FNPDTfccEPo7Owcsm11QaVSCeeee264/vrrq4uyx6eeeip87Wtfy34WLVoUrrvuutDSkv47VLZLwhMCBAgQIECAAAECBAgQIEAgdwFXAOZOKiCB/AVicy5Oc+fODRdccEFYvHhxeOCBB8KSJUvC3/3d34W99947W3/rrbdmVwNmT0b4zyc+8Yla8+91r3tduP3227NY8TE+j1NsDv71X//1CBEsJkCAAAECBAgQIECAAAECBMok4ArAMlVLrk0r8IpXvCL7+O9JJ50U2tratnM49NBDsyv/DjvssPDLX/4ya+idd9554fDDD99uu/jkscceC5/97Gez5a9//euzqwqnTfvD3XLnz58f3va2t4V4teFDDz0ULr/88nDGGWeEAw44YEgcCwgQIECAAAECBAgQIECAAIHyCLgCsDy1kmkTC9x1113hne9855DmX5Vkzpw54corr6w+za4QrD0ZNHPVVVeFvr6+bMk111wTqs2/6ibTp08PcXmc4nZXX311dZVHAgQIECBAgAABAgQIECBA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BAgQIECgDgENwDrw7EqAAAECBAgQIECAAAECBAgQIECg6AIagEWvkPwIECBAgAABAgQIECBAgAABAgQI1CGgAVgHnl0JECBAgAABAgQIECBAgAABAgQIFF1AA7DoFZIfAQIECBAgQIAAAQIECBAgQIAAgToENADrwLMrAQIECBAgQIAAAQIECBAgQIAAgaILaAAWvULyI0CAAAECBAgQIECAAAECBAgQIFCHgAZgHXh2JUCAAAECBAgQIECAAAECBAgQIFB0AQ3AoldIfgQIECBAgAABAgQIECBAgAABAgTqENAArAPPrgQIECBAgAABAgQIECBAgAABAgSKLqABWPQKyY8AAQIECBAgQIAAAQIECBAgQIBAHQIagHXg2ZUAAQIECBAgQIAAAQIECBAgQIBA0QU0AIteIfkRIECAAAECBAgQIECAAAECBAgQqENAA7AOPLsSIECAAAECBAgQIECAAAECBAgQKLpAe9ETlB8BAo0psFv35tA9Ld1b0NqutG4D7S1pDxCjt5T/GJXW9GPo70hfiv6uStKDtE7rSxo/Bu/u6k1+jK6O9ONIPYi21oHUh0gev7e/Lfkxtm6dghNvY7p/IyJQ15r0fwfv2Ji8FKG/M229N7XOSD6IX+6yR/JjvHbm7KTHeFnHs0njx+AvbEv/Hrt727qk4+hP+89plntH+l89Qm/icTw/0J2sDms6e5LFFpgAgWILpP/Np9jjlx0BAgQIECBAgAABAgQIECBAgACBhhbQAGzo8hocAQIECBAgQIAAAQIECBAgQIBAswtoADb7K8D4CRAgQIAAAQIECBAgQIAAAQIEGlpAA7Chy2twBAgQIECAAAECBAgQIECAAAECzS6gAdjsrwDjJ0CAAAECBAgQIECAAAECBAgQaGgBDcCGLq/BESBAgAABAgQIECBAgAABAgQINLuABmCzvwKMnwABAgQIECBAgAABAgQIECBAoKEFNAAburwGR4AAAQIECBAgQIAAAQIECBAg0OwCGoDN/gowfgIECBAgQIAAAQIECBAgQIAAgYYW0ABs6PIaHAECBAgQIECAAAECBAgQIECAQLMLaAA2+yvA+AkQIECAAAECBAgQIECAAAECBBpaQAOwoctrcAQIECBAgAABAgQIECBAgAABAs0uoAHY7K8A4ydAgAABAgQIECBAgAABAgQIEGhoAQ3Ahi6vwREgQIAAAQIECBAgQIAAAQIECDS7gAZgs78CjJ8AAQIECBAgQIAAAQIECBAgQKChBTQAG7q8BkeAAAECBAgQIECAAAECBAgQINDsAhqAzf4KMH4CBAgQIECAAAECBAgQIECAAIGGFtAAbOjyGhwBAgQIECBAgAABAgQIECBAgECzC2gANvsrwPgJECBAgAABAgQIECBAgAABAgQaWkADsKHLa3AECBAgQIAAAQIECBAgQIAAAQLNLqAB2OyvAOMnQIAAAQIECBAgQIAAAQIECBBoaAENwIYur8ERIECAAAECBAgQIECAAAECBAg0u4AGYLO/AoyfAAECBAgQIECAAAECBAgQIECgoQXaG3p0BkeAQGEFOloHQmdbf7L8Ku2VZLFj4EpbS9L4WfD2tvTH6E37d6BKW9r4EWigIz3TQGfa11NHZ1/yQczs3pr8GPG8Lvs0UEl/bqc+Rm9f+veO3s3pT7yO36d9/5i2Ku15Hc+F7t+nP0Zfd9rX7EBn+v9dWLXnzORvHWv3nJH8GKkPMKs1fS36Q9rX7NZK+f+diHUeSOzU2ZLud+SUsVOfA+ITIFCfQNrfrOrLzd4ECBAgQIAAAQIECBAgQIAAAQIECNQpoAFYJ6DdCRAgQIAAAQIECBAgQIAAAQIECBRZQAOwyNWRGwECBAgQIECAAAECBAgQIECAAIE6BTQA6wS0OwECBAgQIECAAAECBAgQIECAAIEiC2gAFrk6ciNAgAABAgQIECBAgAABAgQIECBQp4AGYJ2AdidAgAABAgQIECBAgAABAgQIECBQZAENwCJXR24ECBAgQIAAAQIECBAgQIAAAQIE6hTQAKwT0O4ECBAgQIAAAQIECBAgQIAAAQIEiiygAVjk6siNAAECBAgQIECAAAECBAgQIECAQJ0CGoB1AtqdAAECBAgQIECAAAECBAgQIECAQJEFNACLXB25ESBAgAABAgQIECBAgAABAgQIEKhTQAOwTkC7EyBAgAABAgQIECBAgAABAgQIECiygAZgkasjNwIECBAgQIAAAQIECBAgQIAAAQJ1CmgA1glodwIECBAgQIAAAQIECBAgQIAAAQJFFtAALHJ15EaAAAECBAgQIECAAAECBAgQIECgTgENwDoB7U6AAAECBAgQIECAAAECBAgQIECgyAIagEWujtwIECBAgAABAgQIECBAgAABAgQI1CmgAVgnoN0JECBAgAABAgQIECBAgAABAgQIFFlAA7DI1ZEbAQIECBAgQIAAAQIECBAgQIAAgToFNADrBLQ7AQIECBAgQIAAAQIECBAgQIAAgSILaAAWuTpyI0CAAAECBAgQIECAAAECBAgQIFCngAZgnYB2J0CAAAECBAgQIECAAAECBAgQIFBkAQ3AIldHbgQIECBAgAABAgQIECBAgAABAgTqFNAArBPQ7gQIECBAgAABAgQIECBAgAABAgSKLNBe5OTkRoBA4wr0D7SEvoF0f4OopAudFaW/I31tBrrTv0W3VipJBzLQmbgQ27If6GhJOoYYvNI5kPQYXZ19SePH4LM6tyY/Rndb2nEMhPS1Tvm+VC3Apt7O6mySx56+tiRxtwu6If37U9eatPWeuTLt6zV6dT+b/rzrm562Fr3Tu7YrfYonv183LUXY7WI+s3XX7Z7n/WRLJf151x/68057SLyBxL8XbEkcPw5oSyXte0c8xvqBtO/jv++fHg+TZFo3kP61miRxQQkQqFsg/f+Z1Z2iAAQIECBAgAABAgQIECBAgAABAgQITFZAA3CycvYjQIAAAQIECBAgQIAAAQIECBAgUAIBDcASFEmKBAgQIECAAAECBAgQIECAAAECBCYroAE4WTn7ESBAgAABAgQIECBAgAABAgQIECiBgAZgCarAeioAADJmSURBVIokRQIECBAgQIAAAQIECBAgQIAAAQKTFdAAnKyc/QgQIECAAAECBAgQIECAAAECBAiUQEADsARFkiIBAgQIECBAgAABAgQIECBAgACByQpoAE5Wzn4ECBAgQIAAAQIECBAgQIAAAQIESiCgAViCIkmRAAECBAgQIECAAAECBAgQIECAwGQFNAAnK2c/AgQIECBAgAABAgQIECBAgAABAiUQ0AAsQZGkSIAAAQIECBAgQIAAAQIECBAgQGCyAhqAk5WzHwECBAgQIECAAAECBAgQIECAAIESCGgAlqBIUiRAgAABAgQIECBAgAABAgQIECAwWQENwMnK2Y8AAQIECBAgQIAAAQIECBAgQIBACQQ0AEtQJCkSIECAAAECBAgQIECAAAECBAgQmKyABuBk5exHgAABAgQIECBAgAABAgQIECBAoAQCGoAlKJIUCRAgQIAAAQIECBAgQIAAAQIECExWQANwsnL2I0CAAAECBAgQIECAAAECBAgQIFACAQ3AEhRJigQIECBAgAABAgQIECBAgAABAgQmK6ABOFk5+xEgQIAAAQIECBAgQIAAAQIECBAogYAGYAmKJEUCBAgQIECAAAECBAgQIECAAAECkxXQAJysnP0IECBAgAABAgQIECBAgAABAgQIlEBAA7AERZIiAQIECBAgQIAAAQIECBAgQIAAgckKaABOVs5+BAgQIECAAAECBAgQIECAAAECBEog0F6CHKVIgEADCvRXWkP/QLq/QVTaK0nV+qany72aeN8uXdXZZI9tHW3JYsfAvTPTxo/H6O+O/007VboGkh5gZvfWpPFj8DndG5MfY0Z72nEMbHvfSD1t7u9IfYjQO5D2vOjrSxs/ArVtSF+L7jVp38enP7Upea3bnlmb/BjtM6YlPcb02S9IGj8GX782/f+SrNi0W9JxPNWXNn5M/oVtq5KOYSqCPzcF77HPV9L//rR+IO0vH8/1zUxWjt/3pT/fkiUvMAECdQmk/+2trvTsTIAAAQIECBAgQIAAAQIECBAgQIBAPQIagPXo2ZcAAQIECBAgQIAAAQIECBAgQIBAwQU0AAteIOkRqAosXbo0XHrppeHYY48N++67b+jq6gozZ84MBx54YFi4cGH4wQ9+UN10xMebb745tLS0jOsnbmsiQIAAAQIECBAgQIAAAQIEyi/gCwDKX0MjaAKBI444Itx3331DRtrT0xN+9atfZT+33HJLOPXUU8MNN9wQOjs7h2xrAQECBAgQIECAAAECBAgQINCcAhqAzVl3oy6ZwFNPPZVlPHfu3PCOd7wjHH744eHFL35x6O/vD0uWLAlXXnlliNvceuutoa+vL3zpS18ac4Tf/e53Q4w30rTPPvuMtMpyAgQIECBAgAABAgQIECBAoEQCGoAlKpZUm1fgFa94Rfbx35NOOim0tW1/d8dDDz00u/LvsMMOC7/85S/D7bffHs4777ysSTiaWPzo8Lx580bbxDoCBAgQIECAAAECBAgQIECgAQR8B2ADFNEQGl/grrvuCu985zuHNP+qI58zZ052FWD1+eLFi6uzHgkQIECAAAECBAgQIECAAIEmF9AAbPIXgOE3jsAb3/jG2mAef/zx2rwZAgQIECBAgAABAgQIECBAoLkFNACbu/5G30AC8YYg1am11aldtfBIgAABAgQIECBAgAABAgSaXUCXoNlfAcbfMAL33ntvbSzxOwPHmhYuXBj23HPP7I7B8SPE8bsEP/GJT2Q3ExlrX+sJECBAgAABAgQIECBAgACB8gi4CUh5aiVTAiMKDAwMhMsuu6y2Pn5f4FjT4IbhmjVrQvz58Y9/nH2X4NVXXx3OOeecsUIMWb9ixYohywYvWLly5eCn5gkQIECAAAECBAgQIECAAIEpENAAnAJkhyCQWuCqq64KDzzwQHaYE044Ibz+9a8f8ZD7779/OPHEE8OCBQvCvvvum233xBNPhDvvvDPEm4ds2bIlnHvuuaGlpSUsWrRoxDjDrajGG26dZQQIECBAgAABAgQIECBAgMDOEdAA3DnujkogN4F4Jd+FF16Yxdtjjz3CtddeO2Ls2Bw8/fTTs+be4I3mz58f3vWud4V4t+HYHOzt7Q0f+MAHwtve9rbwohe9aPCm5gkQIECAAAECBAgQIECAAIGSCfgOwJIVTLoEBgv8/Oc/D7Gp19fXF7q6usIdd9yRfa/f4G0Gz++6665Dmn+D1x9//PHh4osvzhZt2rQp3HjjjYNXjzn/29/+Noz2U71KccxANiBAgAABAgQIECBAgAABAgRyE9AAzI1SIAJTK/Dkk0+Gt7zlLWHt2rWhra0t3H777eGII46oO4mzzz671iQc/D2B4wm8zz77hNF+9tprr/GEsQ0BAgQIECBAgAABAgQIECCQo4AGYI6YQhGYKoGnn346vOlNbwrxMX5X3xe+8IXsSsA8jh8/RhzvChynp556Ko+QYhAgQIAAAQIECBAgQIAAAQI7UUADcCfiOzSByQisXr06vPnNbw7xxh1xuuaaa8Jpp502mVAj7lOpVEZcZwUBAgQIECBAgAABAgQIECBQLgENwHLVS7ZNLrBu3bpwzDHHhEceeSSTuOyyy8J73/veXFVWrVoV1qxZk8WcO3durrEFI0CAAAECBAgQIECAAAECBKZeQANw6s0dkcCkBOJNOY477riwdOnSbP+LLroofPSjH51UrNF2uv7660P1CsA8vlNwtGNZR4AAAQIECBAgQIAAAQIECKQX0ABMb+wIBOoW6Onpyb7j7/77789iXXDBBeGSSy6ZUNzly5eHZcuWjbrPXXfdFT796U9n23R3d4czzjhj1O2tJECAAAECBAgQIECAAAECBIov0F78FGVIgMDJJ58c7r777gziqKOOCmeeeWb42c9+NiJMZ2dnOPDAA7dbHxuARx55ZFiwYEF461vfGg466KAQb/gRr/aL3ye4ePHi7Kd69d8VV1wR9t577+1ieEKAAAECBAgQIECAAAECBAiUT0ADsHw1k3ETCnz1q1+tjfr73/9+eO1rX1t7PtzMS17ykhAbfsNNS5YsCfFnpGn69OnhqquuCosWLRppE8sJECBAgAABAgQIECBAgACBEgloAJaoWFIlUI/AwQcfHG677bas+ffQQw+FlStXhnhH4b6+vjB79uzw6le/Ohx99NHhrLPOyq4MrOdY9iVAgAABAgQIECBAgAABAgSKI6ABWJxayITAiALVj+WOuME4VsyaNSuccsop2c84Nk++SVvLQGhrHUh2nEp3utgx6Z5d2pLlXg285QUd1dlkj21b0v4zsGW39E69M5Px1AK3Te+rzaeYmd29OUXY7WLu2fX8ds9TPJndsSlF2CmNubZ3evLjbejtSnqMbd/skHxq60l+iNC5Ie37eNtzG5IPov+Z3yU/Ruu2f99TTtNW75IyfBa787nu5Mf4zbrdkh7jf16wV9L4MfgL2tK/Zrtb0v57t7HSmdxp/UD619P6/mlJx7FlIN3vgFsH0tY4KYzgBAjUJeAmIHXx2ZkAAQIECBAgQIAAAQIECBAgQIBAsQU0AItdH9kRIECAAAECBAgQIECAAAECBAgQqEtAA7AuPjsTIECAAAECBAgQIECAAAECBAgQKLaABmCx6yM7AgQIECBAgAABAgQIECBAgAABAnUJaADWxWdnAgQIECBAgAABAgQIECBAgAABAsUW0AAsdn1kR4AAAQIECBAgQIAAAQIECBAgQKAuAQ3AuvjsTIAAAQIECBAgQIAAAQIECBAgQKDYAhqAxa6P7AgQIECAAAECBAgQIECAAAECBAjUJaABWBefnQkQIECAAAECBAgQIECAAAECBAgUW0ADsNj1kR0BAgQIECBAgAABAgQIECBAgACBugQ0AOviszMBAgQIECBAgAABAgQIECBAgACBYgtoABa7PrIjQIAAAQIECBAgQIAAAQIECBAgUJeABmBdfHYmQIAAAQIECBAgQIAAAQIECBAgUGwBDcBi10d2BAgQIECAAAECBAgQIECAAAECBOoS0ACsi8/OBAgQIECAAAECBAgQIECAAAECBIotoAFY7PrIjgABAgQIECBAgAABAgQIECBAgEBdAhqAdfHZmQABAgQIECBAgAABAgQIECBAgECxBTQAi10f2REgQIAAAQIECBAgQIAAAQIECBCoS0ADsC4+OxMgQIAAAQIECBAgQIAAAQIECBAotoAGYLHrIzsCBAgQIECAAAECBAgQIECAAAECdQloANbFZ2cCBAgQIECAAAECBAgQIECAAAECxRbQACx2fWRHgAABAgQIECBAgAABAgQIECBAoC4BDcC6+OxMgAABAgQIECBAgAABAgQIECBAoNgCGoDFro/sCBAgQIAAAQIECBAgQIAAAQIECNQl0F7X3nYmQIDAJAWmtfeGae09k9x77N3apveNvVEdW2zdLf3b56ZN6f9G05quBJluz64tdSiPb9feXQbGt2EdW82YsaWOvcfedfeujWNvVOcWL+hIf4w5HevrzHLn794aKsmT+F3HLkmP0d6e/pzoT39qJzXKgg+kd6r0pf23KI5jYEPac7v991uT16JrbXfyY6xdMzPpMX46Z9+k8WPw3dvS1joeY++OtfEh2dQa0p93/ZX0vz8lA/rfwB2t6d47Olr7U6cvPgECBRUo/7tjQWGlRYAAAQIECBAgQIAAAQIECBAgQKAIAhqARaiCHAgQIECAAAECBAgQIECAAAECBAgkEtAATAQrLAECBAgQIECAAAECBAgQIECAAIEiCGgAFqEKciBAgAABAgQIECBAgAABAgQIECCQSEADMBGssAQIECBAgAABAgQIECBAgAABAgSKIKABWIQqyIEAAQIECBAgQIAAAQIECBAgQIBAIgENwESwwhIgQIAAAQIECBAgQIAAAQIECBAogoAGYBGqIAcCBAgQIECAAAECBAgQIECAAAECiQQ0ABPBCkuAAAECBAgQIECAAAECBAgQIECgCAIagEWoghwIECBAgAABAgQIECBAgAABAgQIJBLQAEwEKywBAgQIECBAgAABAgQIECBAgACBIghoABahCnIgQIAAAQIECBAgQIAAAQIECBAgkEhAAzARrLAECBAgQIAAAQIECBAgQIAAAQIEiiCgAViEKsiBAAECBAgQIECAAAECBAgQIECAQCIBDcBEsMISIECAAAECBAgQIECAAAECBAgQKIKABmARqiAHAgQIECBAgAABAgQIECBAgAABAokENAATwQpLgAABAgQIECBAgAABAgQIECBAoAgCGoBFqIIcCBAgQIAAAQIECBAgQIAAAQIECCQS0ABMBCssAQIECBAgQIAAAQIECBAgQIAAgSIIaAAWoQpyIECAAAECBAgQIECAAAECBAgQIJBIQAMwEaywBAgQIECAAAECBAgQIECAAAECBIogoAFYhCrIgQABAgQIECBAgAABAgQIECBAgEAiAQ3ARLDCEiBAgAABAgQIECBAgAABAgQIECiCgAZgEaogBwIECBAgQIAAAQIECBAgQIAAAQKJBNoTxRWWAAECowp0tfWH7ra+UbepZ2VXd089u4+57+Zdusbcpt4NtmxN/zea1nQlyIbfO7NSL8OY+w/MSjyIbRnM6Er7eprW1jvmOOvdoLs1/THawkC9aY66f1tL2vjx4NPbto6aQx4rd+nYkkeYEWNMS/x6jQdeNz39ud0zK+174MBuM0c0zGtF22675hVqxDiV/sTnRW//iMfOa0Xn+vSvp7Y1HXmlO2ycx34/Z9jleS7cq3uvPMMNGyv1++zubRuGPW6eCztb0r9mexMfoyNh/PaEsfOso1gECOQvkPY3q/zzFZEAAQIECBAgQIAAAQIECBAgQIAAgQkIaABOAMumBAgQIECAAAECBAgQIECAAAECBMomoAFYtorJlwABAgQIECBAgAABAgQIECBAgMAEBDQAJ4BlUwIECBAgQIAAAQIECBAgQIAAAQJlE9AALFvF5EuAAAECBAgQIECAAAECBAgQIEBgAgIagBPAsikBAgQIECBAgAABAgQIECBAgACBsgloAJatYvIlQIAAAQIECBAgQIAAAQIECBAgMAEBDcAJYNmUAAECBAgQIECAAAECBAgQIECAQNkENADLVjH5EiBAgAABAgQIECBAgAABAgQIEJiAgAbgBLBsSoAAAQIECBAgQIAAAQIECBAgQKBsAhqAZauYfAkQIECAAAECBAgQIECAAAECBAhMQEADcAJYNiVAgAABAgQIECBAgAABAgQIECBQNgENwLJVTL4ECBAgQIAAAQIECBAgQIAAAQIEJiCgATgBLJsSIECAAAECBAgQIECAAAECBAgQKJuABmDZKiZfAgQIECBAgAABAgQIECBAgAABAhMQ0ACcAJZNCRAgQIAAAQIECBAgQIAAAQIECJRNQAOwbBWTLwECBAgQIECAAAECBAgQIECAAIEJCGgATgDLpgQIECBAgAABAgQIECBAgAABAgTKJqABWLaKyZcAAQIECBAgQIAAAQIECBAgQIDABAQ0ACeAZVMCBAgQIECAAAECBAgQIECAAAECZRPQACxbxeRLgAABAgQIECBAgAABAgQIECBAYAICGoATwLIpAQIECBAgQIAAAQIECBAgQIAAgbIJaACWrWLyJUCAAAECBAgQIECAAAECBAgQIDABgfYJbGtTAgQI5CbQV2kJfZV0f4Noba3klutwgSpdA8MtznVZ78yWXOMNF6wl8TD6p6etQxxTa3f/cEPLdVlbS9px9A205ZrvcMHW9U8bbnGuy1oTv6A6WtLXeiDh+1IVe0bb1upsksfdp29OEndw0Odm9w1+mmR+04s6k8StBu2eN7M6m+xxRtg7Wexq4JaNW6qzSR4HpnUkiTs4aFtP2vfYeKyO59P9zhHjr147Kz4knR6fOSdp/Bh8dvumpMfo6Er/Pj6rNf17YG8l7b/bWwfSnXc9A+nfv5O+iAQnQGDSAmn/JZx0WnYkQIAAAQIECBAgQIAAAQIECBAgQCAPAQ3APBTFIECAAAECBAgQIECAAAECBAgQIFBQAQ3AghZGWgQIECBAgAABAgQIECBAgAABAgTyENAAzENRDAIECBAgQIAAAQIECBAgQIAAAQIFFdAALGhhpEWAAAECBAgQIECAAAECBAgQIEAgDwENwDwUxSBAgAABAgQIECBAgAABAgQIECBQUAENwIIWRloECBAgQIAAAQIECBAgQIAAAQIE8hDQAMxDUQwCBAgQIECAAAECBAgQIECAAAECBRXQACxoYaRFgAABAgQIECBAgAABAgQIECBAIA8BDcA8FMUgQIAAAQIECBAgQIAAAQIECBAgUFABDcCCFkZaBAgQIECAAAECBAgQIECAAAECBPIQ0ADMQ1EMAgQIECBAgAABAgQIECBAgAABAgUV0AAsaGGkRYAAAQIECBAgQIAAAQIECBAgQCAPAQ3APBTFIECAAAECBAgQIECAAAECBAgQIFBQAQ3AghZGWgQIECBAgAABAgQIECBAgAABAgTyENAAzENRDAIECBAgQIAAAQIECBAgQIAAAQIFFdAALGhhpEWAAAECBAgQIECAAAECBAgQIEAgDwENwDwUxSBAgAABAgQIECBAgAABAgQIECBQUAENwIIWRloECBAgQIAAAQIECBAgQIAAAQIE8hDQAMxDUQwCBAgQIECAAAECBAgQIECAAAECBRXQACxoYaRFgAABAgQIECBAgAABAgQIECBAIA8BDcA8FMUgQIAAAQIECBAgQIAAAQIECBAgUFCB9oLmJS0CBBpQoK+vrzaqzas31eZTzPSufj5F2FrMvrX/N5bawrxn1rXlHXFIvJbKkEW5LujvSXyAmG1LT645Dxdsa2X9cItzW7Zx68bcYo0U6PnuzSOtym15S/uW3GINF6i9pX+4xbku6xlIf4z1vR255rxjsC3r0r5e4/H6nuve8bC5P+99Pq3T1s3p38fbetL+WxfRW3q35m4/OOBAT3qnrZt6Bx8yyXzv82mve+hbk/b9L6Js7tqQxGZw0HVb0v5b8VxX2tdrHMvWKfi9YHOlZTBb7vPretLV4fln/++1Ovh389wHISABAoUTaKlsmwqXlYQIEGhIgQcffDAccsghDTk2gyJAgAABAgQIECBQJoEHHnggzJ8/v0wpy5UAgToE0v4prI7E7EqAAAECBAgQIECAAAECBAgQIECAQP0CrgCs31AEAgTGKbBly5bw8MMPZ1u/8IUvDO3tY38LwcqVK2tXDca/Uu61117jPJrNyiag1mWr2OTzVevJ25VtT7UuW8Xqy1e96/Mr095qXaZqbZ9r/Njvs88+my18zWteE7q703+lw/YZeEaAwM4SGPv/vndWZo5LgEDDCcRfMOr5mEFs/u2zzz4N52JAQwXUeqhJoy5R60at7NBxqfVQk0Zeot6NXN3tx6bW23uU4dm8efPKkKYcCRDIWcBHgHMGFY4AAQIECBAgQIAAAQIECBAgQIBAkQQ0AItUDbkQIECAAAECBAgQIECAAAECBAgQyFlAAzBnUOEIECBAgAABAgQIECBAgAABAgQIFElAA7BI1ZALAQIECBAgQIAAAQIECBAgQIAAgZwFNABzBhWOAAECBAgQIECAAAECBAgQIECAQJEENACLVA25ECBAgAABAgQIECBAgAABAgQIEMhZQAMwZ1DhCBAgQIAAAQIECBAgQIAAAQIECBRJoKWybSpSQnIhQIAAAQIECBAgQIAAAQIECBAgQCA/AVcA5mcpEgECBAgQIECAAAECBAgQIECAAIHCCWgAFq4kEiJAgAABAgQIECBAgAABAgQIECCQn4AGYH6WIhEgQIAAAQIECBAgQIAAAQIECBAonIAGYOFKIiECBAgQIECAAAECBAgQIECAAAEC+QloAOZnKRIBAgQIECBAgAABAgQIECBAgACBwgloABauJBIiQIAAAQIECBAgQIAAAQIECBAgkJ+ABmB+liIRIECAAAECBAgQIECAAAECBAgQKJyABmDhSiIhAgQIECBAgAABAgQIECBAgAABAvkJaADmZykSAQIECBAgQIAAAQIECBAgQIAAgcIJaAAWriQSIkCAAAECBAgQIECAAAECBAgQIJCfgAZgfpYiESCQs8BvfvOb8KEPfSi88pWvDDNmzAi77757OOSQQ8IVV1wRNm3alPPRhJtqgZaWljCenze+8Y1TnZrjTUBg1apV4a677gqf/OQnw7HHHhvmzJlTq+vChQsnEOkPm37nO98JJ554Ythnn31CV1dX9hifx+WmnS+QR71vvvnm2mtkrPeAuK1p5wgsXbo0XHrppdl5ve+++2bn48yZM8OBBx4Y4rn9gx/8YEKJObcnxDWlG+dRa+f1lJbMwQgQIDApgfZJ7WUnAgQIJBb41re+FU455ZSwbt262pFi0+/BBx/Mfm644Ybw7W9/O+y///619WYIEJh6gT333DOXg1YqlXDuueeG66+/frt4Tz31VPja176W/SxatChcd911WfNou408mTKBvOo9ZQk70KQEjjjiiHDfffcN2benpyf86le/yn5uueWWcOqpp4b473FnZ+eQbasLnNtViWI+5lnrYo5QVgQIECBQFdAArEp4JECgMAI//elPwzvf+c7sKr94tcHHPvaxcOSRR4bNmzeHL3/5y+Ff/uVfwv/8z/+E4447LmsGxm1M5RU477zzwl/+5V+OOIB49aepHALxKqF4xe7dd9894YQ/8YlP1Jp/r3vd68JHPvKRcMABB4THH388fPaznw3Lli3L1r/whS8Ml1xyyYTj2yF/gXrqXc3mu9/9bpg7d2716ZDHeCWoaeoFYuM9TrE273jHO8Lhhx8eXvziF4f+/v6wZMmScOWVV4a4za233hr6+vrCl770pRGTdG6PSFOIFXnWujog53VVwiMBAgQKJrDtr3ImAgQIFEpg20c+K9veKivt7e2V//zP/xyS27ZmQLY+bvM3f/M3Q9ZbUA6BWL/4c/HFF5cjYVkOK7Dto7+Vb37zm5VnnnkmW//kk0/Wzs/TTz992H12XLjtiqLsfI+vh9e//vWVbVf7brfJxo0bs+VxfXxfeOyxx7Zb78nUCeRR75tuuqn2GomvF1Px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jauoBAhMUuDP/uzPanvedNNNtfnBMwMDA+GLX/xitijeSOLII48cvNp8gwjEq02+973vZaOJ3wcYmz6mxhOIHyd8+9vfng0sXuH3ox/9aNhBxuXVKwDj9jveQXbYnSwsrcD1118fqlcKHXHEEaUdR5kTjzdgOe6448LSpUuzYVx00UXhox/96LiH5NweN9VO37DeWo93AM7r8UrZjgABAmkENADTuIpKgMAkBQ455JBw+OGHZ3vHOz8uWbJkSKQrr7wyPProo9nyCy64IHR0dAzZxoJiC3zzm98c9SPev/vd78Kf//mfh97e3mwg473ipNijlt1IAu9///tDe3t7tvr8888Pmzdv3m7T+Dwuj1PcLm5vKqfA8uXLw7Jly0ZN/q677gqf/vSns23id8OeccYZo25vZf4CPT092Xf83X///Vnw+G/tJZdcMuEDObcnTDblO+RRa+f1lJfNAQkQIDApgT/8tj2pXe1EgACBNAJ///d/H+LHeuP/9Mc7Dn784x/PrvKLz7/85S+H+BfkOB144IHhgx/8YJokRE0qEJs5sbl30kknhQULFmQf55w2bVqI3z90zz33hOuuu6728b/4sXANwKTlqCv4D3/4w+wuzdUgsYbVKX6X580331x9mj0uXLhwu+fxSTyXP/ShD4X48cKHHnooO//jlUYHHHBAePzxx8Pll19eaxp9+MMfDi972cuGxLBgagTqrXdsFMSrtuN5/9a3vjUcdNBBId4YIF7tF6/6Xbx4cfZTvfrviiuucPXv1JR2u6OcfPLJ4e67786WHXXUUeHMM88MP/vZz7bbZvCTzs7O7DwevCzOO7d3FCne8zxq7bwuXl1lRIAAgeEEWrb9guUb1oeTsYwAgZ0qEK8Qe8973hOef/75YfOI/1PxrW99K7z0pS8ddr2FxRaI39/261//eswkY4PwhhtuCPGj3qZiCsSG3i233DLu5Eb6tSN+tP/ss8/O7i46UrDYhIh/AGht9QGGkYxSL6+33rHBP56vbZg+fXq46qqrwqJFi1IPSfxhBCb6EfuXvOQlITaBhpuc28OpFGdZHrV2XhennjIhQIDAaAKuABxNxzoCBHaaQLwy5L//+79DvBowNvpWrFgR4hUGseH3jne8I7zvfe8L8X8QTeUUiA2jeMOH+BHveNVPvGosNntnzpwZ9t133/DHf/zH4fTTT8+uEirnCGU9UYHY1Isf+49N39jke/DBB7PXxZw5c8L8+fPDOeecE4499tiJhrV9wQQOPvjgcNttt2Xnfrzac+XKlVmd413fZ8+eHV796leHo48+Opx11lnZlYEFS186kxBwbk8CrWS7OK9LVjDpEiDQtAKuAGza0hs4AQIECBAgQIAAAQIECBAgQIBAMwj4DE0zVNkYCRAgQIAAAQIECBAgQIAAAQIEmlZAA7BpS2/gBAgQIECAAAECBAgQIECAAAECzSCgAdgMVTZGAgQIECBAgAABAgQIECBAgACBphXQAGza0hs4AQIECBAgQIAAAQIECBAgQIBAMwhoADZDlY2RAAECBAgQIECAAAECBAgQIECgaQU0AJu29AZOgAABAgQIECBAgAABAgQIECDQDAIagM1QZWMkQIAAAQIECBAgQIAAAQIECBBoWgENwKYtvYETIECAAAECBAgQIECAAAECBAg0g4AGYDNU2RgJECBAgAABAgQIECBAgAABAgSaVkADsGlLb+AECBAgQIAAAQIECBAgQIAAAQLNIKAB2AxVNkYCBAgQIECAAAECBAgQIECAAIGmFdAAbNrSGzgBAgQIECBAgAABAgQIECBAgEAzCGgANkOVjZEAAQIECBAgQIAAAQIECBAgQKBpBTQAm7b0Bk6AAAECBAgQIECAAAECBAgQINAMAhqAzVBlYyRAgAABAgQIECBAgAABAgQIEGhaAQ3Api29gRMgQIAAAQIECBAgQIAAAQIECDSDgAZgM1TZGAkQIECAAAECBAgQIECAAAECBJpWoL1pR27gBAgQIECAAAECdQn09fWFhx9+ODzwwAPhwQcfzB4feeSR0N/fn8V98sknw7x58+o6hp0JECBAgAABAgTqF9AArN9QBAIECBAgQIBAUwp85jOfCZ/61KeacuwGTYAAAQIECBAok4CPAJepWnIlQIAAAQIECBRIoFKp1LLp7u4Ohx56aDjggANqy8wQIECAAAECBAgUQ0ADsBh1kAUBAgQIECBAoHQCCxYsCNddd134yU9+EtavXx+WLFkS3vCGN5RuHBImQIAAAQIECDS6gI8AN3qFjY8AAQIECBAgkEjgmGOOSRRZWAIECBAgQIAAgTwFXAGYp6ZYBAgQIECAAIGSCNx+++2hpaUl+znnnHNGzPo3v/lN2G233bLtDjzwwLBx48YRt7WCAAECBAgQIECgmAIagMWsi6wIECBAgAABAkkFTj755HDKKadkx7j++uvDN77xjSHHGxgYCKeddlpYt25daG9vD//6r/8aZsyYMWQ7CwgQIECAAAECBIotoAFY7PrIjgABAgQIECCQTOCf//mfw7x587L4Z511VnjmmWe2O9bnPve5cO+992bL4t1+58+fv916TwgQIECAAAECBMohoAFYjjrJkgABAgQIECCQu8Auu+wSbr311tDW1hZWr14dzjjjjFC9s++yZcvCJz/5yeyY8cYeF154Ye7HF5AAAQIECBAgQGBqBDQAp8bZUQgQIECAAAEChRSIzb2PfexjWW7f+c53wj/+4z+GzZs3Zx8P7unpCYObhIUcgKQIECBAgAABAgTGFNAAHJPIBgQIECBAgACBxha4+OKLwyGHHJIN8iMf+Uj4i7/4i/Doo49mz//pn/6p9jHhxlYwOgIECBAgQIBA4wpoADZubY2MAAECBAgQIDAugcE3+NiyZUv4+te/nu337ne/O7znPe8ZVwwbESBAgAABAgQIFFdAA7C4tZEZAQIECBAgQGDKBF760pdu9z1/c+bMCddee+2UHd+BCBAgQIAAAQIE0gloAKazFZkAAQIECBAgUBqBDRs2hJtuuqmW75o1a8LSpUtrz80QIECAAAECBAiUV0ADsLy1kzkBAgQIECBAIDeB888/PzzxxBNZvFmzZmV3Az799NPD2rVrczuGQAQIECBAgAABAjtHQANw57g7KgECBAgQIECgMAJ33nlnuPnmm7N8Fi5cGO64445sfsWKFeHcc88tTJ4SIUCAAAECBAgQmJyABuDk3OxFgAABAgQIEGgIgaeffjosWrQoG8v+++8f/uEf/iH8yZ/8SXjf+96XLYvNwFtvvbUhxmoQBAgQIECAAIFmFdAAbNbKGzcBAgQIECDQ9AKVSiXEK/6ee+650NbWFm677bYQP/4bp89+9rPhVa96VTYfm4G//vWvs3n/IUCAAAECBAgQKJ9Ae/lSljEBAgQIECBAgEAeAldffXX43ve+l4X6+Mc/HhYsWFALO23atKwheOihh4bnn38+nHrqqeGee+4Jra3/9/fjeOOQxYsX1/aJM4899ljteVwX7yZcnQ466KAQf0wECBAgQIAAAQJTK9Cy7S+/lak9pKMRIECAAAECBAjsbIGHH344zJ8/P2zdujUccsgh4f777w/t7UP/Nnz55ZeHCy+8MEv30ksvDR/72MdqqS9fvjzst99+tedjzVx88cXhU5/61FibWU+AAAECBAgQIJCzwP/9CTfnwMIRIECAAAECBAgUUyA2/U455ZSs+TdjxozsSr/hmn8x+w9/+MPhiCOOyAYSG3g/+clPijkoWREgQIAAAQIECIwo4ArAEWmsIECAAAECBAgQIECAAAECBAgQIFB+AVcAlr+GRkCAAAECBAgQIECAAAECBAgQIEBgRAENwBFprCBAgAABAgQIECBAgAABAgQIECBQfgENwPLX0AgIECBAgAABAgQIECBAgAABAgQIjCigATgijRUECBAgQIAAAQIECBAgQIAAAQIEyi+gAVj+GhoBAQIECBAgQIAAAQIECBAgQIAAgREFNABHpLGCAAECBAgQIECAAAECBAgQIECAQPkFNADLX0MjIECAAAECBAgQIECAAAECBAgQIDCigAbgiDRWECBAgAABAgQIECBAgAABAgQIECi/gAZg+WtoBAQIECBAgAABAgQIECBAgAABAgRGFNAAHJHGCgIECBAgQIAAAQIECBAgQIAAAQLlF9AALH8NjYAAAQIECBAgQIAAAQIECBAgQIDAiAIagCPSWEGAAAECBAgQIECAAAECBAgQIECg/AIagOWvoREQIECAAAECBAgQIECAAAECBAgQGFFAA3BEGisIECBAgAABAgQIECBAgAABAgQIlF9AA7D8NTQCAgQIECBAgAABAgQIECBAgAABAiMKaACOSGMFAQIECBAgQIAAAQIECBAgQIAAgfILaACWv4ZGQIAAAQIECBAgQIAAAQIECBAgQGBEAQ3AEWmsIECAAAECBAgQIECAAAECBAgQIFB+AQ3A8tfQCAgQIECAAAECBAgQIECAAAECBAiMKKABOCKNFQQIECBAgAABAgQIECBAgAABAgTKL6ABWP4aGgEBAgQIECBAgAABAgQIECBAgACBEQU0AEeksYIAAQIECBAgQIAAAQIECBAgQIBA+QU0AMtfQyMgQIAAAQIECBAgQIAAAQIECBAgMKKABuCINFYQIECAAAECBAgQIECAAAECBAgQKL/A/weulCZ+ko5KzgAAAABJRU5ErkJggg==" width="640"></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span><span class="o">*</span><span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 4],
+       [3, 8]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2],
+       [6, 8]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-diffusion-equation">Reaction-Diffusion Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffusion-equation-in-2d-space">Diffusion equation in 2D space</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kenji Doya
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
