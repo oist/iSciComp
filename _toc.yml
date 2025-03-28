@@ -5,6 +5,7 @@ root: iSciComp
 chapters:
 - file: 01_Introduction
   sections:
+  - file: MiniForge
   - file: 01_Introduction_Ex
 - file: 02_Visualization
   sections:
@@ -34,6 +35,8 @@ chapters:
   - file: 09_Stochastic_Ex
 - file: 10_Management
   sections:
+  - file: 10_Management_Git
+  - file: 10_Management_GitHub
   - file: 10_Management_Ex
 - file: References
 - file: Solutions
