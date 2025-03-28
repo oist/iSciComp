@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -60,7 +62,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="References" href="References.html" />
-    <link rel="prev" title="10. Software Management" href="10_Management.html" />
+    <link rel="prev" title="Collaborative Development: GitHub" href="10_Management_GitHub.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -218,6 +220,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="10_Management_Git.html">Version Control System: Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_GitHub.html">Collaborative Development: GitHub</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">10. Software Management: Exercise</a></li>
 </ul>
 </details></li>
@@ -471,38 +475,39 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>01_Introduction.ipynb                  09_Stochastic_Sol.ipynb
-01_Introduction_Ex.ipynb               10_Management.ipynb
-01_Introduction_Sol.ipynb              10_Management.ipynbのコピー
-02_Visualization.ipynb                 10_Management_Ex.ipynb
-02_Visualization_3D.ipynb              10_Management_Ex.ipynbのコピー
-02_Visualization_Animation.ipynb       <span class=" -Color -Color-Blue">ComputationalMethods2022</span>/
-02_Visualization_Ex.ipynb              LICENSE
-02_Visualization_Sol.ipynb             README.md
-03_Matrix.ipynb                        References.ipynb
-03_Matrix_Ex.ipynb                     SC_logo.png
-03_Matrix_Exx.ipynb                    Solutions.ipynb
-03_Matrix_Sol.ipynb                    VdP.pdf
-04_Function.ipynb                      <span class=" -Color -Color-Blue">__pycache__</span>/
-04_Function_Ex.ipynb                   <span class=" -Color -Color-Blue">_build</span>/
-04_Function_Sol.ipynb                  _config.yml
-05_Iteration.ipynb                     _toc.yml
-05_Iteration_Ex.ipynb                  <span class=" -Color -Color-Blue">cell</span>/
-05_Iteration_Sol.ipynb                 <span class=" -Color -Color-Blue">cell1</span>/
-06_ODE.ipynb                           <span class=" -Color -Color-Blue">cell2</span>/
-06_ODE_Ex.ipynb                        <span class=" -Color -Color-Blue">data</span>/
-06_ODE_Exx.ipynb                       <span class=" -Color -Color-Blue">figures</span>/
-06_ODE_Sol.ipynb                       hello.py
-07_PDE.ipynb                           iSciComp.bib
-07_PDE_Ex.ipynb                        iSciComp.ipynb
-07_PDE_Sol.ipynb                       index.html
-07_PDE_Turing.ipynb                    lpnorm.py
-08_Optimization.ipynb                  <span class=" -Color -Color-Blue">odes</span>/
-08_Optimization_Ex.ipynb               <span class=" -Color -Color-Blue">odes1</span>/
-08_Optimization_Exx.ipynb              <span class=" -Color -Color-Blue">odes2</span>/
-08_Optimization_Sol.ipynb              <span class=" -Color -Color-Blue">odesim</span>/
-09_Stochastic.ipynb                    pend.gif
-09_Stochastic_Ex.ipynb
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>01_Introduction.ipynb                  10_Management.ipynb
+01_Introduction_Ex.ipynb               10_Management.ipynbのコピー
+01_Introduction_Sol.ipynb              10_Management_Ex.ipynb
+02_Visualization.ipynb                 10_Management_Ex.ipynbのコピー
+02_Visualization_3D.ipynb              10_Management_Git.ipynb
+02_Visualization_Animation.ipynb       10_Management_GitHub.ipynb
+02_Visualization_Ex.ipynb              <span class=" -Color -Color-Blue">ComputationalMethods2022</span>/
+02_Visualization_Sol.ipynb             LICENSE
+03_Matrix.ipynb                        README.md
+03_Matrix_Ex.ipynb                     References.ipynb
+03_Matrix_Exx.ipynb                    SC_logo.png
+03_Matrix_Sol.ipynb                    Solutions.ipynb
+04_Function.ipynb                      VdP.pdf
+04_Function_Ex.ipynb                   <span class=" -Color -Color-Blue">__pycache__</span>/
+04_Function_Sol.ipynb                  <span class=" -Color -Color-Blue">_build</span>/
+05_Iteration.ipynb                     _config.yml
+05_Iteration_Ex.ipynb                  _toc.yml
+05_Iteration_Sol.ipynb                 <span class=" -Color -Color-Blue">cell</span>/
+06_ODE.ipynb                           <span class=" -Color -Color-Blue">cell1</span>/
+06_ODE_Ex.ipynb                        <span class=" -Color -Color-Blue">cell2</span>/
+06_ODE_Exx.ipynb                       <span class=" -Color -Color-Blue">data</span>/
+06_ODE_Sol.ipynb                       <span class=" -Color -Color-Blue">figures</span>/
+07_PDE.ipynb                           hello.py
+07_PDE_Ex.ipynb                        iSciComp.bib
+07_PDE_Sol.ipynb                       iSciComp.ipynb
+07_PDE_Turing.ipynb                    index.html
+08_Optimization.ipynb                  lpnorm.py
+08_Optimization_Ex.ipynb               <span class=" -Color -Color-Blue">odes</span>/
+08_Optimization_Exx.ipynb              <span class=" -Color -Color-Blue">odes1</span>/
+08_Optimization_Sol.ipynb              <span class=" -Color -Color-Blue">odes2</span>/
+09_Stochastic.ipynb                    <span class=" -Color -Color-Blue">odesim</span>/
+09_Stochastic_Ex.ipynb                 pend.gif
+09_Stochastic_Sol.ipynb
 </pre></div>
 </div>
 </div>
@@ -567,7 +572,7 @@ first.py          <span class=" -Color -Color-Blue">outputs</span>/          sim
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t= 10.0 ; state= [0.36787947]
 </pre></div>
 </div>
-<img alt="_images/2e71ffd92071be535558426342887020fdd90a5db6588dbfcec01e2cde3d577d.png" src="_images/2e71ffd92071be535558426342887020fdd90a5db6588dbfcec01e2cde3d577d.png" />
+<img alt="_images/561bd52a5f210a469ed45042b9d3998820444a7eeb02ba6005c699fc3f996656.png" src="_images/561bd52a5f210a469ed45042b9d3998820444a7eeb02ba6005c699fc3f996656.png" />
 </div>
 </div>
 </section>
@@ -582,7 +587,7 @@ first.py          <span class=" -Color -Color-Blue">outputs</span>/          sim
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fatal: A branch named &#39;myname&#39; already exists.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fatal: a branch named &#39;myname&#39; already exists
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Already on &#39;myname&#39;
@@ -916,7 +921,10 @@ nothing to commit, working tree clean
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Everything up-to-date
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter passphrase for key &#39;/Users/doya/.ssh/id_ed25519&#39;: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -937,29 +945,10 @@ nothing to commit, working tree clean
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There is no tracking information for the current branch.
-Please specify which branch you want to merge with.
-See git-pull(1) for details.
-
-    git pull &lt;remote&gt; &lt;branch&gt;
-
-If you wish to set tracking information for this branch you can do so with:
-
-    git branch --set-upstream-to=origin/&lt;branch&gt; myname
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>branch
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  main
-* <span class=" -Color -Color-Green">myname</span>
 </pre></div>
 </div>
 </div>
@@ -1006,12 +995,12 @@ If you wish to set tracking information for this branch you can do so with:
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="10_Management.html"
+       href="10_Management_GitHub.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">10. Software Management</p>
+        <p class="prev-next-title">Collaborative Development: GitHub</p>
       </div>
     </a>
     <a class="right-next"

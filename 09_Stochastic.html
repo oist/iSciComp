@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -220,6 +222,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_Git.html">Version Control System: Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_GitHub.html">Collaborative Development: GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_Management_Ex.html">10. Software Management: Exercise</a></li>
 </ul>
 </details></li>
@@ -472,7 +476,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bca0c949bf9cfbb310e53242df4506f9765de5ab195385cf2ac6c757d1c86253.png" src="_images/bca0c949bf9cfbb310e53242df4506f9765de5ab195385cf2ac6c757d1c86253.png" />
+<img alt="_images/20891b322df30e28cea67d602eea4fb5ae6503af406fcdab83e60d4b012755f1.png" src="_images/20891b322df30e28cea67d602eea4fb5ae6503af406fcdab83e60d4b012755f1.png" />
 </div>
 </div>
 <p>A common problem with LCM is that lower digits can fall in simple cycles.</p>
@@ -512,7 +516,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ef1fd2eb38abfac0bc7f10312005bec10e63fb3697725d6e4f1e17cd8216ca2b.png" src="_images/ef1fd2eb38abfac0bc7f10312005bec10e63fb3697725d6e4f1e17cd8216ca2b.png" />
+<img alt="_images/528aba8fd25e18f0c4bd4da3cdd9f01d52f8c7dd74afbfa01611ba88c87596d0.png" src="_images/528aba8fd25e18f0c4bd4da3cdd9f01d52f8c7dd74afbfa01611ba88c87596d0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -522,11 +526,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 1, 3, 0, 3, 1, 2, 1, 2, 0, 1, 2, 2, 0, 3, 3, 2, 0, 3, 0, 0, 1,
-       1, 2, 2, 3, 2, 1, 1, 2, 3, 2, 2, 1, 1, 1, 0, 0, 1, 1, 3, 3, 2, 1,
-       0, 2, 1, 3, 0, 2, 0, 0, 0, 3, 2, 0, 0, 2, 0, 2, 0, 2, 2, 0, 0, 2,
-       0, 0, 2, 3, 0, 1, 3, 2, 2, 3, 0, 2, 1, 3, 1, 2, 1, 3, 1, 0, 0, 2,
-       0, 1, 0, 3, 1, 2, 1, 0, 3, 0, 3, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 2, 0, 2, 1, 3, 0, 3, 3, 2, 1, 0, 3, 3, 1, 3, 2, 2, 1, 1, 1,
+       2, 1, 3, 2, 2, 2, 3, 0, 2, 0, 3, 2, 3, 3, 0, 2, 3, 1, 3, 1, 0, 2,
+       0, 0, 3, 2, 2, 2, 2, 3, 0, 2, 0, 0, 0, 0, 3, 3, 3, 0, 2, 3, 3, 3,
+       1, 1, 2, 0, 1, 2, 2, 1, 3, 2, 1, 2, 0, 1, 1, 3, 3, 2, 3, 1, 2, 3,
+       1, 2, 2, 2, 2, 3, 3, 1, 0, 1, 1, 3])
 </pre></div>
 </div>
 </div>
@@ -561,7 +565,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.185454966007452
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.195592317333727
 4.1887902047863905
 </pre></div>
 </div>
@@ -599,19 +603,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 3.130997685865476 3.141592653589793
-3 4.235404869548258 4.188790204786391
-4 5.007657689639717 4.934802200544679
-5 5.36640030090091 5.263789013914324
-6 5.039449681342271 5.167712780049969
-7 4.717908753358403 4.724765970331401
-8 3.8503986347691193 4.058712126416768
-9 3.4527688396107568 3.2985089027387064
-10 2.3993010304004807 2.550164039877345
-11 1.6202534817351946 1.8841038793898999
-12 1.3937158972588708 1.3352627688545893
-13 1.8059793640662392 0.9106287547832829
-14 1.976912617002114 0.5992645293207919
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 3.1425020303124676 3.141592653589793
+3 4.18301400380825 4.188790204786391
+4 4.912092953248197 4.934802200544679
+5 5.238578243416131 5.263789013914324
+6 5.137681363118776 5.167712780049969
+7 4.710411322248327 4.724765970331401
+8 4.149637761801695 4.058712126416768
+9 3.5426513760625924 3.2985089027387064
+10 2.363360182716694 2.550164039877345
+11 1.7165733311494553 1.8841038793898999
+12 1.4040224105916324 1.3352627688545893
+13 0.5331734340822458 0.9106287547832829
+14 0.5946267235925562 0.5992645293207919
 15 0.0 0.38144328082330436
 16 0.0 0.23533063035889312
 17 0.0 0.140981106917139
@@ -665,7 +669,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4e8e18a178220dcebc1caa4cd1e9d663b54d2b187ecdcd6ac7d9bf985631c637.png" src="_images/4e8e18a178220dcebc1caa4cd1e9d663b54d2b187ecdcd6ac7d9bf985631c637.png" />
+<img alt="_images/b26478293ee2860c28047b2cffbcf2642b1829bfb516b6e96d551ec03e39d724.png" src="_images/b26478293ee2860c28047b2cffbcf2642b1829bfb516b6e96d551ec03e39d724.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -685,8 +689,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.54135387, 0.95053739, 3.22278106, 0.6946296 , 1.64452534,
-       3.22116681, 0.45763964, 1.30367372, 1.86405689, 2.92956602])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.34808749, 1.87454926, 1.63020449, 2.22573468, 0.2750563 ,
+       0.87294425, 3.05045361, 0.62443991, 2.45506453, 5.23034822])
 </pre></div>
 </div>
 </div>
@@ -701,7 +705,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f868aa69b8750732d7b600e372675fb4f9637e31615b7772e8268cbfad3faa30.png" src="_images/f868aa69b8750732d7b600e372675fb4f9637e31615b7772e8268cbfad3faa30.png" />
+<img alt="_images/47bf821e749d44bab6b33abb5a6d52d6c5c51661e3c37e68d79aef4049337f55.png" src="_images/47bf821e749d44bab6b33abb5a6d52d6c5c51661e3c37e68d79aef4049337f55.png" />
 </div>
 </div>
 <p>When a stochastic variable <span class="math notranslate nohighlight">\(x\)</span> following the distribution <span class="math notranslate nohighlight">\(p(x)\)</span> is transformed by <span class="math notranslate nohighlight">\(y=g(x)\)</span>, the distribution of <span class="math notranslate nohighlight">\(y\)</span> is given by</p>
@@ -763,7 +767,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.25060113, -1.81943731])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.58710281,  0.40692516])
 </pre></div>
 </div>
 </div>
@@ -781,7 +785,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/93bdbe44c4b8493fc34d4241d039c3a43f4f8b27747cd59459fddbfe52942340.png" src="_images/93bdbe44c4b8493fc34d4241d039c3a43f4f8b27747cd59459fddbfe52942340.png" />
+<img alt="_images/14fa9d98a655c1595beb117aa8a27b781e302073c830b0c8909db3db0e0bd7d1.png" src="_images/14fa9d98a655c1595beb117aa8a27b781e302073c830b0c8909db3db0e0bd7d1.png" />
 </div>
 </div>
 <p>In practice, you can sample by the whole variety of distributions in numpy.random package, but it’s good to know the principle.</p>
@@ -826,7 +830,7 @@ Then take a sample from <span class="math notranslate nohighlight">\(q(x)\)</spa
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b06be7641ee8fac818581a4a289b72710c5bde172c5019fabed9b2e17465d635.png" src="_images/b06be7641ee8fac818581a4a289b72710c5bde172c5019fabed9b2e17465d635.png" />
+<img alt="_images/47aa737a92aa6fff70ac3fdf1aee9489d26dc15c69c59182eb5eaa6cda0e1ef6.png" src="_images/47aa737a92aa6fff70ac3fdf1aee9489d26dc15c69c59182eb5eaa6cda0e1ef6.png" />
 </div>
 </div>
 <p>Consider the exponential distribution <span class="math notranslate nohighlight">\(q(x;\mu)=\frac{1}{\mu}e^{-\frac{x}{\mu}}\)</span> as the proposal distribution.<br />
@@ -861,7 +865,7 @@ For</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/eb2dafd69c658fdaefb7fa3f4a71757858297052763c56f3d07df8e21aaeb85b.png" src="_images/eb2dafd69c658fdaefb7fa3f4a71757858297052763c56f3d07df8e21aaeb85b.png" />
+<img alt="_images/974899500e564f8f1a555c6b42be826f261cb628bcf0e7e9ca008c2b05d4dc5f.png" src="_images/974899500e564f8f1a555c6b42be826f261cb628bcf0e7e9ca008c2b05d4dc5f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -891,10 +895,10 @@ For</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accept: 533
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accept: 522
 </pre></div>
 </div>
-<img alt="_images/68c40860347911935b696891f8ab5137ea4ba5970b0ccb95a1fbb76278331644.png" src="_images/68c40860347911935b696891f8ab5137ea4ba5970b0ccb95a1fbb76278331644.png" />
+<img alt="_images/11b17a97309a39be8a9c19e8e693f91e893e86f8ea95796ff96f4acd199128af.png" src="_images/11b17a97309a39be8a9c19e8e693f91e893e86f8ea95796ff96f4acd199128af.png" />
 </div>
 </div>
 </section>
@@ -938,7 +942,7 @@ the <em>expectation</em> of a function <span class="math notranslate nohighlight
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.966287443659507, 7.622022383348915)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.006659494334992, 8.394924195006501)
 </pre></div>
 </div>
 </div>
@@ -962,7 +966,7 @@ the <em>expectation</em> of a function <span class="math notranslate nohighlight
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.59350332731331, 3.522652294652807)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.9936685823315408, 3.2047333466838404)
 </pre></div>
 </div>
 </div>
@@ -987,7 +991,7 @@ the <em>expectation</em> of a function <span class="math notranslate nohighlight
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.795278719742579, 2.9538938217536743)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.828887723242223, 2.829981400668711)
 </pre></div>
 </div>
 </div>
@@ -1008,8 +1012,8 @@ the <em>expectation</em> of a function <span class="math notranslate nohighlight
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RS:  3.0292938752643694 0.05972010289435393
-IS:  2.9724200111409997 0.055626784508473893
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RS:  2.9950890932131626 0.050556775982886465
+IS:  3.0037033980270684 0.07010983216618202
 </pre></div>
 </div>
 </div>
@@ -1067,7 +1071,7 @@ IS:  2.9724200111409997 0.055626784508473893
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e759b48362ab96ac773eab741637cb9f6f53b6cee5ccb230a233a6528fbc3216.png" src="_images/e759b48362ab96ac773eab741637cb9f6f53b6cee5ccb230a233a6528fbc3216.png" />
+<img alt="_images/458e687cb851439cb2d32da965f4767fdb8b9354fb09c148d48e59d1736a953c.png" src="_images/458e687cb851439cb2d32da965f4767fdb8b9354fb09c148d48e59d1736a953c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1080,10 +1084,10 @@ IS:  2.9724200111409997 0.055626784508473893
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>909
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>937
 </pre></div>
 </div>
-<img alt="_images/f51692e9428d3c7cd3dff608cf23a6d457cfa469459dbc7c793af0db0e334a01.png" src="_images/f51692e9428d3c7cd3dff608cf23a6d457cfa469459dbc7c793af0db0e334a01.png" />
+<img alt="_images/84b812323f0917055db1b6105f8819fc8e4f7edcf0da2a72a2480102e75b71b9.png" src="_images/84b812323f0917055db1b6105f8819fc8e4f7edcf0da2a72a2480102e75b71b9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1096,10 +1100,10 @@ IS:  2.9724200111409997 0.055626784508473893
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>911
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>901
 </pre></div>
 </div>
-<img alt="_images/f190b2a1ca1a076caf62b3936dfa6045dba2c7d4e0aa76fd534fb3523f685977.png" src="_images/f190b2a1ca1a076caf62b3936dfa6045dba2c7d4e0aa76fd534fb3523f685977.png" />
+<img alt="_images/39c14eb1427218e7ca5834b82ae564512e55156a9930b0212fe31ab5f84a2c27.png" src="_images/39c14eb1427218e7ca5834b82ae564512e55156a9930b0212fe31ab5f84a2c27.png" />
 </div>
 </div>
 </section>

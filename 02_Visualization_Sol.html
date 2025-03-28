@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -220,6 +222,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_Git.html">Version Control System: Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_GitHub.html">Collaborative Development: GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_Management_Ex.html">10. Software Management: Exercise</a></li>
 </ul>
 </details></li>
@@ -423,10 +427,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-51.77109696676726, 51.90297525317834, -53.41177025379329, 50.26230196615231)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-51.77109696676727, 51.90297525317833, -53.41177025379329, 50.26230196615231)
 </pre></div>
 </div>
-<img alt="_images/fbe33630f743557c1a98621a0b283c2798a8dd7a95522c804eeaa1d338b3f035.png" src="_images/fbe33630f743557c1a98621a0b283c2798a8dd7a95522c804eeaa1d338b3f035.png" />
+<img alt="_images/ed6f6e8408e43c6fe826a56664ee7f383f0fbc07e7540d840d4b52ce73de0fac.png" src="_images/ed6f6e8408e43c6fe826a56664ee7f383f0fbc07e7540d840d4b52ce73de0fac.png" />
 </div>
 </div>
 <p>b) Draw a “<span class="math notranslate nohighlight">\(\infty\)</span>” shape.</p>
@@ -440,10 +444,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x10be57e60&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x127af4210&gt;]
 </pre></div>
 </div>
-<img alt="_images/91da9d237f4d4bc2358a80d423de756d5c7b4baf12f6216a05f57819c693db10.png" src="_images/91da9d237f4d4bc2358a80d423de756d5c7b4baf12f6216a05f57819c693db10.png" />
+<img alt="_images/ddf78fa3dc2209e8ba232415a8b29a4540d81e493e0240f451ce68f4991ddd45.png" src="_images/ddf78fa3dc2209e8ba232415a8b29a4540d81e493e0240f451ce68f4991ddd45.png" />
 </div>
 </div>
 <p>c) Draw a “flower-like” shape.</p>
@@ -464,7 +468,7 @@ document.write(`
  2.1855287366497285)
 </pre></div>
 </div>
-<img alt="_images/bbee7b876ef067274a0ba1d274b8c618a6a20c0ef2b266e857b3f06f724fd69e.png" src="_images/bbee7b876ef067274a0ba1d274b8c618a6a20c0ef2b266e857b3f06f724fd69e.png" />
+<img alt="_images/a3d4e9421d5faa4958381a21732f1d1d29a1fed0bfeed89cb8dd491be95ec4a9.png" src="_images/a3d4e9421d5faa4958381a21732f1d1d29a1fed0bfeed89cb8dd491be95ec4a9.png" />
 </div>
 </div>
 </section>
@@ -671,10 +675,10 @@ First four columns are:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x10bea3ce0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x127f00810&gt;
 </pre></div>
 </div>
-<img alt="_images/4ed6eaa2f04d2aacd46fa6df73fde23e419f99813074d49e4815a57424779568.png" src="_images/4ed6eaa2f04d2aacd46fa6df73fde23e419f99813074d49e4815a57424779568.png" />
+<img alt="_images/53de63b8ea0ceb16ce245ab27484fa39518457d2d474a788b638fa03fa3bd3e5.png" src="_images/53de63b8ea0ceb16ce245ab27484fa39518457d2d474a788b638fa03fa3bd3e5.png" />
 </div>
 </div>
 <p>b) Create a matrix of pair-wise scatter plots like this:<br />
@@ -695,7 +699,7 @@ First four columns are:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4f093b40c29348647c5b99c3bb903d76c47c8895b41e5467b1ee7c19201dd727.png" src="_images/4f093b40c29348647c5b99c3bb903d76c47c8895b41e5467b1ee7c19201dd727.png" />
+<img alt="_images/ce7e8ea0c7b0ca9316adc648d053a428b45def29a364d95738830e12fa720f2e.png" src="_images/ce7e8ea0c7b0ca9316adc648d053a428b45def29a364d95738830e12fa720f2e.png" />
 </div>
 </div>
 <p>c) Make a <code class="docutils literal notranslate"><span class="pre">quiver</span></code> plot, representing sepal data by position, petal data by arrows, and flower type by arrow color.</p>
@@ -706,10 +710,10 @@ First four columns are:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x10c1b85f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x12f9f3110&gt;
 </pre></div>
 </div>
-<img alt="_images/5ca0014eb5f2e719d0d5647bb3211f0d8904bfef05d30a599030fdaacc07f84d.png" src="_images/5ca0014eb5f2e719d0d5647bb3211f0d8904bfef05d30a599030fdaacc07f84d.png" />
+<img alt="_images/e0ca988a06cefa97db68fa0101df352c553b9b125da6d45581664559a38e39fe.png" src="_images/e0ca988a06cefa97db68fa0101df352c553b9b125da6d45581664559a38e39fe.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1703,7 +1707,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='8bfa4419-2cd5-4f32-9a63-6c5e04530d3a'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x10c1515e0&gt;
+</script><div class="output text_html"><div id='e8d06f93-3197-4f21-9278-bd268907d7c8'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x12fa45b50&gt;
 </pre></div>
 </div>
 </div>
@@ -2700,7 +2704,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='6191ff1d-a35a-4a96-871b-bdc50213f349'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x10c225fd0&gt;
+</script><div class="output text_html"><div id='501496fa-7a9c-4d87-93ce-4016b78cd504'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x12fb86a50&gt;
 </pre></div>
 </div>
 </div>
@@ -3696,7 +3700,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='9403b93b-708e-46d4-9e20-2edadefd7a75'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x10c2b6900&gt;
+</script><div class="output text_html"><div id='74ef9a99-3300-4fdd-a1fe-0305eaa9a83b'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x12fab9fd0&gt;
 </pre></div>
 </div>
 </div>
@@ -4691,7 +4695,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='1d45e88b-14ee-48f9-863f-5af46f3abab7'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x10c283c20&gt;
+</script><div class="output text_html"><div id='98a7fc8c-18af-410e-8638-a774cb54b3c8'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x12f990c50&gt;
 </pre></div>
 </div>
 </div>
@@ -5688,7 +5692,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='93a1e640-c970-4007-aa6b-759bea254961'></div></div></div>
+</script><div class="output text_html"><div id='01d16249-c7a7-4024-91cd-3211e3d32f75'></div></div></div>
 </div>
 </section>
 </section>

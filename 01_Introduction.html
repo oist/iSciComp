@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -61,7 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '01_Introduction';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Introduction to Python: Exercise" href="01_Introduction_Ex.html" />
+    <link rel="next" title="Installing Python by Miniforge" href="MiniForge.html" />
     <link rel="prev" title="Introduction to Scientific Computing" href="iSciComp.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -182,6 +184,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">1. Introduction to Python</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -220,6 +223,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_Git.html">Version Control System: Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_GitHub.html">Collaborative Development: GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_Management_Ex.html">10. Software Management: Exercise</a></li>
 </ul>
 </details></li>
@@ -434,11 +439,14 @@ Its major features are:</p>
 Now it is widely used for scientific computing as well.</p>
 <section id="installing-python">
 <h2>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this heading">#</a></h2>
-<p>Most Linux and Mac machines usually have Python pre-installed.<br />
-To install and setup a variety of packages, it is the best to install a curated distribution, such as:</p>
+<p>Linux and Mac machines usually have Python pre-installed.</p>
+<p>To install and setup a variety of packages, it is easiest to install a curated distribution, such as:</p>
 <ul class="simple">
-<li><p>Anaconda: <a class="reference external" href="http://anaconda.com">http://anaconda.com</a></p></li>
+<li><p>Anaconda: <a class="reference external" href="https://www.anaconda.com/download">https://www.anaconda.com/download</a></p></li>
 </ul>
+<p>There is a free version of Anaconda for students and practitioners, but if you belong to an organization of more than 200 employees, a Business or Enterprise license is required (<a class="reference external" href="https://www.anaconda.com/pricing">https://www.anaconda.com/pricing</a>).</p>
+<p>Anaconda also installs many packages you will never use.</p>
+<p>To install python and packages without using Anaconda, refer to the section <strong>Installing Python by Miniforge</strong>.</p>
 </section>
 <section id="starting-python">
 <h2>Starting Python<a class="headerlink" href="#starting-python" title="Permalink to this heading">#</a></h2>
@@ -738,9 +746,10 @@ A newline is started by <code class="docutils literal notranslate"><span class="
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>weight 3 g
-volume         4 cc
-density    0.750 g/cc
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s1">&#39;weight </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1"> g</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;volume&#39;</span><span class="si">:</span><span class="s1">10</span><span class="si">}{</span><span class="n">b</span><span class="si">:</span><span class="s1">6d</span><span class="si">}</span><span class="s1"> cc</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;density&#39;</span><span class="si">:</span><span class="s1">10</span><span class="si">}{</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="si">:</span><span class="s1">6.3f</span><span class="si">}</span><span class="s1"> g/cc&#39;</span><span class="p">)</span>
+                            <span class="o">^</span>
+<span class="ne">SyntaxError</span>: f-string: expecting &#39;}&#39;
 </pre></div>
 </div>
 </div>
@@ -756,11 +765,6 @@ density    0.750 g/cc
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4]
-</pre></div>
-</div>
-</div>
 </div>
 <p>An item can be referenced by [ ], with index starting from 0.</p>
 <div class="cell docutils container">
@@ -769,20 +773,10 @@ density    0.750 g/cc
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># last item</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -794,20 +788,10 @@ density    0.750 g/cc
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># first to third</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3]
 </pre></div>
 </div>
 </div>
@@ -818,20 +802,10 @@ density    0.750 g/cc
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3, 4]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># from 1st, step by 2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 4]
 </pre></div>
 </div>
 </div>
@@ -842,21 +816,11 @@ density    0.750 g/cc
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 3, 2, 1]
-</pre></div>
-</div>
-</div>
 </div>
 <p>For lists, + means concatenation</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">+</span> <span class="n">b</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 1, 2, 3, 4]
 </pre></div>
 </div>
 </div>
@@ -869,21 +833,11 @@ density    0.750 g/cc
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1, 2, 3], [4, 5, 6]]
-</pre></div>
-</div>
-</div>
 </div>
 <p>An item in a nested list can be picked by [ ][ ], but not [ , ]</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 5, 6]
 </pre></div>
 </div>
 </div>
@@ -894,25 +848,10 @@ density    0.750 g/cc
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># this causes an error for a list</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-
-<span class="ne">TypeError</span>: list indices must be integers or slices, not tuple
 </pre></div>
 </div>
 </div>
@@ -1527,11 +1466,11 @@ from your console.</p>
       </div>
     </a>
     <a class="right-next"
-       href="01_Introduction_Ex.html"
+       href="MiniForge.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1. Introduction to Python: Exercise</p>
+        <p class="prev-next-title">Installing Python by Miniforge</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

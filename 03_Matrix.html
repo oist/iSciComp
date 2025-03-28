@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -220,6 +222,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_Git.html">Version Control System: Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_GitHub.html">Collaborative Development: GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_Management_Ex.html">10. Software Management: Exercise</a></li>
 </ul>
 </details></li>
@@ -562,8 +566,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.510774  ,  0.58785224, -0.7240165 ],
-       [ 0.21576691,  0.2838077 , -0.40601794]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.64811406,  2.03735339,  0.35153431],
+       [-1.99087731, -1.14412   ,  0.32545979]])
 </pre></div>
 </div>
 </div>
@@ -575,8 +579,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.60354338, 0.93351899, 0.88725924],
-       [0.21906768, 0.80595504, 0.19314316]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.77862613, 0.4068711 , 0.267754  ],
+       [0.28020897, 0.73051765, 0.6600548 ]])
 </pre></div>
 </div>
 </div>
@@ -588,8 +592,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.37664949, -0.18813981, -0.95243629],
-       [ 0.04186525, -0.24734644, -0.11067838]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.29028675,  0.52154527, -0.92600584],
+       [ 0.11013094,  0.61898559,  0.90903453]])
 </pre></div>
 </div>
 </div>
@@ -601,8 +605,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-3, -2, -3],
-       [ 0, -2,  1]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  1, -1],
+       [ 1,  1,  2]])
 </pre></div>
 </div>
 </div>
@@ -614,8 +618,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4600456733979527588, -4627425565399045880, -4616618033895735470],
-       [ 4586194239251452448, -4625292421908432520, -4630732398593096800]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-4624471075713874984,  4602872881729944452, -4616856098160512442],
+       [ 4592600191271884352,  4603750546052997748,  4606363074653650268]])
 </pre></div>
 </div>
 </div>
@@ -984,7 +988,7 @@ the matrix product is</p>
    2]]
 </pre></div>
 </div>
-<img alt="_images/59e7118201589be23e6aeb47b29867b8f60305822dec7fe31ab51f733fa72f93.png" src="_images/59e7118201589be23e6aeb47b29867b8f60305822dec7fe31ab51f733fa72f93.png" />
+<img alt="_images/c62dd7def0dc854eaa85bfdfc1ab19016a24cb301271bcb66961788abba4fdfc.png" src="_images/c62dd7def0dc854eaa85bfdfc1ab19016a24cb301271bcb66961788abba4fdfc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1000,11 +1004,11 @@ the matrix product is</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.73023102 0.74591734]
- [0.55282818 0.42724491]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.37781245 -0.87573514]
+ [-0.33006862  0.16918417]]
 </pre></div>
 </div>
-<img alt="_images/ee2bba18a930751210e61019c9579bce6825487f32387c4fa0c3bfccde23f9e2.png" src="_images/ee2bba18a930751210e61019c9579bce6825487f32387c4fa0c3bfccde23f9e2.png" />
+<img alt="_images/574401f32042bcaf3893bb4295a847ff5ee989afd3570a4067b03eb9ebedad69.png" src="_images/574401f32042bcaf3893bb4295a847ff5ee989afd3570a4067b03eb9ebedad69.png" />
 </div>
 </div>
 </section>
@@ -1159,7 +1163,7 @@ Eigenvalues are derived by solving a polynomial equation</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/eea8d37d02052c1c865ce3c69c80d46bf1406f92c7486a8122ccc003f3bbaa96.png" src="_images/eea8d37d02052c1c865ce3c69c80d46bf1406f92c7486a8122ccc003f3bbaa96.png" />
+<img alt="_images/4a9d92648234fbf136c8b8258a1d3a7ce7f62276888b0ad3c06050a33a6905df.png" src="_images/4a9d92648234fbf136c8b8258a1d3a7ce7f62276888b0ad3c06050a33a6905df.png" />
 </div>
 </div>
 </section>
@@ -1232,7 +1236,7 @@ we usuall create a data matrix</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0add4a659fbc197c9c283c092c70fe3bdac257c283f4136634d4d35d2c55b7dc.png" src="_images/0add4a659fbc197c9c283c092c70fe3bdac257c283f4136634d4d35d2c55b7dc.png" />
+<img alt="_images/41ed2ec34eafa5c363fe443b926c9cc84c1b8b30cbadd0fa4a9f91e0d076a161.png" src="_images/41ed2ec34eafa5c363fe443b926c9cc84c1b8b30cbadd0fa4a9f91e0d076a161.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1319,7 +1323,7 @@ lams, Vs =  [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f226939c6dd00ea05890f20b893b985d38509a3a18aa9aba598203c1b9e580d4.png" src="_images/f226939c6dd00ea05890f20b893b985d38509a3a18aa9aba598203c1b9e580d4.png" />
+<img alt="_images/a152faf3fef54b5df9b22269822d558c7416234d5f829327b701832d488bd673.png" src="_images/a152faf3fef54b5df9b22269822d558c7416234d5f829327b701832d488bd673.png" />
 </div>
 </div>
 <p>Now let us project the 4D data onto the space spanned by the eigenvectors.</p>
@@ -1339,7 +1343,7 @@ lams, Vs =  [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/be9298bd3a1f39310bd046902608a61ba93211c80a490efa072308beda586dce.png" src="_images/be9298bd3a1f39310bd046902608a61ba93211c80a490efa072308beda586dce.png" />
+<img alt="_images/135ab0deafb454aa2dc06cfa37fbe65d9a863609fb44b4fd6ef8575ef3f38f1c.png" src="_images/135ab0deafb454aa2dc06cfa37fbe65d9a863609fb44b4fd6ef8575ef3f38f1c.png" />
 </div>
 </div>
 </section>
@@ -1381,12 +1385,12 @@ and <span class="math notranslate nohighlight">\(V=(\b{v}_1,...,\b{v}_k)\)</span
  [-0.33218358  0.53508568 -0.40349583  0.46377343 -0.47480808]]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4.8756825e-15, 1.0000000e+00, 2.0000000e+00, 3.0000000e+00,
-        4.0000000e+00],
-       [5.0000000e+00, 4.0000000e+00, 3.0000000e+00, 2.0000000e+00,
-        1.0000000e+00],
-       [1.0000000e+00, 3.0000000e+00, 2.0000000e+00, 4.0000000e+00,
-        3.0000000e+00]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4.95020796e-15, 1.00000000e+00, 2.00000000e+00, 3.00000000e+00,
+        4.00000000e+00],
+       [5.00000000e+00, 4.00000000e+00, 3.00000000e+00, 2.00000000e+00,
+        1.00000000e+00],
+       [1.00000000e+00, 3.00000000e+00, 2.00000000e+00, 4.00000000e+00,
+        3.00000000e+00]])
 </pre></div>
 </div>
 </div>
@@ -1409,7 +1413,7 @@ and <span class="math notranslate nohighlight">\(V=(\b{v}_1,...,\b{v}_k)\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ba26f7870514cb2e8f444c77edc908ae30fea6d4be8bf5b06d6e353d035e8cdc.png" src="_images/ba26f7870514cb2e8f444c77edc908ae30fea6d4be8bf5b06d6e353d035e8cdc.png" />
+<img alt="_images/acde5e84a4c4343a36bb94c8a9af9d016bfe6857c60abaac76cae27887d093bd.png" src="_images/acde5e84a4c4343a36bb94c8a9af9d016bfe6857c60abaac76cae27887d093bd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1424,7 +1428,7 @@ and <span class="math notranslate nohighlight">\(V=(\b{v}_1,...,\b{v}_k)\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cc7b5773f008a4dac9233cffd23fce13490bafa9fa3c90f72c384d073d0a004b.png" src="_images/cc7b5773f008a4dac9233cffd23fce13490bafa9fa3c90f72c384d073d0a004b.png" />
+<img alt="_images/6a25cb452db054a2f080b60971fbc18224159885ba423c87087b699695600636.png" src="_images/6a25cb452db054a2f080b60971fbc18224159885ba423c87087b699695600636.png" />
 </div>
 </div>
 </section>
@@ -1524,7 +1528,7 @@ V =  [[ 0.70710678 -0.4472136 ]
  [ 0.70710678  0.89442719]]
 </pre></div>
 </div>
-<img alt="_images/936427d2c7ad48ff3f7585247d43897b33adcc74436ec636972d32fc73f20922.png" src="_images/936427d2c7ad48ff3f7585247d43897b33adcc74436ec636972d32fc73f20922.png" />
+<img alt="_images/f7fd813147b31ceb7bb200e9f629ef6c1cf158a03d8ee81d6f581b867972dd30.png" src="_images/f7fd813147b31ceb7bb200e9f629ef6c1cf158a03d8ee81d6f581b867972dd30.png" />
 </div>
 </div>
 </section>
@@ -1612,15 +1616,15 @@ Points in the complex plane are then converted back in a real vector space by mu
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L = [0.75+0.96824584j 0.75-0.96824584j]
-V =  [[-0.70710678+0.j        -0.70710678-0.j       ]
- [-0.1767767 +0.6846532j -0.1767767 -0.6846532j]]
+V =  [[0.1767767 +0.6846532j 0.1767767 -0.6846532j]
+ [0.70710678+0.j        0.70710678-0.j       ]]
 R = [[ 0.75       -0.96824584]
  [ 0.96824584  0.75      ]]
-VU = [[-0.70710678 -0.        ]
- [-0.1767767  -0.6846532 ]]
+VU = [[ 0.1767767  -0.6846532 ]
+ [ 0.70710678 -0.        ]]
 </pre></div>
 </div>
-<img alt="_images/ba979eadd1a3e58b4d235d8fb3be8b862ff8619959954ea322bb2c1e9bdb75f2.png" src="_images/ba979eadd1a3e58b4d235d8fb3be8b862ff8619959954ea322bb2c1e9bdb75f2.png" />
+<img alt="_images/3d7aab64e6fb8192585835ee04e6809a2bc857e46d4ef8ff29d9ae5f0a74a82d.png" src="_images/3d7aab64e6fb8192585835ee04e6809a2bc857e46d4ef8ff29d9ae5f0a74a82d.png" />
 </div>
 </div>
 <p>The trajectory in the complex space or the <span class="math notranslate nohighlight">\((\b{u},-\b{w})\)</span> space is a regular spirals, which is mapped to a skewed spiral in the original space.</p>

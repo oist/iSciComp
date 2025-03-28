@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -220,6 +222,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_Git.html">Version Control System: Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_GitHub.html">Collaborative Development: GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_Management_Ex.html">10. Software Management: Exercise</a></li>
 </ul>
 </details></li>
@@ -608,7 +612,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/06e048c4aec67695c16685ab291671b1b190c77c581b39e1311f1316c5a5f0c1.png" src="_images/06e048c4aec67695c16685ab291671b1b190c77c581b39e1311f1316c5a5f0c1.png" />
+<img alt="_images/fa1e265de563781071b37d7b4931425839a43cf21be43b72b06f796d5fcbf16d.png" src="_images/fa1e265de563781071b37d7b4931425839a43cf21be43b72b06f796d5fcbf16d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -620,7 +624,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/507a78afe216310de8ccc8a2671070d9375dd2965b5802897450fd15d81545e7.png" src="_images/507a78afe216310de8ccc8a2671070d9375dd2965b5802897450fd15d81545e7.png" />
+<img alt="_images/91dc5fbd971af9ca0e5f1ed42b050a4184cc3a43d6435559c97272e1f6b744e4.png" src="_images/91dc5fbd971af9ca0e5f1ed42b050a4184cc3a43d6435559c97272e1f6b744e4.png" />
 </div>
 </div>
 <p>A second-order ODE</p>
@@ -661,7 +665,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fc0595bae0cde56c00bb22899163cffc2d4aa02adebe23c9a57873d270f91cc4.png" src="_images/fc0595bae0cde56c00bb22899163cffc2d4aa02adebe23c9a57873d270f91cc4.png" />
+<img alt="_images/c031c32edc926d2e809d914bba0e0a76d7e3daa80cdcfc8b62a19a25d9374990.png" src="_images/c031c32edc926d2e809d914bba0e0a76d7e3daa80cdcfc8b62a19a25d9374990.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -673,7 +677,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5ab181c6f01ed993a3fef31bd379a35703fb0ad7e2561b7241a5d7f781fb8101.png" src="_images/5ab181c6f01ed993a3fef31bd379a35703fb0ad7e2561b7241a5d7f781fb8101.png" />
+<img alt="_images/a1120bf0adb963d6453f565becefb8e2b2eb77776ffb42cfd73092394869fbd5.png" src="_images/a1120bf0adb963d6453f565becefb8e2b2eb77776ffb42cfd73092394869fbd5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -685,7 +689,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/010eb1b64ef7841bffff2eb0bc06a554db4971a340e7d71012336328e00d5965.png" src="_images/010eb1b64ef7841bffff2eb0bc06a554db4971a340e7d71012336328e00d5965.png" />
+<img alt="_images/0b8ad5f09910e7abe0c70a3d85f255d08ccd38df8b76dac371a0c484115ecf98.png" src="_images/0b8ad5f09910e7abe0c70a3d85f255d08ccd38df8b76dac371a0c484115ecf98.png" />
 </div>
 </div>
 <p>Let us see how the time step affects the accuracy of the solution.</p>
@@ -704,7 +708,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c8d51238a6da1b1df44575e0f6474d98f7e0e1609ae7a72f179ce75dec833cf3.png" src="_images/c8d51238a6da1b1df44575e0f6474d98f7e0e1609ae7a72f179ce75dec833cf3.png" />
+<img alt="_images/ca35fb5b7e4a24ea44b56b261d3343e624d19b6aa789d1ff4528fe20655260e7.png" src="_images/ca35fb5b7e4a24ea44b56b261d3343e624d19b6aa789d1ff4528fe20655260e7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -720,7 +724,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c30fd18b48f11b0c389ffb6b797c331a8b137f33315124a0c2c388cf6f3ddc52.png" src="_images/c30fd18b48f11b0c389ffb6b797c331a8b137f33315124a0c2c388cf6f3ddc52.png" />
+<img alt="_images/f6772996147dfe17a1b2ede4747d00a7513e0901a83209f6869162226d25d946.png" src="_images/f6772996147dfe17a1b2ede4747d00a7513e0901a83209f6869162226d25d946.png" />
 </div>
 </div>
 </section>
@@ -773,7 +777,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a4cf9b901fe871194055643e81193b723fa3275a5381d3903ecad02e59d81c07.png" src="_images/a4cf9b901fe871194055643e81193b723fa3275a5381d3903ecad02e59d81c07.png" />
+<img alt="_images/ad03ffdd15950c6390c914b27ea4b2cad92550aa7253083e4a63c09cc20d297d.png" src="_images/ad03ffdd15950c6390c914b27ea4b2cad92550aa7253083e4a63c09cc20d297d.png" />
 </div>
 </div>
 <p>Here’s another example of second-order linear ODE.</p>
@@ -787,7 +791,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/37cddedd66f57c7aed0824d4e557a39e17ecf92b4716a9ed310c3d4f023e7f4b.png" src="_images/37cddedd66f57c7aed0824d4e557a39e17ecf92b4716a9ed310c3d4f023e7f4b.png" />
+<img alt="_images/9b2bbb210d4dbd94f578441828c561199ca1e39d4ed93c26a2b16aca14530f8f.png" src="_images/9b2bbb210d4dbd94f578441828c561199ca1e39d4ed93c26a2b16aca14530f8f.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">odeint()</span></code> internally uses adaptive time steps, and returns values of <code class="docutils literal notranslate"><span class="pre">y</span></code> for time points specified in <code class="docutils literal notranslate"><span class="pre">t</span></code> by interpolation.</p>
@@ -805,7 +809,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/558b8d5e967965474e34bb1c7479bea36650e7e3e94afddede4f2b170b6664ca.png" src="_images/558b8d5e967965474e34bb1c7479bea36650e7e3e94afddede4f2b170b6664ca.png" />
+<img alt="_images/b52f38b336cc2f8bd6a398947ef0958ee86127e4d4f6f144f84807173ab36c3a.png" src="_images/b52f38b336cc2f8bd6a398947ef0958ee86127e4d4f6f144f84807173ab36c3a.png" />
 </div>
 </div>
 </section>
@@ -883,7 +887,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c7023ebae9f6748762a130f07355279fcd6a6e95b698ee55f33524b3379b779e.png" src="_images/c7023ebae9f6748762a130f07355279fcd6a6e95b698ee55f33524b3379b779e.png" />
+<img alt="_images/472dcde2c2b8b4535717e4e7b2fbf9043f5709dfde9617a28ae77d8a7b0b9a20.png" src="_images/472dcde2c2b8b4535717e4e7b2fbf9043f5709dfde9617a28ae77d8a7b0b9a20.png" />
 </div>
 </div>
 <ul class="simple">
@@ -917,7 +921,7 @@ For an ODE</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/83874ce8b1d1adea3249c9a4271127a444e9f251d4507b5f9cae31049572d968.png" src="_images/83874ce8b1d1adea3249c9a4271127a444e9f251d4507b5f9cae31049572d968.png" />
+<img alt="_images/84ef781800e7a58cde9e6ec8a441240d1739b69e09ddc19e6f5a491cf0be0a7c.png" src="_images/84ef781800e7a58cde9e6ec8a441240d1739b69e09ddc19e6f5a491cf0be0a7c.png" />
 </div>
 </div>
 </section>
@@ -970,7 +974,7 @@ Its stability is determined by the eigenvalues of <span class="math notranslate 
 ev = [-0.5+0.8660254j -0.5-0.8660254j]
 </pre></div>
 </div>
-<img alt="_images/5f6df66bf0528d692b9c2da1037386591fd61b266fc5679504e36b40ef8e2392.png" src="_images/5f6df66bf0528d692b9c2da1037386591fd61b266fc5679504e36b40ef8e2392.png" />
+<img alt="_images/38ed11778cb3ec071385273c6edfc441c9e20c729c9dbdecd9dac71bc1cac36a.png" src="_images/38ed11778cb3ec071385273c6edfc441c9e20c729c9dbdecd9dac71bc1cac36a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -985,7 +989,7 @@ ev = [-0.5+0.8660254j -0.5-0.8660254j]
 ev = [0.5+0.8660254j 0.5-0.8660254j]
 </pre></div>
 </div>
-<img alt="_images/8e84f8de472fdc50e8ac5bcb626d9078370ce75070870f6b07a102712d99b801.png" src="_images/8e84f8de472fdc50e8ac5bcb626d9078370ce75070870f6b07a102712d99b801.png" />
+<img alt="_images/a480677b0b3637605f35f10fbb0d5f377c7712a830ccd26d25d70821b5c135d8.png" src="_images/a480677b0b3637605f35f10fbb0d5f377c7712a830ccd26d25d70821b5c135d8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1000,7 +1004,7 @@ ev = [0.5+0.8660254j 0.5-0.8660254j]
 ev = [-1.  1.]
 </pre></div>
 </div>
-<img alt="_images/0880babc3a92378773f71668c3030ed0334541717ea4181bc01f22b26fa2afd2.png" src="_images/0880babc3a92378773f71668c3030ed0334541717ea4181bc01f22b26fa2afd2.png" />
+<img alt="_images/efa30765506e9d2f208aa3bdaec4711e0e952b275a1707d23dc4a2a6ff9c939a.png" src="_images/efa30765506e9d2f208aa3bdaec4711e0e952b275a1707d23dc4a2a6ff9c939a.png" />
 </div>
 </div>
 </section>
@@ -1032,7 +1036,7 @@ ev = [-1.  1.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8fdd89a3ce65289ecbd6710c43e529ebd7924b7143ae30aa9665dd9bc2b48eed.png" src="_images/8fdd89a3ce65289ecbd6710c43e529ebd7924b7143ae30aa9665dd9bc2b48eed.png" />
+<img alt="_images/c14be6b589439ac9e362a028b771244a08b3d43802334ca4e5b19ba238590a96.png" src="_images/c14be6b589439ac9e362a028b771244a08b3d43802334ca4e5b19ba238590a96.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1044,7 +1048,7 @@ ev = [-1.  1.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/72e817f587d7e4b29bdc8c13b7f89cd0b9d8c409db78201bd11e9cf78fbe0b84.png" src="_images/72e817f587d7e4b29bdc8c13b7f89cd0b9d8c409db78201bd11e9cf78fbe0b84.png" />
+<img alt="_images/e4a4dcb92314da8d8292fdd3d8842ff29eed58cbc1308dd06bd1478c19a1ebcc.png" src="_images/e4a4dcb92314da8d8292fdd3d8842ff29eed58cbc1308dd06bd1478c19a1ebcc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1057,7 +1061,7 @@ ev = [-1.  1.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7eb71b7820ea564dc783ea7ca7fbcd44fe2e149efaede3e9cfd6735bba0872d4.png" src="_images/7eb71b7820ea564dc783ea7ca7fbcd44fe2e149efaede3e9cfd6735bba0872d4.png" />
+<img alt="_images/09d2d02da94fc6da2285d2026cd2d4f4163f1971a5ed0c8e93311e9f33837d10.png" src="_images/09d2d02da94fc6da2285d2026cd2d4f4163f1971a5ed0c8e93311e9f33837d10.png" />
 </div>
 </div>
 </section>
@@ -1101,7 +1105,7 @@ It implies that there is no chaos in a continuous 2D dynamic system.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bfeea0505fa33baaf0d1f6f93c8f8e36f0d0aa35d93205ab5b770b0ef3c7dc08.png" src="_images/bfeea0505fa33baaf0d1f6f93c8f8e36f0d0aa35d93205ab5b770b0ef3c7dc08.png" />
+<img alt="_images/fbb1c70c835fc547aa9f19912c8cd7b2b3a74c6424b01b87e2a072dde5d613cb.png" src="_images/fbb1c70c835fc547aa9f19912c8cd7b2b3a74c6424b01b87e2a072dde5d613cb.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1123,7 +1127,7 @@ It implies that there is no chaos in a continuous 2D dynamic system.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5d4e7ce3d98f2f6972f39abc614bbb7c36def977895640a75f6c73c3467db7b8.png" src="_images/5d4e7ce3d98f2f6972f39abc614bbb7c36def977895640a75f6c73c3467db7b8.png" />
+<img alt="_images/7d340862a396968bc8eaee92740078ea801289dc2ac9751303943f15fb15ae1c.png" src="_images/7d340862a396968bc8eaee92740078ea801289dc2ac9751303943f15fb15ae1c.png" />
 </div>
 </div>
 </section>

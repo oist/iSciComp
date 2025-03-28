@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,8 +43,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js"></script>
@@ -220,6 +222,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_Git.html">Version Control System: Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_GitHub.html">Collaborative Development: GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_Management_Ex.html">10. Software Management: Exercise</a></li>
 </ul>
 </details></li>
@@ -492,7 +496,7 @@ $<span class="math notranslate nohighlight">\( \frac{d}{dt}e^{At} = \frac{d}{dt}
        [ 0.28978415,  0.95709203]]))
 </pre></div>
 </div>
-<img alt="_images/de3687fbe329a9566487531a918b52793e1c9b91c25909cad7a3f36afb521b5f.png" src="_images/de3687fbe329a9566487531a918b52793e1c9b91c25909cad7a3f36afb521b5f.png" />
+<img alt="_images/3b4c77a8d2c4ac3822ed215e8d9edc254353e96d759e4e23207767ae11b8c4a3.png" src="_images/3b4c77a8d2c4ac3822ed215e8d9edc254353e96d759e4e23207767ae11b8c4a3.png" />
 </div>
 </div>
 <ol class="arabic simple" start="2">
@@ -553,7 +557,7 @@ $<span class="math notranslate nohighlight">\( \frac{d}{dt}e^{At} = \frac{d}{dt}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7652fddfe9dfb4a01bb213b84b02c53dd2c9070764a363c03591e334582f690f.png" src="_images/7652fddfe9dfb4a01bb213b84b02c53dd2c9070764a363c03591e334582f690f.png" />
+<img alt="_images/a37249c1452583e456e46e6069098255b47f55bdd09a4040ec386c2a9f4edeac.png" src="_images/a37249c1452583e456e46e6069098255b47f55bdd09a4040ec386c2a9f4edeac.png" />
 </div>
 </div>
 <ol class="arabic simple" start="3">
@@ -567,7 +571,7 @@ $<span class="math notranslate nohighlight">\( \frac{d}{dt}e^{At} = \frac{d}{dt}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5f6f7b0cde3aaa50f9cc2ac4abc6fbd4acae618bf540c3f0515f173770e247c5.png" src="_images/5f6f7b0cde3aaa50f9cc2ac4abc6fbd4acae618bf540c3f0515f173770e247c5.png" />
+<img alt="_images/86366589cf8d27374fb458d7ecfd185424b598adb74de0b4760c2ae3a5a5e75c.png" src="_images/86366589cf8d27374fb458d7ecfd185424b598adb74de0b4760c2ae3a5a5e75c.png" />
 </div>
 </div>
 <p>Option) Implement a nonlinear system with time-dependent input, such as a forced pendulum:</p>
@@ -611,7 +615,7 @@ $<span class="math notranslate nohighlight">\( \frac{d}{dt}e^{At} = \frac{d}{dt}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/73f922d294a47b97dd41b98fd6ce69381ab9897b6c28e5412a4596d43b1fbf05.png" src="_images/73f922d294a47b97dd41b98fd6ce69381ab9897b6c28e5412a4596d43b1fbf05.png" />
+<img alt="_images/898b74ac5692610a0d19af5bb3fd244682698f5510e56572ae54959f52562b66.png" src="_images/898b74ac5692610a0d19af5bb3fd244682698f5510e56572ae54959f52562b66.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -622,7 +626,7 @@ $<span class="math notranslate nohighlight">\( \frac{d}{dt}e^{At} = \frac{d}{dt}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a5de2d63e2ee25ea29fbf301827a9490645ad87c839c454d3df6e6c1ff60c926.png" src="_images/a5de2d63e2ee25ea29fbf301827a9490645ad87c839c454d3df6e6c1ff60c926.png" />
+<img alt="_images/1ab11aee9273119dee8953f5b1298bbf61047eae4574e1aa4cd37dfbeaed37ab.png" src="_images/1ab11aee9273119dee8953f5b1298bbf61047eae4574e1aa4cd37dfbeaed37ab.png" />
 </div>
 </div>
 <p>Let us draw it over <em>nullclines</em>
@@ -641,10 +645,10 @@ $<span class="math notranslate nohighlight">\( \frac{dv}{dt} = 0, \mbox{i.e. } w
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x116203620&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x10f213f90&gt;
 </pre></div>
 </div>
-<img alt="_images/57f13995b998678aa98cd33ba382b06b4651340a90c4661dd5d930ca97bfcb03.png" src="_images/57f13995b998678aa98cd33ba382b06b4651340a90c4661dd5d930ca97bfcb03.png" />
+<img alt="_images/cc82443feca5a9c55c96c0536c8a108c7c756844704cb7de3e94f5085f1203f3.png" src="_images/cc82443feca5a9c55c96c0536c8a108c7c756844704cb7de3e94f5085f1203f3.png" />
 </div>
 </div>
 <p>Let us consider the eigenvalues of the fixed point.
@@ -659,7 +663,7 @@ $<span class="math notranslate nohighlight">\(J = \pmatrix{1-v^2 &amp; -1 \\ \ph
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.1438305327663758, -1], [0.08, -0.064]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.14383053276638158, -1], [0.08, -0.064]]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EigResult(eigenvalues=array([-0.10391527+0.28001209j, -0.10391527-0.28001209j]), eigenvectors=array([[-0.96225045+0.j        , -0.96225045-0.j        ],
@@ -688,7 +692,7 @@ $<span class="math notranslate nohighlight">\(J = \pmatrix{1-v^2 &amp; -1 \\ \ph
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b0782076d61aa896dea465aa785588c5528f719757a86523932387d443f3fe8d.png" src="_images/b0782076d61aa896dea465aa785588c5528f719757a86523932387d443f3fe8d.png" />
+<img alt="_images/dd75d0394788060616ce1cd073fda1230d68b27b148efbb5ba6101a98bc9dc3a.png" src="_images/dd75d0394788060616ce1cd073fda1230d68b27b148efbb5ba6101a98bc9dc3a.png" />
 </div>
 </div>
 </section>
