@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Version Control System: Git &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '10_Management_Git';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -182,6 +181,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -279,6 +279,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/10_Management_Git.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/10_Management_Git.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -405,14 +469,14 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="version-control-system-git">
-<h1>Version Control System: Git<a class="headerlink" href="#version-control-system-git" title="Permalink to this heading">#</a></h1>
+<h1>Version Control System: Git<a class="headerlink" href="#version-control-system-git" title="Link to this heading">#</a></h1>
 <p>Software development is repetitions of coding, testing, and improving. A version control system (VCS) allows</p>
 <ul class="simple">
 <li><p>parallel development of parts and re-integration</p></li>
 <li><p>trace back to previous versions when a problem is detected</p></li>
 </ul>
 <section id="git">
-<h2>Git<a class="headerlink" href="#git" title="Permalink to this heading">#</a></h2>
+<h2>Git<a class="headerlink" href="#git" title="Link to this heading">#</a></h2>
 <p>The most popular VCS today is <em>Git</em>, created by Linus Torvalds for developing Linux.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">git</span></code> has not been installed, follow one of these to install.</p>
 <p>Mac:</p>
@@ -427,7 +491,7 @@ document.write(`
 </ul>
 <p>Detailed documentations can be found at <a class="reference external" href="https://git-scm.com/docs">https://git-scm.com/docs</a></p>
 <section id="starting-a-repository">
-<h3>Starting a repository<a class="headerlink" href="#starting-a-repository" title="Permalink to this heading">#</a></h3>
+<h3>Starting a repository<a class="headerlink" href="#starting-a-repository" title="Link to this heading">#</a></h3>
 <p>In your working directory, you can start a new repository by <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code></p>
 <p>Here we use an example of a directory containing a python module <a class="reference external" href="http://cell.py">cell.py</a> that we created in Chapter 4.</p>
 <div class="cell docutils container">
@@ -451,19 +515,19 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> cell.py
 <span class="sd">&quot;&quot;&quot;Classes for cells&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="k">class</span> <span class="nc">Cell</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cell</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for a cell&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Make a new cell&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
      
-    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Visualize as a circule&quot;&quot;&quot;</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
@@ -502,7 +566,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b9abdcf388f047ef3806da207633072df754e861b71586ebccd6fcddaadb4976.png" src="_images/b9abdcf388f047ef3806da207633072df754e861b71586ebccd6fcddaadb4976.png" />
+<img alt="_images/b6920a87e12a3d8c935843cdb4f0a1e1b98660535ef7a0cf81721b22ac29e39b.png" src="_images/b6920a87e12a3d8c935843cdb4f0a1e1b98660535ef7a0cf81721b22ac29e39b.png" />
 </div>
 </div>
 <p>Now we create a new repository.</p>
@@ -539,9 +603,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>COMMIT_EDITMSG  config          index           <span class=" -Color -Color-Blue">objects</span>/
-HEAD            description     <span class=" -Color -Color-Blue">info</span>/           <span class=" -Color -Color-Blue">refs</span>/
-ORIG_HEAD       <span class=" -Color -Color-Blue">hooks</span>/          <span class=" -Color -Color-Blue">logs</span>/
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AUTO_MERGE      MERGE_HEAD      ORIG_HEAD       <span class=" -Color -Color-Blue">hooks</span>/          <span class=" -Color -Color-Blue">logs</span>/
+COMMIT_EDITMSG  MERGE_MODE      config          index           <span class=" -Color -Color-Blue">objects</span>/
+HEAD            MERGE_MSG       description     <span class=" -Color -Color-Blue">info</span>/           <span class=" -Color -Color-Blue">refs</span>/
 </pre></div>
 </div>
 </div>
@@ -555,18 +619,22 @@ ORIG_HEAD       <span class=" -Color -Color-Blue">hooks</span>/          <span c
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch main
+All conflicts fixed but you are still merging.
+  (use &quot;git commit&quot; to conclude merge)
+
+Changes to be committed:
+	<span class=" -Color -Color-Green">modified:   gcell.py</span>
+
 Untracked files:
   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
 	<span class=" -Color -Color-Red">__pycache__/</span>
-
-nothing added to commit but untracked files present (use &quot;git add&quot; to track)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="staging-and-commiting-files">
-<h3>Staging and Commiting files<a class="headerlink" href="#staging-and-commiting-files" title="Permalink to this heading">#</a></h3>
+<h3>Staging and Commiting files<a class="headerlink" href="#staging-and-commiting-files" title="Link to this heading">#</a></h3>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> to add files for staging.</p>
 <p>And then <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> to register a version.</p>
 <p><img alt="commit" src="_images/git_commit.png" /></p>
@@ -579,11 +647,15 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch main
+All conflicts fixed but you are still merging.
+  (use &quot;git commit&quot; to conclude merge)
+
+Changes to be committed:
+	<span class=" -Color -Color-Green">modified:   gcell.py</span>
+
 Untracked files:
   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
 	<span class=" -Color -Color-Red">__pycache__/</span>
-
-nothing added to commit but untracked files present (use &quot;git add&quot; to track)
 </pre></div>
 </div>
 </div>
@@ -597,12 +669,19 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch main
-Untracked files:
-  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-	<span class=" -Color -Color-Red">__pycache__/</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[main ff72690] initial version
+ Committer: Kenji Doya &lt;doya@starfishM4.local&gt;
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
 
-nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch main
@@ -617,7 +696,7 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 </div>
 </section>
 <section id="registering-changes">
-<h3>Registering changes<a class="headerlink" href="#registering-changes" title="Permalink to this heading">#</a></h3>
+<h3>Registering changes<a class="headerlink" href="#registering-changes" title="Link to this heading">#</a></h3>
 <p>After editing a file, you can register a new version by <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> and then <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>.</p>
 <p>Please edit <a class="reference external" href="http://cell.py">cell.py</a> or add another file to the directory and check the status.</p>
 <div class="cell docutils container">
@@ -691,43 +770,12 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">commit ada6e011b864c93c202a176b18ab3b01db8f4801 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
-Author: Kenji Doya &lt;doya@oist.jp&gt;
-Date:   Mon Dec 16 14:54:00 2024 +0900
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">commit ff72690d9950381e4171528c547c364659c70875 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
+Merge: 6dc49e0 86d9170
+Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+Date:   Sat Mar 29 07:18:35 2025 +0900
 
-    added gcell.py
-
-<span class=" -Color -Color-Bold">diff --git a/gcell.py b/gcell.py</span>
-<span class=" -Color -Color-Bold">new file mode 100644</span>
-<span class=" -Color -Color-Bold">index 0000000..cd7b2a5</span>
-<span class=" -Color -Color-Bold">--- /dev/null</span>
-<span class=" -Color -Color-Bold">+++ b/gcell.py</span>
-<span class=" -Color -Color-Cyan">@@ -0,0 +1,25 @@</span>
-<span class=" -Color -Color-Green">+&quot;&quot;&quot;Classes for cells&quot;&quot;&quot;</span>
-<span class=" -Color -Color-Green">+</span>
-<span class=" -Color -Color-Green">+import numpy as np</span>
-<span class=" -Color -Color-Green">+import matplotlib.pyplot as plt</span>
-<span class=" -Color -Color-Green">+import cell</span>
-<span class=" -Color -Color-Green">+</span>
-<span class=" -Color -Color-Green">+class gCell(cell.Cell):</span>
-<span class=" -Color -Color-Green">+    &quot;&quot;&quot;Class of growing cell based on Cell class&quot;&quot;&quot;</span>
-<span class=" -Color -Color-Green">+</span><span class=" -Color -Color-BGRed">    </span>
-<span class=" -Color -Color-Green">+    def grow(self, scale=2):</span>
-<span class=" -Color -Color-Green">+        &quot;&quot;&quot;Grow the area of the cell&quot;&quot;&quot;</span>
-<span class=" -Color -Color-Green">+        self.radius *= np.sqrt(scale)</span>
-<span class=" -Color -Color-Green">+</span><span class=" -Color -Color-BGRed">        </span>
-<span class=" -Color -Color-Green">+    def duplicate(self):</span>
-<span class=" -Color -Color-Green">+        &quot;&quot;&quot;Make a copy with a random shift&quot;&quot;&quot;</span>
-<span class=" -Color -Color-Green">+        c = gCell(self.position+np.random.randn(2)*self.radius, self.radius, self.color)</span>
-<span class=" -Color -Color-Green">+        return c</span>
-<span class=" -Color -Color-Green">+</span>
-<span class=" -Color -Color-Green">+if __name__ == &quot;__main__&quot;:</span>
-<span class=" -Color -Color-Green">+    c0 = gCell()</span>
-<span class=" -Color -Color-Green">+    c0.show()</span>
-<span class=" -Color -Color-Green">+    c1 = c0.duplicate()</span>
-<span class=" -Color -Color-Green">+    c1.grow()</span>
-<span class=" -Color -Color-Green">+    c1.show()</span>
-<span class=" -Color -Color-Green">+    plt.show()</span>
+    initial version
 </pre></div>
 </div>
 </div>
@@ -740,7 +788,26 @@ Date:   Mon Dec 16 14:54:00 2024 +0900
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">commit ada6e011b864c93c202a176b18ab3b01db8f4801 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">commit ff72690d9950381e4171528c547c364659c70875 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
+Merge: 6dc49e0 86d9170
+Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+Date:   Sat Mar 29 07:18:35 2025 +0900
+
+    initial version
+
+<span class=" -Color -Color-Yellow">commit 86d9170fe5cf379ddec96cb0484854b3f047797f (</span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
+Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+Date:   Sat Mar 29 03:20:18 2025 +0900
+
+    added gcell.py
+
+<span class=" -Color -Color-Yellow">commit 6dc49e077609837209c57b8b52a58b36340f8250</span>
+Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+Date:   Sat Mar 29 03:20:16 2025 +0900
+
+    initial version
+
+<span class=" -Color -Color-Yellow">commit ada6e011b864c93c202a176b18ab3b01db8f4801</span>
 Author: Kenji Doya &lt;doya@oist.jp&gt;
 Date:   Mon Dec 16 14:54:00 2024 +0900
 
@@ -769,7 +836,7 @@ Date:   Mon Dec 16 14:53:57 2024 +0900
 </div>
 </section>
 <section id="branch">
-<h3>Branch<a class="headerlink" href="#branch" title="Permalink to this heading">#</a></h3>
+<h3>Branch<a class="headerlink" href="#branch" title="Link to this heading">#</a></h3>
 <p>You can create a new <em>branch</em> to update the codes while keeping the current version untouched.</p>
 <p>After creating a branch, switch to that branch by <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code>.</p>
 <div class="cell docutils container">
@@ -811,18 +878,18 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> gcell.py
 <span class="sd">&quot;&quot;&quot;Classes for cells&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">cell</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cell</span>
 
-<span class="k">class</span> <span class="nc">gCell</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">Cell</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">gCell</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">Cell</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class of growing cell based on Cell class&quot;&quot;&quot;</span>
     
-    <span class="k">def</span> <span class="nf">grow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">grow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Grow the area of the cell&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span>
         
-    <span class="k">def</span> <span class="nf">duplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">duplicate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Make a copy with a random shift&quot;&quot;&quot;</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">gCell</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">c</span>
@@ -862,7 +929,7 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f8977b05443c3c14b152094884665a14d6dae4cd078833e0b55d6ea66c350e26.png" src="_images/f8977b05443c3c14b152094884665a14d6dae4cd078833e0b55d6ea66c350e26.png" />
+<img alt="_images/fcbf868d11c34aa74b61f22840adfe07cb01419a80faf8ef08b4c12c0eac0592.png" src="_images/fcbf868d11c34aa74b61f22840adfe07cb01419a80faf8ef08b4c12c0eac0592.png" />
 </div>
 </div>
 <p>Then <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>.</p>
@@ -900,43 +967,30 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">commit ada6e011b864c93c202a176b18ab3b01db8f4801 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
-Author: Kenji Doya &lt;doya@oist.jp&gt;
-Date:   Mon Dec 16 14:54:00 2024 +0900
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">commit 86d9170fe5cf379ddec96cb0484854b3f047797f (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
+Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+Date:   Sat Mar 29 03:20:18 2025 +0900
 
     added gcell.py
 
 <span class=" -Color -Color-Bold">diff --git a/gcell.py b/gcell.py</span>
-<span class=" -Color -Color-Bold">new file mode 100644</span>
-<span class=" -Color -Color-Bold">index 0000000..cd7b2a5</span>
-<span class=" -Color -Color-Bold">--- /dev/null</span>
+<span class=" -Color -Color-Bold">index cd7b2a5..db1f7b9 100644</span>
+<span class=" -Color -Color-Bold">--- a/gcell.py</span>
 <span class=" -Color -Color-Bold">+++ b/gcell.py</span>
-<span class=" -Color -Color-Cyan">@@ -0,0 +1,25 @@</span>
-<span class=" -Color -Color-Green">+&quot;&quot;&quot;Classes for cells&quot;&quot;&quot;</span>
+<span class=" -Color -Color-Cyan">@@ -6,11 +6,11 @@</span> import cell
+ 
+ class gCell(cell.Cell):
+     &quot;&quot;&quot;Class of growing cell based on Cell class&quot;&quot;&quot;
+<span class=" -Color -Color-Red">-    </span>
 <span class=" -Color -Color-Green">+</span>
-<span class=" -Color -Color-Green">+import numpy as np</span>
-<span class=" -Color -Color-Green">+import matplotlib.pyplot as plt</span>
-<span class=" -Color -Color-Green">+import cell</span>
+     def grow(self, scale=2):
+         &quot;&quot;&quot;Grow the area of the cell&quot;&quot;&quot;
+         self.radius *= np.sqrt(scale)
+<span class=" -Color -Color-Red">-        </span>
 <span class=" -Color -Color-Green">+</span>
-<span class=" -Color -Color-Green">+class gCell(cell.Cell):</span>
-<span class=" -Color -Color-Green">+    &quot;&quot;&quot;Class of growing cell based on Cell class&quot;&quot;&quot;</span>
-<span class=" -Color -Color-Green">+</span><span class=" -Color -Color-BGRed">    </span>
-<span class=" -Color -Color-Green">+    def grow(self, scale=2):</span>
-<span class=" -Color -Color-Green">+        &quot;&quot;&quot;Grow the area of the cell&quot;&quot;&quot;</span>
-<span class=" -Color -Color-Green">+        self.radius *= np.sqrt(scale)</span>
-<span class=" -Color -Color-Green">+</span><span class=" -Color -Color-BGRed">        </span>
-<span class=" -Color -Color-Green">+    def duplicate(self):</span>
-<span class=" -Color -Color-Green">+        &quot;&quot;&quot;Make a copy with a random shift&quot;&quot;&quot;</span>
-<span class=" -Color -Color-Green">+        c = gCell(self.position+np.random.randn(2)*self.radius, self.radius, self.color)</span>
-<span class=" -Color -Color-Green">+        return c</span>
-<span class=" -Color -Color-Green">+</span>
-<span class=" -Color -Color-Green">+if __name__ == &quot;__main__&quot;:</span>
-<span class=" -Color -Color-Green">+    c0 = gCell()</span>
-<span class=" -Color -Color-Green">+    c0.show()</span>
-<span class=" -Color -Color-Green">+    c1 = c0.duplicate()</span>
-<span class=" -Color -Color-Green">+    c1.grow()</span>
-<span class=" -Color -Color-Green">+    c1.show()</span>
-<span class=" -Color -Color-Green">+    plt.show()</span>
+     def duplicate(self):
+         &quot;&quot;&quot;Make a copy with a random shift&quot;&quot;&quot;
+         c = gCell(self.position+np.random.randn(2)*self.radius, self.radius, self.color)
 </pre></div>
 </div>
 </div>
@@ -948,12 +1002,31 @@ Date:   Mon Dec 16 14:54:00 2024 +0900
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* <span class=" -Color -Color-Yellow">commit ada6e011b864c93c202a176b18ab3b01db8f4801 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
-<span class=" -Color -Color-Red">|</span> Author: Kenji Doya &lt;doya@oist.jp&gt;
-<span class=" -Color -Color-Red">|</span> Date:   Mon Dec 16 14:54:00 2024 +0900
-<span class=" -Color -Color-Red">|</span> 
-<span class=" -Color -Color-Red">|</span>     added gcell.py
-<span class=" -Color -Color-Red">|</span> 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*   <span class=" -Color -Color-Yellow">commit ff72690d9950381e4171528c547c364659c70875 (</span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
+<span class=" -Color -Color-Red">|</span><span class=" -Color -Color-Green">\</span>  Merge: 6dc49e0 86d9170
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Sat Mar 29 07:18:35 2025 +0900
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>     initial version
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Yellow">commit 86d9170fe5cf379ddec96cb0484854b3f047797f (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Sat Mar 29 03:20:18 2025 +0900
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>     added gcell.py
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">commit 6dc49e077609837209c57b8b52a58b36340f8250</span>
+<span class=" -Color -Color-Green">|/</span>  Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Green">|</span>   Date:   Sat Mar 29 03:20:16 2025 +0900
+<span class=" -Color -Color-Green">|</span>   
+<span class=" -Color -Color-Green">|</span>       initial version
+<span class=" -Color -Color-Green">|</span> 
+* <span class=" -Color -Color-Yellow">commit ada6e011b864c93c202a176b18ab3b01db8f4801</span>
+<span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@oist.jp&gt;
+<span class=" -Color -Color-Green">|</span> Date:   Mon Dec 16 14:54:00 2024 +0900
+<span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Green">|</span>     added gcell.py
+<span class=" -Color -Color-Green">|</span> 
 * <span class=" -Color -Color-Yellow">commit fba656aec31be16236f9de2b429e91fac5ef7b2a</span>
   Author: Kenji Doya &lt;doya@oist.jp&gt;
   Date:   Mon Dec 16 14:53:57 2024 +0900
@@ -975,12 +1048,31 @@ Date:   Mon Dec 16 14:54:00 2024 +0900
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Switched to branch &#39;main&#39;
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* <span class=" -Color -Color-Yellow">commit ada6e011b864c93c202a176b18ab3b01db8f4801 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
-<span class=" -Color -Color-Red">|</span> Author: Kenji Doya &lt;doya@oist.jp&gt;
-<span class=" -Color -Color-Red">|</span> Date:   Mon Dec 16 14:54:00 2024 +0900
-<span class=" -Color -Color-Red">|</span> 
-<span class=" -Color -Color-Red">|</span>     added gcell.py
-<span class=" -Color -Color-Red">|</span> 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*   <span class=" -Color -Color-Yellow">commit ff72690d9950381e4171528c547c364659c70875 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
+<span class=" -Color -Color-Red">|</span><span class=" -Color -Color-Green">\</span>  Merge: 6dc49e0 86d9170
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Sat Mar 29 07:18:35 2025 +0900
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>     initial version
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Yellow">commit 86d9170fe5cf379ddec96cb0484854b3f047797f (</span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Sat Mar 29 03:20:18 2025 +0900
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>     added gcell.py
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">commit 6dc49e077609837209c57b8b52a58b36340f8250</span>
+<span class=" -Color -Color-Green">|/</span>  Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Green">|</span>   Date:   Sat Mar 29 03:20:16 2025 +0900
+<span class=" -Color -Color-Green">|</span>   
+<span class=" -Color -Color-Green">|</span>       initial version
+<span class=" -Color -Color-Green">|</span> 
+* <span class=" -Color -Color-Yellow">commit ada6e011b864c93c202a176b18ab3b01db8f4801</span>
+<span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@oist.jp&gt;
+<span class=" -Color -Color-Green">|</span> Date:   Mon Dec 16 14:54:00 2024 +0900
+<span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Green">|</span>     added gcell.py
+<span class=" -Color -Color-Green">|</span> 
 * <span class=" -Color -Color-Yellow">commit fba656aec31be16236f9de2b429e91fac5ef7b2a</span>
   Author: Kenji Doya &lt;doya@oist.jp&gt;
   Date:   Mon Dec 16 14:53:57 2024 +0900
@@ -1027,12 +1119,31 @@ Date:   Mon Dec 16 14:54:00 2024 +0900
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Already up to date.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* <span class=" -Color -Color-Yellow">commit ada6e011b864c93c202a176b18ab3b01db8f4801 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
-<span class=" -Color -Color-Red">|</span> Author: Kenji Doya &lt;doya@oist.jp&gt;
-<span class=" -Color -Color-Red">|</span> Date:   Mon Dec 16 14:54:00 2024 +0900
-<span class=" -Color -Color-Red">|</span> 
-<span class=" -Color -Color-Red">|</span>     added gcell.py
-<span class=" -Color -Color-Red">|</span> 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*   <span class=" -Color -Color-Yellow">commit ff72690d9950381e4171528c547c364659c70875 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
+<span class=" -Color -Color-Red">|</span><span class=" -Color -Color-Green">\</span>  Merge: 6dc49e0 86d9170
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Sat Mar 29 07:18:35 2025 +0900
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>     initial version
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Yellow">commit 86d9170fe5cf379ddec96cb0484854b3f047797f (</span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Sat Mar 29 03:20:18 2025 +0900
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>     added gcell.py
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
+* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">commit 6dc49e077609837209c57b8b52a58b36340f8250</span>
+<span class=" -Color -Color-Green">|/</span>  Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Green">|</span>   Date:   Sat Mar 29 03:20:16 2025 +0900
+<span class=" -Color -Color-Green">|</span>   
+<span class=" -Color -Color-Green">|</span>       initial version
+<span class=" -Color -Color-Green">|</span> 
+* <span class=" -Color -Color-Yellow">commit ada6e011b864c93c202a176b18ab3b01db8f4801</span>
+<span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@oist.jp&gt;
+<span class=" -Color -Color-Green">|</span> Date:   Mon Dec 16 14:54:00 2024 +0900
+<span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Green">|</span>     added gcell.py
+<span class=" -Color -Color-Green">|</span> 
 * <span class=" -Color -Color-Yellow">commit fba656aec31be16236f9de2b429e91fac5ef7b2a</span>
   Author: Kenji Doya &lt;doya@oist.jp&gt;
   Date:   Mon Dec 16 14:53:57 2024 +0900

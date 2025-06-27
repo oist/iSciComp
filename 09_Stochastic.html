@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>9. Stochastic Methods &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '09_Stochastic';</script>
@@ -184,6 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -281,6 +281,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/09_Stochastic.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/09_Stochastic.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -419,7 +483,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="stochastic-methods">
-<h1>9. Stochastic Methods<a class="headerlink" href="#stochastic-methods" title="Permalink to this heading">#</a></h1>
+<h1>9. Stochastic Methods<a class="headerlink" href="#stochastic-methods" title="Link to this heading">#</a></h1>
 <p>Some computations involve random numbers, such as simulating stochastic processes or searching in a high dimension space.</p>
 <p>References:</p>
 <ul class="simple">
@@ -428,15 +492,15 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
 </div>
 <section id="random-numbers">
-<h2>Random Numbers<a class="headerlink" href="#random-numbers" title="Permalink to this heading">#</a></h2>
+<h2>Random Numbers<a class="headerlink" href="#random-numbers" title="Link to this heading">#</a></h2>
 <p>How can we generate <em>random</em> numbers from deterministic digital computers? They are, of course, <em>pseudo</em> random numbers.</p>
 <p>The classic way of generating pseudo random numbers is <em>Linear Congruent Method</em> using a sequential dynimcs:</p>
 <div class="math notranslate nohighlight">
@@ -444,7 +508,7 @@ document.write(`
 <p>Below is what was long used in the Unix system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lcm</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">seed</span><span class="o">=-</span><span class="mi">1726662223</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">seed</span><span class="o">=-</span><span class="mi">1726662223</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Random integers &lt;2**31 by linear congruent method&quot;&quot;&quot;</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">1103515245</span>
     <span class="n">b</span> <span class="o">=</span> <span class="mi">12345</span>
@@ -476,7 +540,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/20891b322df30e28cea67d602eea4fb5ae6503af406fcdab83e60d4b012755f1.png" src="_images/20891b322df30e28cea67d602eea4fb5ae6503af406fcdab83e60d4b012755f1.png" />
+<img alt="_images/9e9812232e61a8847fc5b89697918387a5fdbb673ca70be0be35e09a7ba51b2c.png" src="_images/9e9812232e61a8847fc5b89697918387a5fdbb673ca70be0be35e09a7ba51b2c.png" />
 </div>
 </div>
 <p>A common problem with LCM is that lower digits can fall in simple cycles.</p>
@@ -516,7 +580,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/528aba8fd25e18f0c4bd4da3cdd9f01d52f8c7dd74afbfa01611ba88c87596d0.png" src="_images/528aba8fd25e18f0c4bd4da3cdd9f01d52f8c7dd74afbfa01611ba88c87596d0.png" />
+<img alt="_images/acb5e5e531aa595a6ff99795189d1f6175dc93a102b779ff24b71b960b7f88f9.png" src="_images/acb5e5e531aa595a6ff99795189d1f6175dc93a102b779ff24b71b960b7f88f9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -526,18 +590,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 2, 0, 2, 1, 3, 0, 3, 3, 2, 1, 0, 3, 3, 1, 3, 2, 2, 1, 1, 1,
-       2, 1, 3, 2, 2, 2, 3, 0, 2, 0, 3, 2, 3, 3, 0, 2, 3, 1, 3, 1, 0, 2,
-       0, 0, 3, 2, 2, 2, 2, 3, 0, 2, 0, 0, 0, 0, 3, 3, 3, 0, 2, 3, 3, 3,
-       1, 1, 2, 0, 1, 2, 2, 1, 3, 2, 1, 2, 0, 1, 1, 3, 3, 2, 3, 1, 2, 3,
-       1, 2, 2, 2, 2, 3, 3, 1, 0, 1, 1, 3])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 0, 2, 0, 0, 1, 0, 2, 0, 2, 0, 2, 1, 3, 3, 3, 1, 0, 1, 2, 2,
+       1, 1, 0, 0, 1, 0, 0, 2, 3, 1, 1, 0, 3, 2, 1, 2, 2, 1, 2, 0, 1, 3,
+       2, 1, 1, 3, 0, 1, 2, 3, 3, 2, 2, 1, 2, 2, 3, 1, 1, 0, 2, 1, 3, 2,
+       0, 1, 0, 3, 1, 3, 0, 2, 2, 2, 3, 3, 2, 3, 2, 1, 1, 1, 1, 0, 2, 0,
+       0, 2, 0, 3, 1, 1, 1, 3, 0, 2, 3, 2])
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="integrating-area-volume">
-<h2>Integrating area/volume<a class="headerlink" href="#integrating-area-volume" title="Permalink to this heading">#</a></h2>
+<h2>Integrating area/volume<a class="headerlink" href="#integrating-area-volume" title="Link to this heading">#</a></h2>
 <p>Uniform random numbers can be used to approximate integration</p>
 <div class="math notranslate nohighlight">
 \[ \int_V f(x)dx \simeq \frac{|V|}{n}\sum_{i=1}^n f(x_i) \]</div>
@@ -546,7 +610,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sphere in 3D</span>
-<span class="k">def</span> <span class="nf">sphere</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sphere</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;height of a half sphere&quot;&quot;&quot;</span>
     <span class="n">h2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">h2</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">h2</span><span class="p">)</span>
@@ -565,7 +629,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.195592317333727
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.195754621869497
 4.1887902047863905
 </pre></div>
 </div>
@@ -576,7 +640,7 @@ document.write(`
 \[ \frac{\pi^{n/2}}{\Gamma(n/2-1)} \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">gamma</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.special</span><span class="w"> </span><span class="kn">import</span> <span class="n">gamma</span>
 </pre></div>
 </div>
 </div>
@@ -584,7 +648,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n-dimensional sphere</span>
-<span class="k">def</span> <span class="nf">nsphere</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">nsphere</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;height of a half sphere in n-dim&quot;&quot;&quot;</span>
     <span class="n">h2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">h2</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">h2</span><span class="p">)</span>
@@ -603,19 +667,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 3.1425020303124676 3.141592653589793
-3 4.18301400380825 4.188790204786391
-4 4.912092953248197 4.934802200544679
-5 5.238578243416131 5.263789013914324
-6 5.137681363118776 5.167712780049969
-7 4.710411322248327 4.724765970331401
-8 4.149637761801695 4.058712126416768
-9 3.5426513760625924 3.2985089027387064
-10 2.363360182716694 2.550164039877345
-11 1.7165733311494553 1.8841038793898999
-12 1.4040224105916324 1.3352627688545893
-13 0.5331734340822458 0.9106287547832829
-14 0.5946267235925562 0.5992645293207919
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 3.158124715415353 3.141592653589793
+3 4.169849266923301 4.188790204786391
+4 4.992167148448152 4.934802200544679
+5 5.092332342303803 5.263789013914324
+6 5.309607266535629 5.167712780049969
+7 4.394979816274948 4.724765970331401
+8 3.851599880914358 4.058712126416768
+9 3.091119557136502 3.2985089027387064
+10 2.0518403094303954 2.550164039877345
+11 1.5074553893648002 1.8841038793898999
+12 1.948270254662379 1.3352627688545893
+13 0.739601544093307 0.9106287547832829
+14 1.7064203392589348 0.5992645293207919
 15 0.0 0.38144328082330436
 16 0.0 0.23533063035889312
 17 0.0 0.140981106917139
@@ -627,14 +691,14 @@ document.write(`
 </div>
 </section>
 <section id="non-uniform-distributions">
-<h2>Non-uniform Distributions<a class="headerlink" href="#non-uniform-distributions" title="Permalink to this heading">#</a></h2>
+<h2>Non-uniform Distributions<a class="headerlink" href="#non-uniform-distributions" title="Link to this heading">#</a></h2>
 <p>How can we generate samples following a non-uniform distribution <span class="math notranslate nohighlight">\(p(x)\)</span>?</p>
 <p>If the cumulative density function</p>
 <div class="math notranslate nohighlight">
 \[f(x) = \int_{-\infty}^{x} p(u) du\]</div>
 <p>is known, we can map uniformly distributed samples <span class="math notranslate nohighlight">\(y_i\in[0,1]\)</span> to <span class="math notranslate nohighlight">\(x_i = f^{-1}(y_i)\)</span>.</p>
 <section id="exponential-distribution">
-<h3>Exponential distribution<a class="headerlink" href="#exponential-distribution" title="Permalink to this heading">#</a></h3>
+<h3>Exponential distribution<a class="headerlink" href="#exponential-distribution" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[ p(x;\mu) = \frac{1}{\mu}e^{-\frac{x}{\mu}} \]</div>
 <div class="math notranslate nohighlight">
@@ -642,15 +706,15 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exponential distribution in [0,infinity)</span>
-<span class="k">def</span> <span class="nf">p_exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">p_exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;density function of exponential distribution&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">/</span><span class="n">mu</span><span class="p">)</span><span class="o">/</span><span class="n">mu</span>
 
-<span class="k">def</span> <span class="nf">f_exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f_exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;cumulative density function of exponential distribution&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">/</span><span class="n">mu</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">finv_exp</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">finv_exp</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;inverse of cumulative density function of exponential distribution&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="o">-</span><span class="n">mu</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
@@ -669,12 +733,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b26478293ee2860c28047b2cffbcf2642b1829bfb516b6e96d551ec03e39d724.png" src="_images/b26478293ee2860c28047b2cffbcf2642b1829bfb516b6e96d551ec03e39d724.png" />
+<img alt="_images/5853698db9b44e601068511e80b09efd9494ba729aa3364b26a88513ac23dfb2.png" src="_images/5853698db9b44e601068511e80b09efd9494ba729aa3364b26a88513ac23dfb2.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">x_exp</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">x_exp</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;sample from exponential distribution&quot;&quot;&quot;</span>
     <span class="n">ys</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># uniform in [0,1]</span>
     <span class="k">return</span> <span class="n">finv_exp</span><span class="p">(</span><span class="n">ys</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
@@ -689,8 +753,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.34808749, 1.87454926, 1.63020449, 2.22573468, 0.2750563 ,
-       0.87294425, 3.05045361, 0.62443991, 2.45506453, 5.23034822])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.98917361, 0.22379092, 0.40570992, 1.73172977, 2.8249073 ,
+       0.97152565, 3.17584295, 0.1176832 , 2.34714779, 4.69828058])
 </pre></div>
 </div>
 </div>
@@ -705,7 +769,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/47bf821e749d44bab6b33abb5a6d52d6c5c51661e3c37e68d79aef4049337f55.png" src="_images/47bf821e749d44bab6b33abb5a6d52d6c5c51661e3c37e68d79aef4049337f55.png" />
+<img alt="_images/b756d9ade4be20feefd0ae730e7446eadccf51897786248ba1adec93fe652f40.png" src="_images/b756d9ade4be20feefd0ae730e7446eadccf51897786248ba1adec93fe652f40.png" />
 </div>
 </div>
 <p>When a stochastic variable <span class="math notranslate nohighlight">\(x\)</span> following the distribution <span class="math notranslate nohighlight">\(p(x)\)</span> is transformed by <span class="math notranslate nohighlight">\(y=g(x)\)</span>, the distribution of <span class="math notranslate nohighlight">\(y\)</span> is given by</p>
@@ -714,7 +778,7 @@ document.write(`
 <p>where <span class="math notranslate nohighlight">\(|\,|\)</span> means the absolute value for a scalar derivative and the determinant for a Jacobian matrix.</p>
 </section>
 <section id="normal-distribution">
-<h3>Normal distribution<a class="headerlink" href="#normal-distribution" title="Permalink to this heading">#</a></h3>
+<h3>Normal distribution<a class="headerlink" href="#normal-distribution" title="Link to this heading">#</a></h3>
 <p>A common way of generating a normal (Gaussian) distribution</p>
 <div class="math notranslate nohighlight">
 \[ p(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2} \]</div>
@@ -748,7 +812,7 @@ document.write(`
 <p>This is known as Box-Muller method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">box_muller</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">box_muller</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate 2n gaussian samples&quot;&quot;&quot;</span>
     <span class="n">u</span> <span class="o">=</span> <span class="n">x_exp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
@@ -767,7 +831,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.58710281,  0.40692516])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.00354795, -1.0042656 ])
 </pre></div>
 </div>
 </div>
@@ -785,7 +849,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/14fa9d98a655c1595beb117aa8a27b781e302073c830b0c8909db3db0e0bd7d1.png" src="_images/14fa9d98a655c1595beb117aa8a27b781e302073c830b0c8909db3db0e0bd7d1.png" />
+<img alt="_images/f076e4bfd47fe6623e80bb94a4d36d68c509e8005a2fcc0acb3ee948da57a4f6.png" src="_images/f076e4bfd47fe6623e80bb94a4d36d68c509e8005a2fcc0acb3ee948da57a4f6.png" />
 </div>
 </div>
 <p>In practice, you can sample by the whole variety of distributions in numpy.random package, but it’s good to know the principle.</p>
@@ -799,12 +863,12 @@ document.write(`
 </section>
 </section>
 <section id="rejection-sampling">
-<h2>Rejection Sampling<a class="headerlink" href="#rejection-sampling" title="Permalink to this heading">#</a></h2>
+<h2>Rejection Sampling<a class="headerlink" href="#rejection-sampling" title="Link to this heading">#</a></h2>
 <p>What can we do when transformations from uniform distribution is not available?</p>
 <p>Let us find a <em>proposal distribution</em> <span class="math notranslate nohighlight">\(q(x)\)</span> for which samples are easily generated and covers the target distribution as <span class="math notranslate nohighlight">\(p(x)\le cq(x)\)</span> with a scaling constant <span class="math notranslate nohighlight">\(c&gt;0\)</span>.<br />
 Then take a sample from <span class="math notranslate nohighlight">\(q(x)\)</span> and accept it with probability <span class="math notranslate nohighlight">\(\frac{p(x)}{cq(x)}\)</span>.</p>
 <section id="gamma-distribution">
-<h3>Gamma distribution<a class="headerlink" href="#gamma-distribution" title="Permalink to this heading">#</a></h3>
+<h3>Gamma distribution<a class="headerlink" href="#gamma-distribution" title="Link to this heading">#</a></h3>
 <p><em>Gamma distribution</em> is an extension of exponential distribution defined as</p>
 <div class="math notranslate nohighlight">
 \[ p(x; k, \theta) = \frac{1}{\Gamma(k)\theta^k}x^{k-1}e^{-\frac{x}{\theta}} \]</div>
@@ -813,7 +877,7 @@ Then take a sample from <span class="math notranslate nohighlight">\(q(x)\)</spa
 <p>Let us generate samples from gamma distribution with integer <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(\theta=1\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_gamma</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">p_gamma</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;gamma distribution with integer k&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">))</span>
 </pre></div>
@@ -830,7 +894,7 @@ Then take a sample from <span class="math notranslate nohighlight">\(q(x)\)</spa
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/47aa737a92aa6fff70ac3fdf1aee9489d26dc15c69c59182eb5eaa6cda0e1ef6.png" src="_images/47aa737a92aa6fff70ac3fdf1aee9489d26dc15c69c59182eb5eaa6cda0e1ef6.png" />
+<img alt="_images/027641c1cc38564ae35fc1d62e4c7933b6a69c59ddc6bdd396a5b7d30e3d1521.png" src="_images/027641c1cc38564ae35fc1d62e4c7933b6a69c59ddc6bdd396a5b7d30e3d1521.png" />
 </div>
 </div>
 <p>Consider the exponential distribution <span class="math notranslate nohighlight">\(q(x;\mu)=\frac{1}{\mu}e^{-\frac{x}{\mu}}\)</span> as the proposal distribution.<br />
@@ -865,12 +929,12 @@ For</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/974899500e564f8f1a555c6b42be826f261cb628bcf0e7e9ca008c2b05d4dc5f.png" src="_images/974899500e564f8f1a555c6b42be826f261cb628bcf0e7e9ca008c2b05d4dc5f.png" />
+<img alt="_images/543e6ae99efe57d6735655bce064dfcfc3e69aff9318cb9f74157776edbdabc4.png" src="_images/543e6ae99efe57d6735655bce064dfcfc3e69aff9318cb9f74157776edbdabc4.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">x_gamma</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">x_gamma</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;sample from gamma distribution by rejection sampling&quot;&quot;&quot;</span>
     <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span><span class="o">**</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">k</span><span class="p">)</span>
     <span class="n">xe</span> <span class="o">=</span> <span class="n">x_exp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
@@ -895,16 +959,16 @@ For</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accept: 522
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accept: 538
 </pre></div>
 </div>
-<img alt="_images/11b17a97309a39be8a9c19e8e693f91e893e86f8ea95796ff96f4acd199128af.png" src="_images/11b17a97309a39be8a9c19e8e693f91e893e86f8ea95796ff96f4acd199128af.png" />
+<img alt="_images/ba6301b2ae74f1af169be6eb13d5ea5aac8e342db2d50b0b851d1c054843ec40.png" src="_images/ba6301b2ae74f1af169be6eb13d5ea5aac8e342db2d50b0b851d1c054843ec40.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="importance-sampling">
-<h2>Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this heading">#</a></h2>
+<h2>Importance Sampling<a class="headerlink" href="#importance-sampling" title="Link to this heading">#</a></h2>
 <p>One probelm of rejection sampling is that we may end up rejecting many of the samples when we cannot find a good proposal distribution.</p>
 <p>When the aim is not just to take samples from <span class="math notranslate nohighlight">\(p(x)\)</span> but to take
 the <em>expectation</em> of a function <span class="math notranslate nohighlight">\(h(x)\)</span> with respect to the distribution <span class="math notranslate nohighlight">\(p(x)\)</span></p>
@@ -915,7 +979,7 @@ the <em>expectation</em> of a function <span class="math notranslate nohighlight
 \[ E_p[h(x)] = \int h(x)p(x)dx = \int h(x)\frac{p(x)}{q(x)}q(x)dx
     = E_q\left[\frac{p(x)}{q(x)}h(x)\right] \]</div>
 <section id="mean-and-variance">
-<h3>Mean and variance<a class="headerlink" href="#mean-and-variance" title="Permalink to this heading">#</a></h3>
+<h3>Mean and variance<a class="headerlink" href="#mean-and-variance" title="Link to this heading">#</a></h3>
 <p>Let us consider taking the mean</p>
 <div class="math notranslate nohighlight">
 \[ \mu = E_p[x] = \int xp(x)dx \]</div>
@@ -925,7 +989,7 @@ the <em>expectation</em> of a function <span class="math notranslate nohighlight
 <p>for the gamma distribution, which are known to be <span class="math notranslate nohighlight">\(k\theta\)</span> and <span class="math notranslate nohighlight">\(k\theta^2\)</span>, respectively.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mv_exp</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mv_exp</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;mean and variance of exponential distribution&quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x_exp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
     <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -942,14 +1006,14 @@ the <em>expectation</em> of a function <span class="math notranslate nohighlight
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.006659494334992, 8.394924195006501)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.9682255567705624, 9.367895293279625)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mv_gamma</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mv_gamma</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;mean and variance of gamma distribution by rejection sampling&quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x_gamma</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>  <span class="c1"># by rejection sampling</span>
     <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -966,14 +1030,14 @@ the <em>expectation</em> of a function <span class="math notranslate nohighlight
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.9936685823315408, 3.2047333466838404)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.2266054925420193, 2.9009214451170324)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mv_gamma_is</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mv_gamma_is</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;mean and variance of gamma distribution by importance sampling&quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x_exp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>  <span class="c1"># sample by exponential distribution</span>
     <span class="n">importance</span> <span class="o">=</span> <span class="n">p_gamma</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="n">p_exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
@@ -991,7 +1055,7 @@ the <em>expectation</em> of a function <span class="math notranslate nohighlight
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.828887723242223, 2.829981400668711)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.978285147753999, 3.013995547532964)
 </pre></div>
 </div>
 </div>
@@ -1012,8 +1076,8 @@ the <em>expectation</em> of a function <span class="math notranslate nohighlight
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RS:  2.9950890932131626 0.050556775982886465
-IS:  3.0037033980270684 0.07010983216618202
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RS:  2.998402287691978 0.05617207305635085
+IS:  2.947997467572822 0.06777538309226606
 </pre></div>
 </div>
 </div>
@@ -1021,17 +1085,17 @@ IS:  3.0037033980270684 0.07010983216618202
 </section>
 </section>
 <section id="markov-chain-monte-carlo-mcmc">
-<h2>Markov Chain Monte Carlo (MCMC)<a class="headerlink" href="#markov-chain-monte-carlo-mcmc" title="Permalink to this heading">#</a></h2>
+<h2>Markov Chain Monte Carlo (MCMC)<a class="headerlink" href="#markov-chain-monte-carlo-mcmc" title="Link to this heading">#</a></h2>
 <p>What if we don’t know the right proposal distribution? We can take a nearby point of a previous sample as a candidate sample and keep it if the candidate’s probability is high. The method is callel Markov Chain Monte Carlo (MCMC) method and used practically for sampling from unknow distributions in high dimensional space.</p>
 <section id="metropolis-sampling">
-<h3>Metropolis Sampling<a class="headerlink" href="#metropolis-sampling" title="Permalink to this heading">#</a></h3>
+<h3>Metropolis Sampling<a class="headerlink" href="#metropolis-sampling" title="Link to this heading">#</a></h3>
 <p>A simple example of MCMC is Metropolis sampling, which requires only unnormalized propability <span class="math notranslate nohighlight">\(\tilde{p}(x)\propto p(x)\)</span> of samples for relative comparison.</p>
 <p>A new candidate <span class="math notranslate nohighlight">\(x^*\)</span> is generated by a symmetric proposal distribution <span class="math notranslate nohighlight">\(q(x^*|x_k)=q(x_k|x^*)\)</span>, such as a gaussian distribution, and acctepted with the probability of</p>
 <div class="math notranslate nohighlight">
 \[ p_\mbox{acc} = \min(1, \frac{p(x^*)}{p(x_k)}) \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">metropolis</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">sig</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">metropolis</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">sig</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;metropolis: Metropolis sampling</span>
 <span class="sd">    p:unnormalized probability, x0:initial point,</span>
 <span class="sd">    sif:sd of proposal distribution, m:number of sampling&quot;&quot;&quot;</span>
@@ -1053,7 +1117,7 @@ IS:  3.0037033980270684 0.07010983216618202
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">croissant</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">croissant</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;croissant-like distribution in 2D&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
@@ -1071,7 +1135,7 @@ IS:  3.0037033980270684 0.07010983216618202
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/458e687cb851439cb2d32da965f4767fdb8b9354fb09c148d48e59d1736a953c.png" src="_images/458e687cb851439cb2d32da965f4767fdb8b9354fb09c148d48e59d1736a953c.png" />
+<img alt="_images/85abbb429450ebb92d0a525f2dad6a7462b610ae42bbf9a46f3a554d0ee349fd.png" src="_images/85abbb429450ebb92d0a525f2dad6a7462b610ae42bbf9a46f3a554d0ee349fd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1084,10 +1148,10 @@ IS:  3.0037033980270684 0.07010983216618202
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>937
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>915
 </pre></div>
 </div>
-<img alt="_images/84b812323f0917055db1b6105f8819fc8e4f7edcf0da2a72a2480102e75b71b9.png" src="_images/84b812323f0917055db1b6105f8819fc8e4f7edcf0da2a72a2480102e75b71b9.png" />
+<img alt="_images/4ef0e071441eae5292abb9db90d2e43b0e10f5cecfdd1e52ff0bcac6a55f9f61.png" src="_images/4ef0e071441eae5292abb9db90d2e43b0e10f5cecfdd1e52ff0bcac6a55f9f61.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1100,10 +1164,10 @@ IS:  3.0037033980270684 0.07010983216618202
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>901
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>907
 </pre></div>
 </div>
-<img alt="_images/39c14eb1427218e7ca5834b82ae564512e55156a9930b0212fe31ab5f84a2c27.png" src="_images/39c14eb1427218e7ca5834b82ae564512e55156a9930b0212fe31ab5f84a2c27.png" />
+<img alt="_images/c5036c5c158a2dabe0761d3ae8132a5f85b9eb1fb1e65c06e7895eb117b82591.png" src="_images/c5036c5c158a2dabe0761d3ae8132a5f85b9eb1fb1e65c06e7895eb117b82591.png" />
 </div>
 </div>
 </section>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>6. Ordinary Differential Equations: Exercise Solutions &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '06_ODE_Sol';</script>
@@ -184,6 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -281,6 +281,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/06_ODE_Sol.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/06_ODE_Sol.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -403,19 +467,19 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="ordinary-differential-equations-exercise-solutions">
-<h1>6. Ordinary Differential Equations: Exercise Solutions<a class="headerlink" href="#ordinary-differential-equations-exercise-solutions" title="Permalink to this heading">#</a></h1>
+<h1>6. Ordinary Differential Equations: Exercise Solutions<a class="headerlink" href="#ordinary-differential-equations-exercise-solutions" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">odeint</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="linear-odes">
-<h2>1. Linear ODEs<a class="headerlink" href="#linear-odes" title="Permalink to this heading">#</a></h2>
+<h2>1. Linear ODEs<a class="headerlink" href="#linear-odes" title="Link to this heading">#</a></h2>
 <p>Like the exponential of a real number <span class="math notranslate nohighlight">\(x\)</span> is given by
 $<span class="math notranslate nohighlight">\( e^{x} = 1 + x + \frac{1}{2} x^2 + \frac{1}{6} x^3 + ...
   = \sum_{k=0}^{\infty} \frac{1}{k!} x^k, \)</span><span class="math notranslate nohighlight">\(
@@ -439,7 +503,7 @@ where \)</span>y(0)<span class="math notranslate nohighlight">\( is an \)</span>
 <p>Let us visualize solutions for different eigenvalues.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linear</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">A</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">linear</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">A</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Linear dynamcal system dy/dt = Ay</span>
 <span class="sd">    y: n-dimensional state vector</span>
 <span class="sd">    t: time (not used, for compatibility with odeint())</span>
@@ -452,7 +516,7 @@ where \)</span>y(0)<span class="math notranslate nohighlight">\( is an \)</span>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linear2D</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">yinit</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]]),</span> <span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">linear2D</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">yinit</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]]),</span> <span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Visualizing linear 2D dynamical system&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">y0</span> <span class="ow">in</span> <span class="n">yinit</span><span class="p">:</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">linear</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">A</span><span class="p">,))</span>
@@ -479,7 +543,7 @@ where \)</span>y(0)<span class="math notranslate nohighlight">\( is an \)</span>
        [ 0.34372377,  0.80689822]]))
 </pre></div>
 </div>
-<img alt="_images/9a5ef90b720e8b58b4dc274ba02858792b4368f6f6440e4c2176a07416be7d17.png" src="_images/9a5ef90b720e8b58b4dc274ba02858792b4368f6f6440e4c2176a07416be7d17.png" />
+<img alt="_images/bef76d5357f3fe3ff732c3ba512b763a05a9bc56c8c9fdecc0ff7b5393c95c77.png" src="_images/bef76d5357f3fe3ff732c3ba512b763a05a9bc56c8c9fdecc0ff7b5393c95c77.png" />
 </div>
 </div>
 <ol class="arabic simple" start="2">
@@ -497,7 +561,7 @@ where \)</span>y(0)<span class="math notranslate nohighlight">\( is an \)</span>
        [ 0.15636505,  0.95335371]]))
 </pre></div>
 </div>
-<img alt="_images/a9b17230fda719fc32e30d2f772cea75b9ab6ed2bc0f929f055eea8a3d6d402f.png" src="_images/a9b17230fda719fc32e30d2f772cea75b9ab6ed2bc0f929f055eea8a3d6d402f.png" />
+<img alt="_images/2c79b9d1e6881bff2848c3439f16f43f7837eff91ea8fc2b79e4f2f971f768f1.png" src="_images/2c79b9d1e6881bff2848c3439f16f43f7837eff91ea8fc2b79e4f2f971f768f1.png" />
 </div>
 </div>
 <ol class="arabic simple" start="3">
@@ -515,7 +579,7 @@ where \)</span>y(0)<span class="math notranslate nohighlight">\( is an \)</span>
        [ 0.34372377, -0.80689822]]))
 </pre></div>
 </div>
-<img alt="_images/29b906e10b5c74a12c352294151290025a87732edd4ec83bbc643598654d3ebb.png" src="_images/29b906e10b5c74a12c352294151290025a87732edd4ec83bbc643598654d3ebb.png" />
+<img alt="_images/5c82142b120aea27b96f533b67010c60dd7f28a31d70eee4297d42f9b8b4f1c9.png" src="_images/5c82142b120aea27b96f533b67010c60dd7f28a31d70eee4297d42f9b8b4f1c9.png" />
 </div>
 </div>
 <ol class="arabic simple" start="4">
@@ -533,7 +597,7 @@ where \)</span>y(0)<span class="math notranslate nohighlight">\( is an \)</span>
        [-0.20412415+0.54006172j, -0.20412415-0.54006172j]]))
 </pre></div>
 </div>
-<img alt="_images/5e1fc2a614652c69fa22e4091e911b8bb54ce6db900accbc5599f1bdbc3af004.png" src="_images/5e1fc2a614652c69fa22e4091e911b8bb54ce6db900accbc5599f1bdbc3af004.png" />
+<img alt="_images/73b519fd95584b28e62f42a83d642e1f9f53180f226678897691a6bab15ab6d2.png" src="_images/73b519fd95584b28e62f42a83d642e1f9f53180f226678897691a6bab15ab6d2.png" />
 </div>
 </div>
 <ol class="arabic simple" start="5">
@@ -551,7 +615,7 @@ where \)</span>y(0)<span class="math notranslate nohighlight">\( is an \)</span>
        [0.35355339+0.61237244j, 0.35355339-0.61237244j]]))
 </pre></div>
 </div>
-<img alt="_images/ffc9d62e95189bfe3998d7be518a2077ccd3d5a17192ce5f83f1778ea88b3c66.png" src="_images/ffc9d62e95189bfe3998d7be518a2077ccd3d5a17192ce5f83f1778ea88b3c66.png" />
+<img alt="_images/3f65ad3f9ed03d4ca1e0a218b159f44ff18d250ce703a95f3de7872d70dd699a.png" src="_images/3f65ad3f9ed03d4ca1e0a218b159f44ff18d250ce703a95f3de7872d70dd699a.png" />
 </div>
 </div>
 <p>c.f. For a 2 by 2 matrix
@@ -562,7 +626,7 @@ as
 \)</span><span class="math notranslate nohighlight">\( \lambda = \frac{a+d}{2} \pm \sqrt{\frac{(a-d)^2}{4}+ bc}. \)</span>$</p>
 </section>
 <section id="nonlinear-odes">
-<h2>2. Nonlinear ODEs<a class="headerlink" href="#nonlinear-odes" title="Permalink to this heading">#</a></h2>
+<h2>2. Nonlinear ODEs<a class="headerlink" href="#nonlinear-odes" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Implement a nonlinear system, such as a pendulum with friction <span class="math notranslate nohighlight">\(\mu\)</span>:
 $<span class="math notranslate nohighlight">\( \frac{d\theta}{dt} = \omega \)</span><span class="math notranslate nohighlight">\(
@@ -570,7 +634,7 @@ $<span class="math notranslate nohighlight">\( \frac{d\theta}{dt} = \omega \)</s
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pendulum</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="mf">9.8</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pendulum</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="mf">9.8</span><span class="p">):</span>
     <span class="n">th</span><span class="p">,</span> <span class="n">om</span> <span class="o">=</span> <span class="n">y</span>
     <span class="n">dthdt</span> <span class="o">=</span> <span class="n">om</span>
     <span class="n">domdt</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">mu</span><span class="o">*</span><span class="n">om</span> <span class="o">+</span> <span class="n">m</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">l</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">th</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">l</span><span class="o">*</span><span class="n">l</span><span class="p">)</span>
@@ -593,7 +657,13 @@ $<span class="math notranslate nohighlight">\( \frac{d\theta}{dt} = \omega \)</s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fb7170b36a43b19972dae9519af1bafcd961a8172fc38d36a5b640e5b382d7bc.png" src="_images/fb7170b36a43b19972dae9519af1bafcd961a8172fc38d36a5b640e5b382d7bc.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\o&#39;
+&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\o&#39;
+/var/folders/dd/3kwwsm055d1cc1w134st1f580000gn/T/ipykernel_62061/284280705.py:5: SyntaxWarning: invalid escape sequence &#39;\o&#39;
+  plt.xlabel(&#39;t&#39;); plt.ylabel(&#39;$\\theta$, $\omega$&#39;);
+</pre></div>
+</div>
+<img alt="_images/c160a12c392fe8a990db592ae581212f2a647e03d092b25d87fe725fee223158.png" src="_images/c160a12c392fe8a990db592ae581212f2a647e03d092b25d87fe725fee223158.png" />
 </div>
 </div>
 <ol class="arabic simple" start="3">
@@ -607,7 +677,13 @@ $<span class="math notranslate nohighlight">\( \frac{d\theta}{dt} = \omega \)</s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b1ec96acf27cd91ac1822105e1a7c729ccb43e5ed420504591309e9e7712fdfa.png" src="_images/b1ec96acf27cd91ac1822105e1a7c729ccb43e5ed420504591309e9e7712fdfa.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:2: SyntaxWarning: invalid escape sequence &#39;\o&#39;
+&lt;&gt;:2: SyntaxWarning: invalid escape sequence &#39;\o&#39;
+/var/folders/dd/3kwwsm055d1cc1w134st1f580000gn/T/ipykernel_62061/2133674605.py:2: SyntaxWarning: invalid escape sequence &#39;\o&#39;
+  plt.xlabel(&#39;$\\theta$&#39;); plt.ylabel(&#39;$\omega$&#39;);
+</pre></div>
+</div>
+<img alt="_images/de4446e1baaa908dcfd2054690b7a5cfa51e7fc58ceabf9c3dcdd8ea2be8e92e.png" src="_images/de4446e1baaa908dcfd2054690b7a5cfa51e7fc58ceabf9c3dcdd8ea2be8e92e.png" />
 </div>
 </div>
 <p>Option) Implement a nonlinear system with time-dependent input, such as a forced pendulum:
@@ -616,7 +692,7 @@ $<span class="math notranslate nohighlight">\( \frac{d\theta}{dt} = \omega \)</s
 and see how the behavior changes with the input.</p>
 </section>
 <section id="bifurcation">
-<h2>3. Bifurcation<a class="headerlink" href="#bifurcation" title="Permalink to this heading">#</a></h2>
+<h2>3. Bifurcation<a class="headerlink" href="#bifurcation" title="Link to this heading">#</a></h2>
 <p>FitzHugh-Nagumo model is an extension of Van der Pol model to approximate spiking behaviors of neurons.
 $<span class="math notranslate nohighlight">\( \frac{dv}{dt} = v - \frac{v^3}{3} - w + I \)</span><span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\( \frac{dw}{dt} = \phi (v + a - bw) \)</span>$</p>
@@ -625,7 +701,7 @@ $<span class="math notranslate nohighlight">\( \frac{dv}{dt} = v - \frac{v^3}{3}
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fhn</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">I</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">phi</span><span class="o">=</span><span class="mf">0.08</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fhn</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">I</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">phi</span><span class="o">=</span><span class="mf">0.08</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;FitzHugh-Nagumo model&quot;&quot;&quot;</span>
     <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">y</span>
     <span class="n">dvdt</span> <span class="o">=</span> <span class="n">v</span> <span class="o">-</span> <span class="n">v</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span> <span class="o">-</span> <span class="n">w</span> <span class="o">+</span> <span class="n">I</span>
@@ -646,7 +722,7 @@ $<span class="math notranslate nohighlight">\( \frac{dv}{dt} = v - \frac{v^3}{3}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/88185bd9cbf7171c6de20e2351a3fc8c375a4d32f174c73a38c2745f2ddcf203.png" src="_images/88185bd9cbf7171c6de20e2351a3fc8c375a4d32f174c73a38c2745f2ddcf203.png" />
+<img alt="_images/14c739fc7958ab38eba7af17a92ec8bd20f7ea8382081d96f54a1d5298a96dc6.png" src="_images/14c739fc7958ab38eba7af17a92ec8bd20f7ea8382081d96f54a1d5298a96dc6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -657,7 +733,7 @@ $<span class="math notranslate nohighlight">\( \frac{dv}{dt} = v - \frac{v^3}{3}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8da44db0598994f306fc8aff2f48098149fe9bbdaf64d124781a1eb5439b72aa.png" src="_images/8da44db0598994f306fc8aff2f48098149fe9bbdaf64d124781a1eb5439b72aa.png" />
+<img alt="_images/307839e68077c01944d9b4993c521757d67a97d65ccc1e4f0545472cbeeb9575.png" src="_images/307839e68077c01944d9b4993c521757d67a97d65ccc1e4f0545472cbeeb9575.png" />
 </div>
 </div>
 <ol class="arabic simple" start="2">
@@ -676,7 +752,7 @@ $<span class="math notranslate nohighlight">\( \frac{dv}{dt} = v - \frac{v^3}{3}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5a63d6c1e01e4351a1a9809d80ac3f2af50b2338f63d6519f6b1d95a5c122573.png" src="_images/5a63d6c1e01e4351a1a9809d80ac3f2af50b2338f63d6519f6b1d95a5c122573.png" />
+<img alt="_images/af6210ea7feb487e7dc621e1bb4911b875bfee47edf994f27169701295c710f1.png" src="_images/af6210ea7feb487e7dc621e1bb4911b875bfee47edf994f27169701295c710f1.png" />
 </div>
 </div>
 </section>

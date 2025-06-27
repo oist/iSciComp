@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>10. Software Management &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '10_Management';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -182,6 +181,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -279,6 +279,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/10_Management.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/10_Management.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -425,7 +489,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="software-management">
-<h1>10. Software Management<a class="headerlink" href="#software-management" title="Permalink to this heading">#</a></h1>
+<h1>10. Software Management<a class="headerlink" href="#software-management" title="Link to this heading">#</a></h1>
 <p>In addition to writing a program for each computing task, knowldge and skills are needed for designing and managing the entire data analysis or simulation procedure, testing and revising the codes, and sharing the data and tools among collaborators.</p>
 <p>Unlike commercial software development, research computing often starts from a simple exploratory code created by a single researcher. However, even for a single-person project, it is beneficial to follow the standard practices in software development because.</p>
 <ul class="simple">
@@ -433,7 +497,7 @@ document.write(`
 <li><p>You, after a few months, do not remember where you put which file, what was this file, or why you wrote this code.</p></li>
 </ul>
 <section id="references">
-<h2>References:<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Greg Wilson, et al. (2017). Good enough practices in scientific computing. PLOS Computational Biology, 13(6): e1005510 (<a class="reference external" href="https://doi.org/10.1371/journal.pcbi.1005510">https://doi.org/10.1371/journal.pcbi.1005510</a>)</p></li>
 <li><p>Hart EM, et al. (2016). Ten simple rules for digital data storage. PLoS Comput Biol, 12, e1005097. <a class="reference external" href="https://doi.org/10.1371/journal.pcbi.1005097">https://doi.org/10.1371/journal.pcbi.1005097</a></p></li>
@@ -442,7 +506,7 @@ document.write(`
 </ul>
 </section>
 <section id="coding-style">
-<h2>Coding Style<a class="headerlink" href="#coding-style" title="Permalink to this heading">#</a></h2>
+<h2>Coding Style<a class="headerlink" href="#coding-style" title="Link to this heading">#</a></h2>
 <p>In writing programs, keep in mind:</p>
 <ul class="simple">
 <li><p>Make them <em>modular</em> and aviod duplicate codes.</p></li>
@@ -461,12 +525,12 @@ document.write(`
 <li><p>re-analysis with new data, tool, or parameters</p></li>
 </ul>
 <section id="scritping">
-<h3>Scritping<a class="headerlink" href="#scritping" title="Permalink to this heading">#</a></h3>
+<h3>Scritping<a class="headerlink" href="#scritping" title="Link to this heading">#</a></h3>
 <p>On Unix-like systems, the common way is a <em>shell script</em>, which is a file containing a series of commands you would type into a terminal.</p>
 <p>For a more elaborate processing, a Python script is often preferred.</p>
 </section>
 <section id="pipeline-tools">
-<h3>Pipeline Tools<a class="headerlink" href="#pipeline-tools" title="Permalink to this heading">#</a></h3>
+<h3>Pipeline Tools<a class="headerlink" href="#pipeline-tools" title="Link to this heading">#</a></h3>
 <p>Once your procedures for data processing is determined, such as filtering, visualization, and statistical tests, the sequence should be defined as a <em>script</em> with folders, filenames, and parameters.</p>
 <p>A classic way in Unix-like system is <em>shell script</em>, but you can use Python for data processing scripts. There are dedicated packages for data processing pipelines, such as:</p>
 <ul class="simple">
@@ -478,7 +542,7 @@ document.write(`
 </section>
 </section>
 <section id="software-data-licenses">
-<h2>Software/Data Licenses<a class="headerlink" href="#software-data-licenses" title="Permalink to this heading">#</a></h2>
+<h2>Software/Data Licenses<a class="headerlink" href="#software-data-licenses" title="Link to this heading">#</a></h2>
 <p>Today, increasingly more journals and agencies request that you make the data and programs publicly accessible for</p>
 <ul class="simple">
 <li><p>reproducibility of research results</p></li>
@@ -495,7 +559,7 @@ document.write(`
 </ul>
 <p>It is also important to know the licenses of the software you use for your development, as that can limit the way you can use/distribute your programs.</p>
 <section id="creative-commons">
-<h3>Creative Commons<a class="headerlink" href="#creative-commons" title="Permalink to this heading">#</a></h3>
+<h3>Creative Commons<a class="headerlink" href="#creative-commons" title="Link to this heading">#</a></h3>
 <p>Creative Commons (<a class="reference external" href="https://creativecommons.org">https://creativecommons.org</a>) is an emerging standard using combination of three aspects:</p>
 <ul class="simple">
 <li><p>Attribution (BY): request aknowldgement, e.g., citing a paper</p></li>
@@ -505,7 +569,7 @@ document.write(`
 <p>See <a class="reference external" href="https://creativecommons.org/licenses/?lang=en">https://creativecommons.org/licenses/?lang=en</a> for typical combinations.</p>
 </section>
 <section id="gpl-bsd-mit-apache-etc">
-<h3>GPL, BSD, MIT, Apache, etc.<a class="headerlink" href="#gpl-bsd-mit-apache-etc" title="Permalink to this heading">#</a></h3>
+<h3>GPL, BSD, MIT, Apache, etc.<a class="headerlink" href="#gpl-bsd-mit-apache-etc" title="Link to this heading">#</a></h3>
 <p>In open software community, several types of licensing have been commonly used:</p>
 <ul class="simple">
 <li><p>Gnu General Public Licence (GPL): redistribution requires access to source codes in the same license. Called <em>copy left</em>.</p></li>
@@ -517,7 +581,7 @@ document.write(`
 </section>
 </section>
 <section id="data-management">
-<h2>Data Management<a class="headerlink" href="#data-management" title="Permalink to this heading">#</a></h2>
+<h2>Data Management<a class="headerlink" href="#data-management" title="Link to this heading">#</a></h2>
 <p>Most research start with obtaining <em>raw</em> data, continues on with a series of pre-processing, visualization and analyses, and complete with paper writing. Handling all different files without confusion and corruption takes some good thoughts and habits.</p>
 <ul class="simple">
 <li><p>Keep the raw data and <em>metadata</em> and take back up.</p></li>
@@ -525,7 +589,7 @@ document.write(`
 <li><p>Record all the steps of processing, better with a script.</p></li>
 </ul>
 <section id="always-backup">
-<h3>Always Backup<a class="headerlink" href="#always-backup" title="Permalink to this heading">#</a></h3>
+<h3>Always Backup<a class="headerlink" href="#always-backup" title="Link to this heading">#</a></h3>
 <p>As soon as you obtain data, don’t forget to take a backup with appropriate documentation.</p>
 <p>For a small scale data, <em>DropBox</em> is an easy solution for data backup and sharing.</p>
 <p>At OIST, for storing large scale data, you can use the <em>bucket</em> drive. See:
@@ -535,13 +599,13 @@ There are options for incremental backup, by searching for new files in the fold
 </section>
 </section>
 <section id="data-sharing">
-<h2>Data sharing<a class="headerlink" href="#data-sharing" title="Permalink to this heading">#</a></h2>
+<h2>Data sharing<a class="headerlink" href="#data-sharing" title="Link to this heading">#</a></h2>
 <p>Data sharing is an important emerging issue in the scientific community, as science today is becoming more and more data intensive.
 In good old days, each researcher did an experiment, gathered data, wrote a paper, and that was the end of the story.
 Nowadays, each experiment can produce Giga to Tera bytes of data, which are much more than just one researcher to analyze by him/herself.
 We nee efficient and reliable methods to share data within each lab, across collaboration labs, and the entire research community.</p>
 <section id="data-governance">
-<h3>Data Governance<a class="headerlink" href="#data-governance" title="Permalink to this heading">#</a></h3>
+<h3>Data Governance<a class="headerlink" href="#data-governance" title="Link to this heading">#</a></h3>
 <p>When making data public, especially human subject data, a good care has to be taken for the privacy. In general</p>
 <ul class="simple">
 <li><p>data should be anonymized so that the identity of subject cannot be obtained or inferred.</p></li>
@@ -549,7 +613,7 @@ We nee efficient and reliable methods to share data within each lab, across coll
 </ul>
 </section>
 <section id="metadata">
-<h3>Metadata<a class="headerlink" href="#metadata" title="Permalink to this heading">#</a></h3>
+<h3>Metadata<a class="headerlink" href="#metadata" title="Link to this heading">#</a></h3>
 <p><em>Metadata</em> is data about data. It usually includes:</p>
 <ul class="simple">
 <li><p>Time and date of creation</p></li>
@@ -568,26 +632,26 @@ We nee efficient and reliable methods to share data within each lab, across coll
 </section>
 </section>
 <section id="data-file-formats">
-<h2>Data File Formats<a class="headerlink" href="#data-file-formats" title="Permalink to this heading">#</a></h2>
+<h2>Data File Formats<a class="headerlink" href="#data-file-formats" title="Link to this heading">#</a></h2>
 <p>It is always better to save your data in a common file format so that they can be read by many data processing tools.</p>
 <section id="csv-tsv">
-<h3>CSV, TSV<a class="headerlink" href="#csv-tsv" title="Permalink to this heading">#</a></h3>
+<h3>CSV, TSV<a class="headerlink" href="#csv-tsv" title="Link to this heading">#</a></h3>
 <p>Values separated by comma or tab, in multiple lines like a table.
 These are still commonly used for simplicity.</p>
 </section>
 <section id="xml">
-<h3>XML<a class="headerlink" href="#xml" title="Permalink to this heading">#</a></h3>
+<h3>XML<a class="headerlink" href="#xml" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://www.xml.org">https://www.xml.org</a>
 Keys and values stored in a form similar to html.
 Often used to store metadata.</p>
 </section>
 <section id="json">
-<h3>JSON<a class="headerlink" href="#json" title="Permalink to this heading">#</a></h3>
+<h3>JSON<a class="headerlink" href="#json" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://www.json.org/json-en.html">https://www.json.org/json-en.html</a>
 Common in exchanging large data with multiple compnents.</p>
 </section>
 <section id="hdf5">
-<h3>HDF5<a class="headerlink" href="#hdf5" title="Permalink to this heading">#</a></h3>
+<h3>HDF5<a class="headerlink" href="#hdf5" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://www.hdfgroup.org">https://www.hdfgroup.org</a>
 Hierarchical datar format that can also store binary data.</p>
 <p>Some domain-specific data formats are based HDF5, such as Neurodata Without Borders (NWB)  <a class="reference external" href="https://www.nwb.org">https://www.nwb.org</a></p>

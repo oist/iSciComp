@@ -1,0 +1,67 @@
+Traceback (most recent call last):
+  File "/Users/doya/miniforge3/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/doya/miniforge3/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/doya/miniforge3/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/doya/miniforge3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/doya/miniforge3/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/Users/doya/miniforge3/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/doya/miniforge3/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#A = np.array([[1, 2], [3, 4]])
+m = 4
+A = np.random.randn(m,m)
+print(A)
+lam, V = np.linalg.eig(A)
+print('eigenvalues = ', lam)
+print('product = ', np.product(lam))
+det = np.linalg.det(A)
+print('detrminant = ', det)
+------------------
+
+----- stdout -----
+[[-1.87517541  0.1561358   1.14672483  2.54447274]
+ [ 0.47294205 -1.14295683 -1.96901367 -0.54788897]
+ [-2.58065579  0.10537898  0.25490209 -0.04411638]
+ [-1.18540013 -1.51330322 -0.11489484  0.63753892]]
+eigenvalues =  [-1.59536853+1.79482028j -1.59536853-1.79482028j  0.53252292+1.49510819j
+  0.53252292-1.49510819j]
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mAttributeError[39m                            Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[3][39m[32m, line 7[39m
+[32m      5[39m lam, V = np.linalg.eig(A)
+[32m      6[39m [38;5;28mprint[39m([33m'[39m[33meigenvalues = [39m[33m'[39m, lam)
+[32m----> [39m[32m7[39m [38;5;28mprint[39m([33m'[39m[33mproduct = [39m[33m'[39m, [43mnp[49m[43m.[49m[43mproduct[49m(lam))
+[32m      8[39m det = np.linalg.det(A)
+[32m      9[39m [38;5;28mprint[39m([33m'[39m[33mdetrminant = [39m[33m'[39m, det)
+
+[36mFile [39m[32m~/miniforge3/lib/python3.13/site-packages/numpy/__init__.py:414[39m, in [36m__getattr__[39m[34m(attr)[39m
+[32m    411[39m     [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mnumpy[39;00m[34;01m.[39;00m[34;01mchar[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mchar[39;00m
+[32m    412[39m     [38;5;28;01mreturn[39;00m char.chararray
+[32m--> [39m[32m414[39m [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m([33m"[39m[33mmodule [39m[38;5;132;01m{!r}[39;00m[33m has no attribute [39m[33m"[39m
+[32m    415[39m                      [33m"[39m[38;5;132;01m{!r}[39;00m[33m"[39m.format([34m__name__[39m, attr))
+
+[31mAttributeError[39m: module 'numpy' has no attribute 'product'
+

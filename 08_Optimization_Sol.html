@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>8. Optimization: Exercise Solutions &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '08_Optimization_Sol';</script>
@@ -184,6 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -281,6 +281,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/08_Optimization_Sol.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/08_Optimization_Sol.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -405,17 +469,17 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="optimization-exercise-solutions">
-<h1>8. Optimization: Exercise Solutions<a class="headerlink" href="#optimization-exercise-solutions" title="Permalink to this heading">#</a></h1>
+<h1>8. Optimization: Exercise Solutions<a class="headerlink" href="#optimization-exercise-solutions" title="Link to this heading">#</a></h1>
 <section id="try-with-you-own-function">
-<h2>1. Try with you own function<a class="headerlink" href="#try-with-you-own-function" title="Permalink to this heading">#</a></h2>
+<h2>1. Try with you own function<a class="headerlink" href="#try-with-you-own-function" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Define a function of your interest (with two or more inputs) to be minimized or maximized.<br />
 It can be an explicit mathematical form, or given implictly as a result of simulation.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -423,13 +487,13 @@ It can be an explicit mathematical form, or given implictly as a result of simul
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;sine in quardatic valley&quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">y</span>
 
-<span class="k">def</span> <span class="nf">fun_grad</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fun_grad</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;gradient of dips(x)&quot;&quot;&quot;</span>
     <span class="n">df1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">df2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -456,7 +520,7 @@ It can be an explicit mathematical form, or given implictly as a result of simul
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d614d25ead1c8a5ee4c2273cd911073d2b588f1007ad587ef75fef163b4a6427.png" src="_images/d614d25ead1c8a5ee4c2273cd911073d2b588f1007ad587ef75fef163b4a6427.png" />
+<img alt="_images/8c5a7e2df0c12b52e254b2930135b68bf6691efc7c00fd596558471e1feb519d.png" src="_images/8c5a7e2df0c12b52e254b2930135b68bf6691efc7c00fd596558471e1feb519d.png" />
 </div>
 </div>
 <ol class="arabic simple" start="3">
@@ -470,10 +534,10 @@ It can be an explicit mathematical form, or given implictly as a result of simul
 </ul>
 <p>and compare the results with different starting points and parameters.</p>
 <section id="gradiend-descent">
-<h3>Gradiend descent<a class="headerlink" href="#gradiend-descent" title="Permalink to this heading">#</a></h3>
+<h3>Gradiend descent<a class="headerlink" href="#gradiend-descent" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grad_descent</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">grad_descent</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Gradient descent&quot;&quot;&quot;</span>
     <span class="n">xh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">imax</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">([</span><span class="n">x0</span><span class="p">]))))</span>  <span class="c1"># history</span>
     <span class="n">xh</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
@@ -507,7 +571,7 @@ It can be an explicit mathematical form, or given implictly as a result of simul
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-1.30644001  0.00485736] -7.945799781640874
 </pre></div>
 </div>
-<img alt="_images/421f50d6044c0efaa5ff48ec174aef76dac41d6a46801238aa5b7f4906fe4f94.png" src="_images/421f50d6044c0efaa5ff48ec174aef76dac41d6a46801238aa5b7f4906fe4f94.png" />
+<img alt="_images/acff91a4d72b4c026f311573be8fb0ae158a880087cfc055e0212c6f447ec551.png" src="_images/acff91a4d72b4c026f311573be8fb0ae158a880087cfc055e0212c6f447ec551.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -524,15 +588,15 @@ It can be an explicit mathematical form, or given implictly as a result of simul
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.83746711 0.00485736] 8.31560917345187
 </pre></div>
 </div>
-<img alt="_images/b07234d8b844cb422793d7385503cbcb09be2a639bfd4ae3046fea1dd180240e.png" src="_images/b07234d8b844cb422793d7385503cbcb09be2a639bfd4ae3046fea1dd180240e.png" />
+<img alt="_images/267f4302009d97696e162004594c8799e0d56af2effe24882eab5f577b9dbe66.png" src="_images/267f4302009d97696e162004594c8799e0d56af2effe24882eab5f577b9dbe66.png" />
 </div>
 </div>
 </section>
 <section id="scipy-optimize">
-<h3>scipy.optimize<a class="headerlink" href="#scipy-optimize" title="Permalink to this heading">#</a></h3>
+<h3>scipy.optimize<a class="headerlink" href="#scipy-optimize" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize</span>
 </pre></div>
 </div>
 </div>
@@ -556,7 +620,7 @@ It can be an explicit mathematical form, or given implictly as a result of simul
 [-1.30644001e+00  9.72344832e-09] -7.945823375615283
 </pre></div>
 </div>
-<img alt="_images/1eaeba2e58410743a67f6a53bd38a8b22a385d76f6089d99c472b255a521fa06.png" src="_images/1eaeba2e58410743a67f6a53bd38a8b22a385d76f6089d99c472b255a521fa06.png" />
+<img alt="_images/f58f17fffa0f468431de748f9c3c541033c87f4f237287a789ca9ed1eaca73de.png" src="_images/f58f17fffa0f468431de748f9c3c541033c87f4f237287a789ca9ed1eaca73de.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -578,16 +642,16 @@ It can be an explicit mathematical form, or given implictly as a result of simul
 [ 3.83746711e+00 -9.70435929e-09] 8.315585579477458
 </pre></div>
 </div>
-<img alt="_images/ff49506c12fdfc593dacb795919d54b308ed2993723352586d086ad2bda2a85b.png" src="_images/ff49506c12fdfc593dacb795919d54b308ed2993723352586d086ad2bda2a85b.png" />
+<img alt="_images/1bd401ed78d93a56920a074df94fe04dfad3536ac119d44d37325406298b2e84.png" src="_images/1bd401ed78d93a56920a074df94fe04dfad3536ac119d44d37325406298b2e84.png" />
 </div>
 </div>
 <p>Option) Set equality or inequality constraints and apply an algorithm for constrained optimization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># h(x) = x[0] - x[1] = 0</span>
-<span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">4</span>
-<span class="k">def</span> <span class="nf">h_grad</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">h_grad</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -616,7 +680,7 @@ It can be an explicit mathematical form, or given implictly as a result of simul
 [2.13406394 0.26812787] 13.081270258785018
 </pre></div>
 </div>
-<img alt="_images/a50ba0b75c8077265877ad829062a3d32542276bc87907240cdfcacb2309fbc8.png" src="_images/a50ba0b75c8077265877ad829062a3d32542276bc87907240cdfcacb2309fbc8.png" />
+<img alt="_images/27c1880b152aa22d97a9e42c9ad509445ad0cdbc9000caa74be6092b120cc71e.png" src="_images/27c1880b152aa22d97a9e42c9ad509445ad0cdbc9000caa74be6092b120cc71e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -641,7 +705,7 @@ It can be an explicit mathematical form, or given implictly as a result of simul
 [3.83746046e+00 1.30908488e-05] 8.31558557983486
 </pre></div>
 </div>
-<img alt="_images/1417aabae14c60a9351b0682854de506243bee1812a8ba0390113bba9bc6df6d.png" src="_images/1417aabae14c60a9351b0682854de506243bee1812a8ba0390113bba9bc6df6d.png" />
+<img alt="_images/f007ac86991a7b2d6f6d7be1f81c20e81bfa965ab78141ba3836655130079e54.png" src="_images/f007ac86991a7b2d6f6d7be1f81c20e81bfa965ab78141ba3836655130079e54.png" />
 </div>
 </div>
 </section>

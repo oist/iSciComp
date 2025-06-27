@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>3. Vectors and Matrices &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '03_Matrix';</script>
@@ -184,6 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -281,6 +281,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/03_Matrix.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/03_Matrix.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -422,7 +486,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="vectors-and-matrices">
-<h1>3. Vectors and Matrices<a class="headerlink" href="#vectors-and-matrices" title="Permalink to this heading">#</a></h1>
+<h1>3. Vectors and Matrices<a class="headerlink" href="#vectors-and-matrices" title="Link to this heading">#</a></h1>
 <p>Here we work with vectors and matrices, and get acquainted with concepts in linear algebra by computing.</p>
 <div class="math notranslate nohighlight">
 \[ % Latex macros
@@ -435,15 +499,15 @@ document.write(`
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
 </div>
 <section id="numpy-ndarray-as-vector-and-matrix">
-<h2>Numpy <em>ndarray</em> as vector and matrix<a class="headerlink" href="#numpy-ndarray-as-vector-and-matrix" title="Permalink to this heading">#</a></h2>
+<h2>Numpy <em>ndarray</em> as vector and matrix<a class="headerlink" href="#numpy-ndarray-as-vector-and-matrix" title="Link to this heading">#</a></h2>
 <p>You can create a matrix from a nested list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -518,7 +582,7 @@ document.write(`
 </div>
 </div>
 <section id="creating-common-matrices">
-<h3>Creating common matrices<a class="headerlink" href="#creating-common-matrices" title="Permalink to this heading">#</a></h3>
+<h3>Creating common matrices<a class="headerlink" href="#creating-common-matrices" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -566,8 +630,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.64811406,  2.03735339,  0.35153431],
-       [-1.99087731, -1.14412   ,  0.32545979]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.15682355, -0.47727985,  1.89269588],
+       [-0.62449363, -0.20075913,  2.16054775]])
 </pre></div>
 </div>
 </div>
@@ -579,8 +643,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.77862613, 0.4068711 , 0.267754  ],
-       [0.28020897, 0.73051765, 0.6600548 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.30581164, 0.87611476, 0.33019744],
+       [0.09072626, 0.50660029, 0.75715497]])
 </pre></div>
 </div>
 </div>
@@ -592,8 +656,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.29028675,  0.52154527, -0.92600584],
-       [ 0.11013094,  0.61898559,  0.90903453]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.52133187, -0.26529574,  0.74854866],
+       [ 0.6333122 ,  0.90361512,  0.59570486]])
 </pre></div>
 </div>
 </div>
@@ -605,8 +669,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  1, -1],
-       [ 1,  1,  2]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0, -1,  0],
+       [-3, -2, -1]])
 </pre></div>
 </div>
 </div>
@@ -618,15 +682,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-4624471075713874984,  4602872881729944452, -4616856098160512442],
-       [ 4592600191271884352,  4603750546052997748,  4606363074653650268]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-4620501077307936390, -4624921273668059720,  4604917546521122660],
+       [ 4603879588707760172,  4606314260957077454,  4603540851961261652]])
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="checking-and-setting-the-type-and-shape">
-<h3>Checking and setting the type and shape<a class="headerlink" href="#checking-and-setting-the-type-and-shape" title="Permalink to this heading">#</a></h3>
+<h3>Checking and setting the type and shape<a class="headerlink" href="#checking-and-setting-the-type-and-shape" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">dtype</span>
@@ -746,7 +810,7 @@ document.write(`
 </div>
 </section>
 <section id="adressing-components-by">
-<h3>Adressing components by [ ]<a class="headerlink" href="#adressing-components-by" title="Permalink to this heading">#</a></h3>
+<h3>Adressing components by [ ]<a class="headerlink" href="#adressing-components-by" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># second row</span>
@@ -827,7 +891,7 @@ document.write(`
 </section>
 </section>
 <section id="vectors-and-dot-product">
-<h2>Vectors and dot product<a class="headerlink" href="#vectors-and-dot-product" title="Permalink to this heading">#</a></h2>
+<h2>Vectors and dot product<a class="headerlink" href="#vectors-and-dot-product" title="Link to this heading">#</a></h2>
 <p>A vector can represent:</p>
 <ul class="simple">
 <li><p>a point in n-dimensional space</p></li>
@@ -880,7 +944,7 @@ is defined as</p>
 </div>
 </section>
 <section id="matrices-and-matrix-product">
-<h2>Matrices and matrix product<a class="headerlink" href="#matrices-and-matrix-product" title="Permalink to this heading">#</a></h2>
+<h2>Matrices and matrix product<a class="headerlink" href="#matrices-and-matrix-product" title="Link to this heading">#</a></h2>
 <p>A matrix can represent</p>
 <ul class="simple">
 <li><p>a set of vectors</p></li>
@@ -952,7 +1016,7 @@ the matrix product is</p>
 </div>
 </section>
 <section id="matrix-and-vector-space">
-<h2>Matrix and vector space<a class="headerlink" href="#matrix-and-vector-space" title="Permalink to this heading">#</a></h2>
+<h2>Matrix and vector space<a class="headerlink" href="#matrix-and-vector-space" title="Link to this heading">#</a></h2>
 <p>A matrix product can mean:</p>
 <ul class="simple">
 <li><p>transformation to another vector space</p></li>
@@ -988,7 +1052,7 @@ the matrix product is</p>
    2]]
 </pre></div>
 </div>
-<img alt="_images/c62dd7def0dc854eaa85bfdfc1ab19016a24cb301271bcb66961788abba4fdfc.png" src="_images/c62dd7def0dc854eaa85bfdfc1ab19016a24cb301271bcb66961788abba4fdfc.png" />
+<img alt="_images/d00742f851c090b76ef1fcc83d9058d5a56c5b441161705f26bf2dbe473c8ff5.png" src="_images/d00742f851c090b76ef1fcc83d9058d5a56c5b441161705f26bf2dbe473c8ff5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1004,16 +1068,16 @@ the matrix product is</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.37781245 -0.87573514]
- [-0.33006862  0.16918417]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.12495794 -0.19568007]
+ [ 0.49258557  0.79479497]]
 </pre></div>
 </div>
-<img alt="_images/574401f32042bcaf3893bb4295a847ff5ee989afd3570a4067b03eb9ebedad69.png" src="_images/574401f32042bcaf3893bb4295a847ff5ee989afd3570a4067b03eb9ebedad69.png" />
+<img alt="_images/4d3eabd0898be51c29ceb28b59d97335511500880add5f085a31797605061f4a.png" src="_images/4d3eabd0898be51c29ceb28b59d97335511500880add5f085a31797605061f4a.png" />
 </div>
 </div>
 </section>
 <section id="determinant-and-inverse">
-<h2>Determinant and inverse<a class="headerlink" href="#determinant-and-inverse" title="Permalink to this heading">#</a></h2>
+<h2>Determinant and inverse<a class="headerlink" href="#determinant-and-inverse" title="Link to this heading">#</a></h2>
 <p>The transformed space are expanded, shrunk, or flattened.<br />
 The <em>determinant</em> of a square matrix measures the expansion of the volume.<br />
 For a 2 by 2 matrix
@@ -1030,7 +1094,7 @@ the determinant is computed by</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.0000000000000004
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-2.0000000000000004)
 </pre></div>
 </div>
 </div>
@@ -1062,7 +1126,7 @@ the determinant is computed by</p>
 </div>
 </section>
 <section id="solving-linear-algebraic-equations">
-<h2>Solving linear algebraic equations<a class="headerlink" href="#solving-linear-algebraic-equations" title="Permalink to this heading">#</a></h2>
+<h2>Solving linear algebraic equations<a class="headerlink" href="#solving-linear-algebraic-equations" title="Link to this heading">#</a></h2>
 <p>Many problems are formed as a set of linear equations:</p>
 <div class="math notranslate nohighlight">
 \[ a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \]</div>
@@ -1120,7 +1184,7 @@ Ax = [1.0000000e+00 8.8817842e-16]
 </div>
 </section>
 <section id="eigenvalues-and-eigenvectors">
-<h2>Eigenvalues and eigenvectors<a class="headerlink" href="#eigenvalues-and-eigenvectors" title="Permalink to this heading">#</a></h2>
+<h2>Eigenvalues and eigenvectors<a class="headerlink" href="#eigenvalues-and-eigenvectors" title="Link to this heading">#</a></h2>
 <p>With a transformation by a symmetric matrix <span class="math notranslate nohighlight">\(A\)</span>, some vectors keep its own direction. Such a vector is called an <em>eigenvector</em> and its scaling coefficient is called the <em>eigenvalue</em>.<br />
 Eigenvalues and eigenvectors are derived by solving the equation</p>
 <div class="math notranslate nohighlight">
@@ -1163,12 +1227,12 @@ Eigenvalues are derived by solving a polynomial equation</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4a9d92648234fbf136c8b8258a1d3a7ce7f62276888b0ad3c06050a33a6905df.png" src="_images/4a9d92648234fbf136c8b8258a1d3a7ce7f62276888b0ad3c06050a33a6905df.png" />
+<img alt="_images/d51e410ebcfab7e9c764103c0b8bc7595f6cadb672db4225943e764f76c591ad.png" src="_images/d51e410ebcfab7e9c764103c0b8bc7595f6cadb672db4225943e764f76c591ad.png" />
 </div>
 </div>
 </section>
 <section id="eigendecomposition">
-<h2>Eigendecomposition<a class="headerlink" href="#eigendecomposition" title="Permalink to this heading">#</a></h2>
+<h2>Eigendecomposition<a class="headerlink" href="#eigendecomposition" title="Link to this heading">#</a></h2>
 <p>For a square matrix <span class="math notranslate nohighlight">\(A\)</span>, consider a matrix consisting of its eigenvalues on the diagonal</p>
 <div class="math notranslate nohighlight">
 \[ \Lambda = \mbox{diag}(\lambda_1, \cdots, \lambda_n) \]</div>
@@ -1192,7 +1256,7 @@ Eigenvalues are derived by solving a polynomial equation</p>
 <p>It also helps intuitive understanding of how a point <span class="math notranslate nohighlight">\(\b{x}\)</span> transformed by <span class="math notranslate nohighlight">\(A\)</span> many times as <span class="math notranslate nohighlight">\(A\b{x}, A^2\b{x}, A^3\b{x},...\)</span> would move.</p>
 </section>
 <section id="covariance-matrix">
-<h2>Covariance matrix<a class="headerlink" href="#covariance-matrix" title="Permalink to this heading">#</a></h2>
+<h2>Covariance matrix<a class="headerlink" href="#covariance-matrix" title="Link to this heading">#</a></h2>
 <p>For <span class="math notranslate nohighlight">\(m\)</span> samples of <span class="math notranslate nohighlight">\(n\)</span>-dimensional variable
 <span class="math notranslate nohighlight">\( \b{x} = (x_1,..., x_n)\)</span>
 we usuall create a data matrix</p>
@@ -1221,7 +1285,7 @@ we usuall create a data matrix</p>
 <span class="c1"># X = np.loadtxt(&#39;data/iris.txt&#39;, delimiter=&#39;,&#39;)</span>
 <span class="c1"># Y = X[:,-1]  # flower type</span>
 <span class="c1"># X = X[:,:4]</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span>
 <span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
 <span class="n">Y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
@@ -1236,7 +1300,7 @@ we usuall create a data matrix</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/41ed2ec34eafa5c363fe443b926c9cc84c1b8b30cbadd0fa4a9f91e0d076a161.png" src="_images/41ed2ec34eafa5c363fe443b926c9cc84c1b8b30cbadd0fa4a9f91e0d076a161.png" />
+<img alt="_images/eb6422f4e40dacd57fe9ca6cf8e395945171fd0af106ce3ebe13acd22832c62a.png" src="_images/eb6422f4e40dacd57fe9ca6cf8e395945171fd0af106ce3ebe13acd22832c62a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1269,7 +1333,7 @@ C = [[ 0.68569351 -0.042434    1.27431544  0.51627069]
 </div>
 </section>
 <section id="principal-component-analysis-pca">
-<h2>Principal component analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Permalink to this heading">#</a></h2>
+<h2>Principal component analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Link to this heading">#</a></h2>
 <p>In taking a grasp of high-dimensional data, it is often useful to project the data onto a subspace where the data vary most.</p>
 <p>To do that, we first take the covariance matrix <span class="math notranslate nohighlight">\(C\)</span> of the data, compute its eigenvalues <span class="math notranslate nohighlight">\(\lambda_i\)</span> and eigenvectors <span class="math notranslate nohighlight">\(\b{v}_i\)</span>, and project the data onto the subspace  spanned by the eigenvectors with largest eigenvalues.<br />
 The eigenvectors <span class="math notranslate nohighlight">\(\b{v}_i\)</span> of the covariance matrix is called <em>principal component vectors</em>, ordered by the magnitude of their eigenvalues.</p>
@@ -1323,7 +1387,7 @@ lams, Vs =  [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a152faf3fef54b5df9b22269822d558c7416234d5f829327b701832d488bd673.png" src="_images/a152faf3fef54b5df9b22269822d558c7416234d5f829327b701832d488bd673.png" />
+<img alt="_images/a5cac9d549e9888b459ab9fe323441755f8ca2e287aa0e4a729471d6321a4fae.png" src="_images/a5cac9d549e9888b459ab9fe323441755f8ca2e287aa0e4a729471d6321a4fae.png" />
 </div>
 </div>
 <p>Now let us project the 4D data onto the space spanned by the eigenvectors.</p>
@@ -1343,12 +1407,12 @@ lams, Vs =  [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/135ab0deafb454aa2dc06cfa37fbe65d9a863609fb44b4fd6ef8575ef3f38f1c.png" src="_images/135ab0deafb454aa2dc06cfa37fbe65d9a863609fb44b4fd6ef8575ef3f38f1c.png" />
+<img alt="_images/a867cd33f0587935510683a3027b2caa4372d8abd0e4dcbd5a94cf4cadd495df.png" src="_images/a867cd33f0587935510683a3027b2caa4372d8abd0e4dcbd5a94cf4cadd495df.png" />
 </div>
 </div>
 </section>
 <section id="singular-value-decomposition-svd">
-<h2>Singular value decomposition (SVD)<a class="headerlink" href="#singular-value-decomposition-svd" title="Permalink to this heading">#</a></h2>
+<h2>Singular value decomposition (SVD)<a class="headerlink" href="#singular-value-decomposition-svd" title="Link to this heading">#</a></h2>
 <p>For a <span class="math notranslate nohighlight">\((m\times n)\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>, a non-negative value <span class="math notranslate nohighlight">\(\sigma&gt;0\)</span> satisfying</p>
 <div class="math notranslate nohighlight">
 \[ A \b{v} = \sigma \b{u}\]</div>
@@ -1385,7 +1449,7 @@ and <span class="math notranslate nohighlight">\(V=(\b{v}_1,...,\b{v}_k)\)</span
  [-0.33218358  0.53508568 -0.40349583  0.46377343 -0.47480808]]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4.95020796e-15, 1.00000000e+00, 2.00000000e+00, 3.00000000e+00,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2.99509511e-15, 1.00000000e+00, 2.00000000e+00, 3.00000000e+00,
         4.00000000e+00],
        [5.00000000e+00, 4.00000000e+00, 3.00000000e+00, 2.00000000e+00,
         1.00000000e+00],
@@ -1413,7 +1477,7 @@ and <span class="math notranslate nohighlight">\(V=(\b{v}_1,...,\b{v}_k)\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/acde5e84a4c4343a36bb94c8a9af9d016bfe6857c60abaac76cae27887d093bd.png" src="_images/acde5e84a4c4343a36bb94c8a9af9d016bfe6857c60abaac76cae27887d093bd.png" />
+<img alt="_images/9b579cad03e6ed5a1a532a9affee4c09573fa453ad1850fa495fa59d3164f87d.png" src="_images/9b579cad03e6ed5a1a532a9affee4c09573fa453ad1850fa495fa59d3164f87d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1428,12 +1492,12 @@ and <span class="math notranslate nohighlight">\(V=(\b{v}_1,...,\b{v}_k)\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6a25cb452db054a2f080b60971fbc18224159885ba423c87087b699695600636.png" src="_images/6a25cb452db054a2f080b60971fbc18224159885ba423c87087b699695600636.png" />
+<img alt="_images/0c4b23f2b0d0ed71948d365d4ff50c85dc272a0bdaf6a19238873eae87a6936f.png" src="_images/0c4b23f2b0d0ed71948d365d4ff50c85dc272a0bdaf6a19238873eae87a6936f.png" />
 </div>
 </div>
 </section>
 <section id="pca-by-svd">
-<h2>PCA by SVD<a class="headerlink" href="#pca-by-svd" title="Permalink to this heading">#</a></h2>
+<h2>PCA by SVD<a class="headerlink" href="#pca-by-svd" title="Link to this heading">#</a></h2>
 <p>From <span class="math notranslate nohighlight">\(X = U SV^T\)</span> and the orthonormal construction of <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span>, we can see</p>
 <div class="math notranslate nohighlight">
 \[C = \frac{1}{m-1}X^T X = \frac{1}{m-1}V S^2 V^T\]</div>
@@ -1465,7 +1529,7 @@ by SVD: [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658877 
 </div>
 </section>
 <section id="appendix-eigenvalues-of-a-2x2-matrix">
-<h2>Appendix: Eigenvalues of a 2x2 matrix<a class="headerlink" href="#appendix-eigenvalues-of-a-2x2-matrix" title="Permalink to this heading">#</a></h2>
+<h2>Appendix: Eigenvalues of a 2x2 matrix<a class="headerlink" href="#appendix-eigenvalues-of-a-2x2-matrix" title="Link to this heading">#</a></h2>
 <p>Let us take the simplest and the most important case of 2 by 2 matrix</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} A = \pmatrix{a &amp; b \\ c &amp; d}. \end{split}\]</div>
@@ -1479,7 +1543,7 @@ by SVD: [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658877 
 <div class="math notranslate nohighlight">
 \[\begin{split} \b{x} = \mat{b \\ \lambda - a}. \end{split}\]</div>
 <section id="real-eigenvalues">
-<h3>Real eigenvalues<a class="headerlink" href="#real-eigenvalues" title="Permalink to this heading">#</a></h3>
+<h3>Real eigenvalues<a class="headerlink" href="#real-eigenvalues" title="Link to this heading">#</a></h3>
 <p>When <span class="math notranslate nohighlight">\(\frac{(a-d)^2}{4}+ bc \ge 0\)</span>, <span class="math notranslate nohighlight">\(A\)</span> has two real eigenvalues
 <span class="math notranslate nohighlight">\(\{\lambda_1, \lambda_2\}\)</span>
 with corresponding eigenvectors
@@ -1528,12 +1592,12 @@ V =  [[ 0.70710678 -0.4472136 ]
  [ 0.70710678  0.89442719]]
 </pre></div>
 </div>
-<img alt="_images/f7fd813147b31ceb7bb200e9f629ef6c1cf158a03d8ee81d6f581b867972dd30.png" src="_images/f7fd813147b31ceb7bb200e9f629ef6c1cf158a03d8ee81d6f581b867972dd30.png" />
+<img alt="_images/99a286ec8f7bdcdc723b73ec65b234ea3b2de5c26b8c9cc18556d649c4147866.png" src="_images/99a286ec8f7bdcdc723b73ec65b234ea3b2de5c26b8c9cc18556d649c4147866.png" />
 </div>
 </div>
 </section>
 <section id="complex-eigenvalues">
-<h3>Complex eigenvalues<a class="headerlink" href="#complex-eigenvalues" title="Permalink to this heading">#</a></h3>
+<h3>Complex eigenvalues<a class="headerlink" href="#complex-eigenvalues" title="Link to this heading">#</a></h3>
 <p>When <span class="math notranslate nohighlight">\(\frac{(a-d)^2}{4}+ bc &lt; 0\)</span>, <span class="math notranslate nohighlight">\(A\)</span> has a pair of complex eigenvalues</p>
 <div class="math notranslate nohighlight">
 \[ \lambda_1 = \alpha + i\beta \mbox{ and } \lambda_2 = \alpha - i\beta \]</div>
@@ -1624,7 +1688,7 @@ VU = [[ 0.1767767  -0.6846532 ]
  [ 0.70710678 -0.        ]]
 </pre></div>
 </div>
-<img alt="_images/3d7aab64e6fb8192585835ee04e6809a2bc857e46d4ef8ff29d9ae5f0a74a82d.png" src="_images/3d7aab64e6fb8192585835ee04e6809a2bc857e46d4ef8ff29d9ae5f0a74a82d.png" />
+<img alt="_images/b19132cc79f45756723813a7a3a4feafb49b78462995fed6d68ec86137921678.png" src="_images/b19132cc79f45756723813a7a3a4feafb49b78462995fed6d68ec86137921678.png" />
 </div>
 </div>
 <p>The trajectory in the complex space or the <span class="math notranslate nohighlight">\((\b{u},-\b{w})\)</span> space is a regular spirals, which is mapped to a skewed spiral in the original space.</p>

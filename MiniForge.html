@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Installing Python by Miniforge &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'MiniForge';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -285,6 +284,70 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/MiniForge.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/MiniForge.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -403,7 +466,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="installing-python-by-miniforge">
-<h1>Installing Python by Miniforge<a class="headerlink" href="#installing-python-by-miniforge" title="Permalink to this heading">#</a></h1>
+<h1>Installing Python by Miniforge<a class="headerlink" href="#installing-python-by-miniforge" title="Link to this heading">#</a></h1>
 <p>There are two major repositories for python and its pakcages:</p>
 <ul class="simple">
 <li><p>Python Package Index (PyPI): <a class="reference external" href="https://pypi.org">https://pypi.org</a><br />
@@ -413,7 +476,7 @@ Communit-based repository using <code class="docutils literal notranslate"><span
 </ul>
 <p>Here we use <code class="docutils literal notranslate"><span class="pre">miniforge</span></code> that allows you to flexibly set-up enviroments and install Packages.</p>
 <section id="using-terminal">
-<h2>Using <code class="docutils literal notranslate"><span class="pre">Terminal</span></code><a class="headerlink" href="#using-terminal" title="Permalink to this heading">#</a></h2>
+<h2>Using <code class="docutils literal notranslate"><span class="pre">Terminal</span></code><a class="headerlink" href="#using-terminal" title="Link to this heading">#</a></h2>
 <p>To install python and packages by yourself, you should first start a <em>Terminal</em>, from which you type commands line-by-line.</p>
 <ul class="simple">
 <li><p>On Linux, <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> or <code class="docutils literal notranslate"><span class="pre">Console</span></code> is a standard intreface.</p></li>
@@ -423,14 +486,14 @@ Communit-based repository using <code class="docutils literal notranslate"><span
 </ul>
 </section>
 <section id="installing-conda-from-miniforge">
-<h2>Installing <code class="docutils literal notranslate"><span class="pre">conda</span></code> from <code class="docutils literal notranslate"><span class="pre">miniforge</span></code><a class="headerlink" href="#installing-conda-from-miniforge" title="Permalink to this heading">#</a></h2>
+<h2>Installing <code class="docutils literal notranslate"><span class="pre">conda</span></code> from <code class="docutils literal notranslate"><span class="pre">miniforge</span></code><a class="headerlink" href="#installing-conda-from-miniforge" title="Link to this heading">#</a></h2>
 <p>Download <code class="docutils literal notranslate"><span class="pre">miniforge</span></code> from <a class="reference external" href="https://conda-forge.org/download/">https://conda-forge.org/download/</a></p>
 <p>Then run it using the terminal as described in the download page. On Mac and Linux, it would be:</p>
 <p><code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">Miniforge3-xx-yy.sh</span></code></p>
 <p>This installs <code class="docutils literal notranslate"><span class="pre">conda</span></code>, a standard command for setting up python environments and installing packages.</p>
 </section>
 <section id="setting-up-an-environment-by-conda">
-<h2>Setting up an environment by <code class="docutils literal notranslate"><span class="pre">conda</span></code><a class="headerlink" href="#setting-up-an-environment-by-conda" title="Permalink to this heading">#</a></h2>
+<h2>Setting up an environment by <code class="docutils literal notranslate"><span class="pre">conda</span></code><a class="headerlink" href="#setting-up-an-environment-by-conda" title="Link to this heading">#</a></h2>
 <p>Before starting installation, it is better to setup a specific <em>environment</em> for each project to allow using the best version of Python and Packages.</p>
 <p>For example, we can create an evironment <em>iscicomp</em> by</p>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">iscicomp</span></code></p>
@@ -440,7 +503,7 @@ Communit-based repository using <code class="docutils literal notranslate"><span
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">iscicomp</span></code></p>
 </section>
 <section id="installing-python-and-packages-by-conda">
-<h2>Installing python and packages by <code class="docutils literal notranslate"><span class="pre">conda</span></code><a class="headerlink" href="#installing-python-and-packages-by-conda" title="Permalink to this heading">#</a></h2>
+<h2>Installing python and packages by <code class="docutils literal notranslate"><span class="pre">conda</span></code><a class="headerlink" href="#installing-python-and-packages-by-conda" title="Link to this heading">#</a></h2>
 <p>Now let us install the latest stable version of python by</p>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">python</span></code></p>
 <p>If you prefer a paricular version of python, you can do, e.g.</p>
@@ -448,7 +511,7 @@ Communit-based repository using <code class="docutils literal notranslate"><span
 <p>Please run <code class="docutils literal notranslate"><span class="pre">python</span></code> and check that a python of the right version starts up.<br />
 You can type <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span> <span class="pre">exit()</span></code> to finish <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
 <p>Now you can install any other packages as needed. For this book, the following is sufficient:</p>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyter</span> <span class="pre">notebook</span> <span class="pre">jupyterlab</span> <span class="pre">numpy</span> <span class="pre">matplotlib</span> <span class="pre">ipympl</span> <span class="pre">scipy</span> <span class="pre">scikit-learn</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyter</span> <span class="pre">numpy</span> <span class="pre">matplotlib</span> <span class="pre">ipympl</span> <span class="pre">scipy</span> <span class="pre">scikit-learn</span></code></p>
 </section>
 </section>
 

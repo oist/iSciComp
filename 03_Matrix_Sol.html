@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>3. Vectors and Matrices: Exercise Solutions &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '03_Matrix_Sol';</script>
@@ -184,6 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -281,6 +281,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/03_Matrix_Sol.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/03_Matrix_Sol.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -403,7 +467,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="vectors-and-matrices-exercise-solutions">
-<h1>3. Vectors and Matrices: Exercise Solutions<a class="headerlink" href="#vectors-and-matrices-exercise-solutions" title="Permalink to this heading">#</a></h1>
+<h1>3. Vectors and Matrices: Exercise Solutions<a class="headerlink" href="#vectors-and-matrices-exercise-solutions" title="Link to this heading">#</a></h1>
 <div class="math notranslate nohighlight">
 \[ % Latex macros
 \newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
@@ -415,15 +479,15 @@ document.write(`
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
 </div>
 <section id="determinant-and-eigenvalues">
-<h2>1) Determinant and eigenvalues<a class="headerlink" href="#determinant-and-eigenvalues" title="Permalink to this heading">#</a></h2>
+<h2>1) Determinant and eigenvalues<a class="headerlink" href="#determinant-and-eigenvalues" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>For a 2x2 matrix
 <span class="math notranslate nohighlight">\(A = \left(\begin{array}{cc} a &amp; b\\ c &amp; d \end{array}\right)\)</span>,
@@ -449,7 +513,7 @@ let us verify that <span class="math notranslate nohighlight">\(\det A = ad - bc
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/81a92c31244cd5dacca0986a5acdaecc48b29a8c71b36c41c2a8035746c0d823.png" src="_images/81a92c31244cd5dacca0986a5acdaecc48b29a8c71b36c41c2a8035746c0d823.png" />
+<img alt="_images/7cfc5020c51b73b362ceb8a5372ffe6492f101e10876c20556e830201771c71c.png" src="_images/7cfc5020c51b73b362ceb8a5372ffe6492f101e10876c20556e830201771c71c.png" />
 </div>
 </div>
 <p>A unit square is transformed into a parallelogram. Its area <span class="math notranslate nohighlight">\(S\)</span> can be derived as follows:<br />
@@ -477,14 +541,30 @@ $<span class="math notranslate nohighlight">\( S = S_1 - 2S_2 - 2S_3 - 2S_4 = ad
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2.20196146 -1.61087067  0.41011272 -1.31215914]
- [ 1.53328383 -0.5976102  -0.8560609  -0.09166595]
- [-1.36461044  1.38329757 -0.16544735  0.03169591]
- [-1.445724   -0.35687189  0.93337825 -0.05892685]]
-eigenvalues =  [ 2.17483337+0.j         -0.22578824+1.45292051j -0.22578824-1.45292051j
- -0.34327983+0.j        ]
-product =  (-1.6140671570057876+5.679273121522982e-18j)
-detrminant =  -1.6140671570057883
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-1.87517541  0.1561358   1.14672483  2.54447274]
+ [ 0.47294205 -1.14295683 -1.96901367 -0.54788897]
+ [-2.58065579  0.10537898  0.25490209 -0.04411638]
+ [-1.18540013 -1.51330322 -0.11489484  0.63753892]]
+eigenvalues =  [-1.59536853+1.79482028j -1.59536853-1.79482028j  0.53252292+1.49510819j
+  0.53252292-1.49510819j]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">lam</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eigenvalues = &#39;</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;product = &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">lam</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">det</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;detrminant = &#39;</span><span class="p">,</span> <span class="n">det</span><span class="p">)</span>
+
+<span class="nn">File ~/miniforge3/lib/python3.13/site-packages/numpy/__init__.py:414,</span> in <span class="ni">__getattr__</span><span class="nt">(attr)</span>
+<span class="g g-Whitespace">    </span><span class="mi">411</span>     <span class="kn">import</span><span class="w"> </span><span class="nn">numpy.char</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">char</span>
+<span class="g g-Whitespace">    </span><span class="mi">412</span>     <span class="k">return</span> <span class="n">char</span><span class="o">.</span><span class="n">chararray</span>
+<span class="ne">--&gt; </span><span class="mi">414</span> <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;module </span><span class="si">{!r}</span><span class="s2"> has no attribute &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">415</span>                      <span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">attr</span><span class="p">))</span>
+
+<span class="ne">AttributeError</span>: module &#39;numpy&#39; has no attribute &#39;product&#39;
 </pre></div>
 </div>
 </div>
@@ -494,7 +574,7 @@ detrminant =  -1.6140671570057883
 <p>Therefore, the producs of all eigenvalues should equal to the determinant.</p>
 </section>
 <section id="eigenvalues-and-matrix-product">
-<h2>2) Eigenvalues and matrix product<a class="headerlink" href="#eigenvalues-and-matrix-product" title="Permalink to this heading">#</a></h2>
+<h2>2) Eigenvalues and matrix product<a class="headerlink" href="#eigenvalues-and-matrix-product" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Make a random (or hand-designed) <span class="math notranslate nohighlight">\(m\times m\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>. Compute its eigenvalues and eigenvectors. From a random (or your preferred) initial point <span class="math notranslate nohighlight">\(\b{x}\)</span>, compute <span class="math notranslate nohighlight">\(A\b{x}, A^2\b{x}, A^3\b{x},...\)</span> and visualize the points. Then characterize the behavior of the points with respect the eigenvalues and eigenvectors.</p></li>
 </ol>
@@ -510,12 +590,12 @@ detrminant =  -1.6140671570057883
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =  [[ 0.24942048 -0.67295641  0.53632858 -1.07765499]
- [ 1.5240484   1.04021559 -1.21273493  0.33129763]
- [-1.70720633  1.53929584 -1.34936842  0.82049163]
- [-1.58884441  0.66240539  0.06537685 -1.42867475]]
-eigenvalues =  [ 0.57362076+1.42921858j  0.57362076-1.42921858j -0.50704197+0.j
- -2.12860665+0.j        ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =  [[ 0.45057146  0.78931076  0.59380184 -0.41102143]
+ [ 0.48513212 -0.58578885  0.45814626  0.01963374]
+ [-1.31440187 -1.0283403   1.48991966  0.62239288]
+ [ 0.85730741  0.49378921  0.49997512 -0.99158359]]
+eigenvalues =  [ 0.99629945+0.82578673j  0.99629945-0.82578673j -0.8147401 +0.00772966j
+ -0.8147401 -0.00772966j]
 </pre></div>
 </div>
 </div>
@@ -535,7 +615,7 @@ eigenvalues =  [ 0.57362076+1.42921858j  0.57362076-1.42921858j -0.50704197+0.j
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/99924a5d520d39df23b1e5ea892d3beee85f78ea8379396c3ff6ae4e5a0ff155.png" src="_images/99924a5d520d39df23b1e5ea892d3beee85f78ea8379396c3ff6ae4e5a0ff155.png" />
+<img alt="_images/783bc32548142e22668ea12b960029bc0445b1c40cfc203ef8babd023e375a05.png" src="_images/783bc32548142e22668ea12b960029bc0445b1c40cfc203ef8babd023e375a05.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -545,10 +625,10 @@ eigenvalues =  [ 0.57362076+1.42921858j  0.57362076-1.42921858j -0.50704197+0.j
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x112b00dd0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x10f81adc0&gt;]
 </pre></div>
 </div>
-<img alt="_images/b6951ae6aa79b92e990efe767400673d38dca846e220327dd4788cf9f604cc6c.png" src="_images/b6951ae6aa79b92e990efe767400673d38dca846e220327dd4788cf9f604cc6c.png" />
+<img alt="_images/140564fc835b72c87fac05c38cf37b538c21be5b6d0cc2135452ac3e6aa9e1d2.png" src="_images/140564fc835b72c87fac05c38cf37b538c21be5b6d0cc2135452ac3e6aa9e1d2.png" />
 </div>
 </div>
 <ol class="arabic simple" start="2">
@@ -569,20 +649,20 @@ eigenvalues =  [ 0.57362076+1.42921858j  0.57362076-1.42921858j -0.50704197+0.j
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =  [[ 9.65409780e-04  8.89399079e-01 -1.47906714e-01  5.93675981e-02]
- [ 1.36749831e+00  1.68721485e+00  1.03430227e-02 -1.77561354e+00]
- [-1.41801234e+00  9.10857106e-01  4.68919051e-01  1.78969175e-02]
- [-1.29425626e+00 -8.46296626e-01 -1.34318749e-01  1.26801432e+00]]
-eigenvalues =  [ 3.17143734+0.j          0.73736504+0.j         -0.24184437+0.40406468j
- -0.24184437-0.40406468j]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =  [[ 0.37194988 -1.61745602 -2.46938412 -1.35981293]
+ [ 0.79955755 -0.83073656  0.19700699 -1.42204889]
+ [ 1.30524957 -0.04697506 -1.00613988  3.06079732]
+ [ 0.25881831 -0.04487409 -1.86087477 -0.76763694]]
+eigenvalues =  [-0.74408394+2.96112607j -0.74408394-2.96112607j -0.37219781+1.10383675j
+ -0.37219781-1.10383675j]
 </pre></div>
 </div>
-<img alt="_images/50d9af051d3ced36f2dfecb03ff934bcc37f19ab080a28d2754e5f6c1fe022a6.png" src="_images/50d9af051d3ced36f2dfecb03ff934bcc37f19ab080a28d2754e5f6c1fe022a6.png" />
+<img alt="_images/98c0a47a044e6d9ef494f0967281ebe140aac086f054ebb8ffc375d150acad47.png" src="_images/98c0a47a044e6d9ef494f0967281ebe140aac086f054ebb8ffc375d150acad47.png" />
 </div>
 </div>
 </section>
 <section id="principal-component-analysis">
-<h2>3) Principal component analysis<a class="headerlink" href="#principal-component-analysis" title="Permalink to this heading">#</a></h2>
+<h2>3) Principal component analysis<a class="headerlink" href="#principal-component-analysis" title="Link to this heading">#</a></h2>
 <p>Read in the “digits” dataset, originally from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -612,7 +692,7 @@ eigenvalues =  [ 3.17143734+0.j          0.73736504+0.j         -0.24184437+0.40
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d2b1d8b2373c72025e80ea39f590f2efbc31be32b7cc3e951de000cded79b7a6.png" src="_images/d2b1d8b2373c72025e80ea39f590f2efbc31be32b7cc3e951de000cded79b7a6.png" />
+<img alt="_images/b1f69be9a9e2086aba2976ade22c48c5a0099904f3ac2e3d45d58fbf810fdfd8.png" src="_images/b1f69be9a9e2086aba2976ade22c48c5a0099904f3ac2e3d45d58fbf810fdfd8.png" />
 </div>
 </div>
 <ol class="arabic simple">
@@ -667,7 +747,7 @@ eigenvalues =  [ 3.17143734+0.j          0.73736504+0.j         -0.24184437+0.40
    0.        ]]
 </pre></div>
 </div>
-<img alt="_images/0a069e05de0ac9c8cc4e46ac0f1d61391395ac872f148521e7ba8aba6b5b2853.png" src="_images/0a069e05de0ac9c8cc4e46ac0f1d61391395ac872f148521e7ba8aba6b5b2853.png" />
+<img alt="_images/d3a4ee963993a8ff9597ac1e47a0ae7de9e9882c6db947f90cf2b8648d3da59a.png" src="_images/d3a4ee963993a8ff9597ac1e47a0ae7de9e9882c6db947f90cf2b8648d3da59a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -704,15 +784,15 @@ eigenvalues =  [ 3.17143734+0.j          0.73736504+0.j         -0.24184437+0.40
  [ 1.68358559e-18 -1.83420720e-02 -1.26475543e-01 ... -2.32084163e-01
   -1.67026563e-01 -3.48043832e-02]
  ...
- [ 0.00000000e+00 -1.74205890e-16 -2.29802501e-17 ...  2.22044605e-16
-  -3.88578059e-16  3.19189120e-16]
- [ 0.00000000e+00 -9.57740791e-17  8.79116595e-17 ... -9.71445147e-17
-   1.38777878e-17 -1.14491749e-16]
+ [ 0.00000000e+00 -1.19573120e-16  2.05712166e-16 ...  0.00000000e+00
+   0.00000000e+00 -1.87350135e-16]
+ [ 0.00000000e+00  1.89653972e-16  1.59973456e-16 ... -5.55111512e-17
+  -1.66533454e-16  3.19189120e-16]
  [-1.00000000e+00  1.68983002e-17 -5.73338351e-18 ... -8.66631300e-18
    1.57615962e-17 -4.07058917e-18]]
 </pre></div>
 </div>
-<img alt="_images/0a069e05de0ac9c8cc4e46ac0f1d61391395ac872f148521e7ba8aba6b5b2853.png" src="_images/0a069e05de0ac9c8cc4e46ac0f1d61391395ac872f148521e7ba8aba6b5b2853.png" />
+<img alt="_images/d3a4ee963993a8ff9597ac1e47a0ae7de9e9882c6db947f90cf2b8648d3da59a.png" src="_images/d3a4ee963993a8ff9597ac1e47a0ae7de9e9882c6db947f90cf2b8648d3da59a.png" />
 </div>
 </div>
 <ol class="arabic simple" start="2">
@@ -730,7 +810,7 @@ eigenvalues =  [ 3.17143734+0.j          0.73736504+0.j         -0.24184437+0.40
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b36603fa45fbc407c0ee081db03d8c5751d6afbfca78fc4ff5ff274679f19280.png" src="_images/b36603fa45fbc407c0ee081db03d8c5751d6afbfca78fc4ff5ff274679f19280.png" />
+<img alt="_images/10d18717ef4e579da333f88dec8f558fa2b9d37e2b207a543e22ff19400d6cf2.png" src="_images/10d18717ef4e579da333f88dec8f558fa2b9d37e2b207a543e22ff19400d6cf2.png" />
 </div>
 </div>
 <ol class="arabic simple" start="3">
@@ -747,7 +827,7 @@ eigenvalues =  [ 3.17143734+0.j          0.73736504+0.j         -0.24184437+0.40
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ed65a8594c26ef088864c1744e14166eef292c329c1ab2b8e4784a9bc206e47f.png" src="_images/ed65a8594c26ef088864c1744e14166eef292c329c1ab2b8e4784a9bc206e47f.png" />
+<img alt="_images/1d00cb6e8215708e2ce4d327bd99a0ed8e89abfbe620137ac92321393cfaa84e.png" src="_images/1d00cb6e8215708e2ce4d327bd99a0ed8e89abfbe620137ac92321393cfaa84e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -762,7 +842,7 @@ eigenvalues =  [ 3.17143734+0.j          0.73736504+0.j         -0.24184437+0.40
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f4702778c18bb2a824e4c86e2ed2f1df6d6c23e1c602012e737f7a74323b5bb6.png" src="_images/f4702778c18bb2a824e4c86e2ed2f1df6d6c23e1c602012e737f7a74323b5bb6.png" />
+<img alt="_images/d8dcd38490f55e50970886bc2c3fd28bb5872b38d344105aa96a2097e3fbeb5b.png" src="_images/d8dcd38490f55e50970886bc2c3fd28bb5872b38d344105aa96a2097e3fbeb5b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -779,7 +859,7 @@ eigenvalues =  [ 3.17143734+0.j          0.73736504+0.j         -0.24184437+0.40
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/252a69c47e877ce4733f99de7c04d9bc79811ff74286e7f7edcc2bae07ea55e3.png" src="_images/252a69c47e877ce4733f99de7c04d9bc79811ff74286e7f7edcc2bae07ea55e3.png" />
+<img alt="_images/ac67fe761e11eaa0fce2f8c83ffd07a55d6a4cdbe5521a903d9575df06ae826f.png" src="_images/ac67fe761e11eaa0fce2f8c83ffd07a55d6a4cdbe5521a903d9575df06ae826f.png" />
 </div>
 </div>
 <ol class="arabic simple" start="4">
@@ -804,7 +884,7 @@ eigenvalues =  [ 3.17143734+0.j          0.73736504+0.j         -0.24184437+0.40
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/22d5103ddd054788e208690f0ec6ea2dfbe51b655018b5188656bec69ab327dc.png" src="_images/22d5103ddd054788e208690f0ec6ea2dfbe51b655018b5188656bec69ab327dc.png" />
+<img alt="_images/75ce66b0a400b79eb6c8e15aa01426c01f1c5636ff556053c13353a96828813a.png" src="_images/75ce66b0a400b79eb6c8e15aa01426c01f1c5636ff556053c13353a96828813a.png" />
 </div>
 </div>
 </section>

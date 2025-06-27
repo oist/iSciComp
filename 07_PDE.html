@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>7. Partial Differential Equations &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '07_PDE';</script>
@@ -184,6 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -281,6 +281,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/07_PDE.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/07_PDE.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -424,7 +488,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="partial-differential-equations">
-<h1>7. Partial Differential Equations<a class="headerlink" href="#partial-differential-equations" title="Permalink to this heading">#</a></h1>
+<h1>7. Partial Differential Equations<a class="headerlink" href="#partial-differential-equations" title="Link to this heading">#</a></h1>
 <p>References:</p>
 <ul class="simple">
 <li><p>Svein Linge &amp; Hans Petter Langtangen: Programming for Computations – Python. Springer (2016).</p>
@@ -435,15 +499,15 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
 </div>
 <section id="partial-derivative">
-<h2>Partial derivative<a class="headerlink" href="#partial-derivative" title="Permalink to this heading">#</a></h2>
+<h2>Partial derivative<a class="headerlink" href="#partial-derivative" title="Link to this heading">#</a></h2>
 <p>For a function with multiple inputs <span class="math notranslate nohighlight">\(f(x_1,...,x_n)\)</span>, a <em>partial derivative</em> is the derivative with respect to an input <span class="math notranslate nohighlight">\(x_i\)</span> while other inputs are held constant.</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial f(x_1,...,x_n)}{\partial x_i}
@@ -475,12 +539,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0f66fe5b4367294d92bde7d259429ee041292cc6c25eba19cb553d456730363b.png" src="_images/0f66fe5b4367294d92bde7d259429ee041292cc6c25eba19cb553d456730363b.png" />
+<img alt="_images/006cbe3503ab377c7a58260a16d27042091f9383f4aa7fe8fba5141b28d102c6.png" src="_images/006cbe3503ab377c7a58260a16d27042091f9383f4aa7fe8fba5141b28d102c6.png" />
 </div>
 </div>
 </section>
 <section id="partial-differential-equation-pde">
-<h2>Partial Differential Equation (PDE)<a class="headerlink" href="#partial-differential-equation-pde" title="Permalink to this heading">#</a></h2>
+<h2>Partial Differential Equation (PDE)<a class="headerlink" href="#partial-differential-equation-pde" title="Link to this heading">#</a></h2>
 <p>A <em>partial differential equation (PDE)</em> is an equation that includes partial derivatives</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial f(x_1,...,x_n)}{\partial x_i}\]</div>
@@ -492,7 +556,7 @@ document.write(`
 <p>that describes the evolution of concentration (or temperature) <span class="math notranslate nohighlight">\(y\)</span> in space <span class="math notranslate nohighlight">\(x\)</span> and time <span class="math notranslate nohighlight">\(t\)</span> with input <span class="math notranslate nohighlight">\(g(y,x,t)\)</span> and the diffusion coefficient <span class="math notranslate nohighlight">\(D\)</span>.</p>
 </section>
 <section id="analytic-solution-of-pde">
-<h2>Analytic Solution of PDE<a class="headerlink" href="#analytic-solution-of-pde" title="Permalink to this heading">#</a></h2>
+<h2>Analytic Solution of PDE<a class="headerlink" href="#analytic-solution-of-pde" title="Link to this heading">#</a></h2>
 <p>For a diffusion equation without input</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\partial y}{\partial t} = D \frac{\partial^2 y}{\partial x^2}, \]</div>
@@ -519,7 +583,7 @@ document.write(`
 <p>where <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(C_1\)</span> and <span class="math notranslate nohighlight">\(C_2\)</span> are determined by the initial condition <span class="math notranslate nohighlight">\(y(x,0)\)</span>.<br />
 The equation tells us that higher spatial frequency components decay quiker.</p>
 <section id="boundary-condition">
-<h3>Boundary condition<a class="headerlink" href="#boundary-condition" title="Permalink to this heading">#</a></h3>
+<h3>Boundary condition<a class="headerlink" href="#boundary-condition" title="Link to this heading">#</a></h3>
 <p>For uniquely specifying a solution of a PDE in a bounded area, e.g., <span class="math notranslate nohighlight">\(x_0&lt;x&lt;x_1\)</span>, we need to specify either</p>
 <ul class="simple">
 <li><p>the value <span class="math notranslate nohighlight">\(y(x,t)\)</span> (Dirichlet boundary condition)</p></li>
@@ -529,7 +593,7 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 </section>
 </section>
 <section id="from-pde-to-ode">
-<h2>From PDE to ODE<a class="headerlink" href="#from-pde-to-ode" title="Permalink to this heading">#</a></h2>
+<h2>From PDE to ODE<a class="headerlink" href="#from-pde-to-ode" title="Link to this heading">#</a></h2>
 <p>The standard way of dealing with space and time on a digital computer is to discretize them. For a PDE</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\partial y}{\partial t} = D \frac{\partial^2 y}{\partial x^2} + g(y,x,t), \]</div>
@@ -555,11 +619,11 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 \[ \frac{dy_i}{dt} = D \frac{y_{i+1}-2y_i+y_{i-1}}{\Delta x^2} + g(y_i,x_i,t). \]</div>
 </section>
 <section id="euler-method">
-<h2>Euler method<a class="headerlink" href="#euler-method" title="Permalink to this heading">#</a></h2>
+<h2>Euler method<a class="headerlink" href="#euler-method" title="Link to this heading">#</a></h2>
 <p>First, let us solve the converted ODE by Eulre method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;f: righthand side of ODE dy/dt=f(y,t)</span>
 <span class="sd">        y0: initial condition y(0)=y0</span>
 <span class="sd">        dt: time step</span>
@@ -580,7 +644,7 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 <p>The second order derivative can be computed by shifting the array <span class="math notranslate nohighlight">\(y\)</span> to left and right, and subtracting double the original array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diff1D</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">diff1D</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;1D Diffusion equaiton with constant boundary condition</span>
 <span class="sd">    y: state vector</span>
 <span class="sd">    t: time</span>
@@ -625,7 +689,7 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/213bdc2f165b99440a6dca2fdd1d51941458c5b4249280b1c4d1c3bfe8aa8c9f.png" src="_images/213bdc2f165b99440a6dca2fdd1d51941458c5b4249280b1c4d1c3bfe8aa8c9f.png" />
+<img alt="_images/5865b0c7af09dc386a86dde7c773052e2d418e8463aa89075f587ae993ed31ca.png" src="_images/5865b0c7af09dc386a86dde7c773052e2d418e8463aa89075f587ae993ed31ca.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -638,7 +702,7 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/51ed6cdaa45c6cba5bcbb961707c374412de3808198e90aa6a13d238c257d787.png" src="_images/51ed6cdaa45c6cba5bcbb961707c374412de3808198e90aa6a13d238c257d787.png" />
+<img alt="_images/827b173b2be5c38793f507e167e35ea184e371d9441f1b06cf4671dcc5042bf9.png" src="_images/827b173b2be5c38793f507e167e35ea184e371d9441f1b06cf4671dcc5042bf9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -650,7 +714,7 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4a273df7544bfda6493f5a001e897d9d466f678e3b666f9babc3ec1dc5d05b41.png" src="_images/4a273df7544bfda6493f5a001e897d9d466f678e3b666f9babc3ec1dc5d05b41.png" />
+<img alt="_images/7d0ec2752c1556e768796c5ed21e17b09baf4e9023056f5d24a0e2f6909ee075.png" src="_images/7d0ec2752c1556e768796c5ed21e17b09baf4e9023056f5d24a0e2f6909ee075.png" />
 </div>
 </div>
 <p>The accuracy of solution depends on the fineness of discretization in space and time.</p>
@@ -669,7 +733,7 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3ba5b16750d5d63ca5a25dff563999b02ad3322dd950c766cf688bddbca5dee8.png" src="_images/3ba5b16750d5d63ca5a25dff563999b02ad3322dd950c766cf688bddbca5dee8.png" />
+<img alt="_images/a0f4b5fe3d08a9976e3546da2c90b628c6dea89f5a4d261c222169aff04c31fe.png" src="_images/a0f4b5fe3d08a9976e3546da2c90b628c6dea89f5a4d261c222169aff04c31fe.png" />
 </div>
 </div>
 <p>In the diffusion equation, peaks are pulled down and dips are pushed up, and that can cause spatial instability if the time step is too large.</p>
@@ -682,11 +746,11 @@ The equation tells us that higher spatial frequency components decay quiker.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/defca688d0bd28a9de694002fcfd4f5b18cd1465d6fba7d12e4d4f60deec7f6d.png" src="_images/defca688d0bd28a9de694002fcfd4f5b18cd1465d6fba7d12e4d4f60deec7f6d.png" />
+<img alt="_images/7ef459f33d682e1ab66432e6295a47d8dc6749b6681145fbffab5c41425e7ea7.png" src="_images/7ef459f33d682e1ab66432e6295a47d8dc6749b6681145fbffab5c41425e7ea7.png" />
 </div>
 </div>
 <section id="stability">
-<h3>Stability<a class="headerlink" href="#stability" title="Permalink to this heading">#</a></h3>
+<h3>Stability<a class="headerlink" href="#stability" title="Link to this heading">#</a></h3>
 <p>For an accurate solution, <span class="math notranslate nohighlight">\(\Delta x\)</span> have to be small. But making <span class="math notranslate nohighlight">\(\Delta x\)</span> small can make the ODE <em>stiff</em> such that solution can be unstable.<br />
 It is known that stable solution by Euler method requires</p>
 <div class="math notranslate nohighlight">
@@ -707,11 +771,11 @@ It is known that stable solution by Euler method requires</p>
 </section>
 </section>
 <section id="by-odeint">
-<h2>By odeint<a class="headerlink" href="#by-odeint" title="Permalink to this heading">#</a></h2>
+<h2>By odeint<a class="headerlink" href="#by-odeint" title="Link to this heading">#</a></h2>
 <p>The above stability issue can be worked around by using an ODE library that implements automatic time step adaptation, such as odeint.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">odeint</span>
 </pre></div>
 </div>
 </div>
@@ -735,13 +799,13 @@ It is known that stable solution by Euler method requires</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/77a857f7be27649c6439727b057d9d5cd9c217f5fd85dcf1bc650778cdd6a87c.png" src="_images/77a857f7be27649c6439727b057d9d5cd9c217f5fd85dcf1bc650778cdd6a87c.png" />
+<img alt="_images/7eb4f7313bebb05d42c86a21ec0e98c57c017f358be38fc5ebcd811d8107f42e.png" src="_images/7eb4f7313bebb05d42c86a21ec0e98c57c017f358be38fc5ebcd811d8107f42e.png" />
 </div>
 </div>
 <p>Let us see the case with an input.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pulse</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pulse</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;1 for 1&lt;x&lt;2 at 1&lt;t&lt;2&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mf">1.</span>
 </pre></div>
@@ -762,12 +826,12 @@ It is known that stable solution by Euler method requires</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7ec2360178b6923d0d5528b360884c5f1f1e89312113ace5bf01c5e3910529d1.png" src="_images/7ec2360178b6923d0d5528b360884c5f1f1e89312113ace5bf01c5e3910529d1.png" />
+<img alt="_images/3bfaaff4177402b4addcd21ef7b556e2d1ec117ea6e147092a5193795d44c86e.png" src="_images/3bfaaff4177402b4addcd21ef7b556e2d1ec117ea6e147092a5193795d44c86e.png" />
 </div>
 </div>
 </section>
 <section id="d-plot-and-animation">
-<h2>3D plot and animation<a class="headerlink" href="#d-plot-and-animation" title="Permalink to this heading">#</a></h2>
+<h2>3D plot and animation<a class="headerlink" href="#d-plot-and-animation" title="Link to this heading">#</a></h2>
 <p>For more intuitive visualization of the space-time dynamics, you may want to use 3D plot or animation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -789,12 +853,12 @@ It is known that stable solution by Euler method requires</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/aeb8fe9e80e3023288daa9f6b47d96e81c4769ca3f25d85e77d062224b060836.png" src="_images/aeb8fe9e80e3023288daa9f6b47d96e81c4769ca3f25d85e77d062224b060836.png" />
+<img alt="_images/119e6f9ffd90e92a491c9fb32b0d56209b6651aa58e704079408ff0440492343.png" src="_images/119e6f9ffd90e92a491c9fb32b0d56209b6651aa58e704079408ff0440492343.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">animation</span>
 </pre></div>
 </div>
 </div>
@@ -812,7 +876,7 @@ It is known that stable solution by Euler method requires</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2b5f358758c488dee1be9f70e56bd9dcb9f4f4df7b736b4cd225fa414efae6ad.png" src="_images/2b5f358758c488dee1be9f70e56bd9dcb9f4f4df7b736b4cd225fa414efae6ad.png" />
+<img alt="_images/713a24bdb2f3d41ce45eeb035147ddbe44b95d8deb6d21be6da99209904ef90d.png" src="_images/713a24bdb2f3d41ce45eeb035147ddbe44b95d8deb6d21be6da99209904ef90d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -824,7 +888,7 @@ It is known that stable solution by Euler method requires</p>
 </div>
 </section>
 <section id="boundary-conditions">
-<h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h2>
+<h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Link to this heading">#</a></h2>
 <p>As briefly mentioned above, there are two typical ways of specifying the <em>boundary condition</em>:</p>
 <ul class="simple">
 <li><p>Dirichlet boundary condition: the value <span class="math notranslate nohighlight">\(y(x_0,t)=y_0\)</span> or  <span class="math notranslate nohighlight">\(y(x_N,t)=y_N\)</span></p>
@@ -859,7 +923,7 @@ It is known that stable solution by Euler method requires</p>
 = 2D \frac{y_{N-1} - y_N}{\Delta x^2}.\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diff1DN</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">diff1DN</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;1D Diffusion equaiton with boundary conditions</span>
 <span class="sd">    y_0=0 on the left and dy/dx|x_N=0 on the right end.</span>
 <span class="sd">    y: state vector</span>
@@ -898,12 +962,12 @@ It is known that stable solution by Euler method requires</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/256cc8aef2e3770767c49b36b58020d57eb53328d7b720f1b1369fe75be1e837.png" src="_images/256cc8aef2e3770767c49b36b58020d57eb53328d7b720f1b1369fe75be1e837.png" />
+<img alt="_images/34e8716b1355853caca1003d8cd2ef451235507277cdf1a0c8a629a4e49e4476.png" src="_images/34e8716b1355853caca1003d8cd2ef451235507277cdf1a0c8a629a4e49e4476.png" />
 </div>
 </div>
 </section>
 <section id="wave-equation">
-<h2>Wave Equation<a class="headerlink" href="#wave-equation" title="Permalink to this heading">#</a></h2>
+<h2>Wave Equation<a class="headerlink" href="#wave-equation" title="Link to this heading">#</a></h2>
 <p>PDE with a second-order dynamics can represent traveling waves. The <em>wave equation</em> has the standard form</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\partial^2 u}{\partial t^2} + d\frac{\partial u}{\partial t} = c^2 \frac{\partial^2 u}{\partial x^2}\]</div>
@@ -915,7 +979,7 @@ It is known that stable solution by Euler method requires</p>
 \[ \frac{\partial v}{\partial t} = c^2 \frac{\partial^2 u}{\partial x^2} - dv \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wave1D</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">wave1D</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;1D wave equaiton with constant boundary</span>
 <span class="sd">    y: state vector hstack(u, v)</span>
 <span class="sd">    t: time</span>
@@ -958,7 +1022,7 @@ It is known that stable solution by Euler method requires</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8122be442af45a79fe9aac119938bb25922c0abfe478145536ec60f854225a4f.png" src="_images/8122be442af45a79fe9aac119938bb25922c0abfe478145536ec60f854225a4f.png" />
+<img alt="_images/6487c8634fd2186c3ebbd57883ad5a3eca6e05e3b121f2c3750bc2514934ee58.png" src="_images/6487c8634fd2186c3ebbd57883ad5a3eca6e05e3b121f2c3750bc2514934ee58.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -970,7 +1034,7 @@ It is known that stable solution by Euler method requires</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/19e622e8eff7ed9753e5d56fa30c95ca8dd7d60dc5fa0b2939b8ccbdaae8ea5b.png" src="_images/19e622e8eff7ed9753e5d56fa30c95ca8dd7d60dc5fa0b2939b8ccbdaae8ea5b.png" />
+<img alt="_images/e067d625c0bcae46d0059d25188a344d6b9c86e37a1480f852b3f2dd0a8f8faa.png" src="_images/e067d625c0bcae46d0059d25188a344d6b9c86e37a1480f852b3f2dd0a8f8faa.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -985,7 +1049,7 @@ It is known that stable solution by Euler method requires</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7f0e684405475702d2b2e007907feb076bb49ab600a708babd0ff55538a6602b.png" src="_images/7f0e684405475702d2b2e007907feb076bb49ab600a708babd0ff55538a6602b.png" />
+<img alt="_images/b304c3b9e80bafc360e00601880ebdb1d30b2218e10237b7fe64c84f7f11c8b8.png" src="_images/b304c3b9e80bafc360e00601880ebdb1d30b2218e10237b7fe64c84f7f11c8b8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1001,12 +1065,12 @@ It is known that stable solution by Euler method requires</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/237ca62e248274c8a068563a4d9f234d10604dc63ceeb696b4b151159fd3342c.png" src="_images/237ca62e248274c8a068563a4d9f234d10604dc63ceeb696b4b151159fd3342c.png" />
+<img alt="_images/6ad59ac44ba1628d88c1b624f393585462505bf39d09a75941a51f3f7d1fd8c0.png" src="_images/6ad59ac44ba1628d88c1b624f393585462505bf39d09a75941a51f3f7d1fd8c0.png" />
 </div>
 </div>
 </section>
 <section id="reaction-diffusion-equation">
-<h2>Reaction-Diffusion Equation<a class="headerlink" href="#reaction-diffusion-equation" title="Permalink to this heading">#</a></h2>
+<h2>Reaction-Diffusion Equation<a class="headerlink" href="#reaction-diffusion-equation" title="Link to this heading">#</a></h2>
 <p>Linear waves can decay, reflect, and overlay.<br />
 Some nonlinear waves, like neural spike, can travel without decaying.
 FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
@@ -1016,7 +1080,7 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 \[ \frac{\partial w}{\partial t} = \phi (v + a - bw) \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fhnaxon</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">phi</span><span class="o">=</span><span class="mf">0.08</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fhnaxon</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">phi</span><span class="o">=</span><span class="mf">0.08</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;FitzHugh-Nagumo axon model</span>
 <span class="sd">    y: state vector hstack(v, w)</span>
 <span class="sd">    t: time</span>
@@ -1039,7 +1103,7 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pulse2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pulse2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;1 for 5&lt;x&lt;10 at 5&lt;t&lt;10&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="mi">5</span><span class="o">&lt;</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">5</span><span class="o">&lt;</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
@@ -1064,7 +1128,7 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/56c7134e5472914bdd1d9a5914d0575d2db91ce042a2ddb45a1789f9291bd502.png" src="_images/56c7134e5472914bdd1d9a5914d0575d2db91ce042a2ddb45a1789f9291bd502.png" />
+<img alt="_images/4977cd02b75805b591408641e7f7e555a1406cf687c119be0c126701ab08c57d.png" src="_images/4977cd02b75805b591408641e7f7e555a1406cf687c119be0c126701ab08c57d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1076,7 +1140,7 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/23505a8a438996e4bde7ac924e82a1ed4b939263a129c44149b651b3df5644cd.png" src="_images/23505a8a438996e4bde7ac924e82a1ed4b939263a129c44149b651b3df5644cd.png" />
+<img alt="_images/b11abb13810a7d13874ecabf8219e182fdfd0f3b5c07896178aa987835169a50.png" src="_images/b11abb13810a7d13874ecabf8219e182fdfd0f3b5c07896178aa987835169a50.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1098,7 +1162,7 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e7fea1504bf75aa0d8d86a353fe3131a138789411fb2867d826b405e8561fd14.png" src="_images/e7fea1504bf75aa0d8d86a353fe3131a138789411fb2867d826b405e8561fd14.png" />
+<img alt="_images/01550fb50fa41b196dec0e7441168c1198add605515dd3713f4ee5269a762551.png" src="_images/01550fb50fa41b196dec0e7441168c1198add605515dd3713f4ee5269a762551.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1114,16 +1178,16 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/995611d96724cd3fbd88dd21216036e8523de2c1072916913dc79844eec16d48.png" src="_images/995611d96724cd3fbd88dd21216036e8523de2c1072916913dc79844eec16d48.png" />
+<img alt="_images/1af92f5a9df5855f5869744da4cf008b12cca89d2e4b822c1544ce4b63354364.png" src="_images/1af92f5a9df5855f5869744da4cf008b12cca89d2e4b822c1544ce4b63354364.png" />
 </div>
 </div>
 <section id="cyclic-boundary-condition">
-<h3>Cyclic Boundary Condition<a class="headerlink" href="#cyclic-boundary-condition" title="Permalink to this heading">#</a></h3>
+<h3>Cyclic Boundary Condition<a class="headerlink" href="#cyclic-boundary-condition" title="Link to this heading">#</a></h3>
 <p>A practical way to approximate an infinitely large space without the effect of boundaries is to use the cyclic or periodic boundary condition, in which both ends of the space is assumed to be connected, like a ring, torus, etc.</p>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">np.roll</span></code> function to shift the contents of an array as a ring.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fhnaxon_cb</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">phi</span><span class="o">=</span><span class="mf">0.08</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fhnaxon_cb</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">phi</span><span class="o">=</span><span class="mf">0.08</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;FitzHugh-Nagumo axon model</span>
 <span class="sd">    y: state vector hstack(v, w)</span>
 <span class="sd">    t: time</span>
@@ -1154,14 +1218,14 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4dff2c0d46a597cb45b797b8f1e85f3816d527773ba7ba14d3a4ece0a0a04e0d.png" src="_images/4dff2c0d46a597cb45b797b8f1e85f3816d527773ba7ba14d3a4ece0a0a04e0d.png" />
+<img alt="_images/3221a5efef38d6e5454409bee173843182160ff534420a87f2b127742ea54124.png" src="_images/3221a5efef38d6e5454409bee173843182160ff534420a87f2b127742ea54124.png" />
 </div>
 </div>
 <p>In this example, the propagate in both directions and the one left at the bottom reappears from the top. Then the two spikes collide and disappear.</p>
 </section>
 </section>
 <section id="pde-in-2d-space">
-<h2>PDE in 2D space<a class="headerlink" href="#pde-in-2d-space" title="Permalink to this heading">#</a></h2>
+<h2>PDE in 2D space<a class="headerlink" href="#pde-in-2d-space" title="Link to this heading">#</a></h2>
 <p>We can also model dynamics in two or higher dimension spate.</p>
 <p>The diffusion equation of a variable <span class="math notranslate nohighlight">\(y(x_1,x_2,t)\)</span> in the 2D space is given by:</p>
 <div class="math notranslate nohighlight">
@@ -1173,11 +1237,11 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial y}{\partial t} = D\nabla^2 y + g(y, x, t)\]</div>
 <section id="diffusion-equation-in-2d-space">
-<h3>Diffusion equation in 2D space<a class="headerlink" href="#diffusion-equation-in-2d-space" title="Permalink to this heading">#</a></h3>
+<h3>Diffusion equation in 2D space<a class="headerlink" href="#diffusion-equation-in-2d-space" title="Link to this heading">#</a></h3>
 <p>Like the case in 1D space, we discretize the space in a 2D grid, and covert the PDF to ODE.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diff2D</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">diff2D</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;1D Diffusion equaiton with constant boundary condition</span>
 <span class="sd">    y: states at (x0, x1)</span>
 <span class="sd">    t: time</span>
@@ -1226,7 +1290,7 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/88aad4132799779c647956262cf9a6c66c011a3a0302b623b79b7c6598531f3c.png" src="_images/88aad4132799779c647956262cf9a6c66c011a3a0302b623b79b7c6598531f3c.png" />
+<img alt="_images/13fbac70d73294214a174a22e141869f0c30af0b14cd0c613acd1e4060e885da.png" src="_images/13fbac70d73294214a174a22e141869f0c30af0b14cd0c613acd1e4060e885da.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1243,13 +1307,13 @@ FitzHugh-Nagumo model can be embedded in a diffusive axon model</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0c13f727f6bb77565c38333b338f76c2a3ebb53123f059913437d0ec1715545c.png" src="_images/0c13f727f6bb77565c38333b338f76c2a3ebb53123f059913437d0ec1715545c.png" />
+<img alt="_images/c5ef1726f219b2933f83e45927abe05f3a5743f829bef2e9f07e422cc8835e6a.png" src="_images/c5ef1726f219b2933f83e45927abe05f3a5743f829bef2e9f07e422cc8835e6a.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="pde-libraries">
-<h2>PDE libraries<a class="headerlink" href="#pde-libraries" title="Permalink to this heading">#</a></h2>
+<h2>PDE libraries<a class="headerlink" href="#pde-libraries" title="Link to this heading">#</a></h2>
 <p>Solution of PDE is computationally intensive, especially in 2D or higher dimensional space. For practical computation, it is better to use specialized libraries for solving PDEs, such as:</p>
 <ul class="simple">
 <li><p>py-pde: <a class="reference external" href="https://py-pde.readthedocs.io">https://py-pde.readthedocs.io</a></p></li>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1. Introduction to Python &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '01_Introduction';</script>
@@ -287,6 +286,70 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/01_Introduction.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/01_Introduction.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -427,7 +490,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-python">
-<h1>1. Introduction to Python<a class="headerlink" href="#introduction-to-python" title="Permalink to this heading">#</a></h1>
+<h1>1. Introduction to Python<a class="headerlink" href="#introduction-to-python" title="Link to this heading">#</a></h1>
 <p>Python is a programming language developed in 1990s by Guido van Rossum.<br />
 Its major features are:</p>
 <ul class="simple">
@@ -438,7 +501,7 @@ Its major features are:</p>
 <p>It was originally used for “scripting” sequences of processing.<br />
 Now it is widely used for scientific computing as well.</p>
 <section id="installing-python">
-<h2>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this heading">#</a></h2>
+<h2>Installing Python<a class="headerlink" href="#installing-python" title="Link to this heading">#</a></h2>
 <p>Linux and Mac machines usually have Python pre-installed.</p>
 <p>To install and setup a variety of packages, it is easiest to install a curated distribution, such as:</p>
 <ul class="simple">
@@ -449,7 +512,7 @@ Now it is widely used for scientific computing as well.</p>
 <p>To install python and packages without using Anaconda, refer to the section <strong>Installing Python by Miniforge</strong>.</p>
 </section>
 <section id="starting-python">
-<h2>Starting Python<a class="headerlink" href="#starting-python" title="Permalink to this heading">#</a></h2>
+<h2>Starting Python<a class="headerlink" href="#starting-python" title="Link to this heading">#</a></h2>
 <p>From a terminal, type</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python  
 </pre></div>
@@ -457,7 +520,7 @@ Now it is widely used for scientific computing as well.</p>
 <p>to start a python interpreter.</p>
 </section>
 <section id="python-as-a-calculator">
-<h2>Python as a calculator<a class="headerlink" href="#python-as-a-calculator" title="Permalink to this heading">#</a></h2>
+<h2>Python as a calculator<a class="headerlink" href="#python-as-a-calculator" title="Link to this heading">#</a></h2>
 <p>At the python prompt <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>, try typing numbers and operators, like</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
 </pre></div>
@@ -497,7 +560,7 @@ Now it is widely used for scientific computing as well.</p>
 <p>The plain Python does not include math functions. You need to import numpy.</p>
 </section>
 <section id="jupyter-notebook">
-<h2>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this heading">#</a></h2>
+<h2>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h2>
 <p>For building a program step-by-step with notes and results attached, it is highly recommended to use a notebook interface, such as Jupyter Notebook (<a class="reference external" href="https://jupyter.org">https://jupyter.org</a>), which is included in Anaconda and other popular distributions.</p>
 <p>To start Jupyter Notebook type in the terminal</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ jupyter notebook
@@ -506,14 +569,14 @@ Now it is widely used for scientific computing as well.</p>
 <p>which should open a web page showing your working directory.</p>
 <p>You can create a new notebook from the New menu on the upper right corner, or open an existing .ipynb file like this.</p>
 <section id="working-with-the-notebook">
-<h3>Working with the notebook<a class="headerlink" href="#working-with-the-notebook" title="Permalink to this heading">#</a></h3>
+<h3>Working with the notebook<a class="headerlink" href="#working-with-the-notebook" title="Link to this heading">#</a></h3>
 <p>A notebook is made of “cells.”<br />
 You can make a new cell by “+” button on the Toolbar, or by typing ESC A (above) or ESC B (below).<br />
 You can make a cell as Markdown (documentation) by ESC M, as Code by ESC Y, or simply by the Toolbar menu.<br />
 You can delete a cell by ESC DD, or the Cut button on the Toolbar.</p>
 </section>
 <section id="markdown-cell">
-<h3>Markdown cell<a class="headerlink" href="#markdown-cell" title="Permalink to this heading">#</a></h3>
+<h3>Markdown cell<a class="headerlink" href="#markdown-cell" title="Link to this heading">#</a></h3>
 <p>Markdown is a simple text formatting tool, with</p>
 <p><code class="docutils literal notranslate"><span class="pre">#,</span> <span class="pre">##,</span> <span class="pre">###,...</span></code> for headings</p>
 <p><code class="docutils literal notranslate"><span class="pre">*,</span> <span class="pre">+,</span> <span class="pre">-,...</span></code> for bullets</p>
@@ -531,7 +594,7 @@ for a line break.</p>
 <p>You can format a Markdown cell by Shift+Return, and go back to Edit mode by Return</p>
 </section>
 <section id="code-cell">
-<h3>Code cell<a class="headerlink" href="#code-cell" title="Permalink to this heading">#</a></h3>
+<h3>Code cell<a class="headerlink" href="#code-cell" title="Link to this heading">#</a></h3>
 <p>You can type Control+Return to run the cell or Shift+Return to run and move to the next cell.<br />
 You can also use the triangle button or “Cell” menu to run cells.</p>
 <div class="cell docutils container">
@@ -549,7 +612,7 @@ You can also use the triangle button or “Cell” menu to run cells.</p>
 </section>
 </section>
 <section id="integer-and-floating-point-numbers">
-<h2>Integer and floating-point numbers<a class="headerlink" href="#integer-and-floating-point-numbers" title="Permalink to this heading">#</a></h2>
+<h2>Integer and floating-point numbers<a class="headerlink" href="#integer-and-floating-point-numbers" title="Link to this heading">#</a></h2>
 <p>A number can be an <em>integer</em> or <em>floating-point</em>, which sometimes needs distinction.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -629,7 +692,7 @@ In Python 2, it was truncated to an integer.</p>
 </div>
 </section>
 <section id="variables">
-<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">#</a></h2>
+<h2>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h2>
 <p>You can assing a number or result of computation to a variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -691,7 +754,7 @@ In Python 2, it was truncated to an integer.</p>
 </div>
 </section>
 <section id="print-function">
-<h2>Print function<a class="headerlink" href="#print-function" title="Permalink to this heading">#</a></h2>
+<h2>Print function<a class="headerlink" href="#print-function" title="Link to this heading">#</a></h2>
 <p>You can check the content of a variable or an expression by typing it at the bottom of a cell.</p>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">print()</span></code> function to check the variables anywhere in a cell.
 Multiple items listed by <code class="docutils literal notranslate"><span class="pre">,</span></code> are printed with a space in between.</p>
@@ -746,22 +809,26 @@ A newline is started by <code class="docutils literal notranslate"><span class="
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s1">&#39;weight </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1"> g</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;volume&#39;</span><span class="si">:</span><span class="s1">10</span><span class="si">}{</span><span class="n">b</span><span class="si">:</span><span class="s1">6d</span><span class="si">}</span><span class="s1"> cc</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;density&#39;</span><span class="si">:</span><span class="s1">10</span><span class="si">}{</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="si">:</span><span class="s1">6.3f</span><span class="si">}</span><span class="s1"> g/cc&#39;</span><span class="p">)</span>
-                            <span class="o">^</span>
-<span class="ne">SyntaxError</span>: f-string: expecting &#39;}&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>weight 3 g
+volume         4 cc
+density    0.750 g/cc
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="lists">
-<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h2>
+<h2>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h2>
 <p>You can create a list by surrounding items by [ ].</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4]
 </pre></div>
 </div>
 </div>
@@ -773,10 +840,20 @@ A newline is started by <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># last item</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -788,10 +865,20 @@ A newline is started by <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># first to third</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3]
 </pre></div>
 </div>
 </div>
@@ -802,10 +889,20 @@ A newline is started by <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3, 4]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># from 1st, step by 2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 4]
 </pre></div>
 </div>
 </div>
@@ -816,11 +913,21 @@ A newline is started by <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 3, 2, 1]
+</pre></div>
+</div>
+</div>
 </div>
 <p>For lists, + means concatenation</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 1, 2, 3, 4]
 </pre></div>
 </div>
 </div>
@@ -833,11 +940,21 @@ A newline is started by <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1, 2, 3], [4, 5, 6]]
+</pre></div>
+</div>
+</div>
 </div>
 <p>An item in a nested list can be picked by [ ][ ], but not [ , ]</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 5, 6]
 </pre></div>
 </div>
 </div>
@@ -848,10 +965,15 @@ A newline is started by <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># this causes an error for a list</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#A[1,2]  # this causes an error for a list</span>
 </pre></div>
 </div>
 </div>
@@ -861,6 +983,11 @@ A newline is started by <code class="docutils literal notranslate"><span class="
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
 <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3.14, &#39;apple&#39;, &#39;orange&#39;, [1, 2]]
 </pre></div>
 </div>
 </div>
@@ -875,6 +1002,11 @@ A newline is started by <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 3]
+</pre></div>
+</div>
+</div>
 </div>
 <p>When you want to copy the content, use [:]</p>
 <div class="cell docutils container">
@@ -886,10 +1018,15 @@ A newline is started by <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3]
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="dictionary">
-<h2>Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this heading">#</a></h2>
+<h2>Dictionary<a class="headerlink" href="#dictionary" title="Link to this heading">#</a></h2>
 <p>When you store data as a list, you have to remember what you stored 1st, 2nd, …</p>
 <p>A dictionary allows you to access the value by name with <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pairs.</p>
 <div class="cell docutils container">
@@ -907,10 +1044,15 @@ A newline is started by <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9040495
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="if-branch">
-<h2><code class="docutils literal notranslate"><span class="pre">if</span></code> branch<a class="headerlink" href="#if-branch" title="Permalink to this heading">#</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">if</span></code> branch<a class="headerlink" href="#if-branch" title="Link to this heading">#</a></h2>
 <p>Branching by <code class="docutils literal notranslate"><span class="pre">if</span></code> statement looks like this. In Python, indentation specifies where a block of code starts and ends.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -929,6 +1071,11 @@ A newline is started by <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
 </div>
 <p>There is a shorthand notation with the condition in the middle:</p>
 <div class="cell docutils container">
@@ -937,10 +1084,15 @@ A newline is started by <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="for-loop">
-<h2><code class="docutils literal notranslate"><span class="pre">for</span></code> loop<a class="headerlink" href="#for-loop" title="Permalink to this heading">#</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">for</span></code> loop<a class="headerlink" href="#for-loop" title="Link to this heading">#</a></h2>
 <p>A common way of <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is by <code class="docutils literal notranslate"><span class="pre">range()</span></code> function.<br />
 Don’t forget a colon and indentation.</p>
 <div class="cell docutils container">
@@ -952,12 +1104,28 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 0
+1 1
+2 3
+3 6
+4 10
+</pre></div>
+</div>
+</div>
 </div>
 <p>You can specify start, end and interval.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+5
+7
 </pre></div>
 </div>
 </div>
@@ -971,12 +1139,28 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+4
+9
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>  <span class="c1"># characters in a string</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>h
+e
+l
+l
+o
 </pre></div>
 </div>
 </div>
@@ -989,12 +1173,24 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
+goodby
+</pre></div>
+</div>
+</div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function gives pairs of index and content of a list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 hello
+1 goodby
 </pre></div>
 </div>
 </div>
@@ -1007,6 +1203,14 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    onna: 9040411
+  tancha: 9040412
+ fuchaku: 9040413
+    oist: 9040495
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1016,10 +1220,18 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>onna    : 9040411
+tancha  : 9040412
+fuchaku : 9040413
+oist    : 9040495
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="list-comprehension">
-<h2>List ‘comprehension’<a class="headerlink" href="#list-comprehension" title="Permalink to this heading">#</a></h2>
+<h2>List ‘comprehension’<a class="headerlink" href="#list-comprehension" title="Link to this heading">#</a></h2>
 <p>There is a quick way of constructing a list from a for loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1028,14 +1240,19 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16]
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="numpy-arrays">
-<h2>Numpy arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this heading">#</a></h2>
+<h2>Numpy arrays<a class="headerlink" href="#numpy-arrays" title="Link to this heading">#</a></h2>
 <p>For most computation, you need to import <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package by the following convention:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -1048,6 +1265,11 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1055,10 +1277,20 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.int64
 </pre></div>
 </div>
 </div>
@@ -1070,11 +1302,21 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(2)
+</pre></div>
+</div>
+</div>
 </div>
 <p>Operators work component-wise.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 4, 6])
 </pre></div>
 </div>
 </div>
@@ -1085,10 +1327,20 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 4, 9])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># broadcast</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 3, 4])
 </pre></div>
 </div>
 </div>
@@ -1100,10 +1352,21 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 4.5, 5. , 5.5, 6. ,
+       6.5, 7. , 7.5, 8. , 8.5, 9. , 9.5])
 </pre></div>
 </div>
 </div>
@@ -1115,6 +1378,20 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        ,  0.20408163,  0.40816327,  0.6122449 ,  0.81632653,
+        1.02040816,  1.2244898 ,  1.42857143,  1.63265306,  1.83673469,
+        2.04081633,  2.24489796,  2.44897959,  2.65306122,  2.85714286,
+        3.06122449,  3.26530612,  3.46938776,  3.67346939,  3.87755102,
+        4.08163265,  4.28571429,  4.48979592,  4.69387755,  4.89795918,
+        5.10204082,  5.30612245,  5.51020408,  5.71428571,  5.91836735,
+        6.12244898,  6.32653061,  6.53061224,  6.73469388,  6.93877551,
+        7.14285714,  7.34693878,  7.55102041,  7.75510204,  7.95918367,
+        8.16326531,  8.36734694,  8.57142857,  8.7755102 ,  8.97959184,
+        9.18367347,  9.3877551 ,  9.59183673,  9.79591837, 10.        ])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1122,15 +1399,26 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10.])
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="nested-array">
-<h2>Nested array<a class="headerlink" href="#nested-array" title="Permalink to this heading">#</a></h2>
+<h2>Nested array<a class="headerlink" href="#nested-array" title="Link to this heading">#</a></h2>
 <p>You can make a matrix as a nested array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
 <span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2],
+       [3, 4]])
 </pre></div>
 </div>
 </div>
@@ -1142,10 +1430,20 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(4)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># this if fine for a numpy ndarray, not for a regular list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(3)
 </pre></div>
 </div>
 </div>
@@ -1157,10 +1455,20 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2])
 </pre></div>
 </div>
 </div>
@@ -1172,6 +1480,11 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 4])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Component-wise arithmetics</p>
 <div class="cell docutils container">
@@ -1180,10 +1493,22 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 4],
+       [6, 8]])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">*</span> <span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  4],
+       [ 9, 16]])
 </pre></div>
 </div>
 </div>
@@ -1201,12 +1526,24 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 7, 10],
+       [15, 22]])
+</pre></div>
+</div>
+</div>
 </div>
 <section id="common-matrices">
-<h3>Common matrices<a class="headerlink" href="#common-matrices" title="Permalink to this heading">#</a></h3>
+<h3>Common matrices<a class="headerlink" href="#common-matrices" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0., 0.],
+       [0., 0., 0.]])
 </pre></div>
 </div>
 </div>
@@ -1217,10 +1554,25 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.]])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># the contents are not specified</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0.],
+       [0., 0.],
+       [0., 0.]])
 </pre></div>
 </div>
 </div>
@@ -1231,16 +1583,28 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0],
+       [0, 0],
+       [0, 0]])
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
 <section id="magic-functions">
-<h2>Magic functions<a class="headerlink" href="#magic-functions" title="Permalink to this heading">#</a></h2>
+<h2>Magic functions<a class="headerlink" href="#magic-functions" title="Link to this heading">#</a></h2>
 <p>In Jupyter notebook (or ipython), many <em>magic</em> functions preceded by <code class="docutils literal notranslate"><span class="pre">%</span></code> are available for working with the file system, etc.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># present working directory</span>
 <span class="o">%</span><span class="k">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/doya/OIST Dropbox/kenji doya/Python/iSciComp&#39;
 </pre></div>
 </div>
 </div>
@@ -1268,6 +1632,11 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/doya/py/iSciComp
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1275,10 +1644,15 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>starfishM4.local
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="saving-and-loading-data">
-<h2>Saving and loading data<a class="headerlink" href="#saving-and-loading-data" title="Permalink to this heading">#</a></h2>
+<h2>Saving and loading data<a class="headerlink" href="#saving-and-loading-data" title="Link to this heading">#</a></h2>
 <p>You can work with files by <code class="docutils literal notranslate"><span class="pre">open()</span></code>, <code class="docutils literal notranslate"><span class="pre">write()</span></code> and <code class="docutils literal notranslate"><span class="pre">read()</span></code> functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1296,6 +1670,12 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Haisai!
+Mensore!
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1305,12 +1685,23 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Haisai!
+Mensore!
+</pre></div>
+</div>
+</div>
 </div>
 <p>A common way of writing/reading a data file is to use <code class="docutils literal notranslate"><span class="pre">savetxt()</span></code> and <code class="docutils literal notranslate"><span class="pre">loadtxt()</span></code> functions of <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
 <span class="n">X</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0, 0], [1, 1], [2, 4], [3, 9], [4, 16]]
 </pre></div>
 </div>
 </div>
@@ -1328,6 +1719,15 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.000000000000000000e+00 0.000000000000000000e+00
+1.000000000000000000e+00 1.000000000000000000e+00
+2.000000000000000000e+00 4.000000000000000000e+00
+3.000000000000000000e+00 9.000000000000000000e+00
+4.000000000000000000e+00 1.600000000000000000e+01
+</pre></div>
+</div>
+</div>
 </div>
 <p>Another common format is <em>CSV</em>, comma-separated value.</p>
 <div class="cell docutils container">
@@ -1337,10 +1737,24 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>square.csv  square.txt
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cat</span> square.csv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0, 0.00000
+1, 1.00000
+2, 4.00000
+3, 9.00000
+4, 16.00000
 </pre></div>
 </div>
 </div>
@@ -1352,6 +1766,15 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.,  0.],
+       [ 1.,  1.],
+       [ 2.,  4.],
+       [ 3.,  9.],
+       [ 4., 16.]])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1360,14 +1783,88 @@ Don’t forget a colon and indentation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.,  0.],
+       [ 1.,  1.],
+       [ 2.,  4.],
+       [ 3.,  9.],
+       [ 4., 16.]])
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="getting-help">
-<h2>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this heading">#</a></h2>
+<h2>Getting help<a class="headerlink" href="#getting-help" title="Link to this heading">#</a></h2>
 <p>Python offers several ways of getting help.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Welcome to Python 3.13&#39;s help utility! If this is your first time using
+Python, you should definitely check out the tutorial at
+https://docs.python.org/3.13/tutorial/.
+
+Enter the name of any module, keyword, or topic to get help on writing
+Python programs and using Python modules.  To get a list of available
+modules, keywords, symbols, or topics, enter &quot;modules&quot;, &quot;keywords&quot;,
+&quot;symbols&quot;, or &quot;topics&quot;.
+
+Each module also comes with a one-line summary of what it does; to list
+the modules whose name or summary contain a given string such as &quot;spam&quot;,
+enter &quot;modules spam&quot;.
+
+To quit this help utility and return to the interpreter,
+enter &quot;q&quot;, &quot;quit&quot; or &quot;exit&quot;.
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">90</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">help</span><span class="p">()</span>
+
+<span class="nn">File &lt;frozen _sitebuiltins&gt;:103,</span> in <span class="ni">__call__</span><span class="nt">(self, *args, **kwds)</span>
+
+<span class="nn">File ~/miniforge3/lib/python3.13/pydoc.py:2006,</span> in <span class="ni">Helper.__call__</span><span class="nt">(self, request)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2004</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2005</span>             <span class="bp">self</span><span class="o">.</span><span class="n">intro</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">2006</span>             <span class="bp">self</span><span class="o">.</span><span class="n">interact</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2007</span>             <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2008</span><span class="s1"> You are now leaving help and returning to the Python interpreter.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2009</span><span class="s1"> If you want to ask for help on a particular object directly from the</span>
+<span class="g g-Whitespace">   </span><span class="mi">2010</span><span class="s1"> interpreter, you can type &quot;help(object)&quot;.  Executing &quot;help(&#39;string&#39;)&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2011</span><span class="s1"> has the same effect as typing a particular string at the help&gt; prompt.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2012</span><span class="s1"> &#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/miniforge3/lib/python3.13/pydoc.py:2018,</span> in <span class="ni">Helper.interact</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2016</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2017</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2018</span>         <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getline</span><span class="p">(</span><span class="s1">&#39;help&gt; &#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2019</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="p">:</span> <span class="k">break</span>
+<span class="g g-Whitespace">   </span><span class="mi">2020</span>     <span class="k">except</span> <span class="p">(</span><span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="ne">EOFError</span><span class="p">):</span>
+
+<span class="nn">File ~/miniforge3/lib/python3.13/pydoc.py:2038,</span> in <span class="ni">Helper.getline</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2036</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Read one line, using input() when appropriate.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2037</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">input</span> <span class="ow">is</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2038</span>     <span class="k">return</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2039</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2040</span>     <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+
+<span class="nn">File ~/miniforge3/lib/python3.13/site-packages/ipykernel/kernelbase.py:1281,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1280</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1281</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1282</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1283</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1284</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1285</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1286</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1287</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
 </div>
 </div>
@@ -1404,9 +1901,9 @@ Don’t forget a colon and indentation.</p>
 <p>You can use ‘Help’ menu to jump to a variety of documentations.</p>
 </section>
 <section id="installing-a-new-package">
-<h2>Installing a new package<a class="headerlink" href="#installing-a-new-package" title="Permalink to this heading">#</a></h2>
+<h2>Installing a new package<a class="headerlink" href="#installing-a-new-package" title="Link to this heading">#</a></h2>
 <p>A python environment is usually set up with multiple <em>packages</em>, such as numpy.<br />
-You can check the currently installed packages by <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code>, or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code> command if you installed Anaconda.</p>
+You can check the currently installed packages by <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code>, or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code> command if you installed conda.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>list
@@ -1414,7 +1911,7 @@ You can check the currently installed packages by <code class="docutils literal 
 </div>
 </div>
 </div>
-<p>If you wand to install a new package, you can use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> command, or by Anaconda Navigator.</p>
+<p>If you wand to install a new package, you can use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> command.</p>
 <p>For example, if you have not installed <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>, which we will use later, you can install that from your console by</p>
 <p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">scikit-learn</span></code><br />
 or<br />

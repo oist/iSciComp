@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>2. Visualization: Exercise Solutions &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '02_Visualization_Sol';</script>
@@ -184,6 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -281,6 +281,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/02_Visualization_Sol.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/02_Visualization_Sol.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -403,18 +467,18 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="visualization-exercise-solutions">
-<h1>2. Visualization: Exercise Solutions<a class="headerlink" href="#visualization-exercise-solutions" title="Permalink to this heading">#</a></h1>
+<h1>2. Visualization: Exercise Solutions<a class="headerlink" href="#visualization-exercise-solutions" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
 </div>
 <section id="plotting-curves">
-<h2>1) Plotting curves<a class="headerlink" href="#plotting-curves" title="Permalink to this heading">#</a></h2>
+<h2>1) Plotting curves<a class="headerlink" href="#plotting-curves" title="Link to this heading">#</a></h2>
 <p>a) Draw a spiral.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -427,10 +491,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-51.77109696676727, 51.90297525317833, -53.41177025379329, 50.26230196615231)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(-51.77109696676727),
+ np.float64(51.90297525317833),
+ np.float64(-53.41177025379329),
+ np.float64(50.26230196615231))
 </pre></div>
 </div>
-<img alt="_images/ed6f6e8408e43c6fe826a56664ee7f383f0fbc07e7540d840d4b52ce73de0fac.png" src="_images/ed6f6e8408e43c6fe826a56664ee7f383f0fbc07e7540d840d4b52ce73de0fac.png" />
+<img alt="_images/cf7004583b98ffe2b8c5c67fe275583734c7899941584c79533acbd5d26505d7.png" src="_images/cf7004583b98ffe2b8c5c67fe275583734c7899941584c79533acbd5d26505d7.png" />
 </div>
 </div>
 <p>b) Draw a “<span class="math notranslate nohighlight">\(\infty\)</span>” shape.</p>
@@ -444,10 +511,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x127af4210&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x10ac53b10&gt;]
 </pre></div>
 </div>
-<img alt="_images/ddf78fa3dc2209e8ba232415a8b29a4540d81e493e0240f451ce68f4991ddd45.png" src="_images/ddf78fa3dc2209e8ba232415a8b29a4540d81e493e0240f451ce68f4991ddd45.png" />
+<img alt="_images/ecf3026ca62d348e5fb7b513d866470c79eefac8515bd140a8edeffd7f1aeb9d.png" src="_images/ecf3026ca62d348e5fb7b513d866470c79eefac8515bd140a8edeffd7f1aeb9d.png" />
 </div>
 </div>
 <p>c) Draw a “flower-like” shape.</p>
@@ -462,18 +529,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-2.1205669965972866,
- 2.120318849193128,
- -1.9077538771970324,
- 2.1855287366497285)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(-2.1205669965972866),
+ np.float64(2.120318849193128),
+ np.float64(-1.9077538771970324),
+ np.float64(2.1855287366497285))
 </pre></div>
 </div>
-<img alt="_images/a3d4e9421d5faa4958381a21732f1d1d29a1fed0bfeed89cb8dd491be95ec4a9.png" src="_images/a3d4e9421d5faa4958381a21732f1d1d29a1fed0bfeed89cb8dd491be95ec4a9.png" />
+<img alt="_images/ce138e3b7f118ae338f3a02ab7c9e84e205b0c31a8fdd0c049581b231c052fde.png" src="_images/ce138e3b7f118ae338f3a02ab7c9e84e205b0c31a8fdd0c049581b231c052fde.png" />
 </div>
 </div>
 </section>
 <section id="scatter-plots">
-<h2>2) Scatter plots<a class="headerlink" href="#scatter-plots" title="Permalink to this heading">#</a></h2>
+<h2>2) Scatter plots<a class="headerlink" href="#scatter-plots" title="Link to this heading">#</a></h2>
 <p>Let us take the famous <em>iris</em> data set.<br />
 First four columns are:</p>
 <ul class="simple">
@@ -675,10 +742,10 @@ First four columns are:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x127f00810&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x10a9ab4d0&gt;
 </pre></div>
 </div>
-<img alt="_images/53de63b8ea0ceb16ce245ab27484fa39518457d2d474a788b638fa03fa3bd3e5.png" src="_images/53de63b8ea0ceb16ce245ab27484fa39518457d2d474a788b638fa03fa3bd3e5.png" />
+<img alt="_images/42b560cf32936a2fea4b0bb6f1d469e2fa1ffc88816f246c2c664a7b653feed3.png" src="_images/42b560cf32936a2fea4b0bb6f1d469e2fa1ffc88816f246c2c664a7b653feed3.png" />
 </div>
 </div>
 <p>b) Create a matrix of pair-wise scatter plots like this:<br />
@@ -699,7 +766,7 @@ First four columns are:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ce7e8ea0c7b0ca9316adc648d053a428b45def29a364d95738830e12fa720f2e.png" src="_images/ce7e8ea0c7b0ca9316adc648d053a428b45def29a364d95738830e12fa720f2e.png" />
+<img alt="_images/619b2561d74624470851acfd7bdd0b6e5f3b35221f8610c6ae58647ab5ee6526.png" src="_images/619b2561d74624470851acfd7bdd0b6e5f3b35221f8610c6ae58647ab5ee6526.png" />
 </div>
 </div>
 <p>c) Make a <code class="docutils literal notranslate"><span class="pre">quiver</span></code> plot, representing sepal data by position, petal data by arrows, and flower type by arrow color.</p>
@@ -710,10 +777,10 @@ First four columns are:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x12f9f3110&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x10a9ab620&gt;
 </pre></div>
 </div>
-<img alt="_images/e0ca988a06cefa97db68fa0101df352c553b9b125da6d45581664559a38e39fe.png" src="_images/e0ca988a06cefa97db68fa0101df352c553b9b125da6d45581664559a38e39fe.png" />
+<img alt="_images/fd30bfa9d2e2cc67486fa810a8fc368459a6d35bdc38ff6957b82bc20367f745.png" src="_images/fd30bfa9d2e2cc67486fa810a8fc368459a6d35bdc38ff6957b82bc20367f745.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -927,6 +994,15 @@ mpl.figure.prototype._init_canvas = function () {
     }
 
     this.resizeObserverInstance = new this.ResizeObserver(function (entries) {
+        // There's no need to resize if the WebSocket is not connected:
+        // - If it is still connecting, then we will get an initial resize from
+        //   Python once it connects.
+        // - If it has disconnected, then resizing will clear the canvas and
+        //   never get anything back to refill it, so better to not resize and
+        //   keep something visible.
+        if (fig.ws.readyState != 1) {
+            return;
+        }
         var nentries = entries.length;
         for (var i = 0; i < nentries; i++) {
             var entry = entries[i];
@@ -974,7 +1050,7 @@ mpl.figure.prototype._init_canvas = function () {
             // And update the size in Python. We ignore the initial 0/0 size
             // that occurs as the element is placed into the DOM, which should
             // otherwise not happen due to the minimum size styling.
-            if (fig.ws.readyState == 1 && width != 0 && height != 0) {
+            if (width != 0 && height != 0) {
                 fig.request_resize(width, height);
             }
         }
@@ -1370,6 +1446,7 @@ mpl.figure.prototype.mouse_event = function (event, name) {
         y: y,
         button: event.button,
         step: event.step,
+        buttons: event.buttons,
         modifiers: getModifiers(event),
         guiEvent: simpleKeys(event),
     });
@@ -1707,14 +1784,14 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='e8d06f93-3197-4f21-9278-bd268907d7c8'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x12fa45b50&gt;
+</script><div class="output text_html"><div id='7f700f4f-092e-45e6-ab12-8a21577b8653'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x10c556710&gt;
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="surface-plots">
-<h2>3) Surface plots<a class="headerlink" href="#surface-plots" title="Permalink to this heading">#</a></h2>
+<h2>3) Surface plots<a class="headerlink" href="#surface-plots" title="Link to this heading">#</a></h2>
 <p>a) Draw a wavy surface (not just a sine curve extended in the 3rd dimension).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1924,6 +2001,15 @@ mpl.figure.prototype._init_canvas = function () {
     }
 
     this.resizeObserverInstance = new this.ResizeObserver(function (entries) {
+        // There's no need to resize if the WebSocket is not connected:
+        // - If it is still connecting, then we will get an initial resize from
+        //   Python once it connects.
+        // - If it has disconnected, then resizing will clear the canvas and
+        //   never get anything back to refill it, so better to not resize and
+        //   keep something visible.
+        if (fig.ws.readyState != 1) {
+            return;
+        }
         var nentries = entries.length;
         for (var i = 0; i < nentries; i++) {
             var entry = entries[i];
@@ -1971,7 +2057,7 @@ mpl.figure.prototype._init_canvas = function () {
             // And update the size in Python. We ignore the initial 0/0 size
             // that occurs as the element is placed into the DOM, which should
             // otherwise not happen due to the minimum size styling.
-            if (fig.ws.readyState == 1 && width != 0 && height != 0) {
+            if (width != 0 && height != 0) {
                 fig.request_resize(width, height);
             }
         }
@@ -2367,6 +2453,7 @@ mpl.figure.prototype.mouse_event = function (event, name) {
         y: y,
         button: event.button,
         step: event.step,
+        buttons: event.buttons,
         modifiers: getModifiers(event),
         guiEvent: simpleKeys(event),
     });
@@ -2704,7 +2791,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='501496fa-7a9c-4d87-93ce-4016b78cd504'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x12fb86a50&gt;
+</script><div class="output text_html"><div id='c409af80-00ee-4f4b-a4b6-f65ce226c778'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x10c531400&gt;
 </pre></div>
 </div>
 </div>
@@ -2920,6 +3007,15 @@ mpl.figure.prototype._init_canvas = function () {
     }
 
     this.resizeObserverInstance = new this.ResizeObserver(function (entries) {
+        // There's no need to resize if the WebSocket is not connected:
+        // - If it is still connecting, then we will get an initial resize from
+        //   Python once it connects.
+        // - If it has disconnected, then resizing will clear the canvas and
+        //   never get anything back to refill it, so better to not resize and
+        //   keep something visible.
+        if (fig.ws.readyState != 1) {
+            return;
+        }
         var nentries = entries.length;
         for (var i = 0; i < nentries; i++) {
             var entry = entries[i];
@@ -2967,7 +3063,7 @@ mpl.figure.prototype._init_canvas = function () {
             // And update the size in Python. We ignore the initial 0/0 size
             // that occurs as the element is placed into the DOM, which should
             // otherwise not happen due to the minimum size styling.
-            if (fig.ws.readyState == 1 && width != 0 && height != 0) {
+            if (width != 0 && height != 0) {
                 fig.request_resize(width, height);
             }
         }
@@ -3363,6 +3459,7 @@ mpl.figure.prototype.mouse_event = function (event, name) {
         y: y,
         button: event.button,
         step: event.step,
+        buttons: event.buttons,
         modifiers: getModifiers(event),
         guiEvent: simpleKeys(event),
     });
@@ -3700,7 +3797,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='74ef9a99-3300-4fdd-a1fe-0305eaa9a83b'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x12fab9fd0&gt;
+</script><div class="output text_html"><div id='65c31aea-612b-4ec7-95b9-73decd14f5eb'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x10c641950&gt;
 </pre></div>
 </div>
 </div>
@@ -3915,6 +4012,15 @@ mpl.figure.prototype._init_canvas = function () {
     }
 
     this.resizeObserverInstance = new this.ResizeObserver(function (entries) {
+        // There's no need to resize if the WebSocket is not connected:
+        // - If it is still connecting, then we will get an initial resize from
+        //   Python once it connects.
+        // - If it has disconnected, then resizing will clear the canvas and
+        //   never get anything back to refill it, so better to not resize and
+        //   keep something visible.
+        if (fig.ws.readyState != 1) {
+            return;
+        }
         var nentries = entries.length;
         for (var i = 0; i < nentries; i++) {
             var entry = entries[i];
@@ -3962,7 +4068,7 @@ mpl.figure.prototype._init_canvas = function () {
             // And update the size in Python. We ignore the initial 0/0 size
             // that occurs as the element is placed into the DOM, which should
             // otherwise not happen due to the minimum size styling.
-            if (fig.ws.readyState == 1 && width != 0 && height != 0) {
+            if (width != 0 && height != 0) {
                 fig.request_resize(width, height);
             }
         }
@@ -4358,6 +4464,7 @@ mpl.figure.prototype.mouse_event = function (event, name) {
         y: y,
         button: event.button,
         step: event.step,
+        buttons: event.buttons,
         modifiers: getModifiers(event),
         guiEvent: simpleKeys(event),
     });
@@ -4695,7 +4802,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='98a7fc8c-18af-410e-8638-a774cb54b3c8'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x12f990c50&gt;
+</script><div class="output text_html"><div id='db87aca8-0689-4022-a5a0-f93773853f62'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x10ad38cd0&gt;
 </pre></div>
 </div>
 </div>
@@ -4912,6 +5019,15 @@ mpl.figure.prototype._init_canvas = function () {
     }
 
     this.resizeObserverInstance = new this.ResizeObserver(function (entries) {
+        // There's no need to resize if the WebSocket is not connected:
+        // - If it is still connecting, then we will get an initial resize from
+        //   Python once it connects.
+        // - If it has disconnected, then resizing will clear the canvas and
+        //   never get anything back to refill it, so better to not resize and
+        //   keep something visible.
+        if (fig.ws.readyState != 1) {
+            return;
+        }
         var nentries = entries.length;
         for (var i = 0; i < nentries; i++) {
             var entry = entries[i];
@@ -4959,7 +5075,7 @@ mpl.figure.prototype._init_canvas = function () {
             // And update the size in Python. We ignore the initial 0/0 size
             // that occurs as the element is placed into the DOM, which should
             // otherwise not happen due to the minimum size styling.
-            if (fig.ws.readyState == 1 && width != 0 && height != 0) {
+            if (width != 0 && height != 0) {
                 fig.request_resize(width, height);
             }
         }
@@ -5355,6 +5471,7 @@ mpl.figure.prototype.mouse_event = function (event, name) {
         y: y,
         button: event.button,
         step: event.step,
+        buttons: event.buttons,
         modifiers: getModifiers(event),
         guiEvent: simpleKeys(event),
     });
@@ -5692,7 +5809,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='01d16249-c7a7-4024-91cd-3211e3d32f75'></div></div></div>
+</script><div class="output text_html"><div id='a57c9b31-8793-4ae2-9298-45d7c4d7f53e'></div></div></div>
 </div>
 </section>
 </section>

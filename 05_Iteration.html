@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>5. Iterative Computation &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '05_Iteration';</script>
@@ -184,6 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -281,6 +281,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/05_Iteration.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/05_Iteration.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -414,7 +478,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="iterative-computation">
-<h1>5. Iterative Computation<a class="headerlink" href="#iterative-computation" title="Permalink to this heading">#</a></h1>
+<h1>5. Iterative Computation<a class="headerlink" href="#iterative-computation" title="Link to this heading">#</a></h1>
 <p>Many algorithms involve iterative computation until a solution is found with a desired accuracy.</p>
 <p>Also many mathematical models are formulated as a mapping from the current state to the next state, which gives discrete-time dynamics.</p>
 <p>References:</p>
@@ -424,15 +488,15 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
 </div>
 <section id="newton-s-method">
-<h2>Newton’s method<a class="headerlink" href="#newton-s-method" title="Permalink to this heading">#</a></h2>
+<h2>Newton’s method<a class="headerlink" href="#newton-s-method" title="Link to this heading">#</a></h2>
 <p>For a linear equation <span class="math notranslate nohighlight">\(A x = b\)</span>, or <span class="math notranslate nohighlight">\(A x - b = 0\)</span>, the solution is given using the inverse matrix as</p>
 <div class="math notranslate nohighlight">
 \[x = A^{-1} b. \]</div>
@@ -442,11 +506,11 @@ A typical way is by the Newton’s method:</p>
 \[x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)} \]</div>
 <p>starting from an initial guess <span class="math notranslate nohighlight">\(x_0\)</span>.</p>
 <section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
 <p>Let us define a plynomial function and its derivative.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">poly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">deriv</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">poly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">deriv</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Polynomial a[0] + a[1]*x + ... + a[n]*x**n</span>
 <span class="sd">        and its derivative a[1] + 2*a[2]*x + ... + n*a[n]*x**(n-1)&quot;&quot;&quot;</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># order+1</span>
@@ -468,7 +532,7 @@ A typical way is by the Newton’s method:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6, 4)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.int64(6), np.int64(4))
 </pre></div>
 </div>
 </div>
@@ -480,7 +544,7 @@ A typical way is by the Newton’s method:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(6)
 </pre></div>
 </div>
 </div>
@@ -504,13 +568,13 @@ A typical way is by the Newton’s method:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 6 -5 -2  1]
 </pre></div>
 </div>
-<img alt="_images/3b5377216455fa4f8cd5c33e4faf9ad22765abcec5f53a8f818b9d6da9efce5b.png" src="_images/3b5377216455fa4f8cd5c33e4faf9ad22765abcec5f53a8f818b9d6da9efce5b.png" />
+<img alt="_images/4cdce74cd0b6dd4e9d4a79d6ad5078972d4e4a4db5f5691c274507ee8cc4f3ee.png" src="_images/4cdce74cd0b6dd4e9d4a79d6ad5078972d4e4a4db5f5691c274507ee8cc4f3ee.png" />
 </div>
 </div>
 <p>Here’s a simple implementation of Newton’s method with visualization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">maxstep</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">maxstep</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Newton&#39;s method. </span>
 <span class="sd">        f: return f and df/dx</span>
 <span class="sd">        x: initial guess</span>
@@ -556,7 +620,7 @@ A typical way is by the Newton’s method:</p>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.        , 1.2       , 0.98978102, 0.99998301, 1.        ]),
  array([ 6.00000000e+00, -1.15200000e+00,  6.14172290e-02,  1.01951561e-04,
-         2.88712165e-10]))
+         2.88712498e-10]))
 </pre></div>
 </div>
 </div>
@@ -564,7 +628,7 @@ A typical way is by the Newton’s method:</p>
 <p>Here is a graphical representation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">zigsawplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">zigsawplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;zigsaw lines of updates</span>
 <span class="sd">    (x0,0),(x0,y0),(x1,0), (x1,y1),...(xn,0),(xn,yn)&quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># duplicate items</span>
@@ -584,7 +648,7 @@ A typical way is by the Newton’s method:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/87f7c08dc8e1e6c1aa560d4ca5676b5d7eb281fca899cacec2dfd32eb33cd04b.png" src="_images/87f7c08dc8e1e6c1aa560d4ca5676b5d7eb281fca899cacec2dfd32eb33cd04b.png" />
+<img alt="_images/cf9ab7439553ace80f351bf6a6da7ece75d936882f52155a7339101605e273a1.png" src="_images/cf9ab7439553ace80f351bf6a6da7ece75d936882f52155a7339101605e273a1.png" />
 </div>
 </div>
 <p>Try starting from other initial guesses</p>
@@ -598,7 +662,7 @@ A typical way is by the Newton’s method:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/78a148c7585836ff212f7432816d3ab16361664e1e14540a08f58cc4c406333f.png" src="_images/78a148c7585836ff212f7432816d3ab16361664e1e14540a08f58cc4c406333f.png" />
+<img alt="_images/aee43736a7d96166265df062680a7c0a3fb0b55cc9bbd1b50060d37988695089.png" src="_images/aee43736a7d96166265df062680a7c0a3fb0b55cc9bbd1b50060d37988695089.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -611,7 +675,7 @@ A typical way is by the Newton’s method:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cf56740500ebeba3e75234667c91e57c3518472a1d222a884224be58edb7f4f2.png" src="_images/cf56740500ebeba3e75234667c91e57c3518472a1d222a884224be58edb7f4f2.png" />
+<img alt="_images/118a9bb1b907b4aad4248a26a37b2c4c5a737b4b086d17babbae4f1de051620f.png" src="_images/118a9bb1b907b4aad4248a26a37b2c4c5a737b4b086d17babbae4f1de051620f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -624,13 +688,13 @@ A typical way is by the Newton’s method:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4638efc53d90e471790c91b06352027a9c929c41e0b013149e7121b79b199ffa.png" src="_images/4638efc53d90e471790c91b06352027a9c929c41e0b013149e7121b79b199ffa.png" />
+<img alt="_images/47a1cdf34b440f75158d9a22afc4163812e62bb07ad724be412fa0347cd16234.png" src="_images/47a1cdf34b440f75158d9a22afc4163812e62bb07ad724be412fa0347cd16234.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="quasi-newton-method">
-<h2>Quasi-Newton Method<a class="headerlink" href="#quasi-newton-method" title="Permalink to this heading">#</a></h2>
+<h2>Quasi-Newton Method<a class="headerlink" href="#quasi-newton-method" title="Link to this heading">#</a></h2>
 <p>The derivative <span class="math notranslate nohighlight">\(f'(x)\)</span> may not be available or hard to compute.
 In that case, we can use the slope between two points to approximate the derivative.</p>
 <div class="math notranslate nohighlight">
@@ -641,7 +705,7 @@ In that case, we can use the slope between two points to approximate the derivat
 <p>starting from an initial guess <span class="math notranslate nohighlight">\(x_0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">qnewton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">maxstep</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">qnewton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">maxstep</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Quasi-Newton&#39;s method. </span>
 <span class="sd">        f: return f</span>
 <span class="sd">        x: initial guess</span>
@@ -683,7 +747,7 @@ In that case, we can use the slope between two points to approximate the derivat
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">qnplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">qnplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;lines for quasi-Newton updates</span>
 <span class="sd">    (x0,0),(x0,y0),(x2,0), (x1,0),(x1,y1),(x3,0),...(xn,0),(xn,yn)&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">):</span>
@@ -702,7 +766,7 @@ In that case, we can use the slope between two points to approximate the derivat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/00841e3f43b7c1eea810d40c6ec91f0f82e8a086ae0ee5bd62a12aac124dc448.png" src="_images/00841e3f43b7c1eea810d40c6ec91f0f82e8a086ae0ee5bd62a12aac124dc448.png" />
+<img alt="_images/fe6011c58dcc4bc5baf240da376ca0c16d5eb53cccae4c49b7096f0e22aa7f9b.png" src="_images/fe6011c58dcc4bc5baf240da376ca0c16d5eb53cccae4c49b7096f0e22aa7f9b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -715,7 +779,7 @@ In that case, we can use the slope between two points to approximate the derivat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bf7f02de4a91efc0257fe770a56535b86d5a4973721f3883f30b11d40fdd54c4.png" src="_images/bf7f02de4a91efc0257fe770a56535b86d5a4973721f3883f30b11d40fdd54c4.png" />
+<img alt="_images/c00ce174f786d2259d7e014a185f0c49f7287138fc7f0d14bbf2f8c4ecf677b0.png" src="_images/c00ce174f786d2259d7e014a185f0c49f7287138fc7f0d14bbf2f8c4ecf677b0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -728,23 +792,23 @@ In that case, we can use the slope between two points to approximate the derivat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/60aed28fe5d02e2834b7ec03cc58cfecf3dea91ac9a15d6bbd8a35252eb75f75.png" src="_images/60aed28fe5d02e2834b7ec03cc58cfecf3dea91ac9a15d6bbd8a35252eb75f75.png" />
+<img alt="_images/98981ca8dc83c8b3eef47d59a9d66910ba0c6f155f332888dd0c69fb61847aee.png" src="_images/98981ca8dc83c8b3eef47d59a9d66910ba0c6f155f332888dd0c69fb61847aee.png" />
 </div>
 </div>
 <p>Define your own function and see how Newton’s or Quasi-Newton method works.</p>
 </section>
 <section id="discrete-time-dynamics">
-<h2>Discrete-time Dynamics<a class="headerlink" href="#discrete-time-dynamics" title="Permalink to this heading">#</a></h2>
+<h2>Discrete-time Dynamics<a class="headerlink" href="#discrete-time-dynamics" title="Link to this heading">#</a></h2>
 <p>We have already seen the iterative dynamics by multiplication of a matrix, which can cause expansion, shrinkage, and rotation.<br />
 With nonlinear mapping, more varieties of behaviors including chaos can be observed.</p>
 <section id="d-dynamics">
-<h3>1D Dynamics<a class="headerlink" href="#d-dynamics" title="Permalink to this heading">#</a></h3>
+<h3>1D Dynamics<a class="headerlink" href="#d-dynamics" title="Link to this heading">#</a></h3>
 <p>The simplest case is the logistic map.</p>
 <div class="math notranslate nohighlight">
 \[ x_{k+1} = a x_k(1 - x_k) \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">logistic</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">logistic</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;logistic map: f(x) = a*x*(1-x)&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
@@ -769,12 +833,12 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18b8eb20090a8371e3cb948e986aed045d86e014dea288a1f09cd25cf9595bef.png" src="_images/18b8eb20090a8371e3cb948e986aed045d86e014dea288a1f09cd25cf9595bef.png" />
+<img alt="_images/4f1756ac0a025eb6f0465f22876673dc32656a432dab43c1b4f36fa3bd28f888.png" src="_images/4f1756ac0a025eb6f0465f22876673dc32656a432dab43c1b4f36fa3bd28f888.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">iterate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">iterate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;x0: initial value</span>
 <span class="sd">        a: parameter to f(x,a)&quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -796,7 +860,7 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6f7192926558616a6c8d7dc1bd02cebe7b997cc7d3c1b7984894f00b722c3c8b.png" src="_images/6f7192926558616a6c8d7dc1bd02cebe7b997cc7d3c1b7984894f00b722c3c8b.png" />
+<img alt="_images/8f660fc41b52f5141a4d9fe74f935f615c5a566a98a7cb7b177a3972e8cd51d6.png" src="_images/8f660fc41b52f5141a4d9fe74f935f615c5a566a98a7cb7b177a3972e8cd51d6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -808,13 +872,13 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ea2a6ed76e116304ec5f2d28e375171ab6f58b31008f2514c43a7f9dbcb9ece5.png" src="_images/ea2a6ed76e116304ec5f2d28e375171ab6f58b31008f2514c43a7f9dbcb9ece5.png" />
+<img alt="_images/5556350451b7ac3fb72856e277907cc2cf3fb707401b4281eb99d2edf1a7cba5.png" src="_images/5556350451b7ac3fb72856e277907cc2cf3fb707401b4281eb99d2edf1a7cba5.png" />
 </div>
 </div>
 <p>Trajectory in <span class="math notranslate nohighlight">\(x_k\)</span>-<span class="math notranslate nohighlight">\(x_{k+1}\)</span> plane, called “cobsplot”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cobsplot</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cobsplot</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;cobsplot of trajectory x&quot;&quot;&quot;</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># x=f(x) line</span>
     <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># duplicate items</span>
@@ -834,7 +898,7 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/92867f1d4d22edc65c9a402df4fcaa8ff6045dcdb79a6890d9ee2562636b6839.png" src="_images/92867f1d4d22edc65c9a402df4fcaa8ff6045dcdb79a6890d9ee2562636b6839.png" />
+<img alt="_images/f6c75ad612191e18c2f4d7c705e9f2c223b4e8c10670e191385da351a59f5485.png" src="_images/f6c75ad612191e18c2f4d7c705e9f2c223b4e8c10670e191385da351a59f5485.png" />
 </div>
 </div>
 <p>It is known that <span class="math notranslate nohighlight">\(3.57&lt;a&lt;4\)</span> can cause chaotic oscillation.</p>
@@ -849,12 +913,12 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c38e947428991dea30bd3eaaa9c6e795244196cec8eb953d0d41da9afa861629.png" src="_images/c38e947428991dea30bd3eaaa9c6e795244196cec8eb953d0d41da9afa861629.png" />
+<img alt="_images/08d69de879cc14a4681813fae5eaf73d9835bb47d93102f41921e79a894b0650.png" src="_images/08d69de879cc14a4681813fae5eaf73d9835bb47d93102f41921e79a894b0650.png" />
 </div>
 </div>
 </section>
 <section id="id1">
-<h3>2D Dynamics<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3>2D Dynamics<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Let us see an example of the Hénon map:</p>
 <div class="math notranslate nohighlight">
 \[        x_{k+1} = 1 - a x_k^2 + y_k \]</div>
@@ -862,7 +926,7 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 \[ y_{k+1} = b x_k \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">henon</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">ab</span><span class="o">=</span><span class="p">[</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">henon</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">ab</span><span class="o">=</span><span class="p">[</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Henon map: stretch in y and fold to x</span>
 <span class="sd">        x_{k+1} = 1 - a*x_k**2 + y_k</span>
 <span class="sd">        y_{k+1} = b*x_k</span>
@@ -890,7 +954,7 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">iterate_vec</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">iterate_vec</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;f: n-dimensional map</span>
 <span class="sd">        x0: initial vector</span>
 <span class="sd">        *args: optional parameter to f(x,*args) &quot;&quot;&quot;</span>
@@ -912,7 +976,7 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/540e2679b9fa67a766139900ac3da42fe5bbb96da0af25bfc0bd03b92a6cd260.png" src="_images/540e2679b9fa67a766139900ac3da42fe5bbb96da0af25bfc0bd03b92a6cd260.png" />
+<img alt="_images/f58188e28a676fe39491b361bb84f8a6856a9d90f65f36adea17504890900c70.png" src="_images/f58188e28a676fe39491b361bb84f8a6856a9d90f65f36adea17504890900c70.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -924,7 +988,7 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/44544f49fa58111fc8fc798d0fef4d3e08f757db3eaccc31b2856bc661c9d5f9.png" src="_images/44544f49fa58111fc8fc798d0fef4d3e08f757db3eaccc31b2856bc661c9d5f9.png" />
+<img alt="_images/306727a40c3ebaa6efaedae8eb2d6c62507a39e07865345f6330a89355dbca83.png" src="_images/306727a40c3ebaa6efaedae8eb2d6c62507a39e07865345f6330a89355dbca83.png" />
 </div>
 </div>
 <p>Here’s another example:  Gumowski-Mira map, which originates from a model of accelerator beams:</p>
@@ -936,7 +1000,7 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 \[ g(x) = \mu x + \frac{2(1-\mu)x^2}{1+x^2} \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gumowski_mira</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">asm</span><span class="o">=</span><span class="p">[</span><span class="mf">0.009</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.801</span><span class="p">]):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gumowski_mira</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">asm</span><span class="o">=</span><span class="p">[</span><span class="mf">0.009</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.801</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Gumowski-Mira map:</span>
 <span class="sd">        x_{k+1} = y_n + \alpha y_n (1-\sigma y_n^2) + g(x_n</span>
 <span class="sd">        y_{k+1} = -x_n + g(x_{n+1})</span>
@@ -947,12 +1011,20 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># unpack array</span>
     <span class="n">alpha</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">asm</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
     <span class="c1"># local function</span>
-    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">mu</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">mu</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
     <span class="n">x1</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sigma</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">y1</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span> <span class="o">+</span> <span class="n">g</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> 
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:2: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+&lt;&gt;:2: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+/var/folders/dd/3kwwsm055d1cc1w134st1f580000gn/T/ipykernel_62040/728646862.py:2: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+  &quot;&quot;&quot;Gumowski-Mira map:
 </pre></div>
 </div>
 </div>
@@ -966,17 +1038,17 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/54e0c3c848226fa5fd190335c672038fc27e79ce28d6136557240d2c1eb1fc1f.png" src="_images/54e0c3c848226fa5fd190335c672038fc27e79ce28d6136557240d2c1eb1fc1f.png" />
+<img alt="_images/5bd65724beb6a64554a66f92568e5274c8507dc5dfa561397df09982972ea629.png" src="_images/5bd65724beb6a64554a66f92568e5274c8507dc5dfa561397df09982972ea629.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="recursive-call">
-<h2>Recursive call<a class="headerlink" href="#recursive-call" title="Permalink to this heading">#</a></h2>
+<h2>Recursive call<a class="headerlink" href="#recursive-call" title="Link to this heading">#</a></h2>
 <p>In Python and other modern languages, a function and call itself from inside. This can allow compact coding for complex functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;factorial by recursice call&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
@@ -999,12 +1071,12 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 </div>
 </div>
 <section id="drawing-fractals">
-<h3>Drawing fractals<a class="headerlink" href="#drawing-fractals" title="Permalink to this heading">#</a></h3>
+<h3>Drawing fractals<a class="headerlink" href="#drawing-fractals" title="Link to this heading">#</a></h3>
 <p>Recursive calls can be used for drawing <em>fractal</em> figures that have multi-scale self-similar structures.</p>
 <p>One example is the <em>Cantor set</em>, which is made by iteratively removing the middle part of a segment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cantorplot</span><span class="p">(</span><span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cantorplot</span><span class="p">(</span><span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;draw a Cantor set</span>
 <span class="sd">    x0, x1: end points</span>
 <span class="sd">    a: fraction to fill</span>
@@ -1035,13 +1107,13 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2151d05d4fa11bde4024c910a3045b76fe00167b201ef8b7a1cb907f5cf8abbc.png" src="_images/2151d05d4fa11bde4024c910a3045b76fe00167b201ef8b7a1cb907f5cf8abbc.png" />
+<img alt="_images/58b0c63bf7b994fd1c1af004cb508a116ee5b9793fb25b7976fe3a313f72839b.png" src="_images/58b0c63bf7b994fd1c1af004cb508a116ee5b9793fb25b7976fe3a313f72839b.png" />
 </div>
 </div>
 <p>Here is an example of drawing complex lines like a coastline or a clowd by replacing a segment with zig-zag segments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fractaline</span><span class="p">(</span><span class="n">x0</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x1</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">],</span> <span class="n">e</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fractaline</span><span class="p">(</span><span class="n">x0</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x1</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">],</span> <span class="n">e</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;draw a fractal line</span>
 <span class="sd">    x0, x1: start, end points</span>
 <span class="sd">    a: shifts of via points</span>
@@ -1072,7 +1144,7 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0864932a4000dffe0678230d9bb53e34e5b49f1a98b5bcbaaa91cf32ce5ab20e.png" src="_images/0864932a4000dffe0678230d9bb53e34e5b49f1a98b5bcbaaa91cf32ce5ab20e.png" />
+<img alt="_images/61642f46d55e050706a6a55acb21abed7a7e29f407fda7744a2cc73c94591188.png" src="_images/61642f46d55e050706a6a55acb21abed7a7e29f407fda7744a2cc73c94591188.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1083,7 +1155,7 @@ With nonlinear mapping, more varieties of behaviors including chaos can be obser
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d20a24f24edad26836800fe923218d02071186ce2d7743fee28f707b52b90aee.png" src="_images/d20a24f24edad26836800fe923218d02071186ce2d7743fee28f707b52b90aee.png" />
+<img alt="_images/ba4cad091c233d1062cbbc9f4e9ee0c7eb1448756336bbf2924bbeb64d38ec6b.png" src="_images/ba4cad091c233d1062cbbc9f4e9ee0c7eb1448756336bbf2924bbeb64d38ec6b.png" />
 </div>
 </div>
 </section>

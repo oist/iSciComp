@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>7. Partial Differential Equations: Exercise Solutions &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '07_PDE_Sol';</script>
@@ -184,6 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -281,6 +281,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/07_PDE_Sol.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/07_PDE_Sol.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -403,25 +467,25 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="partial-differential-equations-exercise-solutions">
-<h1>7. Partial Differential Equations: Exercise Solutions<a class="headerlink" href="#partial-differential-equations-exercise-solutions" title="Permalink to this heading">#</a></h1>
+<h1>7. Partial Differential Equations: Exercise Solutions<a class="headerlink" href="#partial-differential-equations-exercise-solutions" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">odeint</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="diffusion-equation">
-<h2>1. Diffusion Equation<a class="headerlink" href="#diffusion-equation" title="Permalink to this heading">#</a></h2>
+<h2>1. Diffusion Equation<a class="headerlink" href="#diffusion-equation" title="Link to this heading">#</a></h2>
 <p>For the diffusion equation with Dirichlet boundary condition, take initial states with different spatial frequencyes, such as
 $<span class="math notranslate nohighlight">\( y(x, 0) = \sin(\frac{nx}{L}\pi ) \)</span><span class="math notranslate nohighlight">\(
 with different \)</span>n$, and see how quickly they decay in time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diff1D</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">diff1D</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;1D Diffusion equaiton with constant boundary condition</span>
 <span class="sd">    y: state vector</span>
 <span class="sd">    t: time</span>
@@ -465,7 +529,7 @@ with different \)</span>n$, and see how quickly they decay in time.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/059f6d3362d114b11957a65bd58ae6b28ace247b5db063012ecfadb5ace14c6e.png" src="_images/059f6d3362d114b11957a65bd58ae6b28ace247b5db063012ecfadb5ace14c6e.png" />
+<img alt="_images/e5b367492edbac18b715bf887bd820a5b7cefee86cc1f7e51f7e00d65c60bb58.png" src="_images/e5b367492edbac18b715bf887bd820a5b7cefee86cc1f7e51f7e00d65c60bb58.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -479,12 +543,12 @@ with different \)</span>n$, and see how quickly they decay in time.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/220d7ab198e099f62713ecdef1aad500c6254710fd96d5242d6cc7fe3c65400c.png" src="_images/220d7ab198e099f62713ecdef1aad500c6254710fd96d5242d6cc7fe3c65400c.png" />
+<img alt="_images/96bc2c54f9d9ff37bfff6b740a87247157dcc9a65d85a6628bf414b274b91481.png" src="_images/96bc2c54f9d9ff37bfff6b740a87247157dcc9a65d85a6628bf414b274b91481.png" />
 </div>
 </div>
 </section>
 <section id="wave-equation">
-<h2>2. Wave Equation<a class="headerlink" href="#wave-equation" title="Permalink to this heading">#</a></h2>
+<h2>2. Wave Equation<a class="headerlink" href="#wave-equation" title="Link to this heading">#</a></h2>
 <p>While the wave equation with Dirichlet boundary condition simulates oscillation of a string, that with Neumann condition
 $<span class="math notranslate nohighlight">\( \left.\frac{\partial y(x,t)}{\partial x}\right|_{x_0}=\left.\frac{\partial y(x,t)}{\partial x}\right|_{x_N}=0 \)</span>$
 can simulate water wave.</p>
@@ -495,7 +559,7 @@ with the Neumann boundary conditions and see how the wave ripples.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wave1N</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="mf">0.</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">wave1N</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="mf">0.</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;1D wave equaiton with constant boundary</span>
 <span class="sd">    y: state vector hstack(u, v)</span>
 <span class="sd">    t: time</span>
@@ -518,7 +582,7 @@ with the Neumann boundary conditions and see how the wave ripples.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pulse</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xp</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">tp</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pulse</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xp</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">tp</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;1 for 0&lt;x&lt;1 at 0&lt;t&lt;1&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">xp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="n">xp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">tp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">&lt;</span><span class="n">tp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="mf">1.</span>
 </pre></div>
@@ -544,7 +608,7 @@ with the Neumann boundary conditions and see how the wave ripples.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b065e5581154708707714f39b8c78fd029dba2ae615b5e51b2e42c080478b539.png" src="_images/b065e5581154708707714f39b8c78fd029dba2ae615b5e51b2e42c080478b539.png" />
+<img alt="_images/9afd10a2154b52914306e4d073907514cfd586bca71ed1dd59c6c39926f54d45.png" src="_images/9afd10a2154b52914306e4d073907514cfd586bca71ed1dd59c6c39926f54d45.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -759,6 +823,15 @@ mpl.figure.prototype._init_canvas = function () {
     }
 
     this.resizeObserverInstance = new this.ResizeObserver(function (entries) {
+        // There's no need to resize if the WebSocket is not connected:
+        // - If it is still connecting, then we will get an initial resize from
+        //   Python once it connects.
+        // - If it has disconnected, then resizing will clear the canvas and
+        //   never get anything back to refill it, so better to not resize and
+        //   keep something visible.
+        if (fig.ws.readyState != 1) {
+            return;
+        }
         var nentries = entries.length;
         for (var i = 0; i < nentries; i++) {
             var entry = entries[i];
@@ -806,7 +879,7 @@ mpl.figure.prototype._init_canvas = function () {
             // And update the size in Python. We ignore the initial 0/0 size
             // that occurs as the element is placed into the DOM, which should
             // otherwise not happen due to the minimum size styling.
-            if (fig.ws.readyState == 1 && width != 0 && height != 0) {
+            if (width != 0 && height != 0) {
                 fig.request_resize(width, height);
             }
         }
@@ -1202,6 +1275,7 @@ mpl.figure.prototype.mouse_event = function (event, name) {
         y: y,
         button: event.button,
         step: event.step,
+        buttons: event.buttons,
         modifiers: getModifiers(event),
         guiEvent: simpleKeys(event),
     });
@@ -1539,11 +1613,11 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='abaf1254-bdf9-4a4f-b017-4609c620ae08'></div></div></div>
+</script><div class="output text_html"><div id='f536aadc-0686-4c29-b38e-163223d29cee'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">animation</span>
 </pre></div>
 </div>
 </div>
@@ -1755,6 +1829,15 @@ mpl.figure.prototype._init_canvas = function () {
     }
 
     this.resizeObserverInstance = new this.ResizeObserver(function (entries) {
+        // There's no need to resize if the WebSocket is not connected:
+        // - If it is still connecting, then we will get an initial resize from
+        //   Python once it connects.
+        // - If it has disconnected, then resizing will clear the canvas and
+        //   never get anything back to refill it, so better to not resize and
+        //   keep something visible.
+        if (fig.ws.readyState != 1) {
+            return;
+        }
         var nentries = entries.length;
         for (var i = 0; i < nentries; i++) {
             var entry = entries[i];
@@ -1802,7 +1885,7 @@ mpl.figure.prototype._init_canvas = function () {
             // And update the size in Python. We ignore the initial 0/0 size
             // that occurs as the element is placed into the DOM, which should
             // otherwise not happen due to the minimum size styling.
-            if (fig.ws.readyState == 1 && width != 0 && height != 0) {
+            if (width != 0 && height != 0) {
                 fig.request_resize(width, height);
             }
         }
@@ -2198,6 +2281,7 @@ mpl.figure.prototype.mouse_event = function (event, name) {
         y: y,
         button: event.button,
         step: event.step,
+        buttons: event.buttons,
         modifiers: getModifiers(event),
         guiEvent: simpleKeys(event),
     });
@@ -2535,15 +2619,15 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='b934631a-5ab9-4685-80c3-0eed5d2effc1'></div></div></div>
+</script><div class="output text_html"><div id='7c9983ba-9395-4eaa-b0af-8289dbf13bd7'></div></div></div>
 </div>
 </section>
 <section id="optional-wave-equation-in-2d">
-<h2>Optional: Wave equation in 2D<a class="headerlink" href="#optional-wave-equation-in-2d" title="Permalink to this heading">#</a></h2>
+<h2>Optional: Wave equation in 2D<a class="headerlink" href="#optional-wave-equation-in-2d" title="Link to this heading">#</a></h2>
 <p>Try simulating waves in a 2D space with a cyclic boundary condition.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wave2C</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">wave2C</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">inp</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;2D Wave equaiton with Cyclic boundary condition</span>
 <span class="sd">    y: 2*n*n dim state vector hstack(u, v)</span>
 <span class="sd">    t: time</span>
@@ -2791,6 +2875,15 @@ mpl.figure.prototype._init_canvas = function () {
     }
 
     this.resizeObserverInstance = new this.ResizeObserver(function (entries) {
+        // There's no need to resize if the WebSocket is not connected:
+        // - If it is still connecting, then we will get an initial resize from
+        //   Python once it connects.
+        // - If it has disconnected, then resizing will clear the canvas and
+        //   never get anything back to refill it, so better to not resize and
+        //   keep something visible.
+        if (fig.ws.readyState != 1) {
+            return;
+        }
         var nentries = entries.length;
         for (var i = 0; i < nentries; i++) {
             var entry = entries[i];
@@ -2838,7 +2931,7 @@ mpl.figure.prototype._init_canvas = function () {
             // And update the size in Python. We ignore the initial 0/0 size
             // that occurs as the element is placed into the DOM, which should
             // otherwise not happen due to the minimum size styling.
-            if (fig.ws.readyState == 1 && width != 0 && height != 0) {
+            if (width != 0 && height != 0) {
                 fig.request_resize(width, height);
             }
         }
@@ -3234,6 +3327,7 @@ mpl.figure.prototype.mouse_event = function (event, name) {
         y: y,
         button: event.button,
         step: event.step,
+        buttons: event.buttons,
         modifiers: getModifiers(event),
         guiEvent: simpleKeys(event),
     });
@@ -3571,7 +3665,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='75df583a-7c08-4e9e-9874-0b9c29205d1c'></div></div></div>
+</script><div class="output text_html"><div id='2ebe75ae-62eb-450a-83a8-27764d765de9'></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3780,6 +3874,15 @@ mpl.figure.prototype._init_canvas = function () {
     }
 
     this.resizeObserverInstance = new this.ResizeObserver(function (entries) {
+        // There's no need to resize if the WebSocket is not connected:
+        // - If it is still connecting, then we will get an initial resize from
+        //   Python once it connects.
+        // - If it has disconnected, then resizing will clear the canvas and
+        //   never get anything back to refill it, so better to not resize and
+        //   keep something visible.
+        if (fig.ws.readyState != 1) {
+            return;
+        }
         var nentries = entries.length;
         for (var i = 0; i < nentries; i++) {
             var entry = entries[i];
@@ -3827,7 +3930,7 @@ mpl.figure.prototype._init_canvas = function () {
             // And update the size in Python. We ignore the initial 0/0 size
             // that occurs as the element is placed into the DOM, which should
             // otherwise not happen due to the minimum size styling.
-            if (fig.ws.readyState == 1 && width != 0 && height != 0) {
+            if (width != 0 && height != 0) {
                 fig.request_resize(width, height);
             }
         }
@@ -4223,6 +4326,7 @@ mpl.figure.prototype.mouse_event = function (event, name) {
         y: y,
         button: event.button,
         step: event.step,
+        buttons: event.buttons,
         modifiers: getModifiers(event),
         guiEvent: simpleKeys(event),
     });
@@ -4560,7 +4664,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='e7a066f0-6c39-4c21-822a-c21f45a1c94d'></div></div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.11/site-packages/matplotlib/animation.py:892: UserWarning: Animation was deleted without rendering anything. This is most likely not intended. To prevent deletion, assign the Animation to a variable, e.g. `anim`, that exists until you output the Animation using `plt.show()` or `anim.save()`.
+</script><div class="output text_html"><div id='d1f2bf43-e909-4389-bb0b-7dd7b81a604d'></div></div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/doya/miniforge3/lib/python3.13/site-packages/matplotlib/animation.py:908: UserWarning: Animation was deleted without rendering anything. This is most likely not intended. To prevent deletion, assign the Animation to a variable, e.g. `anim`, that exists until you output the Animation using `plt.show()` or `anim.save()`.
   warnings.warn(
 </pre></div>
 </div>
@@ -4774,6 +4878,15 @@ mpl.figure.prototype._init_canvas = function () {
     }
 
     this.resizeObserverInstance = new this.ResizeObserver(function (entries) {
+        // There's no need to resize if the WebSocket is not connected:
+        // - If it is still connecting, then we will get an initial resize from
+        //   Python once it connects.
+        // - If it has disconnected, then resizing will clear the canvas and
+        //   never get anything back to refill it, so better to not resize and
+        //   keep something visible.
+        if (fig.ws.readyState != 1) {
+            return;
+        }
         var nentries = entries.length;
         for (var i = 0; i < nentries; i++) {
             var entry = entries[i];
@@ -4821,7 +4934,7 @@ mpl.figure.prototype._init_canvas = function () {
             // And update the size in Python. We ignore the initial 0/0 size
             // that occurs as the element is placed into the DOM, which should
             // otherwise not happen due to the minimum size styling.
-            if (fig.ws.readyState == 1 && width != 0 && height != 0) {
+            if (width != 0 && height != 0) {
                 fig.request_resize(width, height);
             }
         }
@@ -5217,6 +5330,7 @@ mpl.figure.prototype.mouse_event = function (event, name) {
         y: y,
         button: event.button,
         step: event.step,
+        buttons: event.buttons,
         modifiers: getModifiers(event),
         guiEvent: simpleKeys(event),
     });
@@ -5554,7 +5668,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='8e60624c-353f-4ca4-b089-c3b098779cbf'></div></div></div>
+</script><div class="output text_html"><div id='b1873738-7cb1-4ad9-aefb-f18c6414b997'></div></div></div>
 </div>
 </section>
 </section>

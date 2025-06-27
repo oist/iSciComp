@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>10. Software Management: Exercise &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '10_Management_Ex';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -182,6 +181,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -279,6 +279,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/10_Management_Ex.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/10_Management_Ex.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -406,10 +470,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="software-management-exercise">
-<h1>10. Software Management: Exercise<a class="headerlink" href="#software-management-exercise" title="Permalink to this heading">#</a></h1>
+<h1>10. Software Management: Exercise<a class="headerlink" href="#software-management-exercise" title="Link to this heading">#</a></h1>
 <p>Name:</p>
 <section id="github">
-<h2>GitHub<a class="headerlink" href="#github" title="Permalink to this heading">#</a></h2>
+<h2>GitHub<a class="headerlink" href="#github" title="Link to this heading">#</a></h2>
 <p>Let us try collaborative software development by OIST GitHub
 <a class="github reference external" href="https://github.com/oist">oist</a></p>
 <p>For account setup, see <a class="reference external" href="https://groups.oist.jp/it/github-oist">https://groups.oist.jp/it/github-oist</a></p>
@@ -419,7 +483,7 @@ document.write(`
 </ul>
 <p>Our course repository is <a class="github reference external" href="https://github.com/oist/ComputationalMethods2022">oist/ComputationalMethods2022</a></p>
 <section id="ssh-key">
-<h3>SSH key<a class="headerlink" href="#ssh-key" title="Permalink to this heading">#</a></h3>
+<h3>SSH key<a class="headerlink" href="#ssh-key" title="Link to this heading">#</a></h3>
 <p>For using a private repository, you need to setup a SSH key for secure connection.</p>
 <p>If you have not set up a SSH key on your computer, make a new one by</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">~/.</span><span class="n">ssh</span>
@@ -434,12 +498,12 @@ document.write(`
 <p>If SSH doesn’t work, an alternative way is to use <em>https</em> after generating a <em>personal access token</em> from <em>Settings/Developer settings</em>.</p>
 </section>
 <section id="cloning-a-repository">
-<h3>Cloning a repository<a class="headerlink" href="#cloning-a-repository" title="Permalink to this heading">#</a></h3>
+<h3>Cloning a repository<a class="headerlink" href="#cloning-a-repository" title="Link to this heading">#</a></h3>
 <p>If you just use a copy of a stable software, and not going to contribute your changes, just downloading a zip file is fine.</p>
 <p>But if you would congribute to joint development, or catch up with updates, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> is the better way.</p>
 </section>
 <section id="cloning-computationalmethods-repository">
-<h3>Cloning ComputationalMethods repository<a class="headerlink" href="#cloning-computationalmethods-repository" title="Permalink to this heading">#</a></h3>
+<h3>Cloning ComputationalMethods repository<a class="headerlink" href="#cloning-computationalmethods-repository" title="Link to this heading">#</a></h3>
 <p>To download a copy of the repository, run</p>
 <p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:oist/ComputationalMethods2022.git</span></code></p>
 <p>You are asked to input the passphrase you set in creating your SSH Key.</p>
@@ -483,31 +547,31 @@ document.write(`
 02_Visualization_Animation.ipynb       10_Management_GitHub.ipynb
 02_Visualization_Ex.ipynb              <span class=" -Color -Color-Blue">ComputationalMethods2022</span>/
 02_Visualization_Sol.ipynb             LICENSE
-03_Matrix.ipynb                        README.md
-03_Matrix_Ex.ipynb                     References.ipynb
-03_Matrix_Exx.ipynb                    SC_logo.png
-03_Matrix_Sol.ipynb                    Solutions.ipynb
-04_Function.ipynb                      VdP.pdf
-04_Function_Ex.ipynb                   <span class=" -Color -Color-Blue">__pycache__</span>/
-04_Function_Sol.ipynb                  <span class=" -Color -Color-Blue">_build</span>/
-05_Iteration.ipynb                     _config.yml
-05_Iteration_Ex.ipynb                  _toc.yml
-05_Iteration_Sol.ipynb                 <span class=" -Color -Color-Blue">cell</span>/
-06_ODE.ipynb                           <span class=" -Color -Color-Blue">cell1</span>/
-06_ODE_Ex.ipynb                        <span class=" -Color -Color-Blue">cell2</span>/
-06_ODE_Exx.ipynb                       <span class=" -Color -Color-Blue">data</span>/
-06_ODE_Sol.ipynb                       <span class=" -Color -Color-Blue">figures</span>/
-07_PDE.ipynb                           hello.py
-07_PDE_Ex.ipynb                        iSciComp.bib
-07_PDE_Sol.ipynb                       iSciComp.ipynb
-07_PDE_Turing.ipynb                    index.html
-08_Optimization.ipynb                  lpnorm.py
-08_Optimization_Ex.ipynb               <span class=" -Color -Color-Blue">odes</span>/
-08_Optimization_Exx.ipynb              <span class=" -Color -Color-Blue">odes1</span>/
-08_Optimization_Sol.ipynb              <span class=" -Color -Color-Blue">odes2</span>/
-09_Stochastic.ipynb                    <span class=" -Color -Color-Blue">odesim</span>/
-09_Stochastic_Ex.ipynb                 pend.gif
-09_Stochastic_Sol.ipynb
+03_Matrix.ipynb                        MiniForge.ipynb
+03_Matrix_Ex.ipynb                     README.md
+03_Matrix_Exx.ipynb                    References.ipynb
+03_Matrix_Sol.ipynb                    SC_logo.png
+04_Function.ipynb                      Solutions.ipynb
+04_Function_Ex.ipynb                   VdP.pdf
+04_Function_Sol.ipynb                  <span class=" -Color -Color-Blue">__pycache__</span>/
+05_Iteration.ipynb                     <span class=" -Color -Color-Blue">_build</span>/
+05_Iteration_Ex.ipynb                  _config.yml
+05_Iteration_Sol.ipynb                 _toc.yml
+06_ODE.ipynb                           <span class=" -Color -Color-Blue">cell</span>/
+06_ODE_Ex.ipynb                        <span class=" -Color -Color-Blue">cell1</span>/
+06_ODE_Exx.ipynb                       <span class=" -Color -Color-Blue">cell2</span>/
+06_ODE_Sol.ipynb                       <span class=" -Color -Color-Blue">data</span>/
+07_PDE.ipynb                           <span class=" -Color -Color-Blue">figures</span>/
+07_PDE_Ex.ipynb                        hello.py
+07_PDE_Sol.ipynb                       iSciComp.bib
+07_PDE_Turing.ipynb                    iSciComp.ipynb
+08_Optimization.ipynb                  index.html
+08_Optimization_Ex.ipynb               lpnorm.py
+08_Optimization_Exx.ipynb              <span class=" -Color -Color-Blue">odes</span>/
+08_Optimization_Sol.ipynb              <span class=" -Color -Color-Blue">odes1</span>/
+09_Stochastic.ipynb                    <span class=" -Color -Color-Blue">odes2</span>/
+09_Stochastic_Ex.ipynb                 <span class=" -Color -Color-Blue">odesim</span>/
+09_Stochastic_Sol.ipynb                pend.gif
 </pre></div>
 </div>
 </div>
@@ -545,7 +609,7 @@ first.py          <span class=" -Color -Color-Blue">outputs</span>/          sim
 <p><code class="docutils literal notranslate"><span class="pre">sim.run()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odesim</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">odesim</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 </div>
@@ -572,12 +636,12 @@ first.py          <span class=" -Color -Color-Blue">outputs</span>/          sim
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t= 10.0 ; state= [0.36787947]
 </pre></div>
 </div>
-<img alt="_images/561bd52a5f210a469ed45042b9d3998820444a7eeb02ba6005c699fc3f996656.png" src="_images/561bd52a5f210a469ed45042b9d3998820444a7eeb02ba6005c699fc3f996656.png" />
+<img alt="_images/a33d29d47a2593595c63872c431c0c7edaa27d1fc40fea0730169e224ebcb561.png" src="_images/a33d29d47a2593595c63872c431c0c7edaa27d1fc40fea0730169e224ebcb561.png" />
 </div>
 </div>
 </section>
 <section id="your-branch">
-<h3>Your branch<a class="headerlink" href="#your-branch" title="Permalink to this heading">#</a></h3>
+<h3>Your branch<a class="headerlink" href="#your-branch" title="Link to this heading">#</a></h3>
 <p>Now make your own branch, check it out, and add your own ODE module.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -921,10 +985,13 @@ nothing to commit, working tree clean
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter passphrase for key &#39;/Users/doya/.ssh/id_ed25519&#39;: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The authenticity of host &#39;github.com (20.27.177.113)&#39; can&#39;t be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
 </pre></div>
 </div>
 </div>
@@ -935,7 +1002,7 @@ nothing to commit, working tree clean
 <p>The administrator may reply back with a comment for revision or merge your change to the main branch.</p>
 </section>
 <section id="pulling-updates">
-<h3>Pulling updates<a class="headerlink" href="#pulling-updates" title="Permalink to this heading">#</a></h3>
+<h3>Pulling updates<a class="headerlink" href="#pulling-updates" title="Link to this heading">#</a></h3>
 <p>While you are working on your local code, the codes on the origial repository may be updated. You may also want to check the branches other people have created.</p>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> to reflect the changes in the GitHub to your local repository.</p>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> to see what branches are there and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> to try with the codes in other branches.</p>

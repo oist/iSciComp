@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>8. Optimization &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '08_Optimization';</script>
@@ -184,6 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -281,6 +281,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/08_Optimization.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/08_Optimization.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -410,7 +474,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="optimization">
-<h1>8. Optimization<a class="headerlink" href="#optimization" title="Permalink to this heading">#</a></h1>
+<h1>8. Optimization<a class="headerlink" href="#optimization" title="Link to this heading">#</a></h1>
 <p>Research involves lots of parmeter tuing. When there are just a few paramters, we often tune them by hand using our intuition or run a grid search. But when the number of parameters is large or it is difficult to get any intuition, we need a systematic method for optimization.</p>
 <p>Optimization is in general considered as minimization or maximization of a certain objective function <span class="math notranslate nohighlight">\(f(x)\)</span> where <span class="math notranslate nohighlight">\(x\)</span> is a parameter vector. There are different cases:</p>
 <ul class="simple">
@@ -455,16 +519,16 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
 <p>For the sake of visualization, consider a function in 2D space <span class="math notranslate nohighlight">\(x=(x_1,x_2)\)</span></p>
 <div class="math notranslate nohighlight">
 \[ f(x) = x_1^4 - \frac{8}{3}x_1^3 - 6x_1^2 + x_2^4\]</div>
@@ -488,18 +552,18 @@ document.write(`
 <p>Let us visualize this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dips</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dips</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;a function to minimize&quot;&quot;&quot;</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">8</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">4</span>
     <span class="k">return</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">dips_grad</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dips_grad</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;gradient of dips(x)&quot;&quot;&quot;</span>
     <span class="n">df1</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">12</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">df2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span>
     <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">]))</span>
 
-<span class="k">def</span> <span class="nf">dips_hess</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dips_hess</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;hessian of dips(x)&quot;&quot;&quot;</span>
     <span class="n">df11</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">16</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">12</span>
     <span class="n">df12</span> <span class="o">=</span> <span class="mi">0</span>
@@ -526,7 +590,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.5, &#39;x2&#39;)
 </pre></div>
 </div>
-<img alt="_images/ba9d606a498aa797ae0882851d9f86c3e1f74b2a80272081ae0cfbfa33dea9dc.png" src="_images/ba9d606a498aa797ae0882851d9f86c3e1f74b2a80272081ae0cfbfa33dea9dc.png" />
+<img alt="_images/2e2c6cef0fd1b0e6970874c6adf24de497e57f49f30c2b12deedc90c6bda5d1b.png" src="_images/2e2c6cef0fd1b0e6970874c6adf24de497e57f49f30c2b12deedc90c6bda5d1b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -539,15 +603,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-5.0, 5.0, -5.0, 5.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(-5.0), np.float64(5.0), np.float64(-5.0), np.float64(5.0))
 </pre></div>
 </div>
-<img alt="_images/959748546edc1da38b86c8b3e99d48976399ea3ea19cba42f07b9ac56d855685.png" src="_images/959748546edc1da38b86c8b3e99d48976399ea3ea19cba42f07b9ac56d855685.png" />
+<img alt="_images/28d7812d749e54a811ae531a873a9d9272a721d50b3a4a56618e6e0357f099b3.png" src="_images/28d7812d749e54a811ae531a873a9d9272a721d50b3a4a56618e6e0357f099b3.png" />
 </div>
 </div>
 </section>
 <section id="gradient-descent-ascent">
-<h2>Gradient Descent/Ascent<a class="headerlink" href="#gradient-descent-ascent" title="Permalink to this heading">#</a></h2>
+<h2>Gradient Descent/Ascent<a class="headerlink" href="#gradient-descent-ascent" title="Link to this heading">#</a></h2>
 <p><em>Gradient descent/ascent</em> is the most basic method of min/maximization of a function using its gradient.</p>
 <p>From an initial state <span class="math notranslate nohighlight">\(x_0\)</span> and a coefficient <span class="math notranslate nohighlight">\(\eta&gt;0\)</span>, repeat</p>
 <div class="math notranslate nohighlight">
@@ -555,7 +619,7 @@ document.write(`
 <p>for minimization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grad_descent</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">grad_descent</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Gradient descent&quot;&quot;&quot;</span>
     <span class="n">xh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">imax</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">([</span><span class="n">x0</span><span class="p">]))))</span>  <span class="c1"># history</span>
     <span class="n">xh</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
@@ -589,15 +653,15 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.        0.1206838] -44.99978787303231
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x111f12f50&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11cf825d0&gt;]
 </pre></div>
 </div>
-<img alt="_images/b2defbf3f064cbe6ac332ba0fc13441f73a3c6b1bea1cf46ae8120b43ef94236.png" src="_images/b2defbf3f064cbe6ac332ba0fc13441f73a3c6b1bea1cf46ae8120b43ef94236.png" />
+<img alt="_images/6055fef207d7b8d2d727f95d4fa79f10f774b347eb86731b9e86367945153c29.png" src="_images/6055fef207d7b8d2d727f95d4fa79f10f774b347eb86731b9e86367945153c29.png" />
 </div>
 </div>
 </section>
 <section id="newton-raphson-method">
-<h2>Newton-Raphson Method<a class="headerlink" href="#newton-raphson-method" title="Permalink to this heading">#</a></h2>
+<h2>Newton-Raphson Method<a class="headerlink" href="#newton-raphson-method" title="Link to this heading">#</a></h2>
 <p>A problem with the gradient descence/ascent is the choice of the coefficient <span class="math notranslate nohighlight">\(\eta\)</span>. If the second-order derivative, called the <em>Hessian</em>,</p>
 <div class="math notranslate nohighlight">
 \[\nabla^2f(x)=\frac{\partial^2 f}{\partial x^2}\]</div>
@@ -610,7 +674,7 @@ document.write(`
 <p>This is called Newton-Raphson method. It works efficiently when the Hessian is positive definite (<span class="math notranslate nohighlight">\(f(x)\)</span> is like a parabolla), but can be unstable when the Hessian has a negative eigenvalue (near the saddle point).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">newton_raphson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">d2f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">newton_raphson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">d2f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Newton-Raphson method&quot;&quot;&quot;</span>
     <span class="n">xh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">imax</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">([</span><span class="n">x0</span><span class="p">]))))</span>  <span class="c1"># history</span>
     <span class="n">xh</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
@@ -644,19 +708,19 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.         0.01541469] -44.999999943540175
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x111f50350&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11cfcf750&gt;]
 </pre></div>
 </div>
-<img alt="_images/627a5cec710d1b71d62c7e93dc23fadb95e757335ce1b7202cb81ef05250905d.png" src="_images/627a5cec710d1b71d62c7e93dc23fadb95e757335ce1b7202cb81ef05250905d.png" />
+<img alt="_images/a2eb0eb683d898dd462a2756f77196d3e329af217f8bfd996569b5d08a98789a.png" src="_images/a2eb0eb683d898dd462a2756f77196d3e329af217f8bfd996569b5d08a98789a.png" />
 </div>
 </div>
 </section>
 <section id="scipy-optimize">
-<h2>scipy.optimize<a class="headerlink" href="#scipy-optimize" title="Permalink to this heading">#</a></h2>
+<h2>scipy.optimize<a class="headerlink" href="#scipy-optimize" title="Link to this heading">#</a></h2>
 <p>To address those issues, advanced optimization algorithms have been developed and implemented in <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> package.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize</span>
 </pre></div>
 </div>
 </div>
@@ -771,7 +835,7 @@ document.write(`
 </div>
 </section>
 <section id="constrained-optimization">
-<h2>Constrained Optimization<a class="headerlink" href="#constrained-optimization" title="Permalink to this heading">#</a></h2>
+<h2>Constrained Optimization<a class="headerlink" href="#constrained-optimization" title="Link to this heading">#</a></h2>
 <p>Often we want to minimize/maximize <span class="math notranslate nohighlight">\(f(x)\)</span> under constraints on <span class="math notranslate nohighlight">\(x\)</span>, e.g.</p>
 <ul class="simple">
 <li><p>inequality constraints</p></li>
@@ -784,7 +848,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[h_j(x)=0 \quad (j=1,...,r)\]</div>
 <section id="penalty-function">
-<h3>Penalty function<a class="headerlink" href="#penalty-function" title="Permalink to this heading">#</a></h3>
+<h3>Penalty function<a class="headerlink" href="#penalty-function" title="Link to this heading">#</a></h3>
 <p>Define a function with penalty terms:</p>
 <div class="math notranslate nohighlight">
 \[ P(x,\rho) = f(x) + \sum_j \beta_j(x) g_j(x)^2 + \sum_j \rho h_j(x)^2 \]</div>
@@ -795,7 +859,7 @@ document.write(`
 <p>and increase <span class="math notranslate nohighlight">\(\rho\)</span> to a large value.</p>
 </section>
 <section id="lagrange-multiplyer-method">
-<h3>Lagrange multiplyer method<a class="headerlink" href="#lagrange-multiplyer-method" title="Permalink to this heading">#</a></h3>
+<h3>Lagrange multiplyer method<a class="headerlink" href="#lagrange-multiplyer-method" title="Link to this heading">#</a></h3>
 <p>For minimization of <span class="math notranslate nohighlight">\(f(x)\)</span> with equality constraints
 <span class="math notranslate nohighlight">\(h_j(x)=0\)</span>, <span class="math notranslate nohighlight">\((j=1,...,r)\)</span>, define a <em>Lagrangian function</em></p>
 <div class="math notranslate nohighlight">
@@ -809,9 +873,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># h(x) = - x[0] + x[1] - 0.6 = 0</span>
-<span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.6</span>
-<span class="k">def</span> <span class="nf">h_grad</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">h_grad</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -839,10 +903,10 @@ document.write(`
 [0.97276055 1.57276055] -1.1182207863637803
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x111ecdc90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11f95c2d0&gt;]
 </pre></div>
 </div>
-<img alt="_images/acb2ac20ee28643e5de45ded8367097376d4af3c13df05fe156f2e3b8fe027a8.png" src="_images/acb2ac20ee28643e5de45ded8367097376d4af3c13df05fe156f2e3b8fe027a8.png" />
+<img alt="_images/21847bd91364d977cabf888e6051f6fd9577bf7b0d214d5e04f4cdf421644298.png" src="_images/21847bd91364d977cabf888e6051f6fd9577bf7b0d214d5e04f4cdf421644298.png" />
 </div>
 </div>
 <p>With inequality constraint <span class="math notranslate nohighlight">\(h(x)&gt;0\)</span>.</p>
@@ -867,20 +931,20 @@ document.write(`
 [-1.00000016  0.02529561] -2.3333329239019784
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x111db8350&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11f9b1450&gt;]
 </pre></div>
 </div>
-<img alt="_images/484ae78caa6d3dc7a66e6e4295884f5ebb470767ce8e95e78814ccd53c1b6b60.png" src="_images/484ae78caa6d3dc7a66e6e4295884f5ebb470767ce8e95e78814ccd53c1b6b60.png" />
+<img alt="_images/5a9e55e21e045b7085fcba7176434b1a51e4e2dd9832f1bd58673e6c708caf07.png" src="_images/5a9e55e21e045b7085fcba7176434b1a51e4e2dd9832f1bd58673e6c708caf07.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="genetic-evolutionaly-algorithms">
-<h2>Genetic/Evolutionaly Algorithms<a class="headerlink" href="#genetic-evolutionaly-algorithms" title="Permalink to this heading">#</a></h2>
+<h2>Genetic/Evolutionaly Algorithms<a class="headerlink" href="#genetic-evolutionaly-algorithms" title="Link to this heading">#</a></h2>
 <p>For objective functions with many local minima/maxima, stochastic search methods are preferred. They are called <em>genetic algorithm (GA)</em> or <em>evolutionay algorithm (EA)</em>, from an analogy with mutation and selection in genetic evolution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evol_min</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evol_min</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;simple evolutionary algorithm</span>
 <span class="sd">    f: function to be minimized</span>
 <span class="sd">    x0: initial population (p*n)</span>
@@ -920,13 +984,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 3.23003219 -0.53746159] -44.989985116651866
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 3.178513   -0.18707914] -44.98351467942098
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1305d8190&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11fa26710&gt;]
 </pre></div>
 </div>
-<img alt="_images/c58055e2738d6fb5d3001362a7eb187dd5aaaa04bf440b387f0a0dc2234fc3bb.png" src="_images/c58055e2738d6fb5d3001362a7eb187dd5aaaa04bf440b387f0a0dc2234fc3bb.png" />
+<img alt="_images/79264d697d1326d74665a04fff9c2d2e606b40e2f557b05ca14bf04e59bc7341.png" src="_images/79264d697d1326d74665a04fff9c2d2e606b40e2f557b05ca14bf04e59bc7341.png" />
 </div>
 </div>
 <p>For more advanced genetic/evolutionary algorithms, you can use <code class="docutils literal notranslate"><span class="pre">deap</span></code> package: <a class="github reference external" href="https://github.com/DEAP">DEAP</a></p>

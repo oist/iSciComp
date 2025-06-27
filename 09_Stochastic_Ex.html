@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>9. Stochastic Methods: Exercise &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '09_Stochastic_Ex';</script>
@@ -184,6 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -281,6 +281,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/09_Stochastic_Ex.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/09_Stochastic_Ex.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -404,19 +468,19 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="stochastic-methods-exercise">
-<h1>9. Stochastic Methods: Exercise<a class="headerlink" href="#stochastic-methods-exercise" title="Permalink to this heading">#</a></h1>
+<h1>9. Stochastic Methods: Exercise<a class="headerlink" href="#stochastic-methods-exercise" title="Link to this heading">#</a></h1>
 <p>Name:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
 </div>
 <section id="integration">
-<h2>1. Integration<a class="headerlink" href="#integration" title="Permalink to this heading">#</a></h2>
+<h2>1. Integration<a class="headerlink" href="#integration" title="Link to this heading">#</a></h2>
 <p>When an explicit function like <span class="math notranslate nohighlight">\(x_n = g(x_1,...,x_{n-1})\)</span> is not available, you can use a binary function that takes 1 within and 0 outside of a region to measure its volume.</p>
 <ol class="arabic simple">
 <li><p>Measure the volume of an n-dimensional sphere using a binary function</p></li>
@@ -430,15 +494,15 @@ document.write(`
 </ol>
 </section>
 <section id="rejection-sampling">
-<h2>2. Rejection Sampling<a class="headerlink" href="#rejection-sampling" title="Permalink to this heading">#</a></h2>
+<h2>2. Rejection Sampling<a class="headerlink" href="#rejection-sampling" title="Link to this heading">#</a></h2>
 <p>Let us generate samples from Gamma distribution</p>
 <div class="math notranslate nohighlight">
 \[ p(x; k, \theta) = \frac{1}{\Gamma(k)\theta^k}x^{k-1}e^{-\frac{x}{\theta}} \]</div>
 <p>with the shape parameter <span class="math notranslate nohighlight">\(k&gt;0\)</span> and the scaling parameter <span class="math notranslate nohighlight">\(\theta\)</span> using the gamma function <span class="math notranslate nohighlight">\(\Gamma(k)\)</span> available in <code class="docutils literal notranslate"><span class="pre">scipy.special</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">gamma</span>
-<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">factorial</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.special</span><span class="w"> </span><span class="kn">import</span> <span class="n">gamma</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.special</span><span class="w"> </span><span class="kn">import</span> <span class="n">factorial</span>
 </pre></div>
 </div>
 </div>
@@ -458,7 +522,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;f(x)&#39;)
 </pre></div>
 </div>
-<img alt="_images/50ab596083fa8d216369bb1bff196d035c2a4bf97bfc03a882211a177536f446.png" src="_images/50ab596083fa8d216369bb1bff196d035c2a4bf97bfc03a882211a177536f446.png" />
+<img alt="_images/c34e0d5d48267fcf52fd2d184942428f2ea7cbe487884b56f49124c59e10cefd.png" src="_images/c34e0d5d48267fcf52fd2d184942428f2ea7cbe487884b56f49124c59e10cefd.png" />
 </div>
 </div>
 <ol class="arabic simple">
@@ -466,7 +530,7 @@ document.write(`
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_gamma</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">p_gamma</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;density function of gamma distribution&quot;&quot;&quot;</span>
     
     <span class="k">return</span> 
@@ -477,11 +541,11 @@ document.write(`
 <p>Consider the exponential distribution <span class="math notranslate nohighlight">\(q(x;\mu)=\frac{1}{\mu}e^{-\frac{x}{\mu}}\)</span> as the proposal distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">p_exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;density function of exponential distribution&quot;&quot;&quot;</span>
     <span class="k">return</span> 
 
-<span class="k">def</span> <span class="nf">x_exp</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">x_exp</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;sample from exponential distribution&quot;&quot;&quot;</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># uniform in [0,1]</span>
     <span class="k">return</span> 
@@ -532,54 +596,54 @@ document.write(`
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p_gamma</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">theta</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="o">*</span><span class="n">p_exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="o">*</span><span class="n">theta</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">);</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/matplotlib/pyplot.py:3578,</span> in <span class="ni">plot</span><span class="nt">(scalex, scaley, data, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3570</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3571</span> <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3572</span>     <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3576</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3577</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Line2D</span><span class="p">]:</span>
-<span class="ne">-&gt; </span><span class="mi">3578</span>     <span class="k">return</span> <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3579</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3580</span>         <span class="n">scalex</span><span class="o">=</span><span class="n">scalex</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3581</span>         <span class="n">scaley</span><span class="o">=</span><span class="n">scaley</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3582</span>         <span class="o">**</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}),</span>
-<span class="g g-Whitespace">   </span><span class="mi">3583</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3584</span>     <span class="p">)</span>
+<span class="nn">File ~/miniforge3/lib/python3.13/site-packages/matplotlib/pyplot.py:3827,</span> in <span class="ni">plot</span><span class="nt">(scalex, scaley, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3819</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3820</span> <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3821</span>     <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">3825</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3826</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Line2D</span><span class="p">]:</span>
+<span class="ne">-&gt; </span><span class="mi">3827</span>     <span class="k">return</span> <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3828</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3829</span>         <span class="n">scalex</span><span class="o">=</span><span class="n">scalex</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3830</span>         <span class="n">scaley</span><span class="o">=</span><span class="n">scaley</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3831</span>         <span class="o">**</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}),</span>
+<span class="g g-Whitespace">   </span><span class="mi">3832</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3833</span>     <span class="p">)</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/matplotlib/axes/_axes.py:1721,</span> in <span class="ni">Axes.plot</span><span class="nt">(self, scalex, scaley, data, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1478</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1479</span><span class="sd"> Plot y versus x as lines and/or markers.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1480</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1718</span><span class="sd"> (``&#39;green&#39;``) or hex strings (``&#39;#008000&#39;``).</span>
-<span class="g g-Whitespace">   </span><span class="mi">1719</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1720</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">normalize_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">mlines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1721</span> <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1722</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1723</span>     <span class="bp">self</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="nn">File ~/miniforge3/lib/python3.13/site-packages/matplotlib/axes/_axes.py:1777,</span> in <span class="ni">Axes.plot</span><span class="nt">(self, scalex, scaley, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1534</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1535</span><span class="sd"> Plot y versus x as lines and/or markers.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1536</span><span class="sd"> </span>
+<span class="sd">   (...)   1774 (``&#39;green&#39;``) or hex strings (``&#39;#008000&#39;``).</span>
+<span class="g g-Whitespace">   </span><span class="mi">1775</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1776</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">normalize_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">mlines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1777</span> <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1778</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1779</span>     <span class="bp">self</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/matplotlib/axes/_base.py:303,</span> in <span class="ni">_process_plot_var_args.__call__</span><span class="nt">(self, axes, data, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">301</span>     <span class="n">this</span> <span class="o">+=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">    </span><span class="mi">302</span>     <span class="n">args</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-<span class="ne">--&gt; </span><span class="mi">303</span> <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plot_args</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">304</span>     <span class="n">axes</span><span class="p">,</span> <span class="n">this</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">ambiguous_fmt_datakey</span><span class="o">=</span><span class="n">ambiguous_fmt_datakey</span><span class="p">)</span>
+<span class="nn">File ~/miniforge3/lib/python3.13/site-packages/matplotlib/axes/_base.py:297,</span> in <span class="ni">_process_plot_var_args.__call__</span><span class="nt">(self, axes, data, return_kwargs, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">295</span>     <span class="n">this</span> <span class="o">+=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>     <span class="n">args</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="ne">--&gt; </span><span class="mi">297</span> <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plot_args</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">298</span>     <span class="n">axes</span><span class="p">,</span> <span class="n">this</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">ambiguous_fmt_datakey</span><span class="o">=</span><span class="n">ambiguous_fmt_datakey</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>     <span class="n">return_kwargs</span><span class="o">=</span><span class="n">return_kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span> <span class="p">)</span>
 
-<span class="nn">File /opt/anaconda3/lib/python3.11/site-packages/matplotlib/axes/_base.py:460,</span> in <span class="ni">_process_plot_var_args._plot_args</span><span class="nt">(self, axes, tup, kwargs, return_kwargs, ambiguous_fmt_datakey)</span>
-<span class="g g-Whitespace">    </span><span class="mi">457</span> <span class="c1"># Don&#39;t allow any None value; these would be up-converted to one</span>
-<span class="g g-Whitespace">    </span><span class="mi">458</span> <span class="c1"># element array of None which causes problems downstream.</span>
-<span class="g g-Whitespace">    </span><span class="mi">459</span> <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tup</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">460</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;x, y, and format string must not be None&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">462</span> <span class="n">kw</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span> <span class="k">for</span> <span class="n">prop_name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">((</span><span class="s1">&#39;linestyle&#39;</span><span class="p">,</span> <span class="s1">&#39;marker&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">464</span>                           <span class="p">(</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">marker</span><span class="p">,</span> <span class="n">color</span><span class="p">)):</span>
+<span class="nn">File ~/miniforge3/lib/python3.13/site-packages/matplotlib/axes/_base.py:455,</span> in <span class="ni">_process_plot_var_args._plot_args</span><span class="nt">(self, axes, tup, kwargs, return_kwargs, ambiguous_fmt_datakey)</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span> <span class="c1"># Don&#39;t allow any None value; these would be up-converted to one</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span> <span class="c1"># element array of None which causes problems downstream.</span>
+<span class="g g-Whitespace">    </span><span class="mi">454</span> <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tup</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">455</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;x, y, and format string must not be None&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">457</span> <span class="n">kw</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="g g-Whitespace">    </span><span class="mi">458</span> <span class="k">for</span> <span class="n">prop_name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">((</span><span class="s1">&#39;linestyle&#39;</span><span class="p">,</span> <span class="s1">&#39;marker&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">459</span>                           <span class="p">(</span><span class="n">linestyle</span><span class="p">,</span> <span class="n">marker</span><span class="p">,</span> <span class="n">color</span><span class="p">)):</span>
 
 <span class="ne">ValueError</span>: x, y, and format string must not be None
 </pre></div>
 </div>
-<img alt="_images/e90d8f2c9f70eecb88a02eac39b631f0c6b659a1fe7234099703577c13a60cca.png" src="_images/e90d8f2c9f70eecb88a02eac39b631f0c6b659a1fe7234099703577c13a60cca.png" />
+<img alt="_images/1d9291a9ac5bde7c4ddefc7b11da247268e3056dcf3eb1f857e3a5dad85748ba.png" src="_images/1d9291a9ac5bde7c4ddefc7b11da247268e3056dcf3eb1f857e3a5dad85748ba.png" />
 </div>
 </div>
 <ol class="arabic simple" start="4">
@@ -587,7 +651,7 @@ document.write(`
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">x_gamma</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">x_gamma</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;sample from gamma distribution by rejection sampling&quot;&quot;&quot;</span>
     <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span><span class="o">**</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="n">gamma</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">k</span><span class="p">)</span>
     <span class="c1">#print(&quot;c =&quot;, c)</span>
@@ -618,7 +682,7 @@ document.write(`
 </div>
 </section>
 <section id="importance-sampling">
-<h2>3. Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this heading">#</a></h2>
+<h2>3. Importance Sampling<a class="headerlink" href="#importance-sampling" title="Link to this heading">#</a></h2>
 <p>You have <span class="math notranslate nohighlight">\(m\)</span> sample values <span class="math notranslate nohighlight">\(f(x_i)\)</span> <span class="math notranslate nohighlight">\((i=1,...m)\)</span> at <span class="math notranslate nohighlight">\(x_i\)</span> following a normal distribution</p>
 <div class="math notranslate nohighlight">
 \[ q(x;\mu_0,\sigma_0) = \frac{1}{\sqrt{2\pi \sigma_0^2}}e^{-\frac{(x-\mu_0)^2}{2\sigma_0^2}}. \]</div>
@@ -667,7 +731,7 @@ document.write(`
 <p>Optional) Try with a different function <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
 </section>
 <section id="mcmc">
-<h2>4. MCMC<a class="headerlink" href="#mcmc" title="Permalink to this heading">#</a></h2>
+<h2>4. MCMC<a class="headerlink" href="#mcmc" title="Link to this heading">#</a></h2>
 <p>Try applying Metropolis sampling to your own (unnormalized) distribution.</p>
 </section>
 </section>

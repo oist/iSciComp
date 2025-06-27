@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>2. Visualization &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '02_Visualization';</script>
@@ -184,6 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -281,6 +281,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/02_Visualization.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/02_Visualization.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -414,7 +478,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="visualization">
-<h1>2. Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">#</a></h1>
+<h1>2. Visualization<a class="headerlink" href="#visualization" title="Link to this heading">#</a></h1>
 <p>Visualizatin is vital in data analysis and scientific computing, to</p>
 <ul class="simple">
 <li><p>get intuitive understanding</p></li>
@@ -423,14 +487,14 @@ document.write(`
 </ul>
 <p>That is why we’ll cover this topic at the beginning of this course.</p>
 <section id="matplotlib">
-<h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this heading">#</a></h2>
+<h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
 <p>Matplotlib is the standard graphics package for Python.
 It mimics many graphics functions of MATLAB.<br />
 The Matplotlib gallery (<a class="reference external" href="http://matplotlib.org/stable/gallery">http://matplotlib.org/stable/gallery</a>) illustrates variety of plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -448,7 +512,7 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </section>
 <section id="plotting-functions">
-<h2>Plotting functions<a class="headerlink" href="#plotting-functions" title="Permalink to this heading">#</a></h2>
+<h2>Plotting functions<a class="headerlink" href="#plotting-functions" title="Link to this heading">#</a></h2>
 <p>The standard way is to prepare an array for x values, compute y values, and call <code class="docutils literal notranslate"><span class="pre">plot(</span> <span class="pre">)</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -468,10 +532,10 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11d73b210&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11a8a4550&gt;]
 </pre></div>
 </div>
-<img alt="_images/109e7e1b99653ae9414606d2a6600ef0738983abe2ae92334957b8c4f092532c.png" src="_images/109e7e1b99653ae9414606d2a6600ef0738983abe2ae92334957b8c4f092532c.png" />
+<img alt="_images/e02069b93710b5002c5f8f7acb46da0f1b7f5d4d964fffb234415794c303916a.png" src="_images/e02069b93710b5002c5f8f7acb46da0f1b7f5d4d964fffb234415794c303916a.png" />
 </div>
 </div>
 <p>There are multiple ways to pass variables to plot():</p>
@@ -489,10 +553,10 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11d84d3d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11a9f9090&gt;]
 </pre></div>
 </div>
-<img alt="_images/f6d86194c1d610602732251e77ae7c5f042ceaf4c8eb4d0c8de566b3df422d26.png" src="_images/f6d86194c1d610602732251e77ae7c5f042ceaf4c8eb4d0c8de566b3df422d26.png" />
+<img alt="_images/612be56ae7c1426cc88fa974b4ecb74dbc42b42ad0d87dde29adfd629d04f10f.png" src="_images/612be56ae7c1426cc88fa974b4ecb74dbc42b42ad0d87dde29adfd629d04f10f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -511,11 +575,11 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11dcac390&gt;,
- &lt;matplotlib.lines.Line2D at 0x11dc94dd0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11aa807d0&gt;,
+ &lt;matplotlib.lines.Line2D at 0x11aa80910&gt;]
 </pre></div>
 </div>
-<img alt="_images/4e46b6512f11a6c60639b7aeba3d05dd623cbc8ba1401cab900be6eb2fa4a9d3.png" src="_images/4e46b6512f11a6c60639b7aeba3d05dd623cbc8ba1401cab900be6eb2fa4a9d3.png" />
+<img alt="_images/0a53cffeb4563225b696173ec0b2be8125fb43495ec3abac82db656bc3e29c55.png" src="_images/0a53cffeb4563225b696173ec0b2be8125fb43495ec3abac82db656bc3e29c55.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -527,7 +591,7 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6d7375ec46774708db7bb26f4032a2fab44e22220d80ec5cc0391e726f1ae4c8.png" src="_images/6d7375ec46774708db7bb26f4032a2fab44e22220d80ec5cc0391e726f1ae4c8.png" />
+<img alt="_images/060295341a042b25f78707ca9fa00abf119c131b8f4de13f6ac73e9a616c3bae.png" src="_images/060295341a042b25f78707ca9fa00abf119c131b8f4de13f6ac73e9a616c3bae.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -539,7 +603,7 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4e46b6512f11a6c60639b7aeba3d05dd623cbc8ba1401cab900be6eb2fa4a9d3.png" src="_images/4e46b6512f11a6c60639b7aeba3d05dd623cbc8ba1401cab900be6eb2fa4a9d3.png" />
+<img alt="_images/0a53cffeb4563225b696173ec0b2be8125fb43495ec3abac82db656bc3e29c55.png" src="_images/0a53cffeb4563225b696173ec0b2be8125fb43495ec3abac82db656bc3e29c55.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -551,12 +615,12 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/59ac8c22fd8e4c38b8aa9fbdf8f4707105810796d4c26891f19f866163b2a51a.png" src="_images/59ac8c22fd8e4c38b8aa9fbdf8f4707105810796d4c26891f19f866163b2a51a.png" />
+<img alt="_images/6420de0b59460cb846268a8f1c3a074088c856fb33d6cd17ccf293bb86a5cee5.png" src="_images/6420de0b59460cb846268a8f1c3a074088c856fb33d6cd17ccf293bb86a5cee5.png" />
 </div>
 </div>
 </section>
 <section id="options-for-plotting">
-<h2>Options for plotting<a class="headerlink" href="#options-for-plotting" title="Permalink to this heading">#</a></h2>
+<h2>Options for plotting<a class="headerlink" href="#options-for-plotting" title="Link to this heading">#</a></h2>
 <p>Line styles can be specified by</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">color=</span></code> (or <code class="docutils literal notranslate"><span class="pre">c=</span></code> )  for color by code, name, RGB or RGBA</p>
@@ -585,7 +649,7 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5f60418cde7dc9c9d7186625f47af524e5bc5508db8bd10408dc6286e80fc89e.png" src="_images/5f60418cde7dc9c9d7186625f47af524e5bc5508db8bd10408dc6286e80fc89e.png" />
+<img alt="_images/6f08c6a46185cbd2cb4d09ede4ef0965acb3b8346f9c3c64326aaa216974848a.png" src="_images/6f08c6a46185cbd2cb4d09ede4ef0965acb3b8346f9c3c64326aaa216974848a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -596,7 +660,7 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/25195c0cfafdd3ff9454ff3de6cb2573663be930e4c9fe415db1381466007a4a.png" src="_images/25195c0cfafdd3ff9454ff3de6cb2573663be930e4c9fe415db1381466007a4a.png" />
+<img alt="_images/99f03fc18286f3f427422f060941ca125648bea2145fd8f3cf6a3c9dde588244.png" src="_images/99f03fc18286f3f427422f060941ca125648bea2145fd8f3cf6a3c9dde588244.png" />
 </div>
 </div>
 <p>It’s a good practice to add axis lables and plot title.<br />
@@ -614,7 +678,7 @@ You can use Latex format by <span class="math notranslate nohighlight">\(  \)</s
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;amplitude&#39;)
 </pre></div>
 </div>
-<img alt="_images/58aed7ea3233711d85354b9100ece809b776f8a268f1299be69f5e765ae3b7ad.png" src="_images/58aed7ea3233711d85354b9100ece809b776f8a268f1299be69f5e765ae3b7ad.png" />
+<img alt="_images/a4dfc4827e09720f60a198dc4daca1a16de05352a1e96fbaaa9fe7aeb0586541.png" src="_images/a4dfc4827e09720f60a198dc4daca1a16de05352a1e96fbaaa9fe7aeb0586541.png" />
 </div>
 </div>
 <p>It is also nice to add a legend box.</p>
@@ -626,10 +690,10 @@ You can use Latex format by <span class="math notranslate nohighlight">\(  \)</s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x11dfc7f50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x11a8af230&gt;
 </pre></div>
 </div>
-<img alt="_images/1e3625e3e23111c2a4343b008c56c7974fe7ff6decb7aaaa7aa605dc728c84d5.png" src="_images/1e3625e3e23111c2a4343b008c56c7974fe7ff6decb7aaaa7aa605dc728c84d5.png" />
+<img alt="_images/518df6c43967998a090e60f4234a8424aa4958c14e79628a95eafe487e167b75.png" src="_images/518df6c43967998a090e60f4234a8424aa4958c14e79628a95eafe487e167b75.png" />
 </div>
 </div>
 <p>The texts in a figure tend to be too small when included in a slide or a paper.<br />
@@ -653,10 +717,10 @@ You can control the default font size by <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x11dea6950&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x11ad7c910&gt;
 </pre></div>
 </div>
-<img alt="_images/9565a7855687f21b25990fb23f5bff2e6c97e00e5e5adc3a1a9382124de159ed.png" src="_images/9565a7855687f21b25990fb23f5bff2e6c97e00e5e5adc3a1a9382124de159ed.png" />
+<img alt="_images/beebd3a4dd48e8729ee51c911345e288ba780046bc5cce6858b0cae44a98ea85.png" src="_images/beebd3a4dd48e8729ee51c911345e288ba780046bc5cce6858b0cae44a98ea85.png" />
 </div>
 </div>
 <p>You can control axis ranges and scaling.</p>
@@ -672,7 +736,7 @@ You can control the default font size by <code class="docutils literal notransla
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-4.0, 4.0)
 </pre></div>
 </div>
-<img alt="_images/301a113a94c3652daf79f82727196f3c481d3c9b045983e501e4f6633966e8b3.png" src="_images/301a113a94c3652daf79f82727196f3c481d3c9b045983e501e4f6633966e8b3.png" />
+<img alt="_images/5e60f71b5fa50c2bb55af89a5823cca047522b425793d9b3f86da27615f953dc.png" src="_images/5e60f71b5fa50c2bb55af89a5823cca047522b425793d9b3f86da27615f953dc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -683,10 +747,13 @@ You can control the default font size by <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-6.10798067784125, 8.582949839004911, -10.247801600732576, 7.121229063313089)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(-6.10798067784125),
+ np.float64(8.582949839004911),
+ np.float64(-10.247801600732576),
+ np.float64(7.121229063313089))
 </pre></div>
 </div>
-<img alt="_images/6393e2ea436ac24f07fd728190c163ec8076e962dcd2e18813ce68579895729d.png" src="_images/6393e2ea436ac24f07fd728190c163ec8076e962dcd2e18813ce68579895729d.png" />
+<img alt="_images/b6e6b8cc39a73b9a874525fab4cc77e1c2b83395bb57fce17eb3c81341f50ec1.png" src="_images/b6e6b8cc39a73b9a874525fab4cc77e1c2b83395bb57fce17eb3c81341f50ec1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -697,10 +764,13 @@ You can control the default font size by <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-6.10798067784125, 11.261049986204412, -10.247801600732576, 7.121229063313088)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(-6.10798067784125),
+ np.float64(11.261049986204412),
+ np.float64(-10.247801600732576),
+ np.float64(7.121229063313088))
 </pre></div>
 </div>
-<img alt="_images/2c3d0baeb58f98901617debed97e69e9400c2c954a261850db6e6ba6c45e840f.png" src="_images/2c3d0baeb58f98901617debed97e69e9400c2c954a261850db6e6ba6c45e840f.png" />
+<img alt="_images/a92dff8162d422cfcabbcc59fa35aa33cfe00dbc2e641dd4852d8bb543ab28d3.png" src="_images/a92dff8162d422cfcabbcc59fa35aa33cfe00dbc2e641dd4852d8bb543ab28d3.png" />
 </div>
 </div>
 <p>You can create a fiure of your preferred size by <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code> function</p>
@@ -712,15 +782,15 @@ You can control the default font size by <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11e95d450&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11ced2210&gt;]
 </pre></div>
 </div>
-<img alt="_images/958681d750df76b5940f5fffc8d517481c653f512325cb5fd3a8248a92684bda.png" src="_images/958681d750df76b5940f5fffc8d517481c653f512325cb5fd3a8248a92684bda.png" />
+<img alt="_images/1d1e665f33ebf477b3c5c87aff8dfa83078c11687503f3c69495547d27c08398.png" src="_images/1d1e665f33ebf477b3c5c87aff8dfa83078c11687503f3c69495547d27c08398.png" />
 </div>
 </div>
 </section>
 <section id="bar-plot-and-histogram">
-<h2>Bar plot and histogram<a class="headerlink" href="#bar-plot-and-histogram" title="Permalink to this heading">#</a></h2>
+<h2>Bar plot and histogram<a class="headerlink" href="#bar-plot-and-histogram" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -733,7 +803,7 @@ You can control the default font size by <code class="docutils literal notransla
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 10 artists&gt;
 </pre></div>
 </div>
-<img alt="_images/816c13cd383e3d321a338f28d9d33301f140920a3b7b2bd28a2022b2d2f6da96.png" src="_images/816c13cd383e3d321a338f28d9d33301f140920a3b7b2bd28a2022b2d2f6da96.png" />
+<img alt="_images/25da95b4b1fd175e3c90f39095fb850f344172e5e0b537d1e7a21329eaa1807d.png" src="_images/25da95b4b1fd175e3c90f39095fb850f344172e5e0b537d1e7a21329eaa1807d.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">np.random.randn()</span></code> gives random numbers from the normal distribution</p>
@@ -745,14 +815,14 @@ You can control the default font size by <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([  2.,   2.,  26.,  61., 117., 117., 118.,  44.,  11.,   2.]),
- array([-3.72532545, -3.00287778, -2.28043011, -1.55798244, -0.83553476,
-        -0.11308709,  0.60936058,  1.33180825,  2.05425592,  2.7767036 ,
-         3.49915127]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([  3.,  10.,  31.,  66., 104., 129.,  88.,  44.,  20.,   5.]),
+ array([-3.36115163, -2.72542835, -2.08970507, -1.45398179, -0.81825851,
+        -0.18253523,  0.45318804,  1.08891132,  1.7246346 ,  2.36035788,
+         2.99608116]),
  &lt;BarContainer object of 10 artists&gt;)
 </pre></div>
 </div>
-<img alt="_images/f04943ead3b5e42e059c43932771a50506cfb9aecaf57bd43919a7fd3ffab663.png" src="_images/f04943ead3b5e42e059c43932771a50506cfb9aecaf57bd43919a7fd3ffab663.png" />
+<img alt="_images/d9617d12ebc3063a83e3fa50b153b6482f7ca948d8d2dc98d578056c0e8a38c7.png" src="_images/d9617d12ebc3063a83e3fa50b153b6482f7ca948d8d2dc98d578056c0e8a38c7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -762,22 +832,22 @@ You can control the default font size by <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 1.,  1.,  0.,  2., 11., 15., 18., 43., 56., 61., 57., 60., 63.,
-        55., 28., 16.,  8.,  3.,  1.,  1.]),
- array([-3.72532545, -3.36410162, -3.00287778, -2.64165394, -2.28043011,
-        -1.91920627, -1.55798244, -1.1967586 , -0.83553476, -0.47431093,
-        -0.11308709,  0.24813674,  0.60936058,  0.97058442,  1.33180825,
-         1.69303209,  2.05425592,  2.41547976,  2.7767036 ,  3.13792743,
-         3.49915127]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 2.,  1.,  2.,  8., 11., 20., 21., 45., 48., 56., 59., 70., 49.,
+        39., 31., 13., 16.,  4.,  2.,  3.]),
+ array([-3.36115163, -3.04328999, -2.72542835, -2.40756671, -2.08970507,
+        -1.77184343, -1.45398179, -1.13612015, -0.81825851, -0.50039687,
+        -0.18253523,  0.13532641,  0.45318804,  0.77104968,  1.08891132,
+         1.40677296,  1.7246346 ,  2.04249624,  2.36035788,  2.67821952,
+         2.99608116]),
  &lt;BarContainer object of 20 artists&gt;)
 </pre></div>
 </div>
-<img alt="_images/76a7e58978cefdf243ded3fe1726c7ee64d00b7acd23a40233730e6057cbe4e4.png" src="_images/76a7e58978cefdf243ded3fe1726c7ee64d00b7acd23a40233730e6057cbe4e4.png" />
+<img alt="_images/19a44eaf37e816084e53ebf9bcfe907fcdf0541d8e97368158b2d161d2e052be.png" src="_images/19a44eaf37e816084e53ebf9bcfe907fcdf0541d8e97368158b2d161d2e052be.png" />
 </div>
 </div>
 </section>
 <section id="subplot-and-axes">
-<h2>Subplot and axes<a class="headerlink" href="#subplot-and-axes" title="Permalink to this heading">#</a></h2>
+<h2>Subplot and axes<a class="headerlink" href="#subplot-and-axes" title="Link to this heading">#</a></h2>
 <p>You can create multiple <em>axes</em> in a figure by subplot(rows, columns, index).<br />
 It uses a MATLAB legacy for index starting from 1.</p>
 <p><code class="docutils literal notranslate"><span class="pre">plt.tight_layout()</span></code> adjusts the space between axes.</p>
@@ -800,12 +870,12 @@ It uses a MATLAB legacy for index starting from 1.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a58eb9d988df934068e33d67a911440e930f4db6b644384e14a37d82c221f774.png" src="_images/a58eb9d988df934068e33d67a911440e930f4db6b644384e14a37d82c221f774.png" />
+<img alt="_images/134a48f2cb9042c0f5d54b8c16e8230054bbafe18c3f0189d1c96fe8d899c275.png" src="_images/134a48f2cb9042c0f5d54b8c16e8230054bbafe18c3f0189d1c96fe8d899c275.png" />
 </div>
 </div>
 </section>
 <section id="figure-and-axes">
-<h2>Figure and axes<a class="headerlink" href="#figure-and-axes" title="Permalink to this heading">#</a></h2>
+<h2>Figure and axes<a class="headerlink" href="#figure-and-axes" title="Link to this heading">#</a></h2>
 <p>When you make a plot, matplotlib creates a <em>figure</em> object with an <em>axes</em> object.<br />
 You can use <code class="docutils literal notranslate"><span class="pre">gcf()</span></code> and <code class="docutils literal notranslate"><span class="pre">gca()</span></code> to identify them and <code class="docutils literal notranslate"><span class="pre">getp()</span></code> and <code class="docutils literal notranslate"><span class="pre">setp()</span></code> to access their parameters.</p>
 <div class="cell docutils container">
@@ -821,13 +891,13 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     alpha = None
     animated = False
     axes = [&lt;Axes: &gt;]
-    children = [&lt;matplotlib.patches.Rectangle object at 0x11eae13...
+    children = [&lt;matplotlib.patches.Rectangle object at 0x12abcc1...
     clip_box = None
     clip_on = True
     clip_path = None
     constrained_layout = False
     constrained_layout_pads = (None, None, None, None)
-    default_bbox_extra_artists = [&lt;Axes: &gt;, &lt;matplotlib.spines.Spine object at 0x11...
+    default_bbox_extra_artists = [&lt;Axes: &gt;, &lt;matplotlib.spines.Spine object at 0x12...
     dpi = 100.0
     edgecolor = (1.0, 1.0, 1.0, 1.0)
     facecolor = (1.0, 1.0, 1.0, 1.0)
@@ -860,7 +930,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     zorder = 0
 </pre></div>
 </div>
-<img alt="_images/8d154528161b3c0b957f99b7d787247a09c11e737dd461cf1439f466e5076091.png" src="_images/8d154528161b3c0b957f99b7d787247a09c11e737dd461cf1439f466e5076091.png" />
+<img alt="_images/e6c7edbf7a3056a0e4b46ddc08fcec0ab60bc54e44f40f42034d2d58acfc8454.png" src="_images/e6c7edbf7a3056a0e4b46ddc08fcec0ab60bc54e44f40f42034d2d58acfc8454.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -875,7 +945,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[None, None]
 </pre></div>
 </div>
-<img alt="_images/3188cf0566e9bf76fa0c0edefea40fdc26c92b4449464aee7e7abb7f886d08f5.png" src="_images/3188cf0566e9bf76fa0c0edefea40fdc26c92b4449464aee7e7abb7f886d08f5.png" />
+<img alt="_images/5d253125e5e660cedd452d84370707977830715387e22888b28039abebbc0bea.png" src="_images/5d253125e5e660cedd452d84370707977830715387e22888b28039abebbc0bea.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -900,14 +970,15 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     axes_locator = None
     axisbelow = line
     box_aspect = None
-    children = [&lt;matplotlib.lines.Line2D object at 0x11ec8e250&gt;, ...
+    children = [&lt;matplotlib.lines.Line2D object at 0x12ab33390&gt;, ...
     clip_box = None
     clip_on = True
     clip_path = None
     data_ratio = 1.3355391378951056
-    default_bbox_extra_artists = [&lt;matplotlib.spines.Spine object at 0x11ec800d0&gt;, ...
+    default_bbox_extra_artists = [&lt;matplotlib.spines.Spine object at 0x12ab30410&gt;, ...
     facecolor or fc = (1.0, 1.0, 1.0, 1.0)
     figure = Figure(640x480)
+    forward_navigation_events = auto
     frame_on = True
     gid = None
     gridspec = GridSpec(1, 1)
@@ -925,8 +996,8 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     position = Bbox(x0=0.125, y0=0.10999999999999999, x1=0.9, y1=...
     rasterization_zorder = None
     rasterized = False
-    shared_x_axes = &lt;matplotlib.cbook.GrouperView object at 0x11ec29bd...
-    shared_y_axes = &lt;matplotlib.cbook.GrouperView object at 0x11ecb06d...
+    shared_x_axes = &lt;matplotlib.cbook.GrouperView object at 0x11a8afcb...
+    shared_y_axes = &lt;matplotlib.cbook.GrouperView object at 0x12ab334d...
     sketch_params = None
     snap = None
     subplotspec = GridSpec(1, 1)[0:1, 0:1]
@@ -939,11 +1010,12 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     window_extent = TransformedBbox(     Bbox(x0=0.125, y0=0.109999999...
     xaxis = XAxis(80.0,52.8)
     xaxis_transform = BlendedGenericTransform(     CompositeGenericTrans...
-    xbound = (-0.5, 10.5)
+    xbound = (np.float64(-0.5), np.float64(10.5))
     xgridlines = &lt;a list of 7 Line2D gridline objects&gt;
     xlabel = 
-    xlim = (-0.5, 10.5)
+    xlim = (np.float64(-0.5), np.float64(10.5))
     xmajorticklabels = [Text(-2.5, 0, &#39;−2.5&#39;), Text(0.0, 0, &#39;0.0&#39;), Text(...
+    xmargin = 0.05
     xminorticklabels = []
     xscale = linear
     xticklabels = [Text(-2.5, 0, &#39;−2.5&#39;), Text(0.0, 0, &#39;0.0&#39;), Text(...
@@ -951,11 +1023,12 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     xticks = [-2.5  0.   2.5  5.   7.5 10. ]...
     yaxis = YAxis(80.0,52.8)
     yaxis_transform = BlendedGenericTransform(     BboxTransformTo(     ...
-    ybound = (-6.10798067784125, 8.582949839004911)
+    ybound = (np.float64(-6.10798067784125), np.float64(8.58294...
     ygridlines = &lt;a list of 8 Line2D gridline objects&gt;
     ylabel = 
-    ylim = (-6.10798067784125, 8.582949839004911)
+    ylim = (np.float64(-6.10798067784125), np.float64(8.58294...
     ymajorticklabels = [Text(0, -7.5, &#39;−7.5&#39;), Text(0, -5.0, &#39;−5.0&#39;), Tex...
+    ymargin = 0.05
     yminorticklabels = []
     yscale = linear
     yticklabels = [Text(0, -7.5, &#39;−7.5&#39;), Text(0, -5.0, &#39;−5.0&#39;), Tex...
@@ -967,12 +1040,12 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[None]
 </pre></div>
 </div>
-<img alt="_images/04b04b3d3ede0c2ddfa1782ff1511fba1e4f54d9450847cc7cb5343d8a47c982.png" src="_images/04b04b3d3ede0c2ddfa1782ff1511fba1e4f54d9450847cc7cb5343d8a47c982.png" />
+<img alt="_images/180ca853af7bddaf629245df653dade233aa1521175ad0d7d3cba40f59d021f3.png" src="_images/180ca853af7bddaf629245df653dade233aa1521175ad0d7d3cba40f59d021f3.png" />
 </div>
 </div>
 </section>
 <section id="visualizing-data-in-2d">
-<h2>Visualizing data in 2D<a class="headerlink" href="#visualizing-data-in-2d" title="Permalink to this heading">#</a></h2>
+<h2>Visualizing data in 2D<a class="headerlink" href="#visualizing-data-in-2d" title="Link to this heading">#</a></h2>
 <p>A standard way for visualizing pariwise data is a scatter plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -984,10 +1057,10 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11ece7710&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12abf4a50&gt;]
 </pre></div>
 </div>
-<img alt="_images/3b3812b5c80c1f6b7666855b92a25477a5489d4c741bee7d7ea091985a67ad1b.png" src="_images/3b3812b5c80c1f6b7666855b92a25477a5489d4c741bee7d7ea091985a67ad1b.png" />
+<img alt="_images/4c50eccb3b9f104776ae48b1b618dd5fc8741826f943d8249d2a0ddf332817eb.png" src="_images/4c50eccb3b9f104776ae48b1b618dd5fc8741826f943d8249d2a0ddf332817eb.png" />
 </div>
 </div>
 <p>By <code class="docutils literal notranslate"><span class="pre">scatterplot(</span> <span class="pre">)</span></code> you can specify the size and the color of each point to visualize higher dimension information.</p>
@@ -1002,15 +1075,15 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x11ed023d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x12ac9c050&gt;
 </pre></div>
 </div>
-<img alt="_images/ecc3a872c28719c9ad32b1ca35165a2cdfac235c362c392c4b653d49385715d4.png" src="_images/ecc3a872c28719c9ad32b1ca35165a2cdfac235c362c392c4b653d49385715d4.png" />
+<img alt="_images/cb332213bdda7c85bbecdbe3e2d9031591cacdd73321ab3dcbd5191aaf84a1e4.png" src="_images/cb332213bdda7c85bbecdbe3e2d9031591cacdd73321ab3dcbd5191aaf84a1e4.png" />
 </div>
 </div>
 </section>
 <section id="visualizing-a-matrix-or-a-function-in-2d-space">
-<h2>Visualizing a matrix or a function in 2D space<a class="headerlink" href="#visualizing-a-matrix-or-a-function-in-2d-space" title="Permalink to this heading">#</a></h2>
+<h2>Visualizing a matrix or a function in 2D space<a class="headerlink" href="#visualizing-a-matrix-or-a-function-in-2d-space" title="Link to this heading">#</a></h2>
 <p>meshgrid() is for preparing x and y values in a grid.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1060,10 +1133,10 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
  [ 48.  27.  12.   3.   0.   3.  12.  27.  48.]]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x11ee2c4d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x12ac9c830&gt;
 </pre></div>
 </div>
-<img alt="_images/6ce619bfce973c399799cc1144f753979e5615f212f90e1152e93aea41859553.png" src="_images/6ce619bfce973c399799cc1144f753979e5615f212f90e1152e93aea41859553.png" />
+<img alt="_images/e49694ec6546992a28cf9f62754e4a2da213b5d64f7be5039c93f60e349d6b50.png" src="_images/e49694ec6546992a28cf9f62754e4a2da213b5d64f7be5039c93f60e349d6b50.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1075,14 +1148,14 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x11eea1d90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x12ad86990&gt;
 </pre></div>
 </div>
-<img alt="_images/00804c93abf1fd094d5ad4be4b7a8ba2880682213ef9e3520abc74b222db4247.png" src="_images/00804c93abf1fd094d5ad4be4b7a8ba2880682213ef9e3520abc74b222db4247.png" />
+<img alt="_images/cc53d162ffc2ac26e7606c98a5ceb2389917232038db579a184f9e1dde5d8c62.png" src="_images/cc53d162ffc2ac26e7606c98a5ceb2389917232038db579a184f9e1dde5d8c62.png" />
 </div>
 </div>
 <section id="color-maps">
-<h3>color maps<a class="headerlink" href="#color-maps" title="Permalink to this heading">#</a></h3>
+<h3>color maps<a class="headerlink" href="#color-maps" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">imshow(</span> <span class="pre">)</span></code> maps a scalar Z value to color by a colormap. The standard color map <em>viridis</em> is friedly to color blindness and monochrome printing. You can also choose other color maps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1091,15 +1164,15 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x11ef2f090&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x12b618f50&gt;
 </pre></div>
 </div>
-<img alt="_images/b42107ed54db8ebaab8d90d5219004ceadcb0fd8545c0ed3c68878afe4bb428d.png" src="_images/b42107ed54db8ebaab8d90d5219004ceadcb0fd8545c0ed3c68878afe4bb428d.png" />
+<img alt="_images/526a6e9f3a7e6f020e5dccfb81916c0d7184207366c301ff7566af4f699dd0ee.png" src="_images/526a6e9f3a7e6f020e5dccfb81916c0d7184207366c301ff7566af4f699dd0ee.png" />
 </div>
 </div>
 </section>
 <section id="contour-plot">
-<h3>contour plot<a class="headerlink" href="#contour-plot" title="Permalink to this heading">#</a></h3>
+<h3>contour plot<a class="headerlink" href="#contour-plot" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
@@ -1112,15 +1185,15 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-4.0, 4.0, -4.0, 4.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(-4.0), np.float64(4.0), np.float64(-4.0), np.float64(4.0))
 </pre></div>
 </div>
-<img alt="_images/3bed4746071c469ea82c998be675ffcdb73cbba798106df4c7db42e16644e761.png" src="_images/3bed4746071c469ea82c998be675ffcdb73cbba798106df4c7db42e16644e761.png" />
+<img alt="_images/98355702d677cf3d4713f546ba3ddcf7c5a6a365c2093565ea52148e161e9c75.png" src="_images/98355702d677cf3d4713f546ba3ddcf7c5a6a365c2093565ea52148e161e9c75.png" />
 </div>
 </div>
 </section>
 <section id="vector-field-by-quiver">
-<h3>vector field by <code class="docutils literal notranslate"><span class="pre">quiver(</span> <span class="pre">)</span></code><a class="headerlink" href="#vector-field-by-quiver" title="Permalink to this heading">#</a></h3>
+<h3>vector field by <code class="docutils literal notranslate"><span class="pre">quiver(</span> <span class="pre">)</span></code><a class="headerlink" href="#vector-field-by-quiver" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
@@ -1135,16 +1208,16 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x11edd1390&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x12ac9d010&gt;
 </pre></div>
 </div>
-<img alt="_images/0506ad1fedc467a7d4584dbb66ae00da58aeef40bbd0ff10daf12a5bd34fefee.png" src="_images/0506ad1fedc467a7d4584dbb66ae00da58aeef40bbd0ff10daf12a5bd34fefee.png" />
+<img alt="_images/29b6dd921256386b4039dfdeb4f2dc076b3f2953f194b22035a2d6279d2556fc.png" src="_images/29b6dd921256386b4039dfdeb4f2dc076b3f2953f194b22035a2d6279d2556fc.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="saving-the-image">
-<h2>Saving the image<a class="headerlink" href="#saving-the-image" title="Permalink to this heading">#</a></h2>
+<h2>Saving the image<a class="headerlink" href="#saving-the-image" title="Link to this heading">#</a></h2>
 <p>You can save a plot as a <code class="docutils literal notranslate"><span class="pre">.png</span></code> file by right-clicking it and choosing a pop-up menu like “save image as …” by the browser.</p>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function to save it in other formats.</p>
 <div class="cell docutils container">
@@ -1159,7 +1232,7 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/99feb11c07f06b94413f3c5d86f0999fda1235fd4df3fbf424c7533454963bf2.png" src="_images/99feb11c07f06b94413f3c5d86f0999fda1235fd4df3fbf424c7533454963bf2.png" />
+<img alt="_images/5fe77abbbff05f3fc12263bef4dedb70966b9d707c3ae0e63428932c2ca4129c.png" src="_images/5fe77abbbff05f3fc12263bef4dedb70966b9d707c3ae0e63428932c2ca4129c.png" />
 </div>
 </div>
 <div class="cell docutils container">

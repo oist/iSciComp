@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>5. Iterative Computation: Exercise Solutions &#8212; Introduction to Scientific Computing</title>
   
@@ -29,35 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '05_Iteration_Sol';</script>
@@ -184,6 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
 </ul>
 </details></li>
@@ -281,6 +281,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/05_Iteration_Sol.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/05_Iteration_Sol.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -403,7 +467,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="iterative-computation-exercise-solutions">
-<h1>5. Iterative Computation: Exercise Solutions<a class="headerlink" href="#iterative-computation-exercise-solutions" title="Permalink to this heading">#</a></h1>
+<h1>5. Iterative Computation: Exercise Solutions<a class="headerlink" href="#iterative-computation-exercise-solutions" title="Link to this heading">#</a></h1>
 <div class="math notranslate nohighlight">
 \[ % Latex macros
 \newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
@@ -415,15 +479,15 @@ document.write(`
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
 </div>
 <section id="newton-s-method-in-n-dimension">
-<h2>1. Newton’s method in n dimension<a class="headerlink" href="#newton-s-method-in-n-dimension" title="Permalink to this heading">#</a></h2>
+<h2>1. Newton’s method in n dimension<a class="headerlink" href="#newton-s-method-in-n-dimension" title="Link to this heading">#</a></h2>
 <p>Newton’s method can be generalized for <span class="math notranslate nohighlight">\(n\)</span> dimensional vector <span class="math notranslate nohighlight">\(x \in \Re^n\)</span> and <span class="math notranslate nohighlight">\(n\)</span> dimensional function <span class="math notranslate nohighlight">\(f(x)={\bf0} \in \Re^n\)</span> as
 $<span class="math notranslate nohighlight">\( x_{k+1} = x_k - J(x_k)^{-1}f(x_k) \)</span><span class="math notranslate nohighlight">\(
 where \)</span>J(x)<span class="math notranslate nohighlight">\( is the *Jacobian matrix*
@@ -440,7 +504,7 @@ and its Jacobian.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">deriv</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">deriv</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;y[0] = a[0] + a[1]*x[0]**2 + a[2]*x[1]**2\\</span>
 <span class="sd">    y[1] = b[0] + b[1]*x[0] + b[2]*x[1]</span>
 <span class="sd">    also return the Jacobian if derive==True&quot;&quot;&quot;</span>
@@ -503,7 +567,7 @@ and its Jacobian.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4e0a14c9c99ddd6a5c8657fa8106eb57e4a3a8fd9e1e136229b6538a3284212d.png" src="_images/4e0a14c9c99ddd6a5c8657fa8106eb57e4a3a8fd9e1e136229b6538a3284212d.png" />
+<img alt="_images/d021e1d3b68a8c3c9be583debc1bd4bc6b6b9192683580313ea05a416477e236.png" src="_images/d021e1d3b68a8c3c9be583debc1bd4bc6b6b9192683580313ea05a416477e236.png" />
 </div>
 </div>
 <ol class="arabic simple" start="3">
@@ -511,7 +575,7 @@ and its Jacobian.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">maxstep</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">maxstep</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Newton&#39;s method. </span>
 <span class="sd">        f: should also return Jacobian matrix</span>
 <span class="sd">        x0: initial guess</span>
@@ -593,12 +657,12 @@ and its Jacobian.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f68923053d426ecd9b93bac28b22d94c5c58a0ff1c9989aa4637b4c6ee8d4802.png" src="_images/f68923053d426ecd9b93bac28b22d94c5c58a0ff1c9989aa4637b4c6ee8d4802.png" />
+<img alt="_images/4a0202a75503850392ab85fd1d00c488cab6348816d5c75ab43608e8155bc18a.png" src="_images/4a0202a75503850392ab85fd1d00c488cab6348816d5c75ab43608e8155bc18a.png" />
 </div>
 </div>
 </section>
 <section id="bifurcation-and-chaos">
-<h2>2. Bifurcation and Chaos<a class="headerlink" href="#bifurcation-and-chaos" title="Permalink to this heading">#</a></h2>
+<h2>2. Bifurcation and Chaos<a class="headerlink" href="#bifurcation-and-chaos" title="Link to this heading">#</a></h2>
 <p>A value of <span class="math notranslate nohighlight">\(x_k\)</span> that stays unchanged after applying a map <span class="math notranslate nohighlight">\(f\)</span> to it (i.e. <span class="math notranslate nohighlight">\(x_k = f(x_k) = x_{k+1}\)</span>) is called a “fixed point” of <span class="math notranslate nohighlight">\(f\)</span>.</p>
 <p>Let us consider the logistic map
 $<span class="math notranslate nohighlight">\( x_{k+1} = a x_k(1 - x_k) \)</span>$</p>
@@ -608,7 +672,7 @@ $<span class="math notranslate nohighlight">\( x_{k+1} = a x_k(1 - x_k) \)</span
 <p>What are the fixed points of these maps?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">logistic</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">logistic</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;logistic map: f(x) = a*x*(1-x)&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
@@ -633,7 +697,7 @@ $<span class="math notranslate nohighlight">\( x_{k+1} = a x_k(1 - x_k) \)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5241ede9b2d0085fb4e38c33d32ea6b70a2440be4e4ddc44bb23ed1f5a0d58d3.png" src="_images/5241ede9b2d0085fb4e38c33d32ea6b70a2440be4e4ddc44bb23ed1f5a0d58d3.png" />
+<img alt="_images/b34dd373037d2ea503be95a81afbe1343af3092467a36fdd35db2753c43215e2.png" src="_images/b34dd373037d2ea503be95a81afbe1343af3092467a36fdd35db2753c43215e2.png" />
 </div>
 </div>
 <p>From <span class="math notranslate nohighlight">\( x = a x(1 - x) \)</span>, we have <span class="math notranslate nohighlight">\( x(a - 1 - ax) = 0 \)</span>, so the fixed points are
@@ -642,7 +706,7 @@ and the derivative \)</span>f’(x)=a(1 - 2x)<span class="math notranslate nohig
 \)</span><span class="math notranslate nohighlight">\( x = a, 2-a.\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">logistic_fp</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">logistic_fp</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;fixed points and derivatives&quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">a</span>
     <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">:</span>
@@ -677,7 +741,7 @@ Try several different initial values of <span class="math notranslate nohighligh
 <p>How is the stability related to the slope (derivative) of <span class="math notranslate nohighlight">\(f(x_k)=ax_k(1-x_k)\)</span> at the fixed point?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">iterate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">iterate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;x0: initial value</span>
 <span class="sd">        a: parameter to f(x,a)&quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -691,7 +755,7 @@ Try several different initial values of <span class="math notranslate nohighligh
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cobsplot</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cobsplot</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;cobsplot of trajectory x&quot;&quot;&quot;</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># x=f(x) line</span>
     <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># duplicate items</span>
@@ -717,7 +781,7 @@ Try several different initial values of <span class="math notranslate nohighligh
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/dc3c7ffd6a6cf026c3229dd900db00a8bfcee2bd7f9d8d82a91128c5929cfc74.png" src="_images/dc3c7ffd6a6cf026c3229dd900db00a8bfcee2bd7f9d8d82a91128c5929cfc74.png" />
+<img alt="_images/60f171e926e5039ec784ed2441baf8148c0ec70b7a2c169c12a16de84ede8004.png" src="_images/60f171e926e5039ec784ed2441baf8148c0ec70b7a2c169c12a16de84ede8004.png" />
 </div>
 </div>
 <ul class="simple">
@@ -734,7 +798,7 @@ Try several different initial values of <span class="math notranslate nohighligh
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3c4f3f9324d46cf427355713a3ec2db8711ed4679ab7e1bce31376773cddfa93.png" src="_images/3c4f3f9324d46cf427355713a3ec2db8711ed4679ab7e1bce31376773cddfa93.png" />
+<img alt="_images/fb07054ceb7fd7008c19b5015634c68332cf51379992cb0e613d42277dc89328.png" src="_images/fb07054ceb7fd7008c19b5015634c68332cf51379992cb0e613d42277dc89328.png" />
 </div>
 </div>
 <ul class="simple">
@@ -751,7 +815,7 @@ Try several different initial values of <span class="math notranslate nohighligh
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1f532602b5903d3f633ae3eda800d84c440f7dd5d7a05a9f1e93dd0e6580188e.png" src="_images/1f532602b5903d3f633ae3eda800d84c440f7dd5d7a05a9f1e93dd0e6580188e.png" />
+<img alt="_images/06d9acb1584b17081a4a319909b47a16da4357b9f2c2cfee41d265c06471d509.png" src="_images/06d9acb1584b17081a4a319909b47a16da4357b9f2c2cfee41d265c06471d509.png" />
 </div>
 </div>
 <p>The fixed point is stable if the gradient at the fixped point is <span class="math notranslate nohighlight">\(|f'(x)|&lt;1\)</span>.</p>
@@ -780,17 +844,17 @@ draw the bifurcation diagram for parameter <span class="math notranslate nohighl
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/67a2fe3bf91d9a3adf947a8c1968b85c8de817c186f0961ce2b99dac25c2f91d.png" src="_images/67a2fe3bf91d9a3adf947a8c1968b85c8de817c186f0961ce2b99dac25c2f91d.png" />
+<img alt="_images/49f22e4316a9fa3a0999bcc43610e67d17945058f14c7cd36005346490678628.png" src="_images/49f22e4316a9fa3a0999bcc43610e67d17945058f14c7cd36005346490678628.png" />
 </div>
 </div>
 </section>
 <section id="recursive-call-and-fractal">
-<h2>3. Recursive call and fractal<a class="headerlink" href="#recursive-call-and-fractal" title="Permalink to this heading">#</a></h2>
+<h2>3. Recursive call and fractal<a class="headerlink" href="#recursive-call-and-fractal" title="Link to this heading">#</a></h2>
 <p>Draw the Sherpinski gasket as below.</p>
 <p><img alt="shelpinski" src="_images/shelpinski.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">shelpinsky</span><span class="p">(</span><span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">shelpinsky</span><span class="p">(</span><span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;draw a Shelpinsky gasket</span>
 <span class="sd">    x0, x1: left, right corners</span>
 <span class="sd">    y: base height</span>
@@ -816,7 +880,7 @@ draw the bifurcation diagram for parameter <span class="math notranslate nohighl
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0b5b6d4a9f6418a59e9a1b39f704da1a11f7a06d09edec94bc67cf84fcb05267.png" src="_images/0b5b6d4a9f6418a59e9a1b39f704da1a11f7a06d09edec94bc67cf84fcb05267.png" />
+<img alt="_images/5f3a5f5e6c7cc3eb03fdd35b31d4b8a4d19e47770f591475ad6557ea92829b8b.png" src="_images/5f3a5f5e6c7cc3eb03fdd35b31d4b8a4d19e47770f591475ad6557ea92829b8b.png" />
 </div>
 </div>
 </section>
