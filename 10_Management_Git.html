@@ -566,7 +566,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b6920a87e12a3d8c935843cdb4f0a1e1b98660535ef7a0cf81721b22ac29e39b.png" src="_images/b6920a87e12a3d8c935843cdb4f0a1e1b98660535ef7a0cf81721b22ac29e39b.png" />
+<img alt="_images/aca8385273c4e0ae86705b53e1daef88f92e5fd9700240b4dcd4ebdfb4a9c5e6.png" src="_images/aca8385273c4e0ae86705b53e1daef88f92e5fd9700240b4dcd4ebdfb4a9c5e6.png" />
 </div>
 </div>
 <p>Now we create a new repository.</p>
@@ -590,7 +590,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">.</span>/           <span class=" -Color -Color-Blue">..</span>/          <span class=" -Color -Color-Blue">.git</span>/        <span class=" -Color -Color-Blue">__pycache__</span>/ cell.py      gcell.py
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">__pycache__</span>/ <span class=" -Color -Color-Blue">.</span>/           <span class=" -Color -Color-Blue">..</span>/          <span class=" -Color -Color-Blue">.git</span>/        cell.py      gcell.py
 </pre></div>
 </div>
 </div>
@@ -603,9 +603,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AUTO_MERGE      MERGE_HEAD      ORIG_HEAD       <span class=" -Color -Color-Blue">hooks</span>/          <span class=" -Color -Color-Blue">logs</span>/
-COMMIT_EDITMSG  MERGE_MODE      config          index           <span class=" -Color -Color-Blue">objects</span>/
-HEAD            MERGE_MSG       description     <span class=" -Color -Color-Blue">info</span>/           <span class=" -Color -Color-Blue">refs</span>/
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>COMMIT_EDITMSG  HEAD            <span class=" -Color -Color-Blue">info</span>/           ORIG_HEAD
+config          <span class=" -Color -Color-Blue">hooks</span>/          <span class=" -Color -Color-Blue">logs</span>/           <span class=" -Color -Color-Blue">refs</span>/
+description     index           <span class=" -Color -Color-Blue">objects</span>/
 </pre></div>
 </div>
 </div>
@@ -619,15 +619,16 @@ HEAD            MERGE_MSG       description     <span class=" -Color -Color-Blue
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch main
-All conflicts fixed but you are still merging.
-  (use &quot;git commit&quot; to conclude merge)
-
-Changes to be committed:
-	<span class=" -Color -Color-Green">modified:   gcell.py</span>
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+	<span class=" -Color -Color-Red">modified:   cell.py</span>
 
 Untracked files:
   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
 	<span class=" -Color -Color-Red">__pycache__/</span>
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
 </pre></div>
 </div>
 </div>
@@ -647,11 +648,9 @@ Untracked files:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch main
-All conflicts fixed but you are still merging.
-  (use &quot;git commit&quot; to conclude merge)
-
 Changes to be committed:
-	<span class=" -Color -Color-Green">modified:   gcell.py</span>
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+	<span class=" -Color -Color-Green">modified:   cell.py</span>
 
 Untracked files:
   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
@@ -669,8 +668,8 @@ Untracked files:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[main ff72690] initial version
- Committer: Kenji Doya &lt;doya@starfishM4.local&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[main 8ad5cf6] initial version
+ Committer: Kenji Doya &lt;doya@starfishM4-4.local&gt;
 Your name and email address were configured automatically based
 on your username and hostname. Please check that they are accurate.
 You can suppress this message by setting them explicitly. Run the
@@ -682,6 +681,8 @@ your configuration file:
 After doing this, you may fix the identity used for this commit with:
 
     git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch main
@@ -770,12 +771,25 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">commit ff72690d9950381e4171528c547c364659c70875 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
-Merge: 6dc49e0 86d9170
-Author: Kenji Doya &lt;doya@starfishM4.local&gt;
-Date:   Sat Mar 29 07:18:35 2025 +0900
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">commit 8ad5cf6b1faf65d78b248c78171ac979e17106b6 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
+Author: Kenji Doya &lt;doya@starfishM4-4.local&gt;
+Date:   Wed May 6 19:09:18 2026 +0900
 
     initial version
+
+<span class=" -Color -Color-Bold">diff --git a/cell.py b/cell.py</span>
+<span class=" -Color -Color-Bold">index f888369..807fa64 100644</span>
+<span class=" -Color -Color-Bold">--- a/cell.py</span>
+<span class=" -Color -Color-Bold">+++ b/cell.py</span>
+<span class=" -Color -Color-Cyan">@@ -11,7 +11,7 @@</span> class Cell:
+         self.position = np.array(position)
+         self.radius = radius
+         self.color = color
+<span class=" -Color -Color-Red">-</span>
+<span class=" -Color -Color-Green">+</span><span class=" -Color -Color-BGRed">     </span>
+     def show(self):
+         &quot;&quot;&quot;Visualize as a circule&quot;&quot;&quot;
+         c = plt.Circle(self.position,self.radius,color=self.color)
 </pre></div>
 </div>
 </div>
@@ -788,7 +802,13 @@ Date:   Sat Mar 29 07:18:35 2025 +0900
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">commit ff72690d9950381e4171528c547c364659c70875 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">commit 8ad5cf6b1faf65d78b248c78171ac979e17106b6 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
+Author: Kenji Doya &lt;doya@starfishM4-4.local&gt;
+Date:   Wed May 6 19:09:18 2026 +0900
+
+    initial version
+
+<span class=" -Color -Color-Yellow">commit ff72690d9950381e4171528c547c364659c70875</span>
 Merge: 6dc49e0 86d9170
 Author: Kenji Doya &lt;doya@starfishM4.local&gt;
 Date:   Sat Mar 29 07:18:35 2025 +0900
@@ -929,7 +949,7 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fcbf868d11c34aa74b61f22840adfe07cb01419a80faf8ef08b4c12c0eac0592.png" src="_images/fcbf868d11c34aa74b61f22840adfe07cb01419a80faf8ef08b4c12c0eac0592.png" />
+<img alt="_images/5c1d8b098173a8151e35f09f27159febfc2cd1cf21557854cbda3fc240751786.png" src="_images/5c1d8b098173a8151e35f09f27159febfc2cd1cf21557854cbda3fc240751786.png" />
 </div>
 </div>
 <p>Then <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>.</p>
@@ -942,12 +962,21 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch myBranch
-Untracked files:
-  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-	<span class=" -Color -Color-Red">__pycache__/</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[myBranch 49dea46] added gcell.py
+ Committer: Kenji Doya &lt;doya@starfishM4-4.local&gt;
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
 
-nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch myBranch
@@ -967,27 +996,27 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">commit 86d9170fe5cf379ddec96cb0484854b3f047797f (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
-Author: Kenji Doya &lt;doya@starfishM4.local&gt;
-Date:   Sat Mar 29 03:20:18 2025 +0900
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">commit 49dea466a8005e5df185832e52913f4230e475c8 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
+Author: Kenji Doya &lt;doya@starfishM4-4.local&gt;
+Date:   Wed May 6 19:09:20 2026 +0900
 
     added gcell.py
 
 <span class=" -Color -Color-Bold">diff --git a/gcell.py b/gcell.py</span>
-<span class=" -Color -Color-Bold">index cd7b2a5..db1f7b9 100644</span>
+<span class=" -Color -Color-Bold">index db1f7b9..cd7b2a5 100644</span>
 <span class=" -Color -Color-Bold">--- a/gcell.py</span>
 <span class=" -Color -Color-Bold">+++ b/gcell.py</span>
 <span class=" -Color -Color-Cyan">@@ -6,11 +6,11 @@</span> import cell
  
  class gCell(cell.Cell):
      &quot;&quot;&quot;Class of growing cell based on Cell class&quot;&quot;&quot;
-<span class=" -Color -Color-Red">-    </span>
-<span class=" -Color -Color-Green">+</span>
+<span class=" -Color -Color-Red">-</span>
+<span class=" -Color -Color-Green">+</span><span class=" -Color -Color-BGRed">    </span>
      def grow(self, scale=2):
          &quot;&quot;&quot;Grow the area of the cell&quot;&quot;&quot;
          self.radius *= np.sqrt(scale)
-<span class=" -Color -Color-Red">-        </span>
-<span class=" -Color -Color-Green">+</span>
+<span class=" -Color -Color-Red">-</span>
+<span class=" -Color -Color-Green">+</span><span class=" -Color -Color-BGRed">        </span>
      def duplicate(self):
          &quot;&quot;&quot;Make a copy with a random shift&quot;&quot;&quot;
          c = gCell(self.position+np.random.randn(2)*self.radius, self.radius, self.color)
@@ -1002,31 +1031,43 @@ Date:   Sat Mar 29 03:20:18 2025 +0900
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*   <span class=" -Color -Color-Yellow">commit ff72690d9950381e4171528c547c364659c70875 (</span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
-<span class=" -Color -Color-Red">|</span><span class=" -Color -Color-Green">\</span>  Merge: 6dc49e0 86d9170
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Sat Mar 29 07:18:35 2025 +0900
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* <span class=" -Color -Color-Yellow">commit 49dea466a8005e5df185832e52913f4230e475c8 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
+<span class=" -Color -Color-Red">|</span> Author: Kenji Doya &lt;doya@starfishM4-4.local&gt;
+<span class=" -Color -Color-Red">|</span> Date:   Wed May 6 19:09:20 2026 +0900
+<span class=" -Color -Color-Red">|</span> 
+<span class=" -Color -Color-Red">|</span>     added gcell.py
+<span class=" -Color -Color-Red">|</span>   
+<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Yellow">commit 8ad5cf6b1faf65d78b248c78171ac979e17106b6 (</span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4-4.local&gt;
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Wed May 6 19:09:18 2026 +0900
 <span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
 <span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>     initial version
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
-<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Yellow">commit 86d9170fe5cf379ddec96cb0484854b3f047797f (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Sat Mar 29 03:20:18 2025 +0900
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>     added gcell.py
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
-* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">commit 6dc49e077609837209c57b8b52a58b36340f8250</span>
-<span class=" -Color -Color-Green">|/</span>  Author: Kenji Doya &lt;doya@starfishM4.local&gt;
-<span class=" -Color -Color-Green">|</span>   Date:   Sat Mar 29 03:20:16 2025 +0900
-<span class=" -Color -Color-Green">|</span>   
-<span class=" -Color -Color-Green">|</span>       initial version
-<span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>   
+<span class=" -Color -Color-Red">|</span> *   <span class=" -Color -Color-Yellow">commit ff72690d9950381e4171528c547c364659c70875</span>
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Red">\</span>  Merge: 6dc49e0 86d9170
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Red">/</span>  Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Red">|/</span><span class=" -Color -Color-Yellow">|</span>   Date:   Sat Mar 29 07:18:35 2025 +0900
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span>   
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span>       initial version
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span> 
+* <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">commit 86d9170fe5cf379ddec96cb0484854b3f047797f</span>
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span> Date:   Sat Mar 29 03:20:18 2025 +0900
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span> 
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span>     added gcell.py
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span> 
+<span class=" -Color -Color-Blue">|</span> * <span class=" -Color -Color-Yellow">commit 6dc49e077609837209c57b8b52a58b36340f8250</span>
+<span class=" -Color -Color-Blue">|/</span>  Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Blue">|</span>   Date:   Sat Mar 29 03:20:16 2025 +0900
+<span class=" -Color -Color-Blue">|</span>   
+<span class=" -Color -Color-Blue">|</span>       initial version
+<span class=" -Color -Color-Blue">|</span> 
 * <span class=" -Color -Color-Yellow">commit ada6e011b864c93c202a176b18ab3b01db8f4801</span>
-<span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@oist.jp&gt;
-<span class=" -Color -Color-Green">|</span> Date:   Mon Dec 16 14:54:00 2024 +0900
-<span class=" -Color -Color-Green">|</span> 
-<span class=" -Color -Color-Green">|</span>     added gcell.py
-<span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Blue">|</span> Author: Kenji Doya &lt;doya@oist.jp&gt;
+<span class=" -Color -Color-Blue">|</span> Date:   Mon Dec 16 14:54:00 2024 +0900
+<span class=" -Color -Color-Blue">|</span> 
+<span class=" -Color -Color-Blue">|</span>     added gcell.py
+<span class=" -Color -Color-Blue">|</span> 
 * <span class=" -Color -Color-Yellow">commit fba656aec31be16236f9de2b429e91fac5ef7b2a</span>
   Author: Kenji Doya &lt;doya@oist.jp&gt;
   Date:   Mon Dec 16 14:53:57 2024 +0900
@@ -1048,31 +1089,43 @@ Date:   Sat Mar 29 03:20:18 2025 +0900
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Switched to branch &#39;main&#39;
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*   <span class=" -Color -Color-Yellow">commit ff72690d9950381e4171528c547c364659c70875 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
-<span class=" -Color -Color-Red">|</span><span class=" -Color -Color-Green">\</span>  Merge: 6dc49e0 86d9170
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Sat Mar 29 07:18:35 2025 +0900
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* <span class=" -Color -Color-Yellow">commit 49dea466a8005e5df185832e52913f4230e475c8 (</span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
+<span class=" -Color -Color-Red">|</span> Author: Kenji Doya &lt;doya@starfishM4-4.local&gt;
+<span class=" -Color -Color-Red">|</span> Date:   Wed May 6 19:09:20 2026 +0900
+<span class=" -Color -Color-Red">|</span> 
+<span class=" -Color -Color-Red">|</span>     added gcell.py
+<span class=" -Color -Color-Red">|</span>   
+<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Yellow">commit 8ad5cf6b1faf65d78b248c78171ac979e17106b6 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4-4.local&gt;
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Wed May 6 19:09:18 2026 +0900
 <span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
 <span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>     initial version
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
-<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Yellow">commit 86d9170fe5cf379ddec96cb0484854b3f047797f (</span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Sat Mar 29 03:20:18 2025 +0900
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>     added gcell.py
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
-* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">commit 6dc49e077609837209c57b8b52a58b36340f8250</span>
-<span class=" -Color -Color-Green">|/</span>  Author: Kenji Doya &lt;doya@starfishM4.local&gt;
-<span class=" -Color -Color-Green">|</span>   Date:   Sat Mar 29 03:20:16 2025 +0900
-<span class=" -Color -Color-Green">|</span>   
-<span class=" -Color -Color-Green">|</span>       initial version
-<span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>   
+<span class=" -Color -Color-Red">|</span> *   <span class=" -Color -Color-Yellow">commit ff72690d9950381e4171528c547c364659c70875</span>
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Red">\</span>  Merge: 6dc49e0 86d9170
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Red">/</span>  Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Red">|/</span><span class=" -Color -Color-Yellow">|</span>   Date:   Sat Mar 29 07:18:35 2025 +0900
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span>   
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span>       initial version
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span> 
+* <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">commit 86d9170fe5cf379ddec96cb0484854b3f047797f</span>
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span> Date:   Sat Mar 29 03:20:18 2025 +0900
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span> 
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span>     added gcell.py
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span> 
+<span class=" -Color -Color-Blue">|</span> * <span class=" -Color -Color-Yellow">commit 6dc49e077609837209c57b8b52a58b36340f8250</span>
+<span class=" -Color -Color-Blue">|/</span>  Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Blue">|</span>   Date:   Sat Mar 29 03:20:16 2025 +0900
+<span class=" -Color -Color-Blue">|</span>   
+<span class=" -Color -Color-Blue">|</span>       initial version
+<span class=" -Color -Color-Blue">|</span> 
 * <span class=" -Color -Color-Yellow">commit ada6e011b864c93c202a176b18ab3b01db8f4801</span>
-<span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@oist.jp&gt;
-<span class=" -Color -Color-Green">|</span> Date:   Mon Dec 16 14:54:00 2024 +0900
-<span class=" -Color -Color-Green">|</span> 
-<span class=" -Color -Color-Green">|</span>     added gcell.py
-<span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Blue">|</span> Author: Kenji Doya &lt;doya@oist.jp&gt;
+<span class=" -Color -Color-Blue">|</span> Date:   Mon Dec 16 14:54:00 2024 +0900
+<span class=" -Color -Color-Blue">|</span> 
+<span class=" -Color -Color-Blue">|</span>     added gcell.py
+<span class=" -Color -Color-Blue">|</span> 
 * <span class=" -Color -Color-Yellow">commit fba656aec31be16236f9de2b429e91fac5ef7b2a</span>
   Author: Kenji Doya &lt;doya@oist.jp&gt;
   Date:   Mon Dec 16 14:53:57 2024 +0900
@@ -1116,34 +1169,57 @@ Date:   Sat Mar 29 03:20:18 2025 +0900
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Already up to date.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hint: Waiting for your editor to close the file... 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*   <span class=" -Color -Color-Yellow">commit ff72690d9950381e4171528c547c364659c70875 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
-<span class=" -Color -Color-Red">|</span><span class=" -Color -Color-Green">\</span>  Merge: 6dc49e0 86d9170
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Sat Mar 29 07:18:35 2025 +0900
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class="err"></span>7?47h&gt;4;2m?1h<span class="err"></span>=?2004h?1004h?12h?12l?25l&quot;~/OIST Dropbox/kenji doya/Python/iSciComp/cell/.git/MERGE_MSG&quot;
+&lt;ST Dropbox/kenji doya/Python/iSciComp/cell/.git/MERGE_MSG&quot; 6L, 250B▽  <span class="err"></span>Pzz<span class="err"></span>\0%m           &gt;c<span class="err"></span>]11;?<span class="err"></span>]10;?Merge branch &#39;myBranch&#39;
+# Please enter a commit message to explain why this merge is necessary,# especially if it merges an updated upstream into a topic branch.#
+# Lines starting with &#39;#&#39; will be ignored, and an empty message aborts
+# the commit.
+<span class=" -Color -Color-Bold -Color-Bold-Blue">~                                                                               ~                                                                               ~                                                                               ~                                                                               ~                                                                               ~                                                                               ~                                                                               ~                                                                               ~                                                                               ~                                                                               ~                                                                               ~                                                                               ~                                                                               ~                                                                               ~                                                                               ~                                                                               ~                                                                               ?25h?4m</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25lType  :qa  and press &lt;Enter&gt; to exit Vim?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* <span class=" -Color -Color-Yellow">commit 49dea466a8005e5df185832e52913f4230e475c8 (</span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
+<span class=" -Color -Color-Red">|</span> Author: Kenji Doya &lt;doya@starfishM4-4.local&gt;
+<span class=" -Color -Color-Red">|</span> Date:   Wed May 6 19:09:20 2026 +0900
+<span class=" -Color -Color-Red">|</span> 
+<span class=" -Color -Color-Red">|</span>     added gcell.py
+<span class=" -Color -Color-Red">|</span>   
+<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Yellow">commit 8ad5cf6b1faf65d78b248c78171ac979e17106b6 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">main</span><span class=" -Color -Color-Yellow">)</span>
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4-4.local&gt;
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Wed May 6 19:09:18 2026 +0900
 <span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
 <span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>     initial version
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
-<span class=" -Color -Color-Red">|</span> * <span class=" -Color -Color-Yellow">commit 86d9170fe5cf379ddec96cb0484854b3f047797f (</span><span class=" -Color -Color-Bold -Color-Bold-Green">myBranch</span><span class=" -Color -Color-Yellow">)</span>
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> Date:   Sat Mar 29 03:20:18 2025 +0900
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>     added gcell.py
-<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span> 
-* <span class=" -Color -Color-Green">|</span> <span class=" -Color -Color-Yellow">commit 6dc49e077609837209c57b8b52a58b36340f8250</span>
-<span class=" -Color -Color-Green">|/</span>  Author: Kenji Doya &lt;doya@starfishM4.local&gt;
-<span class=" -Color -Color-Green">|</span>   Date:   Sat Mar 29 03:20:16 2025 +0900
-<span class=" -Color -Color-Green">|</span>   
-<span class=" -Color -Color-Green">|</span>       initial version
-<span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Green">|</span>   
+<span class=" -Color -Color-Red">|</span> *   <span class=" -Color -Color-Yellow">commit ff72690d9950381e4171528c547c364659c70875</span>
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Red">\</span>  Merge: 6dc49e0 86d9170
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span><span class=" -Color -Color-Red">/</span>  Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Red">|/</span><span class=" -Color -Color-Yellow">|</span>   Date:   Sat Mar 29 07:18:35 2025 +0900
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span>   
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span>       initial version
+<span class=" -Color -Color-Red">|</span> <span class=" -Color -Color-Yellow">|</span> 
+* <span class=" -Color -Color-Yellow">|</span> <span class=" -Color -Color-Yellow">commit 86d9170fe5cf379ddec96cb0484854b3f047797f</span>
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span> Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span> Date:   Sat Mar 29 03:20:18 2025 +0900
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span> 
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span>     added gcell.py
+<span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Yellow">|</span> 
+<span class=" -Color -Color-Blue">|</span> * <span class=" -Color -Color-Yellow">commit 6dc49e077609837209c57b8b52a58b36340f8250</span>
+<span class=" -Color -Color-Blue">|/</span>  Author: Kenji Doya &lt;doya@starfishM4.local&gt;
+<span class=" -Color -Color-Blue">|</span>   Date:   Sat Mar 29 03:20:16 2025 +0900
+<span class=" -Color -Color-Blue">|</span>   
+<span class=" -Color -Color-Blue">|</span>       initial version
+<span class=" -Color -Color-Blue">|</span> 
 * <span class=" -Color -Color-Yellow">commit ada6e011b864c93c202a176b18ab3b01db8f4801</span>
-<span class=" -Color -Color-Green">|</span> Author: Kenji Doya &lt;doya@oist.jp&gt;
-<span class=" -Color -Color-Green">|</span> Date:   Mon Dec 16 14:54:00 2024 +0900
-<span class=" -Color -Color-Green">|</span> 
-<span class=" -Color -Color-Green">|</span>     added gcell.py
-<span class=" -Color -Color-Green">|</span> 
+<span class=" -Color -Color-Blue">|</span> Author: Kenji Doya &lt;doya@oist.jp&gt;
+<span class=" -Color -Color-Blue">|</span> Date:   Mon Dec 16 14:54:00 2024 +0900
+<span class=" -Color -Color-Blue">|</span> 
+<span class=" -Color -Color-Blue">|</span>     added gcell.py
+<span class=" -Color -Color-Blue">|</span> 
 * <span class=" -Color -Color-Yellow">commit fba656aec31be16236f9de2b429e91fac5ef7b2a</span>
   Author: Kenji Doya &lt;doya@oist.jp&gt;
   Date:   Mon Dec 16 14:53:57 2024 +0900
