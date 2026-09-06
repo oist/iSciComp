@@ -194,12 +194,12 @@
 <li class="toctree-l2"><a class="reference internal" href="02_Visualization_Ex.html">2. Visualization: Exercise</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="03_Matrix.html">3. Vectors and Matrices</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="03_Matrix_Ex.html">3. Vectors and Matrices: Exercise</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="03_Function.html">3. Functions and Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="03_Function_Ex.html">3. Functions and Classes: Exercise</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="04_Function.html">4. Functions and Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="04_Function_Ex.html">4. Functions and Classes: Exercise</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="04_Matrix.html">4. Vectors and Matrices</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="04_Matrix_Ex.html">4. Vectors and Matrices: Exercise</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="05_Iteration.html">5. Iterative Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -232,8 +232,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="Solutions.html">Sample Solutions of Exercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="01_Introduction_Sol.html">1. Introduction to Python: Exercise Solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_Visualization_Sol.html">2. Visualization: Exercise Solutions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_Matrix_Sol.html">3. Vectors and Matrices: Exercise Solutions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_Function_Sol.html">4. Functions and Classes: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_Function_Sol.html">3. Functions and Classes: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_Matrix_Sol.html">4. Vectors and Matrices: Exercise Solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_Iteration_Sol.html">5. Iterative Computation: Exercise Solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06_ODE_Sol.html">6. Ordinary Differential Equations: Exercise Solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07_PDE_Sol.html">7. Partial Differential Equations: Exercise Solutions</a></li>
@@ -467,6 +467,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-learn">How to Learn?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-ai-tools">Use of AI Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excercises">Excercises</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-computing">Scientific Computing</a></li>
@@ -524,12 +526,12 @@ An important feature is that you can download the source codes as Jupyter Notebo
 <td class="text-left"><p>matplotlib</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>3</p></td>
-<td class="text-left"><p>Vectors and matrices</p></td>
-<td class="text-left"><p>numpy; eigenvalue/vector</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>4</p></td>
 <td class="text-left"><p>Functions and classes</p></td>
 <td class="text-left"><p>name space, object oriented programming</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>4</p></td>
+<td class="text-left"><p>Vectors and matrices</p></td>
+<td class="text-left"><p>numpy; eigenvalue/vector</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>5</p></td>
 <td class="text-left"><p>Iterative computation</p></td>
@@ -612,6 +614,23 @@ An important feature is that you can download the source codes as Jupyter Notebo
 <li><p>…</p></li>
 </ul>
 </section>
+<section id="use-of-ai-tools">
+<h2>Use of AI Tools<a class="headerlink" href="#use-of-ai-tools" title="Link to this heading">#</a></h2>
+<p>In the last couple of years, the performance of large language models (LLMx) in programming, or <em>Coding Agents</em> has advanced enormously.
+Some may think that we don’t need to learn programming anymore.
+But there are good reasons to follow the lines of sample programs and to create a program by yourself.</p>
+<ul class="simple">
+<li><p>The aim of this book is not to just give you a recipe of data processing, but to let you understand the mathematical basis and how to bring that into an algorithm. Through programming you will clearly see where is the bottleneck and may realize a way to overcome that.</p></li>
+<li><p>Programming demands you to think what steps are necessary to achieve your goal and by conding and trying, you will clearly find what is missing. Programing can be a great training for systematic thinking.</p></li>
+</ul>
+</section>
+<section id="excercises">
+<h2>Excercises<a class="headerlink" href="#excercises" title="Link to this heading">#</a></h2>
+<p>You may be able to just ask an AI agent to come up with a solution to the exercise.
+That can be a helpful example if you have no idea how to address the problem.
+There are even sample solutions at the end of this book.</p>
+<p>But don’t just copy and paste them. Appreciate what each line of code does and rewrite in the way that is easy for you to understand, and possibly come up with an alternative implementation.</p>
+</section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <section id="python">
@@ -643,8 +662,8 @@ An important feature is that you can download the source codes as Jupyter Notebo
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Visualization.html">2. Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_Matrix.html">3. Vectors and Matrices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_Function.html">4. Functions and Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Function.html">3. Functions and Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_Matrix.html">4. Vectors and Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_Iteration.html">5. Iterative Computation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_ODE.html">6. Ordinary Differential Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_PDE.html">7. Partial Differential Equations</a></li>
@@ -726,6 +745,8 @@ An important feature is that you can download the source codes as Jupyter Notebo
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-learn">How to Learn?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-ai-tools">Use of AI Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excercises">Excercises</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-computing">Scientific Computing</a></li>

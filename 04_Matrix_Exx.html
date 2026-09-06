@@ -1,0 +1,878 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4. Vectors and Matrices: Exercise &#8212; Introduction to Scientific Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '04_Matrix_Exx';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="iSciComp.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/SC_logo.png" class="logo__image only-light" alt="Introduction to Scientific Computing - Home"/>
+    <script>document.write(`<img src="_static/SC_logo.png" class="logo__image only-dark" alt="Introduction to Scientific Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="iSciComp.html">
+                    Introduction to Scientific Computing
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="02_Visualization.html">2. Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_3D.html">3D Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_Animation.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_Ex.html">2. Visualization: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="03_Function.html">3. Functions and Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="03_Function_Ex.html">3. Functions and Classes: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="04_Matrix.html">4. Vectors and Matrices</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="04_Matrix_Ex.html">4. Vectors and Matrices: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05_Iteration.html">5. Iterative Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="05_Iteration_Ex.html">5. Iterative Computation: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="06_ODE.html">6. Ordinary Differential Equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="06_ODE_Ex.html">6. Ordinary Differential Equations: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="07_PDE.html">7. Partial Differential Equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="07_PDE_Ex.html">7. Partial Differential Equations: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="08_Optimization.html">8. Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="08_Optimization_Ex.html">8. Optimization: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="09_Stochastic.html">9. Stochastic Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="09_Stochastic_Ex.html">9. Stochastic Methods: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_Git.html">Version Control System: Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_GitHub.html">Collaborative Development: GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_Ex.html">10. Software Management: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Solutions.html">Sample Solutions of Exercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_Introduction_Sol.html">1. Introduction to Python: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_Sol.html">2. Visualization: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_Function_Sol.html">3. Functions and Classes: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_Matrix_Sol.html">4. Vectors and Matrices: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_Iteration_Sol.html">5. Iterative Computation: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_ODE_Sol.html">6. Ordinary Differential Equations: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_PDE_Sol.html">7. Partial Differential Equations: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_Optimization_Sol.html">8. Optimization: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_Stochastic_Sol.html">9. Stochastic Methods: Exercise Solutions</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/04_Matrix_Exx.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/04_Matrix_Exx.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/04_Matrix_Exx.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>4. Vectors and Matrices: Exercise</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determinant-and-eigenvalues">1) Determinant and eigenvalues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalues-and-matrix-product">2) Eigenvalues and matrix product</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis">3) Principal component analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-and-for-loop">4) Array and for loop</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="vectors-and-matrices-exercise">
+<h1>4. Vectors and Matrices: Exercise<a class="headerlink" href="#vectors-and-matrices-exercise" title="Link to this heading">#</a></h1>
+<p>Name:</p>
+<div class="math notranslate nohighlight">
+\[ % Latex macros
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\p}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\b}[1]{\boldsymbol{#1}}
+\newcommand{\w}{\boldsymbol{w}}
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\y}{\boldsymbol{y}}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<section id="determinant-and-eigenvalues">
+<h2>1) Determinant and eigenvalues<a class="headerlink" href="#determinant-and-eigenvalues" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>For a 2x2 matrix
+<span class="math notranslate nohighlight">\(A = \left(\begin{array}{cc} a &amp; b\\ c &amp; d \end{array}\right)\)</span>,
+let us verify that <span class="math notranslate nohighlight">\(\det A = ad - bc\)</span> in the case graphically shown below (<span class="math notranslate nohighlight">\(a, b, c, d\)</span> are positive).</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+         <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span> 
+         <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+         <span class="p">[</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">],</span> 
+         <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;(a,c)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;(b,d)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;(a+b,c+d)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8d009088f1cc3e8f0e333b2aa509fa2829cc10cad6363e08cb56bc536ced1c76.png" src="_images/8d009088f1cc3e8f0e333b2aa509fa2829cc10cad6363e08cb56bc536ced1c76.png" />
+</div>
+</div>
+<p>A unit square is transformed into a parallelogram. Its area <span class="math notranslate nohighlight">\(S\)</span> can be derived as follows:<br />
+Large rectangle: <span class="math notranslate nohighlight">\( S_1 = (a+b)(c+d) \)</span><br />
+Small rectangle: <span class="math notranslate nohighlight">\( S_2 =  \)</span><br />
+Bottom/top triangle: <span class="math notranslate nohighlight">\( S_3 =  \)</span><br />
+Left/right triangle: <span class="math notranslate nohighlight">\( S_4 =  \)</span><br />
+Parallelogram: <span class="math notranslate nohighlight">\( S = S_1 - ... \)</span></p>
+<ol class="arabic simple" start="2">
+<li><p>The determinant equals the product of all eigenvalues. Verify this numerically for multiple cases and explain intuitively why that should hold.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="o">...</span>
+<span class="n">det</span> <span class="o">=</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;detA = &#39;</span><span class="p">,</span> <span class="n">det</span><span class="p">)</span>
+<span class="n">lam</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">lam</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="o">...</span>
+                <span class="o">^</span>
+<span class="ne">SyntaxError</span>: &#39;(&#39; was never closed
+</pre></div>
+</div>
+</div>
+</div>
+<p>The determinant represents …</p>
+<p>The eigenvalues mean …</p>
+<p>Therefore, …</p>
+</section>
+<section id="eigenvalues-and-matrix-product">
+<h2>2) Eigenvalues and matrix product<a class="headerlink" href="#eigenvalues-and-matrix-product" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Make a random (or hand-designed) <span class="math notranslate nohighlight">\(m\times m\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>. Compute its eigenvalues and eigenvectors. From a random (or your preferred) initial point <span class="math notranslate nohighlight">\(\b{x}\)</span>, compute <span class="math notranslate nohighlight">\(A\b{x}, A^2\b{x}, A^3\b{x},...\)</span> and visualize the points. Then characterize the behavior of the points with respect the eigenvalues and eigenvectors.</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>Do the above with several different matrices</p></li>
+</ol>
+</section>
+<section id="principal-component-analysis">
+<h2>3) Principal component analysis<a class="headerlink" href="#principal-component-analysis" title="Link to this heading">#</a></h2>
+<p>Read in the “digits” dataset, originally from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#data = np.loadtxt(&quot;data/digits_data.txt&quot;)</span>
+<span class="c1">#target = np.loadtxt(&quot;data/digits_target.txt&quot;, dtype=&#39;int64&#39;)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span>
+<span class="n">digits</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_digits</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="n">data</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span>
+<span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1797, 64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first ten samples look like these:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">target</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/31d72c1f9b8f39bdfa854da774be0cbf5e985ac32f86d18a0778f32036fcc299.png" src="_images/31d72c1f9b8f39bdfa854da774be0cbf5e985ac32f86d18a0778f32036fcc299.png" />
+</div>
+</div>
+<ol class="arabic simple">
+<li><p>Compute the principal component vectors from all the digits and plot the eigenvalues from the largest to smallest.</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>Visualize the principal vectors as images.</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>Scatterplot the digits in the first two or three principal component space, with different colors/markers for digits.</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>Take a sample digit, decompose it into principal components, and reconstruct the digit from the first <span class="math notranslate nohighlight">\(m\)</span> components. See how the quality of reproduction depends on <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
+</ol>
+</section>
+<section id="array-and-for-loop">
+<h2>4) Array and for loop<a class="headerlink" href="#array-and-for-loop" title="Link to this heading">#</a></h2>
+<p>You can perform vector and matrix computation by component-wise calculations using for loops, but that is much slower. Let us check how much speed benefit we have by using numpy array computation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># matrix dimension</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>  <span class="c1"># nested list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.47752473239989707, 1.4929540850347631, -0.310010822103453, -2.012258219749891, -0.2646182044180956, 0.026812468835817074, -0.26438067456473824, 0.016740247988006492, 0.46407845290747884, 0.012303370033538794], [0.7676164861813122, 0.2932756427181198, 1.0038369266964509, 0.33162656113874855, 1.3403998598866527, -1.84342089762005, -0.9208218091987975, -0.19149404635625833, -1.3386250600379204, -0.5482298892081274], [-1.8613071613618017, -1.1497690358288146, -0.47726840463292164, 0.01703999402845046, -1.8796868409131589, 0.48003945565076345, -0.5675081142803021, 2.1253986142089056, -1.0123287585885874, -1.9101726803290013], [-0.7064623961231508, -0.3743989380311693, -0.5952687483098436, -0.9149091528371626, 0.9616355019131472, -0.9569649489409244, 0.674932473094052, -1.1002811702407675, -0.2951065107686641, -0.6935041649126332], [1.1432854088045754, 0.22487626554115944, 0.4825734244913491, -0.2377572469557019, -0.7800966473231028, -0.9198648936639267, -0.6100453883222778, 3.6677136601951688, 0.5512037515718786, 0.4177522339598041], [0.02334613006896432, -0.04959192148422843, -0.9380672831273686, -2.369374860364797, -0.3332877544557972, 0.3802127467061171, -1.0280131197163926, 0.6317296705335694, 0.8059138832693469, -0.4323277211234928], [0.40211088870621425, -0.1270732093178582, 0.5719682618927754, -0.4223124269566238, -0.753420635957814, 2.122121280542147, 0.9909526045800582, -1.3387215641990384, 0.05088358105740918, 0.3481890043110811], [-0.8945559932308979, 0.5596142890202341, 0.40578181553942455, -0.7805529568038106, -0.9488135053273573, 0.052521094823631986, 0.5285867138545564, 0.023448697004858802, 1.927780926610159, -1.2415585664534283], [-0.729630331356693, -0.9450488628929301, -0.5039103400635846, -0.32950309095501934, -0.19688007493040996, 0.4448418702781053, 0.8348477977806389, 0.08415336635269764, 1.5381064471566686, -1.7293482431598897], [0.707700938765884, 2.160386325138744, -0.22102720965707248, -0.5122489322324051, -1.1947616092391857, -0.24841655120732273, -1.7207574465184525, 3.0980020150446204, -0.8296654188022827, 0.229562985357953]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>  <span class="c1"># numpy array</span>
+<span class="n">B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.47752473,  1.49295409, -0.31001082, -2.01225822, -0.2646182 ,
+         0.02681247, -0.26438067,  0.01674025,  0.46407845,  0.01230337],
+       [ 0.76761649,  0.29327564,  1.00383693,  0.33162656,  1.34039986,
+        -1.8434209 , -0.92082181, -0.19149405, -1.33862506, -0.54822989],
+       [-1.86130716, -1.14976904, -0.4772684 ,  0.01703999, -1.87968684,
+         0.48003946, -0.56750811,  2.12539861, -1.01232876, -1.91017268],
+       [-0.7064624 , -0.37439894, -0.59526875, -0.91490915,  0.9616355 ,
+        -0.95696495,  0.67493247, -1.10028117, -0.29510651, -0.69350416],
+       [ 1.14328541,  0.22487627,  0.48257342, -0.23775725, -0.78009665,
+        -0.91986489, -0.61004539,  3.66771366,  0.55120375,  0.41775223],
+       [ 0.02334613, -0.04959192, -0.93806728, -2.36937486, -0.33328775,
+         0.38021275, -1.02801312,  0.63172967,  0.80591388, -0.43232772],
+       [ 0.40211089, -0.12707321,  0.57196826, -0.42231243, -0.75342064,
+         2.12212128,  0.9909526 , -1.33872156,  0.05088358,  0.348189  ],
+       [-0.89455599,  0.55961429,  0.40578182, -0.78055296, -0.94881351,
+         0.05252109,  0.52858671,  0.0234487 ,  1.92778093, -1.24155857],
+       [-0.72963033, -0.94504886, -0.50391034, -0.32950309, -0.19688007,
+         0.44484187,  0.8348478 ,  0.08415337,  1.53810645, -1.72934824],
+       [ 0.70770094,  2.16038633, -0.22102721, -0.51224893, -1.19476161,
+        -0.24841655, -1.72075745,  3.09800202, -0.82966542,  0.22956299]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#summation</span>
+<span class="o">%</span><span class="k">time</span>
+<span class="n">A</span><span class="o">+</span><span class="n">A</span>
+<span class="o">%</span><span class="k">time</span>
+<span class="n">B</span><span class="o">+</span><span class="n">B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6 μs, sys: 1 μs, total: 7 μs
+Wall time: 10.3 μs
+CPU times: user 4 μs, sys: 1 μs, total: 5 μs
+Wall time: 8.11 μs
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.95504946,  2.98590817, -0.62002164, -4.02451644, -0.52923641,
+         0.05362494, -0.52876135,  0.0334805 ,  0.92815691,  0.02460674],
+       [ 1.53523297,  0.58655129,  2.00767385,  0.66325312,  2.68079972,
+        -3.6868418 , -1.84164362, -0.38298809, -2.67725012, -1.09645978],
+       [-3.72261432, -2.29953807, -0.95453681,  0.03407999, -3.75937368,
+         0.96007891, -1.13501623,  4.25079723, -2.02465752, -3.82034536],
+       [-1.41292479, -0.74879788, -1.1905375 , -1.82981831,  1.923271  ,
+        -1.9139299 ,  1.34986495, -2.20056234, -0.59021302, -1.38700833],
+       [ 2.28657082,  0.44975253,  0.96514685, -0.47551449, -1.56019329,
+        -1.83972979, -1.22009078,  7.33542732,  1.1024075 ,  0.83550447],
+       [ 0.04669226, -0.09918384, -1.87613457, -4.73874972, -0.66657551,
+         0.76042549, -2.05602624,  1.26345934,  1.61182777, -0.86465544],
+       [ 0.80422178, -0.25414642,  1.14393652, -0.84462485, -1.50684127,
+         4.24424256,  1.98190521, -2.67744313,  0.10176716,  0.69637801],
+       [-1.78911199,  1.11922858,  0.81156363, -1.56110591, -1.89762701,
+         0.10504219,  1.05717343,  0.04689739,  3.85556185, -2.48311713],
+       [-1.45926066, -1.89009773, -1.00782068, -0.65900618, -0.39376015,
+         0.88968374,  1.6696956 ,  0.16830673,  3.07621289, -3.45869649],
+       [ 1.41540188,  4.32077265, -0.44205442, -1.02449786, -2.38952322,
+        -0.4968331 , -3.44151489,  6.19600403, -1.65933084,  0.45912597]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A2</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="o">%</span><span class="k">time</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">A2</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3 μs, sys: 1 μs, total: 4 μs
+Wall time: 7.15 μs
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span>
+<span class="n">B2</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3 μs, sys: 1 μs, total: 4 μs
+Wall time: 7.15 μs
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span> <span class="n">B2</span><span class="p">)</span>  <span class="c1">#should be the same</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2.6195639550119956, 1.8307287188056025, 2.162590017645246, 1.3087040693990835, 0.7971886232525306, -1.0656720187241437, -2.436208493253413, 0.7551440262810344, -0.2710701710755974, 0.14037284952556023], [0.3681196873848313, 0.4370551360388475, 1.9473541894801352, 3.5756349668469123, -0.015254760848086413, -4.712841446948868, -0.9293910217591519, 4.8941865231852075, -3.9173487992294804, 1.1643191645216178], [-5.775602853720044, -4.928672024714791, -0.24673517648250487, 2.542658663687765, 2.063706800081659, 2.6672622487602884, 5.48927526887811, -12.628353652014209, 4.600381929878923, -1.009735504316074], [3.186847166709337, -1.7946944303913783, 2.2752089232468493, 5.189393021456853, 0.915110630132208, 1.4280940929313004, 1.683194398788703, -0.3788550554585921, -1.1605319721005811, 4.735778700967491], [-4.557845885818863, 3.6888012117921383, 1.0382349382670368, -2.6361142732444014, -3.849693095770261, -0.5174045306548714, 1.5533591983723705, 0.06432698560257477, 6.180588394247679, -6.417749781217767], [1.148349060891651, 0.6806937396419125, 0.641405362942806, 1.1636812513764574, 0.07841616996424472, 0.6777977901782692, -0.48289900816364084, -0.23960857401341462, 4.61257525154015, 0.5236841766490631], [0.3217038430091533, -0.38207489798782546, -2.7071212522904164, -4.872811815556425, -1.7799305953349975, 4.39238899625935, -2.603187443811488, 0.013635345009436861, -1.5436743635722925, 0.04181082130921103], [-3.3786405146358094, -6.119837518242646, 0.21775432766011837, 2.5671008901942245, 0.8794624176502713, 3.06785063193011, 3.7709440533890817, -6.2388614622401075, 2.24195251682756, -4.434560530198114], [-2.2035319292729802, -5.978691909866953, -0.6793193438038359, 0.40128581598963325, 0.6164859761944705, 5.036104294077374, 5.921155734822259, -7.324530155571333, 5.7890661924743005, -1.445082447899813], [-1.2976366635786665, 5.112082779883108, 2.6563984953930593, -0.9057589005715911, 1.8922994407918583, -6.4898981761065855, -2.567790649233512, -1.8293560170447065, 1.3707789438552038, -3.7479714774896684]] [[  2.61956396   1.83072872   2.16259002   1.30870407   0.79718862
+   -1.06567202  -2.43620849   0.75514403  -0.27107017   0.14037285]
+ [  0.36811969   0.43705514   1.94735419   3.57563497  -0.01525476
+   -4.71284145  -0.92939102   4.89418652  -3.9173488    1.16431916]
+ [ -5.77560285  -4.92867202  -0.24673518   2.54265866   2.0637068
+    2.66726225   5.48927527 -12.62835365   4.60038193  -1.0097355 ]
+ [  3.18684717  -1.79469443   2.27520892   5.18939302   0.91511063
+    1.42809409   1.6831944   -0.37885506  -1.16053197   4.7357787 ]
+ [ -4.55784589   3.68880121   1.03823494  -2.63611427  -3.8496931
+   -0.51740453   1.5533592    0.06432699   6.18058839  -6.41774978]
+ [  1.14834906   0.68069374   0.64140536   1.16368125   0.07841617
+    0.67779779  -0.48289901  -0.23960857   4.61257525   0.52368418]
+ [  0.32170384  -0.3820749   -2.70712125  -4.87281182  -1.7799306
+    4.392389    -2.60318744   0.01363535  -1.54367436   0.04181082]
+ [ -3.37864051  -6.11983752   0.21775433   2.56710089   0.87946242
+    3.06785063   3.77094405  -6.23886146   2.24195252  -4.43456053]
+ [ -2.20353193  -5.97869191  -0.67931934   0.40128582   0.61648598
+    5.03610429   5.92115573  -7.32453016   5.78906619  -1.44508245]
+ [ -1.29763666   5.11208278   2.6563985   -0.9057589    1.89229944
+   -6.48989818  -2.56779065  -1.82935602   1.37077894  -3.74797148]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determinant-and-eigenvalues">1) Determinant and eigenvalues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalues-and-matrix-product">2) Eigenvalues and matrix product</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis">3) Principal component analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-and-for-loop">4) Array and for loop</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kenji Doya
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
