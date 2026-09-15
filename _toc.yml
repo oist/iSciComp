@@ -12,12 +12,12 @@ chapters:
   - file: 02_Visualization_3D
   - file: 02_Visualization_Animation
   - file: 02_Visualization_Ex
-- file: 03_Matrix
+- file: 03_Function
   sections:
-  - file: 03_Matrix_Ex
-- file: 04_Function
+  - file: 03_Function_Ex
+- file: 04_Matrix
   sections:
-  - file: 04_Function_Ex
+  - file: 04_Matrix_Ex
 - file: 05_Iteration
   sections:
   - file: 05_Iteration_Ex
@@ -43,8 +43,8 @@ chapters:
   sections:
   - file: 01_Introduction_Sol
   - file: 02_Visualization_Sol
-  - file: 03_Matrix_Sol
-  - file: 04_Function_Sol
+  - file: 03_Function_Sol
+  - file: 04_Matrix_Sol
   - file: 05_Iteration_Sol
   - file: 06_ODE_Sol
   - file: 07_PDE_Sol
