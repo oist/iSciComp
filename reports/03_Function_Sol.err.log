@@ -30,13 +30,13 @@ n1.show(); n2.show(); n3.show();
 ------------------
 
 
-[31m---------------------------------------------------------------------------[39m
-[31mAttributeError[39m                            Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[20][39m[32m, line 2[39m
-[32m      1[39m [38;5;66;03m# Neurons with no connections[39;00m
-[32m----> [39m[32m2[39m n1 = [43mcell[49m[43m.[49m[43mNeuron[49m()
-[32m      3[39m n2 = cell.Neuron([[32m1[39m,[32m0[39m], color=[33m'[39m[33mg[39m[33m'[39m)
-[32m      4[39m n3 = cell.Neuron([[32m0.5[39m,[32m1[39m], color=[33m'[39m[33mb[39m[33m'[39m)
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[20], line 2[0m
+[1;32m      1[0m [38;5;66;03m# Neurons with no connections[39;00m
+[0;32m----> 2[0m n1 [38;5;241m=[39m [43mcell[49m[38;5;241;43m.[39;49m[43mNeuron[49m()
+[1;32m      3[0m n2 [38;5;241m=[39m cell[38;5;241m.[39mNeuron([[38;5;241m1[39m,[38;5;241m0[39m], color[38;5;241m=[39m[38;5;124m'[39m[38;5;124mg[39m[38;5;124m'[39m)
+[1;32m      4[0m n3 [38;5;241m=[39m cell[38;5;241m.[39mNeuron([[38;5;241m0.5[39m,[38;5;241m1[39m], color[38;5;241m=[39m[38;5;124m'[39m[38;5;124mb[39m[38;5;124m'[39m)
 
-[31mAttributeError[39m: module 'cell' has no attribute 'Neuron'
+[0;31mAttributeError[0m: module 'cell' has no attribute 'Neuron'
 

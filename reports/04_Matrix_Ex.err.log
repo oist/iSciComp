@@ -26,9 +26,9 @@ print(np.product(lam))
 ------------------
 
 
-  [36mCell[39m[36m [39m[32mIn[3][39m[32m, line 1[39m
-[31m    [39m[31mA = np.array(...[39m
-                ^
-[31mSyntaxError[39m[31m:[39m '(' was never closed
+[0;36m  Cell [0;32mIn[3], line 1[0;36m[0m
+[0;31m    A = np.array(...[0m
+[0m                ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m '(' was never closed
 
 

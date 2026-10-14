@@ -182,11 +182,8 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="MiniForge.html">Installing Python by Miniforge</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_Introduction_Ex.html">1. Introduction to Python: Exercise</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a></li>
+
 <li class="toctree-l1 has-children"><a class="reference internal" href="02_Visualization.html">2. Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="02_Visualization_3D.html">3D Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_Visualization_Animation.html">Animation</a></li>
@@ -513,7 +510,7 @@ let us verify that <span class="math notranslate nohighlight">\(\det A = ad - bc
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8d009088f1cc3e8f0e333b2aa509fa2829cc10cad6363e08cb56bc536ced1c76.png" src="_images/8d009088f1cc3e8f0e333b2aa509fa2829cc10cad6363e08cb56bc536ced1c76.png" />
+<img alt="_images/e942e19ae6e809cdccc6d0a32998643224a96003d8f5a386390c95a0e8e5b319.png" src="_images/e942e19ae6e809cdccc6d0a32998643224a96003d8f5a386390c95a0e8e5b319.png" />
 </div>
 </div>
 <p>A unit square is transformed into a parallelogram. Its area <span class="math notranslate nohighlight">\(S\)</span> can be derived as follows:<br />
@@ -541,14 +538,29 @@ $<span class="math notranslate nohighlight">\( S = S_1 - 2S_2 - 2S_3 - 2S_4 = ad
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.94415858  1.60569827  0.29823159 -0.50595799]
- [-1.13841117 -1.18249616 -0.31472788 -0.74692224]
- [ 0.61810412  0.09815888 -0.14378233  1.06800798]
- [ 1.99648672  0.34718984  0.58858848 -0.75195617]]
-eigenvalues =  [-0.70436002+1.60308311j -0.70436002-1.60308311j -1.54531078+0.j
- -0.06836244+0.j        ]
-product =  (0.32389578403514835-3.820896749682147e-18j)
-detrminant =  0.32389578403514757
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.71342075  1.03476596 -1.27979405 -2.2931459 ]
+ [ 0.78503709 -0.27191449 -0.39510132  0.21840666]
+ [ 0.39592153  1.16916781  0.68096067 -0.39705091]
+ [-0.40651549 -0.6694064  -1.22999021 -0.69013176]]
+eigenvalues =  [ 1.37789472+0.j         -1.36994325+0.j          0.21219185+0.23062839j
+  0.21219185-0.23062839j]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">lam</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eigenvalues = &#39;</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;product = &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">lam</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">det</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;detrminant = &#39;</span><span class="p">,</span> <span class="n">det</span><span class="p">)</span>
+
+<span class="nn">File ~/miniforge3/lib/python3.12/site-packages/numpy/__init__.py:795,</span> in <span class="ni">__getattr__</span><span class="nt">(attr)</span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span>     <span class="kn">import</span><span class="w"> </span><span class="nn">numpy.char</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">char</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span>     <span class="k">return</span> <span class="n">char</span><span class="o">.</span><span class="n">chararray</span>
+<span class="ne">--&gt; </span><span class="mi">795</span> <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;module </span><span class="si">{</span><span class="vm">__name__</span><span class="si">!r}</span><span class="s2"> has no attribute </span><span class="si">{</span><span class="n">attr</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: module &#39;numpy&#39; has no attribute &#39;product&#39;
 </pre></div>
 </div>
 </div>
@@ -574,11 +586,12 @@ detrminant =  0.32389578403514757
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =  [[ 0.14028547 -0.60534656  0.60997173  0.42556625]
- [ 0.23783496  0.67662317  0.03224008  1.43861564]
- [ 0.07235662  0.36246447 -2.17005992 -0.34235269]
- [ 1.11382383  1.31910517  0.07533941 -0.45219159]]
-eigenvalues =  [ 1.40226842  0.60603414 -1.51884655 -2.29479888]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =  [[ 0.45057146  0.78931076  0.59380184 -0.41102143]
+ [ 0.48513212 -0.58578885  0.45814626  0.01963374]
+ [-1.31440187 -1.0283403   1.48991966  0.62239288]
+ [ 0.85730741  0.49378921  0.49997512 -0.99158359]]
+eigenvalues =  [ 0.99629945+0.82578673j  0.99629945-0.82578673j -0.8147401 +0.00772966j
+ -0.8147401 -0.00772966j]
 </pre></div>
 </div>
 </div>
@@ -598,7 +611,7 @@ eigenvalues =  [ 1.40226842  0.60603414 -1.51884655 -2.29479888]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c077a650e7e407ef06605594c292e182932fc0d29e41fd6b73796d41f659bfde.png" src="_images/c077a650e7e407ef06605594c292e182932fc0d29e41fd6b73796d41f659bfde.png" />
+<img alt="_images/783bc32548142e22668ea12b960029bc0445b1c40cfc203ef8babd023e375a05.png" src="_images/783bc32548142e22668ea12b960029bc0445b1c40cfc203ef8babd023e375a05.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -608,10 +621,10 @@ eigenvalues =  [ 1.40226842  0.60603414 -1.51884655 -2.29479888]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12a2c70b0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x10f81adc0&gt;]
 </pre></div>
 </div>
-<img alt="_images/12abb8c8748f69d35ea2ae8fc3cb83e2897ee415c406aefedc08b16731811e0a.png" src="_images/12abb8c8748f69d35ea2ae8fc3cb83e2897ee415c406aefedc08b16731811e0a.png" />
+<img alt="_images/140564fc835b72c87fac05c38cf37b538c21be5b6d0cc2135452ac3e6aa9e1d2.png" src="_images/140564fc835b72c87fac05c38cf37b538c21be5b6d0cc2135452ac3e6aa9e1d2.png" />
 </div>
 </div>
 <ol class="arabic simple" start="2">
@@ -632,15 +645,15 @@ eigenvalues =  [ 1.40226842  0.60603414 -1.51884655 -2.29479888]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =  [[-0.69649275  0.40499098 -2.10710374  1.1993998 ]
- [ 0.19195423 -0.84012932 -0.68676938  1.88999116]
- [ 0.56803283 -0.34862034  0.61751071  0.91490006]
- [-0.30080831 -0.13707271  1.75801106 -0.45648666]]
-eigenvalues =  [ 1.20168046+0.j         -0.70971525+0.94705015j -0.70971525-0.94705015j
- -1.15784796+0.j        ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =  [[ 0.37194988 -1.61745602 -2.46938412 -1.35981293]
+ [ 0.79955755 -0.83073656  0.19700699 -1.42204889]
+ [ 1.30524957 -0.04697506 -1.00613988  3.06079732]
+ [ 0.25881831 -0.04487409 -1.86087477 -0.76763694]]
+eigenvalues =  [-0.74408394+2.96112607j -0.74408394-2.96112607j -0.37219781+1.10383675j
+ -0.37219781-1.10383675j]
 </pre></div>
 </div>
-<img alt="_images/02bdf0dab0af46561f66ce89425b0fe66d6890a9714bbf9930a804daf43684a9.png" src="_images/02bdf0dab0af46561f66ce89425b0fe66d6890a9714bbf9930a804daf43684a9.png" />
+<img alt="_images/98c0a47a044e6d9ef494f0967281ebe140aac086f054ebb8ffc375d150acad47.png" src="_images/98c0a47a044e6d9ef494f0967281ebe140aac086f054ebb8ffc375d150acad47.png" />
 </div>
 </div>
 </section>
@@ -675,7 +688,7 @@ eigenvalues =  [ 1.20168046+0.j         -0.70971525+0.94705015j -0.70971525-0.94
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/12f4e5aef3ad419ef3b8cd49e4e6d58d7f83254f1a5083bf89b85c6e81cd58d2.png" src="_images/12f4e5aef3ad419ef3b8cd49e4e6d58d7f83254f1a5083bf89b85c6e81cd58d2.png" />
+<img alt="_images/b1f69be9a9e2086aba2976ade22c48c5a0099904f3ac2e3d45d58fbf810fdfd8.png" src="_images/b1f69be9a9e2086aba2976ade22c48c5a0099904f3ac2e3d45d58fbf810fdfd8.png" />
 </div>
 </div>
 <ol class="arabic simple">
@@ -730,7 +743,7 @@ eigenvalues =  [ 1.20168046+0.j         -0.70971525+0.94705015j -0.70971525-0.94
    0.        ]]
 </pre></div>
 </div>
-<img alt="_images/6869a6e392665fcaddab90d5ab108ee052c7d357f4d91c258b29498eb85f5ed6.png" src="_images/6869a6e392665fcaddab90d5ab108ee052c7d357f4d91c258b29498eb85f5ed6.png" />
+<img alt="_images/d3a4ee963993a8ff9597ac1e47a0ae7de9e9882c6db947f90cf2b8648d3da59a.png" src="_images/d3a4ee963993a8ff9597ac1e47a0ae7de9e9882c6db947f90cf2b8648d3da59a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -767,15 +780,15 @@ eigenvalues =  [ 1.20168046+0.j         -0.70971525+0.94705015j -0.70971525-0.94
  [ 1.68358559e-18 -1.83420720e-02 -1.26475543e-01 ... -2.32084163e-01
   -1.67026563e-01 -3.48043832e-02]
  ...
- [ 0.00000000e+00  8.62555218e-17  2.89406017e-17 ...  1.11022302e-16
-   1.11022302e-16 -3.26128013e-16]
- [ 0.00000000e+00 -5.34891730e-16  4.27024926e-17 ...  0.00000000e+00
-   8.32667268e-17 -1.04083409e-16]
+ [ 0.00000000e+00 -1.19573120e-16  2.05712166e-16 ...  0.00000000e+00
+   0.00000000e+00 -1.87350135e-16]
+ [ 0.00000000e+00  1.89653972e-16  1.59973456e-16 ... -5.55111512e-17
+  -1.66533454e-16  3.19189120e-16]
  [-1.00000000e+00  1.68983002e-17 -5.73338351e-18 ... -8.66631300e-18
    1.57615962e-17 -4.07058917e-18]]
 </pre></div>
 </div>
-<img alt="_images/6869a6e392665fcaddab90d5ab108ee052c7d357f4d91c258b29498eb85f5ed6.png" src="_images/6869a6e392665fcaddab90d5ab108ee052c7d357f4d91c258b29498eb85f5ed6.png" />
+<img alt="_images/d3a4ee963993a8ff9597ac1e47a0ae7de9e9882c6db947f90cf2b8648d3da59a.png" src="_images/d3a4ee963993a8ff9597ac1e47a0ae7de9e9882c6db947f90cf2b8648d3da59a.png" />
 </div>
 </div>
 <ol class="arabic simple" start="2">
@@ -793,7 +806,7 @@ eigenvalues =  [ 1.20168046+0.j         -0.70971525+0.94705015j -0.70971525-0.94
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d15ffec047a5f2f62d9156a78830ceb4c1b54bf7d965b061e6c88ce6ba6394f7.png" src="_images/d15ffec047a5f2f62d9156a78830ceb4c1b54bf7d965b061e6c88ce6ba6394f7.png" />
+<img alt="_images/10d18717ef4e579da333f88dec8f558fa2b9d37e2b207a543e22ff19400d6cf2.png" src="_images/10d18717ef4e579da333f88dec8f558fa2b9d37e2b207a543e22ff19400d6cf2.png" />
 </div>
 </div>
 <ol class="arabic simple" start="3">
@@ -810,7 +823,7 @@ eigenvalues =  [ 1.20168046+0.j         -0.70971525+0.94705015j -0.70971525-0.94
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9fe3d47f6d2de42ced235cf1e1f2aa87748addfab60586c59eb745c0e6fee00c.png" src="_images/9fe3d47f6d2de42ced235cf1e1f2aa87748addfab60586c59eb745c0e6fee00c.png" />
+<img alt="_images/1d00cb6e8215708e2ce4d327bd99a0ed8e89abfbe620137ac92321393cfaa84e.png" src="_images/1d00cb6e8215708e2ce4d327bd99a0ed8e89abfbe620137ac92321393cfaa84e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -825,7 +838,7 @@ eigenvalues =  [ 1.20168046+0.j         -0.70971525+0.94705015j -0.70971525-0.94
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/804c4a3ecc794e20f31e27f471c6399221599e7824bf9d1df230fefa5a38dd2a.png" src="_images/804c4a3ecc794e20f31e27f471c6399221599e7824bf9d1df230fefa5a38dd2a.png" />
+<img alt="_images/d8dcd38490f55e50970886bc2c3fd28bb5872b38d344105aa96a2097e3fbeb5b.png" src="_images/d8dcd38490f55e50970886bc2c3fd28bb5872b38d344105aa96a2097e3fbeb5b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -842,7 +855,7 @@ eigenvalues =  [ 1.20168046+0.j         -0.70971525+0.94705015j -0.70971525-0.94
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/516060769fe3b7dd4707ccf24ac92d107bb35f28f6db577e160f7793141d229c.png" src="_images/516060769fe3b7dd4707ccf24ac92d107bb35f28f6db577e160f7793141d229c.png" />
+<img alt="_images/ac67fe761e11eaa0fce2f8c83ffd07a55d6a4cdbe5521a903d9575df06ae826f.png" src="_images/ac67fe761e11eaa0fce2f8c83ffd07a55d6a4cdbe5521a903d9575df06ae826f.png" />
 </div>
 </div>
 <ol class="arabic simple" start="4">
@@ -867,7 +880,7 @@ eigenvalues =  [ 1.20168046+0.j         -0.70971525+0.94705015j -0.70971525-0.94
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4687d02f0970d7067c4dda838a2103da4ce12f085de8bc71f71ae7c1cee5efba.png" src="_images/4687d02f0970d7067c4dda838a2103da4ce12f085de8bc71f71ae7c1cee5efba.png" />
+<img alt="_images/75ce66b0a400b79eb6c8e15aa01426c01f1c5636ff556053c13353a96828813a.png" src="_images/75ce66b0a400b79eb6c8e15aa01426c01f1c5636ff556053c13353a96828813a.png" />
 </div>
 </div>
 </section>
