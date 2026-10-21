@@ -17,6 +17,7 @@ chapters:
   - file: 03_Function_Ex
 - file: 04_Matrix
   sections:
+  - file: 04_Matrix_EigenValue
   - file: 04_Matrix_Ex
 - file: 05_Iteration
   sections:
