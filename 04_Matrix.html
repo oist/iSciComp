@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '04_Matrix';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4. Vectors and Matrices: Exercise" href="04_Matrix_Ex.html" />
+    <link rel="next" title="Real and Complex Eigenvalues" href="04_Matrix_EigenValue.html" />
     <link rel="prev" title="3. Functions and Classes: Exercise" href="03_Function_Ex.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -195,6 +195,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">4. Vectors and Matrices</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="04_Matrix_EigenValue.html">Real and Complex Eigenvalues</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="04_Matrix_Ex.html">4. Vectors and Matrices: Exercise</a></li>
 </ul>
 </details></li>
@@ -466,11 +468,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">Principal component analysis (PCA)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-value-decomposition-svd">Singular value decomposition (SVD)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-by-svd">PCA by SVD</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-eigenvalues-of-a-2x2-matrix">Appendix: Eigenvalues of a 2x2 matrix</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-eigenvalues">Real eigenvalues</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-eigenvalues">Complex eigenvalues</a></li>
-</ul>
-</li>
 </ul>
             </nav>
         </div>
@@ -520,7 +517,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>You cam also create a matrix by stacking arrays vertically</p>
+<p>You cam create a matrix by stacking arrays vertically</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -549,7 +546,20 @@ document.write(`
 </div>
 </div>
 </div>
-<p>or by combining arrays as column vectors</p>
+<p>To make a matrix from column vectors, although <code class="docutils literal notranslate"><span class="pre">np.hstack</span></code> just concatenates vectors</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">b</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 2, 4, 6])
+</pre></div>
+</div>
+</div>
+</div>
+<p>we can use <code class="docutils literal notranslate"><span class="pre">np.c_[]</span></code> expression.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">b</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">b</span><span class="p">]</span>
@@ -595,13 +605,13 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 1., 1.],
-       [1., 1., 1.]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 1, 1],
+       [1, 1, 1]])
 </pre></div>
 </div>
 </div>
@@ -622,65 +632,59 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># normal distribution</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.85984284,  0.52038516, -1.45277339],
-       [ 0.09718048,  0.16667785,  0.19548484]])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># normal distribution</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># uniform in [0, 1)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># uniform in [0, 1)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.10020184, 0.49273361, 0.05582591],
-       [0.28086794, 0.29742325, 0.51936536]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.78846866, 0.51155929, 0.80859625],
+       [0.73331004, 0.7570144 , 0.76123234]])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># uniform in [-1, 1)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># uniform in [min, max]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.10917472,  0.35892056, -0.03398604],
-       [ 0.59154205,  0.47050757,  0.93854799]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.163937  , -3.86815235, -8.91155692],
+       [-8.84190728, -2.26554063,  2.44270389]])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># integers -3,...,2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># integers -3,...,3</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1,  0,  1],
-       [ 1,  0, -2]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 3,  2,  0],
+       [-3, -2, -3]])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>  <span class="c1"># allocate without initialization</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># allocate without initialization</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4592531288009855552,  4600137357842131696, -4638313310908861088],
-       [ 4603503356625152354,  4602147530785406372,  4606628908298765560]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.163937  , -3.86815235, -8.91155692],
+       [-8.84190728, -2.26554063,  2.44270389]])
 </pre></div>
 </div>
 </div>
@@ -923,7 +927,8 @@ is defined as</p>
 <p>There are different ways to compute a dot product of vectors:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span> <span class="n">x</span> <span class="o">@</span> <span class="n">y</span><span class="p">)</span>
@@ -935,6 +940,68 @@ is defined as</p>
 14
 14
 14
+14
+</pre></div>
+</div>
+</div>
+</div>
+<p>The dot product of vectors normalized by their lengths</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\b{x} \cdot \b{y}}{||\b{x}||||\b{y}||} \]</div>
+<p>represents the similarity of the directions, called <em>direction cosine</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dircos</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;direction cosine of vectors&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">v1</span> <span class="o">@</span> <span class="n">v2</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v1</span><span class="nd">@v1</span> <span class="o">*</span> <span class="n">v2</span><span class="nd">@v2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dircos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.8854377448471462)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dircos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># same direction</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dircos</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># opposite direction</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-1.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dircos</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]))</span>  <span class="c1"># orthogonal</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0)
 </pre></div>
 </div>
 </div>
@@ -1056,7 +1123,7 @@ the matrix product is</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># See how those points are transformed by a matrix</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span> <span class="o">-</span> <span class="n">a</span>   <span class="c1"># uniform in [-a, a]</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>   <span class="c1"># uniform in [-a, a]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="n">AX</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">X</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">AX</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">AX</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">c</span><span class="o">=</span><span class="n">C</span><span class="p">)</span>
@@ -1065,11 +1132,11 @@ the matrix product is</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.10566624 -0.31777353]
- [ 0.61613355  0.73460596]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.77298925 -0.25589605]
+ [ 0.99130337 -0.79957866]]
 </pre></div>
 </div>
-<img alt="_images/fdcb4b18a153dd0f0f178e0a3322d9484a3d950c3e6eb17db72ba558125aa174.png" src="_images/fdcb4b18a153dd0f0f178e0a3322d9484a3d950c3e6eb17db72ba558125aa174.png" />
+<img alt="_images/0bba20792bac924fac95308f4e5761861fc0748cb86ef37486f7269d35d3dd0a.png" src="_images/0bba20792bac924fac95308f4e5761861fc0748cb86ef37486f7269d35d3dd0a.png" />
 </div>
 </div>
 </section>
@@ -1103,7 +1170,8 @@ the determinant is computed by</p>
 <p>where <span class="math notranslate nohighlight">\(I\)</span> is the identity matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ainv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>   <span class="c1"># uniform in [-a, a]</span>
+<span class="n">Ainv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Ainv</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span> <span class="n">A</span> <span class="o">@</span> <span class="n">Ainv</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span> <span class="n">Ainv</span> <span class="o">@</span> <span class="n">A</span><span class="p">)</span>
@@ -1111,12 +1179,12 @@ the determinant is computed by</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-2.   1. ]
- [ 1.5 -0.5]]
-[[1.0000000e+00 0.0000000e+00]
- [8.8817842e-16 1.0000000e+00]]
-[[1.00000000e+00 0.00000000e+00]
- [1.11022302e-16 1.00000000e+00]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-3.33258335  2.61760131]
+ [-4.053755    1.95692848]]
+[[1.00000000e+00 6.30002857e-18]
+ [1.18336048e-16 1.00000000e+00]]
+[[ 1.00000000e+00  8.94893589e-17]
+ [-1.65065508e-16  1.00000000e+00]]
 </pre></div>
 </div>
 </div>
@@ -1147,7 +1215,7 @@ the determinant is computed by</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">Ainv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ainv =&quot;</span><span class="p">,</span> <span class="n">Ainv</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">Ainv</span> <span class="o">@</span> <span class="n">b</span>
@@ -1159,8 +1227,8 @@ the determinant is computed by</p>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ainv = [[-2.   1. ]
  [ 1.5 -0.5]]
-x = Ainv b = [-2.   1.5]
-Ax = [1.0000000e+00 8.8817842e-16]
+x = Ainv b = [0.  0.5]
+Ax = [1. 2.]
 </pre></div>
 </div>
 </div>
@@ -1174,7 +1242,7 @@ Ax = [1.0000000e+00 8.8817842e-16]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x =  [-2.   1.5]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x =  [0.  0.5]
 </pre></div>
 </div>
 </div>
@@ -1196,16 +1264,16 @@ Eigenvalues are derived by solving a polynomial equation</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="n">lam</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lam</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eval =&#39;</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;evec =&#39;</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.  2. ]
  [1.  0.5]]
-[ 2.18614066 -0.68614066]
-[[ 0.86011126 -0.76454754]
+eval = [ 2.18614066 -0.68614066]
+evec = [[ 0.86011126 -0.76454754]
  [ 0.51010647  0.64456735]]
 </pre></div>
 </div>
@@ -1216,17 +1284,31 @@ Eigenvalues are derived by solving a polynomial equation</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># colorful grid from above</span>
 <span class="n">AX</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">X</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">AX</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">AX</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">c</span><span class="o">=</span><span class="n">C</span><span class="p">)</span>
-<span class="c1"># Plot eiven vectors scaled by eigen values</span>
+<span class="c1"># Plot eigen vectors scaled by eigen values</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">lam</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">lam</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">]],</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">]],</span> <span class="s1">&#39;v-&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="c1">#plt.plot( [0, lam[i]*V[0,i]], [0, lam[i]*V[1,i]], &#39;o-&#39;, lw=3)</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="sa">F</span><span class="s1">&#39;v1(l=</span><span class="si">{</span><span class="n">lam</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span><span class="sa">F</span><span class="s1">&#39;v2(l=</span><span class="si">{</span><span class="n">lam</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d66299ab2e08a8101c35c5022a88ae5acbf64f871ae3c8da2d1d36f87d3272b2.png" src="_images/d66299ab2e08a8101c35c5022a88ae5acbf64f871ae3c8da2d1d36f87d3272b2.png" />
+<img alt="_images/c8b15956fe1eedb58ea6523836e7fa64e9d5bd2338759c829c49f42da592e7f0.png" src="_images/c8b15956fe1eedb58ea6523836e7fa64e9d5bd2338759c829c49f42da592e7f0.png" />
 </div>
 </div>
+<p>For a 2 by 2 matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} A = \pmatrix{a &amp; b \\ c &amp; d}. \end{split}\]</div>
+<p>We can analytically derive the eigenvalues from</p>
+<div class="math notranslate nohighlight">
+\[ \det (A - \lambda I) = (a-\lambda)(d-\lambda) - bc = 0 \]</div>
+<p>as</p>
+<div class="math notranslate nohighlight">
+\[ \lambda = \frac{a+d}{2} \pm \sqrt{\frac{(a-d)^2}{4}+ bc}. \]</div>
+<p>If off-diagonal components <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(c\)</span> are in opposite signs, <span class="math notranslate nohighlight">\(\frac{(a-d)^2}{4}+ bc\)</span> can be negative and the eigen values can be complex numbers.</p>
+<p>Complex eigenvalues are associated with rotating transformations. Please see the section on Eigenvalues for intuitive explanation.</p>
+<p>For a symmetric matrix, <span class="math notranslate nohighlight">\(bc=b^2\ge 0\)</span> so that the eigenvalues are guaranteed to be real.</p>
 </section>
 <section id="eigendecomposition">
 <h2>Eigendecomposition<a class="headerlink" href="#eigendecomposition" title="Link to this heading">#</a></h2>
@@ -1251,6 +1333,49 @@ Eigenvalues are derived by solving a polynomial equation</p>
 \[ A^k = V \Lambda^k V^{-1} = V \mbox{diag}(\lambda_1^k, \cdots, \lambda_n^k) V^{-1} \]</div>
 <p>requires only exponentials in the diagonal terms rather than repeated matrix multiplications.</p>
 <p>It also helps intuitive understanding of how a point <span class="math notranslate nohighlight">\(\b{x}\)</span> transformed by <span class="math notranslate nohighlight">\(A\)</span> many times as <span class="math notranslate nohighlight">\(A\b{x}, A^2\b{x}, A^3\b{x},...\)</span> would move.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">lam</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">Vinv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">V</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">lam</span><span class="p">)</span> <span class="o">@</span> <span class="n">Vinv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.  2. ]
+ [1.  0.5]]
+[[1.  2. ]
+ [1.  0.5]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># nth power of A</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">A</span>
+<span class="o">%</span><span class="k">time</span> for i in range(1,n): B = B @ A
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="o">%</span><span class="k">time</span> C = V @ np.diag(lam**n) @ Vinv
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7 µs, sys: 0 ns, total: 7 µs
+Wall time: 7.87 µs
+[[1463.6953125  1736.12109375]
+ [ 868.06054688 1029.66503906]]
+CPU times: user 7 µs, sys: 0 ns, total: 7 µs
+Wall time: 9.06 µs
+[[1463.6953125  1736.12109375]
+ [ 868.06054687 1029.66503906]]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="covariance-matrix">
 <h2>Covariance matrix<a class="headerlink" href="#covariance-matrix" title="Link to this heading">#</a></h2>
@@ -1279,25 +1404,201 @@ we usuall create a data matrix</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in the iris data</span>
-<span class="c1"># X = np.loadtxt(&#39;data/iris.txt&#39;, delimiter=&#39;,&#39;)</span>
-<span class="c1"># Y = X[:,-1]  # flower type</span>
-<span class="c1"># X = X[:,:4]</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span>
 <span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
-<span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0c9d633840ca4cd947bc2d106cbb3c9f3b68207731bbcc03f68f78f56c26473a.png" src="_images/0c9d633840ca4cd947bc2d106cbb3c9f3b68207731bbcc03f68f78f56c26473a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;data&#39;: array([[5.1, 3.5, 1.4, 0.2],
+       [4.9, 3. , 1.4, 0.2],
+       [4.7, 3.2, 1.3, 0.2],
+       [4.6, 3.1, 1.5, 0.2],
+       [5. , 3.6, 1.4, 0.2],
+       [5.4, 3.9, 1.7, 0.4],
+       [4.6, 3.4, 1.4, 0.3],
+       [5. , 3.4, 1.5, 0.2],
+       [4.4, 2.9, 1.4, 0.2],
+       [4.9, 3.1, 1.5, 0.1],
+       [5.4, 3.7, 1.5, 0.2],
+       [4.8, 3.4, 1.6, 0.2],
+       [4.8, 3. , 1.4, 0.1],
+       [4.3, 3. , 1.1, 0.1],
+       [5.8, 4. , 1.2, 0.2],
+       [5.7, 4.4, 1.5, 0.4],
+       [5.4, 3.9, 1.3, 0.4],
+       [5.1, 3.5, 1.4, 0.3],
+       [5.7, 3.8, 1.7, 0.3],
+       [5.1, 3.8, 1.5, 0.3],
+       [5.4, 3.4, 1.7, 0.2],
+       [5.1, 3.7, 1.5, 0.4],
+       [4.6, 3.6, 1. , 0.2],
+       [5.1, 3.3, 1.7, 0.5],
+       [4.8, 3.4, 1.9, 0.2],
+       [5. , 3. , 1.6, 0.2],
+       [5. , 3.4, 1.6, 0.4],
+       [5.2, 3.5, 1.5, 0.2],
+       [5.2, 3.4, 1.4, 0.2],
+       [4.7, 3.2, 1.6, 0.2],
+       [4.8, 3.1, 1.6, 0.2],
+       [5.4, 3.4, 1.5, 0.4],
+       [5.2, 4.1, 1.5, 0.1],
+       [5.5, 4.2, 1.4, 0.2],
+       [4.9, 3.1, 1.5, 0.2],
+       [5. , 3.2, 1.2, 0.2],
+       [5.5, 3.5, 1.3, 0.2],
+       [4.9, 3.6, 1.4, 0.1],
+       [4.4, 3. , 1.3, 0.2],
+       [5.1, 3.4, 1.5, 0.2],
+       [5. , 3.5, 1.3, 0.3],
+       [4.5, 2.3, 1.3, 0.3],
+       [4.4, 3.2, 1.3, 0.2],
+       [5. , 3.5, 1.6, 0.6],
+       [5.1, 3.8, 1.9, 0.4],
+       [4.8, 3. , 1.4, 0.3],
+       [5.1, 3.8, 1.6, 0.2],
+       [4.6, 3.2, 1.4, 0.2],
+       [5.3, 3.7, 1.5, 0.2],
+       [5. , 3.3, 1.4, 0.2],
+       [7. , 3.2, 4.7, 1.4],
+       [6.4, 3.2, 4.5, 1.5],
+       [6.9, 3.1, 4.9, 1.5],
+       [5.5, 2.3, 4. , 1.3],
+       [6.5, 2.8, 4.6, 1.5],
+       [5.7, 2.8, 4.5, 1.3],
+       [6.3, 3.3, 4.7, 1.6],
+       [4.9, 2.4, 3.3, 1. ],
+       [6.6, 2.9, 4.6, 1.3],
+       [5.2, 2.7, 3.9, 1.4],
+       [5. , 2. , 3.5, 1. ],
+       [5.9, 3. , 4.2, 1.5],
+       [6. , 2.2, 4. , 1. ],
+       [6.1, 2.9, 4.7, 1.4],
+       [5.6, 2.9, 3.6, 1.3],
+       [6.7, 3.1, 4.4, 1.4],
+       [5.6, 3. , 4.5, 1.5],
+       [5.8, 2.7, 4.1, 1. ],
+       [6.2, 2.2, 4.5, 1.5],
+       [5.6, 2.5, 3.9, 1.1],
+       [5.9, 3.2, 4.8, 1.8],
+       [6.1, 2.8, 4. , 1.3],
+       [6.3, 2.5, 4.9, 1.5],
+       [6.1, 2.8, 4.7, 1.2],
+       [6.4, 2.9, 4.3, 1.3],
+       [6.6, 3. , 4.4, 1.4],
+       [6.8, 2.8, 4.8, 1.4],
+       [6.7, 3. , 5. , 1.7],
+       [6. , 2.9, 4.5, 1.5],
+       [5.7, 2.6, 3.5, 1. ],
+       [5.5, 2.4, 3.8, 1.1],
+       [5.5, 2.4, 3.7, 1. ],
+       [5.8, 2.7, 3.9, 1.2],
+       [6. , 2.7, 5.1, 1.6],
+       [5.4, 3. , 4.5, 1.5],
+       [6. , 3.4, 4.5, 1.6],
+       [6.7, 3.1, 4.7, 1.5],
+       [6.3, 2.3, 4.4, 1.3],
+       [5.6, 3. , 4.1, 1.3],
+       [5.5, 2.5, 4. , 1.3],
+       [5.5, 2.6, 4.4, 1.2],
+       [6.1, 3. , 4.6, 1.4],
+       [5.8, 2.6, 4. , 1.2],
+       [5. , 2.3, 3.3, 1. ],
+       [5.6, 2.7, 4.2, 1.3],
+       [5.7, 3. , 4.2, 1.2],
+       [5.7, 2.9, 4.2, 1.3],
+       [6.2, 2.9, 4.3, 1.3],
+       [5.1, 2.5, 3. , 1.1],
+       [5.7, 2.8, 4.1, 1.3],
+       [6.3, 3.3, 6. , 2.5],
+       [5.8, 2.7, 5.1, 1.9],
+       [7.1, 3. , 5.9, 2.1],
+       [6.3, 2.9, 5.6, 1.8],
+       [6.5, 3. , 5.8, 2.2],
+       [7.6, 3. , 6.6, 2.1],
+       [4.9, 2.5, 4.5, 1.7],
+       [7.3, 2.9, 6.3, 1.8],
+       [6.7, 2.5, 5.8, 1.8],
+       [7.2, 3.6, 6.1, 2.5],
+       [6.5, 3.2, 5.1, 2. ],
+       [6.4, 2.7, 5.3, 1.9],
+       [6.8, 3. , 5.5, 2.1],
+       [5.7, 2.5, 5. , 2. ],
+       [5.8, 2.8, 5.1, 2.4],
+       [6.4, 3.2, 5.3, 2.3],
+       [6.5, 3. , 5.5, 1.8],
+       [7.7, 3.8, 6.7, 2.2],
+       [7.7, 2.6, 6.9, 2.3],
+       [6. , 2.2, 5. , 1.5],
+       [6.9, 3.2, 5.7, 2.3],
+       [5.6, 2.8, 4.9, 2. ],
+       [7.7, 2.8, 6.7, 2. ],
+       [6.3, 2.7, 4.9, 1.8],
+       [6.7, 3.3, 5.7, 2.1],
+       [7.2, 3.2, 6. , 1.8],
+       [6.2, 2.8, 4.8, 1.8],
+       [6.1, 3. , 4.9, 1.8],
+       [6.4, 2.8, 5.6, 2.1],
+       [7.2, 3. , 5.8, 1.6],
+       [7.4, 2.8, 6.1, 1.9],
+       [7.9, 3.8, 6.4, 2. ],
+       [6.4, 2.8, 5.6, 2.2],
+       [6.3, 2.8, 5.1, 1.5],
+       [6.1, 2.6, 5.6, 1.4],
+       [7.7, 3. , 6.1, 2.3],
+       [6.3, 3.4, 5.6, 2.4],
+       [6.4, 3.1, 5.5, 1.8],
+       [6. , 3. , 4.8, 1.8],
+       [6.9, 3.1, 5.4, 2.1],
+       [6.7, 3.1, 5.6, 2.4],
+       [6.9, 3.1, 5.1, 2.3],
+       [5.8, 2.7, 5.1, 1.9],
+       [6.8, 3.2, 5.9, 2.3],
+       [6.7, 3.3, 5.7, 2.5],
+       [6.7, 3. , 5.2, 2.3],
+       [6.3, 2.5, 5. , 1.9],
+       [6.5, 3. , 5.2, 2. ],
+       [6.2, 3.4, 5.4, 2.3],
+       [5.9, 3. , 5.1, 1.8]]), &#39;target&#39;: array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]), &#39;frame&#39;: None, &#39;target_names&#39;: array([&#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;], dtype=&#39;&lt;U10&#39;), &#39;DESCR&#39;: &#39;.. _iris_dataset:\n\nIris plants dataset\n--------------------\n\n**Data Set Characteristics:**\n\n:Number of Instances: 150 (50 in each of three classes)\n:Number of Attributes: 4 numeric, predictive attributes and the class\n:Attribute Information:\n    - sepal length in cm\n    - sepal width in cm\n    - petal length in cm\n    - petal width in cm\n    - class:\n            - Iris-Setosa\n            - Iris-Versicolour\n            - Iris-Virginica\n\n:Summary Statistics:\n\n============== ==== ==== ======= ===== ====================\n                Min  Max   Mean    SD   Class Correlation\n============== ==== ==== ======= ===== ====================\nsepal length:   4.3  7.9   5.84   0.83    0.7826\nsepal width:    2.0  4.4   3.05   0.43   -0.4194\npetal length:   1.0  6.9   3.76   1.76    0.9490  (high!)\npetal width:    0.1  2.5   1.20   0.76    0.9565  (high!)\n============== ==== ==== ======= ===== ====================\n\n:Missing Attribute Values: None\n:Class Distribution: 33.3% for each of 3 classes.\n:Creator: R.A. Fisher\n:Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)\n:Date: July, 1988\n\nThe famous Iris database, first used by Sir R.A. Fisher. The dataset is taken\nfrom Fisher\&#39;s paper. Note that it\&#39;s the same as in R, but not as in the UCI\nMachine Learning Repository, which has two wrong data points.\n\nThis is perhaps the best known database to be found in the\npattern recognition literature.  Fisher\&#39;s paper is a classic in the field and\nis referenced frequently to this day.  (See Duda &amp; Hart, for example.)  The\ndata set contains 3 classes of 50 instances each, where each class refers to a\ntype of iris plant.  One class is linearly separable from the other 2; the\nlatter are NOT linearly separable from each other.\n\n.. dropdown:: References\n\n  - Fisher, R.A. &quot;The use of multiple measurements in taxonomic problems&quot;\n    Annual Eugenics, 7, Part II, 179-188 (1936); also in &quot;Contributions to\n    Mathematical Statistics&quot; (John Wiley, NY, 1950).\n  - Duda, R.O., &amp; Hart, P.E. (1973) Pattern Classification and Scene Analysis.\n    (Q327.D83) John Wiley &amp; Sons.  ISBN 0-471-22361-1.  See page 218.\n  - Dasarathy, B.V. (1980) &quot;Nosing Around the Neighborhood: A New System\n    Structure and Classification Rule for Recognition in Partially Exposed\n    Environments&quot;.  IEEE Transactions on Pattern Analysis and Machine\n    Intelligence, Vol. PAMI-2, No. 1, 67-71.\n  - Gates, G.W. (1972) &quot;The Reduced Nearest Neighbor Rule&quot;.  IEEE Transactions\n    on Information Theory, May 1972, 431-433.\n  - See also: 1988 MLC Proceedings, 54-64.  Cheeseman et al&quot;s AUTOCLASS II\n    conceptual clustering system finds 3 classes in the data.\n  - Many, many more ...\n&#39;, &#39;feature_names&#39;: [&#39;sepal length (cm)&#39;, &#39;sepal width (cm)&#39;, &#39;petal length (cm)&#39;, &#39;petal width (cm)&#39;], &#39;filename&#39;: &#39;iris.csv&#39;, &#39;data_module&#39;: &#39;sklearn.datasets.data&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+<span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>150 4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x1&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x2&#39;</span><span class="p">);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x3&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x4&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c79eef836dca3200fc59a2362699ef4e99e1459949b3e9aaf64c8bf489184783.png" src="_images/c79eef836dca3200fc59a2362699ef4e99e1459949b3e9aaf64c8bf489184783.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1338,27 +1639,32 @@ The eigenvectors <span class="math notranslate nohighlight">\(\b{v}_i\)</span> o
 <span class="math notranslate nohighlight">\((\b{v}_1\cdot\b{x}, \b{v}_2\cdot\b{x},...)\)</span> for visualization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lam</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lam, V = &#39;</span><span class="p">,</span> <span class="n">lam</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
-<span class="c1"># it is not guaranteed that the eigenvalues are sorted, so sort them</span>
-<span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">lam</span><span class="p">)</span>  <span class="c1"># indices for sorting, descending order</span>
-<span class="n">lams</span> <span class="o">=</span> <span class="n">lam</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
-<span class="n">Vs</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span><span class="n">ind</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lams, Vs = &#39;</span><span class="p">,</span> <span class="n">lams</span><span class="p">,</span> <span class="n">Vs</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pca</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Principal Component Analysis of data matrix X = (x1,...,xn).T&quot;&quot;&quot;</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">rowvar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">lam</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+    <span class="c1"># it is not guaranteed that the eigenvalues are sorted, so sort them</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">lam</span><span class="p">)</span>  <span class="c1"># indices for sorting, descending order</span>
+    <span class="n">lams</span> <span class="o">=</span> <span class="n">lam</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+    <span class="n">Vs</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span><span class="n">ind</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">lams</span><span class="p">,</span> <span class="n">Vs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lam</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">pca</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">lam</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;PC&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;eigenvalue&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lam, V =  [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658877 -0.58202985  0.31548719]
- [-0.08452251 -0.73016143  0.59791083 -0.3197231 ]
- [ 0.85667061  0.17337266  0.07623608 -0.47983899]
- [ 0.3582892   0.07548102  0.54583143  0.75365743]]
-lams, Vs =  [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658877 -0.58202985  0.31548719]
- [-0.08452251 -0.73016143  0.59791083 -0.3197231 ]
- [ 0.85667061  0.17337266  0.07623608 -0.47983899]
- [ 0.3582892   0.07548102  0.54583143  0.75365743]]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;eigenvalue&#39;)
 </pre></div>
 </div>
+<img alt="_images/d08bad3a24c79ff6329602b6c5b91b7af53c11afed0d6d3808139c755f2490de.png" src="_images/d08bad3a24c79ff6329602b6c5b91b7af53c11afed0d6d3808139c755f2490de.png" />
 </div>
 </div>
 <p>Let us see the principal component vectors in the original space.</p>
@@ -1369,36 +1675,35 @@ lams, Vs =  [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dX</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">dX</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">lams</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">Vs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">lams</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">Vs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">]],</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;X0&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;X1&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">]],</span> <span class="s1">&#39;v-&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    <span class="c1">#plt.plot( [0, lam[i]*V[0,i]], [0, lam[i]*V[1,i]], &#39;o-&#39;, lw=2)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x1&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x2&#39;</span><span class="p">);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;PC1&#39;</span><span class="p">,</span><span class="s1">&#39;PC2&#39;</span><span class="p">,</span><span class="s1">&#39;PC3&#39;</span><span class="p">,</span><span class="s1">&#39;PC4&#39;</span><span class="p">))</span>
 <span class="c1"># last two components</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dX</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">dX</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">lams</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">Vs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">lams</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">Vs</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="p">]],</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;X2&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;X3&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">V</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">V</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="p">]],</span> <span class="s1">&#39;^-&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    <span class="c1">#plt.plot( [0, lam[i]*V[2,i]], [0, lam[i]*V[3,i]], &#39;o-&#39;, lw=2)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x3&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x4&#39;</span><span class="p">);</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>  <span class="c1"># adjust space</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ea4f44608ceb42e955c87e9030bcf23aa3e80b327018753d8cf0e38c8ea3190f.png" src="_images/ea4f44608ceb42e955c87e9030bcf23aa3e80b327018753d8cf0e38c8ea3190f.png" />
+<img alt="_images/e84274add2d422b269b8b7c0cc417d6518109f1219587da4ca5430ba8f2e1bf2.png" src="_images/e84274add2d422b269b8b7c0cc417d6518109f1219587da4ca5430ba8f2e1bf2.png" />
 </div>
 </div>
 <p>Now let us project the 4D data onto the space spanned by the eigenvectors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Z</span> <span class="o">=</span> <span class="n">dX</span> <span class="o">@</span> <span class="n">Vs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Z</span> <span class="o">=</span> <span class="n">dX</span> <span class="o">@</span> <span class="n">V</span>  <span class="c1"># projection to PC</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Z</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">Z</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;PC1&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;PC2&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;PC1&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;PC2&#39;</span><span class="p">);</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Z</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">Z</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;PC3&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;PC4&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;PC3&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;PC4&#39;</span><span class="p">);</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>  <span class="c1"># adjust space</span>
 </pre></div>
 </div>
@@ -1458,9 +1763,26 @@ and <span class="math notranslate nohighlight">\(V=(\b{v}_1,...,\b{v}_k)\)</span
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Vt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;S =&#39;</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">U</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s1">&#39;u1&#39;</span><span class="p">,</span><span class="s1">&#39;u2&#39;</span><span class="p">,</span><span class="s1">&#39;u3&#39;</span><span class="p">,</span><span class="s1">&#39;u4&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>S = [95.95991387 17.76103366  3.46093093  1.88482631]
+</pre></div>
+</div>
+<img alt="_images/9eadb6211adddd4eb672d83355a5bcb97041601328fc6ec1210dea05b8385add.png" src="_images/9eadb6211adddd4eb672d83355a5bcb97041601328fc6ec1210dea05b8385add.png" />
+</div>
+</div>
+<p>In this example, the first component captures the average pattern and the second component captures the species difference.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A =&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;X =&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
@@ -1474,12 +1796,12 @@ and <span class="math notranslate nohighlight">\(V=(\b{v}_1,...,\b{v}_k)\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0cf15d8667f9278c3687ca84e567c960ba75cd98407fe5a28cf324fc1474dc35.png" src="_images/0cf15d8667f9278c3687ca84e567c960ba75cd98407fe5a28cf324fc1474dc35.png" />
+<img alt="_images/d29593f274291c3751c4b643aa53c509e7a1f9c0ca3f6814a3b5d5389dc8da7b.png" src="_images/d29593f274291c3751c4b643aa53c509e7a1f9c0ca3f6814a3b5d5389dc8da7b.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">U</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">Vt</span><span class="p">[</span><span class="n">i</span><span class="p">,:]))</span>
@@ -1489,7 +1811,7 @@ and <span class="math notranslate nohighlight">\(V=(\b{v}_1,...,\b{v}_k)\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fdd94f37309e1f6d96f119d963c8f7cdb6bf3abd042cf5a92d194b657d0e033b.png" src="_images/fdd94f37309e1f6d96f119d963c8f7cdb6bf3abd042cf5a92d194b657d0e033b.png" />
+<img alt="_images/ab1ebb981e88da8b1bdd4aff544ef07e3c1acb64fce79443105da88dc39fc370.png" src="_images/ab1ebb981e88da8b1bdd4aff544ef07e3c1acb64fce79443105da88dc39fc370.png" />
 </div>
 </div>
 </section>
@@ -1505,18 +1827,20 @@ and <span class="math notranslate nohighlight">\(V=(\b{v}_1,...,\b{v}_k)\)</span
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iris data</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;by covariance:&#39;</span><span class="p">,</span> <span class="n">lams</span><span class="p">,</span> <span class="n">Vs</span><span class="p">)</span>  <span class="c1"># computed by eig of covariance matrix</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;by cov and eig: l =&#39;</span><span class="p">,</span> <span class="n">lam</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">V =&#39;</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>  <span class="c1"># computed by eig of covariance matrix</span>
 <span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Vt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">dX</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;by SVD:&#39;</span><span class="p">,</span> <span class="n">S</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">Vt</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;by SVD: l =&#39;</span><span class="p">,</span> <span class="n">S</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">V =&#39;</span><span class="p">,</span> <span class="n">Vt</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>by covariance: [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658877 -0.58202985  0.31548719]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>by cov and eig: l = [4.22824171 0.24267075 0.0782095  0.02383509] 
+V = [[ 0.36138659 -0.65658877 -0.58202985  0.31548719]
  [-0.08452251 -0.73016143  0.59791083 -0.3197231 ]
  [ 0.85667061  0.17337266  0.07623608 -0.47983899]
  [ 0.3582892   0.07548102  0.54583143  0.75365743]]
-by SVD: [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658877  0.58202985  0.31548719]
+by SVD: l = [4.22824171 0.24267075 0.0782095  0.02383509] 
+V = [[ 0.36138659 -0.65658877  0.58202985  0.31548719]
  [-0.08452251 -0.73016143 -0.59791083 -0.3197231 ]
  [ 0.85667061  0.17337266 -0.07623608 -0.47983899]
  [ 0.3582892   0.07548102 -0.54583143  0.75365743]]
@@ -1524,172 +1848,6 @@ by SVD: [4.22824171 0.24267075 0.0782095  0.02383509] [[ 0.36138659 -0.65658877 
 </div>
 </div>
 </div>
-</section>
-<section id="appendix-eigenvalues-of-a-2x2-matrix">
-<h2>Appendix: Eigenvalues of a 2x2 matrix<a class="headerlink" href="#appendix-eigenvalues-of-a-2x2-matrix" title="Link to this heading">#</a></h2>
-<p>Let us take the simplest and the most important case of 2 by 2 matrix</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} A = \pmatrix{a &amp; b \\ c &amp; d}. \end{split}\]</div>
-<p>We can analytically derive the eigenvalues from</p>
-<div class="math notranslate nohighlight">
-\[ \det (A - \lambda I) = (a-\lambda)(d-\lambda) - bc = 0 \]</div>
-<p>as</p>
-<div class="math notranslate nohighlight">
-\[ \lambda = \frac{a+d}{2} \pm \sqrt{\frac{(a-d)^2}{4}+ bc}. \]</div>
-<p>The corresponding eigenvectors are not unique, but given by, for example,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} \b{x} = \mat{b \\ \lambda - a}. \end{split}\]</div>
-<section id="real-eigenvalues">
-<h3>Real eigenvalues<a class="headerlink" href="#real-eigenvalues" title="Link to this heading">#</a></h3>
-<p>When <span class="math notranslate nohighlight">\(\frac{(a-d)^2}{4}+ bc \ge 0\)</span>, <span class="math notranslate nohighlight">\(A\)</span> has two real eigenvalues
-<span class="math notranslate nohighlight">\(\{\lambda_1, \lambda_2\}\)</span>
-with corresponding eigenvectors
-<span class="math notranslate nohighlight">\(\{ \b{v}_1, \b{v}_2 \}\)</span></p>
-<p>The movement of a point <span class="math notranslate nohighlight">\(\b{x}\)</span> by <span class="math notranslate nohighlight">\(A\)</span> as
-<span class="math notranslate nohighlight">\(A\b{x}, A^2\b{x}, A^3\b{x},...\)</span> is composed of movements in the directions of the eigenvectors <span class="math notranslate nohighlight">\(\{ \b{v}_1, \b{v}_2 \}\)</span>.
-It is convergent if <span class="math notranslate nohighlight">\(|\lambda_i|&lt;1\)</span>
-and divergent if  <span class="math notranslate nohighlight">\(|\lambda_i|&gt;1.\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take a 2x2 matrix</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="c1"># check the eigenvalues and eigenvectors</span>
-<span class="n">L</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L =&quot;</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;V = &quot;</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
-<span class="c1"># take a point and see how it moves</span>
-<span class="n">K</span> <span class="o">=</span> <span class="mi">7</span>  <span class="c1"># steps</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">K</span><span class="p">))</span>
-<span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">[:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">x</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span>  <span class="c1"># x_{k+1} = A x_k</span>
-<span class="c1"># plot the trajectory</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">);</span>
-<span class="c1"># In the eigenspace</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">K</span><span class="p">))</span>
-<span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">@</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># map to eigenspace</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">y</span><span class="p">[:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="o">*</span><span class="n">y</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span>  <span class="c1"># z_{k+1} = L z_k</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r+-&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;v1&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">);</span>
-<span class="c1"># Conver back to the original space</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">xv</span> <span class="o">=</span> <span class="p">(</span><span class="n">V</span> <span class="o">@</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">xv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>  <span class="c1"># adjust the space</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L = [2.  0.5]
-V =  [[ 0.70710678 -0.4472136 ]
- [ 0.70710678  0.89442719]]
-</pre></div>
-</div>
-<img alt="_images/f2b86488a6f22f99fc35243230a4740700347caa1ac03feb6f28313bdaa2bd24.png" src="_images/f2b86488a6f22f99fc35243230a4740700347caa1ac03feb6f28313bdaa2bd24.png" />
-</div>
-</div>
-</section>
-<section id="complex-eigenvalues">
-<h3>Complex eigenvalues<a class="headerlink" href="#complex-eigenvalues" title="Link to this heading">#</a></h3>
-<p>When <span class="math notranslate nohighlight">\(\frac{(a-d)^2}{4}+ bc &lt; 0\)</span>, <span class="math notranslate nohighlight">\(A\)</span> has a pair of complex eigenvalues</p>
-<div class="math notranslate nohighlight">
-\[ \lambda_1 = \alpha + i\beta \mbox{ and } \lambda_2 = \alpha - i\beta \]</div>
-<p>where</p>
-<div class="math notranslate nohighlight">
-\[ \alpha = \frac{a+d}{2} \mbox{ and } \beta^2 = -\frac{(a-d)^2}{4}- bc \]</div>
-<p>with corresponding eigenvectors</p>
-<div class="math notranslate nohighlight">
-\[ V = (\b{v}_1, \b{v}_2) = (\b{u}+i\b{w}, \b{u}-i\b{w}).\]</div>
-<p>By eigendecomposition
-<span class="math notranslate nohighlight">\( A = V \Lambda V^{-1}, \)</span>
-a point <span class="math notranslate nohighlight">\(\b{x}\)</span> is converted to points in a complex plane and multiplied by a complex eigenvalue, which means rotation and scaling.
-Points in the complex plane are then converted back in a real vector space by multiplication with <span class="math notranslate nohighlight">\(V\)</span>.</p>
-<p>To see the rotation and scaling more explicitly, we can represent <span class="math notranslate nohighlight">\(\Lambda=\mat{\alpha+i\beta &amp; 0 \\ 0 &amp; \alpha-i\beta}\)</span> as</p>
-<div class="math notranslate nohighlight">
-\[\Lambda = U R U^{-1}\]</div>
-<p>where <span class="math notranslate nohighlight">\(R\)</span> is</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} R = \mat{\alpha &amp; -\beta \\ \beta &amp; \alpha}
- = \mat{r\cos\theta &amp; -r\sin\theta \\ r\sin\theta &amp; r\cos\theta }.\end{split}\]</div>
-<p>Here <span class="math notranslate nohighlight">\(r=|\lambda|=\sqrt{\alpha^2+\beta^2}\)</span> is the scaling factor and <span class="math notranslate nohighlight">\(\theta\)</span> is the angle of rotation.</p>
-<p>We can choose <span class="math notranslate nohighlight">\(U\)</span> as</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} U = \frac{1}{2}\mat{1 &amp; i \\ 1 &amp; -i} \end{split}\]</div>
-<p>such that
-<span class="math notranslate nohighlight">\(VU = (\b{u}, -\b{w})\)</span>.</p>
-<p>Then we have another decomposition of <span class="math notranslate nohighlight">\(A\)</span> as</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} A = V \Lambda V^{-1}
- = V URU^{-1} V^{-1}
- = (\b{u}, -\b{w}) \mat{r\cos\theta &amp; -r\sin\theta \\ r\sin\theta &amp; r\cos\theta} (\b{u}, -\b{w})^{-1} \end{split}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take a 2x2 matrix</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]])</span>
-<span class="c1"># check the eigenvalues and eigenvectors</span>
-<span class="n">L</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L =&quot;</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;V = &quot;</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
-<span class="c1"># take a point and see how it moves</span>
-<span class="n">K</span> <span class="o">=</span> <span class="mi">7</span>  <span class="c1"># steps</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">K</span><span class="p">))</span>
-<span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">[:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">x</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span>  <span class="c1"># x_{k+1} = A x_k</span>
-<span class="c1"># plot the trajectory</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">);</span>
-<span class="c1"># In the eigenspace</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">K</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
-<span class="n">z</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">@</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">z</span><span class="p">[:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="o">*</span><span class="n">z</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span>  <span class="c1"># z_{k+1} = L z_k</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="s1">&#39;r+-&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="s1">&#39;m+-&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Real&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Imag&quot;</span><span class="p">);</span>
-<span class="c1"># In the cos-sin space</span>
-<span class="n">VU</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">V</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="o">-</span><span class="n">V</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">]</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="o">-</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">],</span> <span class="p">[</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R =&quot;</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;VU =&quot;</span><span class="p">,</span> <span class="n">VU</span><span class="p">)</span> 
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">K</span><span class="p">))</span>
-<span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">VU</span><span class="p">)</span> <span class="o">@</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">y</span><span class="p">[:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span> <span class="o">@</span> <span class="n">y</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span>  <span class="c1"># y_{k+1} = R y_k</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;g*-&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;u&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;-w&quot;</span><span class="p">);</span>
-<span class="c1"># Conver back to the original space</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">xc</span> <span class="o">=</span> <span class="p">(</span><span class="n">V</span> <span class="o">@</span> <span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
-<span class="n">xr</span> <span class="o">=</span> <span class="n">VU</span> <span class="o">@</span> <span class="n">y</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">xr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xr</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;g*&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">xc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]);</span>  <span class="c1"># fit in extra width</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L = [0.75+0.96824584j 0.75-0.96824584j]
-V =  [[0.70710678+0.j        0.70710678-0.j       ]
- [0.1767767 -0.6846532j 0.1767767 +0.6846532j]]
-R = [[ 0.75       -0.96824584]
- [ 0.96824584  0.75      ]]
-VU = [[ 0.70710678 -0.        ]
- [ 0.1767767   0.6846532 ]]
-</pre></div>
-</div>
-<img alt="_images/65616d8cd12a300227d755903e3849484beb2bcea56bb491b07e85a20ecf17b5.png" src="_images/65616d8cd12a300227d755903e3849484beb2bcea56bb491b07e85a20ecf17b5.png" />
-</div>
-</div>
-<p>The trajectory in the complex space or the <span class="math notranslate nohighlight">\((\b{u},-\b{w})\)</span> space is a regular spirals, which is mapped to a skewed spiral in the original space.</p>
-</section>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -1735,11 +1893,11 @@ VU = [[ 0.70710678 -0.        ]
       </div>
     </a>
     <a class="right-next"
-       href="04_Matrix_Ex.html"
+       href="04_Matrix_EigenValue.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">4. Vectors and Matrices: Exercise</p>
+        <p class="prev-next-title">Real and Complex Eigenvalues</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1776,11 +1934,6 @@ VU = [[ 0.70710678 -0.        ]
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">Principal component analysis (PCA)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-value-decomposition-svd">Singular value decomposition (SVD)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-by-svd">PCA by SVD</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-eigenvalues-of-a-2x2-matrix">Appendix: Eigenvalues of a 2x2 matrix</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-eigenvalues">Real eigenvalues</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-eigenvalues">Complex eigenvalues</a></li>
-</ul>
-</li>
 </ul>
   </nav></div>
 

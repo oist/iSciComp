@@ -195,6 +195,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04_Matrix.html">4. Vectors and Matrices</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="04_Matrix_EigenValue.html">Real and Complex Eigenvalues</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="04_Matrix_Ex.html">4. Vectors and Matrices: Exercise</a></li>
 </ul>
 </details></li>
@@ -508,7 +510,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1106624b0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11e6e1eb0&gt;]
 </pre></div>
 </div>
 <img alt="_images/af22e3cd91ef0eec452740a7e03170fd8264c62a2c4cde85bbd67d1eb146b680.png" src="_images/af22e3cd91ef0eec452740a7e03170fd8264c62a2c4cde85bbd67d1eb146b680.png" />
@@ -739,7 +741,7 @@ First four columns are:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x110733aa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x11e5daf30&gt;
 </pre></div>
 </div>
 <img alt="_images/0f9296c90e1db18f0fcb6e375e22f65b0e8a40838122c8d93e2104835bbf610a.png" src="_images/0f9296c90e1db18f0fcb6e375e22f65b0e8a40838122c8d93e2104835bbf610a.png" />
@@ -774,7 +776,7 @@ First four columns are:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x110799370&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x11e9b2030&gt;
 </pre></div>
 </div>
 <img alt="_images/8503abcf8372830cebb6af636baa53a6e1052c3be6fabe4a3ddbbc5af64b1d03.png" src="_images/8503abcf8372830cebb6af636baa53a6e1052c3be6fabe4a3ddbbc5af64b1d03.png" />
@@ -1781,7 +1783,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='74ad3153-3f25-456b-9421-31845f21732d'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x1107b22a0&gt;
+</script><div class="output text_html"><div id='60088a0a-50cf-4881-abe1-1f17665d1f73'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x11e9fe8d0&gt;
 </pre></div>
 </div>
 </div>
@@ -2788,7 +2790,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='fcfa4c0f-527b-4e4d-ad22-dba5963565d5'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x1107b0f20&gt;
+</script><div class="output text_html"><div id='157a9819-4128-4e14-87a9-431ef9998f7d'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x11e355040&gt;
 </pre></div>
 </div>
 </div>
@@ -3794,7 +3796,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='a5eedf7a-448b-49fe-9af3-c2799060b8f4'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x110799280&gt;
+</script><div class="output text_html"><div id='d898cb1a-6a8d-4f4b-8b1f-d1a50319f410'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x11e99be90&gt;
 </pre></div>
 </div>
 </div>
@@ -4799,7 +4801,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='4b3f5e10-1fd0-401c-8fab-78357147b4e1'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x110b0e630&gt;
+</script><div class="output text_html"><div id='2cfe8998-c496-4e9e-91db-dd0f81346423'></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x11ebd8500&gt;
 </pre></div>
 </div>
 </div>
@@ -5806,7 +5808,7 @@ if (IPython.notebook.kernel !== null) {
         mpl.mpl_figure_comm
     );
 }
-</script><div class="output text_html"><div id='300b3c43-978a-4eae-84c2-e9e326ccc5dc'></div></div></div>
+</script><div class="output text_html"><div id='8876ea88-b2d4-44ba-8665-a3706801dee2'></div></div></div>
 </div>
 </section>
 </section>

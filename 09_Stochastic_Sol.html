@@ -194,6 +194,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04_Matrix.html">4. Vectors and Matrices</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="04_Matrix_EigenValue.html">Real and Complex Eigenvalues</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="04_Matrix_Ex.html">4. Vectors and Matrices: Exercise</a></li>
 </ul>
 </details></li>
@@ -512,20 +514,20 @@ $<span class="math notranslate nohighlight">\( f(x) = \left\{ \begin{array}{ccc}
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.         0.         0.        ]
  [0.         0.         0.        ]
- [3.13853526 3.1328     3.14159265]
- [4.17543074 4.204      4.1887902 ]
- [4.96266536 4.9536     4.9348022 ]
- [5.27364976 5.3312     5.26378901]
- [5.24327279 5.0624     5.16771278]
- [4.69449131 4.8        4.72476597]
- [4.12660604 4.3776     4.05871213]
- [3.61807704 3.4816     3.2985089 ]
- [2.84917594 2.8672     2.55016404]
- [2.19942915 2.2528     1.88410388]
- [1.56211394 2.048      1.33526277]
- [1.2911036  0.8192     0.91062875]
- [0.95902351 1.6384     0.59926453]
- [0.6273464  3.2768     0.38144328]]
+ [3.15162638 3.1392     3.14159265]
+ [4.18031658 4.1688     4.1887902 ]
+ [4.93951256 4.9408     4.9348022 ]
+ [5.29649759 5.4048     5.26378901]
+ [5.29872541 5.2544     5.16771278]
+ [4.8946604  4.6976     4.72476597]
+ [4.2299871  4.4544     4.05871213]
+ [3.718945   3.3792     3.2985089 ]
+ [2.75398731 2.9696     2.55016404]
+ [2.10608504 1.8432     1.88410388]
+ [1.25671007 2.4576     1.33526277]
+ [1.27461895 0.8192     0.91062875]
+ [0.35160471 0.         0.59926453]
+ [0.         0.         0.38144328]]
 </pre></div>
 </div>
 </div>
@@ -549,7 +551,7 @@ $<span class="math notranslate nohighlight">\( f(x) = \left\{ \begin{array}{ccc}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>316.6848
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>311.3856
 </pre></div>
 </div>
 </div>
@@ -673,7 +675,7 @@ the ratio \)</span>\frac{p(x;k,\theta)}{q(x;\mu)}<span class="math notranslate n
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2ea4cc6f7ca02aa7c738ecaeae860b5898bec1c7435370e1ae650d5c087eea8f.png" src="_images/2ea4cc6f7ca02aa7c738ecaeae860b5898bec1c7435370e1ae650d5c087eea8f.png" />
+<img alt="_images/d9b084f7802e14bfd1e70063305718fef2d590fcdd2cc26ae4dbfc41756ac722.png" src="_images/d9b084f7802e14bfd1e70063305718fef2d590fcdd2cc26ae4dbfc41756ac722.png" />
 </div>
 </div>
 </section>
@@ -724,10 +726,10 @@ $<span class="math notranslate nohighlight">\( E_p[h(x)] = E_q\left[\frac{p(x)}{
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>103.1496564437377
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>95.2661519619497
 </pre></div>
 </div>
-<img alt="_images/505b6fb17f81233c487d5a083e5cff24a67de995bca006f3ce9a40d172c34c0d.png" src="_images/505b6fb17f81233c487d5a083e5cff24a67de995bca006f3ce9a40d172c34c0d.png" />
+<img alt="_images/1d79ddabd12fa5f85bdca4b9b1ef8f9d02b0275852c8775681d2e71359c547c0.png" src="_images/1d79ddabd12fa5f85bdca4b9b1ef8f9d02b0275852c8775681d2e71359c547c0.png" />
 </div>
 </div>
 <ol class="arabic simple" start="3">
@@ -749,10 +751,10 @@ $<span class="math notranslate nohighlight">\( E_p[h(x)] = E_q\left[\frac{p(x)}{
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>118.01861448434256
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>87.83326116667142
 </pre></div>
 </div>
-<img alt="_images/359089d7792ef591fedb5d0c72e45849bcb96043c69fbfd921fe01a480c40744.png" src="_images/359089d7792ef591fedb5d0c72e45849bcb96043c69fbfd921fe01a480c40744.png" />
+<img alt="_images/196af38c6259d28ed422c0d9cf4887107c2e208409a4d4c88be62edc6de4ef4a.png" src="_images/196af38c6259d28ed422c0d9cf4887107c2e208409a4d4c88be62edc6de4ef4a.png" />
 </div>
 </div>
 <ol class="arabic simple" start="4">
@@ -776,11 +778,11 @@ $<span class="math notranslate nohighlight">\( E_p[h(x)] = E_q\left[\frac{p(x)}{
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100.62606391910836
-123.65395133210146
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99.80089668364151
+117.95866350607002
 </pre></div>
 </div>
-<img alt="_images/22173f77c4eeff0b9a04e21b126a30d4c267ae8c851c1ae4bd827c78c3153cc6.png" src="_images/22173f77c4eeff0b9a04e21b126a30d4c267ae8c851c1ae4bd827c78c3153cc6.png" />
+<img alt="_images/aa7eaa90729d53edcad1141c941225489cf8d5b156a2aca31344d209100c4060.png" src="_images/aa7eaa90729d53edcad1141c941225489cf8d5b156a2aca31344d209100c4060.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -802,11 +804,11 @@ $<span class="math notranslate nohighlight">\( E_p[h(x)] = E_q\left[\frac{p(x)}{
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>98.75026245917246
-103.1052517680499
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99.74103366851058
+109.5844458966939
 </pre></div>
 </div>
-<img alt="_images/6110d1a83c9a374159c715a11c9fa2f88390c2e10da97504a20356bbf920dd7d.png" src="_images/6110d1a83c9a374159c715a11c9fa2f88390c2e10da97504a20356bbf920dd7d.png" />
+<img alt="_images/2c79bc44668f1ac47cb5f67a3e194a08cd22624af9cdc5439520149e48eaa432.png" src="_images/2c79bc44668f1ac47cb5f67a3e194a08cd22624af9cdc5439520149e48eaa432.png" />
 </div>
 </div>
 <p>Optional) Try with a different function <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
@@ -878,13 +880,13 @@ $<span class="math notranslate nohighlight">\( E_p[h(x)] = E_q\left[\frac{p(x)}{
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4503
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4595
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(-3.0), np.float64(3.0), np.float64(-3.0), np.float64(3.0))
 </pre></div>
 </div>
-<img alt="_images/75b581ce64aea8b11d56f578b255a85e3e1c349b6e813a15706c0c684f9ca7cd.png" src="_images/75b581ce64aea8b11d56f578b255a85e3e1c349b6e813a15706c0c684f9ca7cd.png" />
+<img alt="_images/11a41368fd3f8b402b6116d84264af4d5f930efb8fc934a040ad81c101ffbcb7.png" src="_images/11a41368fd3f8b402b6116d84264af4d5f930efb8fc934a040ad81c101ffbcb7.png" />
 </div>
 </div>
 </section>

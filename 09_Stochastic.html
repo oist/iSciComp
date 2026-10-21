@@ -195,6 +195,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04_Matrix.html">4. Vectors and Matrices</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="04_Matrix_EigenValue.html">Real and Complex Eigenvalues</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="04_Matrix_Ex.html">4. Vectors and Matrices: Exercise</a></li>
 </ul>
 </details></li>
@@ -577,7 +579,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/100a3c124bbfe34ea9198aac9cf21eb81fd64487b4b0bc9c348cd86a401f9e72.png" src="_images/100a3c124bbfe34ea9198aac9cf21eb81fd64487b4b0bc9c348cd86a401f9e72.png" />
+<img alt="_images/fb84e6309a7098b311096ef563277a1d4d6dad1d645af626dd9fcf5119917603.png" src="_images/fb84e6309a7098b311096ef563277a1d4d6dad1d645af626dd9fcf5119917603.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -587,11 +589,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 1, 3, 3, 0, 2, 1, 3, 3, 0, 0, 3, 0, 0, 2, 1, 3, 3, 2, 0, 3, 2,
-       1, 1, 1, 1, 0, 1, 1, 1, 2, 2, 3, 0, 1, 2, 1, 3, 3, 2, 0, 3, 2, 1,
-       3, 1, 1, 2, 3, 2, 1, 2, 3, 2, 2, 2, 0, 1, 2, 3, 2, 1, 0, 3, 2, 0,
-       0, 1, 3, 3, 1, 1, 1, 1, 0, 3, 0, 1, 3, 1, 3, 1, 2, 2, 1, 1, 2, 0,
-       1, 0, 0, 0, 2, 0, 1, 2, 0, 3, 0, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 0, 3, 1, 3, 2, 3, 0, 0, 2, 1, 1, 0, 3, 1, 0, 0, 3, 3, 2, 2, 0,
+       1, 1, 1, 3, 2, 2, 1, 2, 1, 0, 2, 3, 0, 3, 1, 0, 3, 2, 1, 2, 2, 1,
+       0, 3, 2, 3, 3, 0, 2, 1, 0, 0, 0, 3, 0, 0, 2, 1, 3, 3, 2, 1, 2, 1,
+       1, 0, 3, 3, 3, 3, 0, 1, 3, 2, 0, 2, 1, 0, 2, 2, 3, 0, 3, 3, 3, 0,
+       0, 1, 0, 1, 3, 2, 3, 2, 3, 2, 1, 1])
 </pre></div>
 </div>
 </div>
@@ -626,7 +628,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.173888227240921
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.217677380135834
 4.1887902047863905
 </pre></div>
 </div>
@@ -664,22 +666,22 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 3.1445196897061325 3.141592653589793
-3 4.19496622095316 4.188790204786391
-4 4.833333066472132 4.934802200544679
-5 5.429109028021586 5.263789013914324
-6 5.0111177731987775 5.167712780049969
-7 4.873840877021018 4.724765970331401
-8 3.8660047248669835 4.058712126416768
-9 3.5443750505118943 3.2985089027387064
-10 2.825119098469159 2.550164039877345
-11 2.484486152024966 1.8841038793898999
-12 1.0525768208962119 1.3352627688545893
-13 0.19754930945383015 0.9106287547832829
-14 0.0 0.5992645293207919
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 3.1392389646234724 3.141592653589793
+3 4.193238247789163 4.188790204786391
+4 4.891680088229406 4.934802200544679
+5 5.227349929355483 5.263789013914324
+6 5.0600780091448225 5.167712780049969
+7 4.710703159363644 4.724765970331401
+8 4.051106971673618 4.058712126416768
+9 2.8791541413514112 3.2985089027387064
+10 2.50165714901598 2.550164039877345
+11 1.8863533764038767 1.8841038793898999
+12 0.7247360898706681 1.3352627688545893
+13 1.706699960718066 0.9106287547832829
+14 0.9224258602131941 0.5992645293207919
 15 0.0 0.38144328082330436
 16 0.0 0.23533063035889312
-17 1.873947766058163 0.140981106917139
+17 0.0 0.140981106917139
 18 0.0 0.08214588661112819
 19 0.0 0.04662160103008853
 </pre></div>
@@ -750,8 +752,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.32612284, 1.01483732, 0.61284355, 0.13768377, 1.52932802,
-       0.59719898, 1.68276207, 0.13946399, 0.09392071, 0.07885783])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.41671003, 1.1116346 , 5.30741816, 1.90269761, 7.68615037,
+       4.55015991, 0.08266838, 1.89923876, 0.90315204, 1.62662548])
 </pre></div>
 </div>
 </div>
@@ -766,7 +768,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8cb914485dcf9009ce2ce35b2e3f5b49bc9bf531f7ef885ffc5e9a3be0813c99.png" src="_images/8cb914485dcf9009ce2ce35b2e3f5b49bc9bf531f7ef885ffc5e9a3be0813c99.png" />
+<img alt="_images/c613c0797e6971671926ebf0ecc41a44fcd78413d6e439e6600d94808b0917e4.png" src="_images/c613c0797e6971671926ebf0ecc41a44fcd78413d6e439e6600d94808b0917e4.png" />
 </div>
 </div>
 <p>When a stochastic variable <span class="math notranslate nohighlight">\(x\)</span> following the distribution <span class="math notranslate nohighlight">\(p(x)\)</span> is transformed by <span class="math notranslate nohighlight">\(y=g(x)\)</span>, the distribution of <span class="math notranslate nohighlight">\(y\)</span> is given by</p>
@@ -828,7 +830,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.25719143, 0.31679958])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.9489609 , -0.16547835])
 </pre></div>
 </div>
 </div>
@@ -846,7 +848,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3bee2f532ec02214acc2bebe15223a98fecb5b9f3940599b21eee5ed35e906aa.png" src="_images/3bee2f532ec02214acc2bebe15223a98fecb5b9f3940599b21eee5ed35e906aa.png" />
+<img alt="_images/d8442a7476fe6a03d8707218f1bed49ae4055a66ead0a7d26a0033f1080a757f.png" src="_images/d8442a7476fe6a03d8707218f1bed49ae4055a66ead0a7d26a0033f1080a757f.png" />
 </div>
 </div>
 <p>In practice, you can sample by the whole variety of distributions in numpy.random package, but it’s good to know the principle.</p>
@@ -956,10 +958,10 @@ For</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accept: 571
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accept: 573
 </pre></div>
 </div>
-<img alt="_images/8e8a515e4f4528c4995a7fa6c8ecd2d7080ed50a064ac71c1d8ba762378d9555.png" src="_images/8e8a515e4f4528c4995a7fa6c8ecd2d7080ed50a064ac71c1d8ba762378d9555.png" />
+<img alt="_images/4665a4cb30c0befebaa93cfd1e968620f44c429a08b0e81fb41111d77a352171.png" src="_images/4665a4cb30c0befebaa93cfd1e968620f44c429a08b0e81fb41111d77a352171.png" />
 </div>
 </div>
 </section>
@@ -1003,7 +1005,7 @@ the <em>expectation</em> of a function <span class="math notranslate nohighlight
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(3.0964777136005526), np.float64(9.468061331389581))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(3.0258835080177255), np.float64(8.285485905004295))
 </pre></div>
 </div>
 </div>
@@ -1027,7 +1029,7 @@ the <em>expectation</em> of a function <span class="math notranslate nohighlight
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(2.461219589152136), np.float64(1.25765715102582))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(3.1780525450322856), np.float64(2.637476950432052))
 </pre></div>
 </div>
 </div>
@@ -1052,7 +1054,7 @@ the <em>expectation</em> of a function <span class="math notranslate nohighlight
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(2.943294104017253), np.float64(3.00712014329161))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(2.9571854349597197), np.float64(3.2001927119960216))
 </pre></div>
 </div>
 </div>
@@ -1073,8 +1075,8 @@ the <em>expectation</em> of a function <span class="math notranslate nohighlight
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RS:  2.976361508297757 0.05270030458273423
-IS:  3.009583091310905 0.05891988810224354
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RS:  3.0006116596092944 0.05269461138206671
+IS:  2.9814450246561295 0.07428499912833812
 </pre></div>
 </div>
 </div>
@@ -1145,10 +1147,10 @@ IS:  3.009583091310905 0.05891988810224354
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>919
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>897
 </pre></div>
 </div>
-<img alt="_images/bc5ed04e8cf1ee43cad80231665ea92deb6a900fc41ac37464d884fb3204ae19.png" src="_images/bc5ed04e8cf1ee43cad80231665ea92deb6a900fc41ac37464d884fb3204ae19.png" />
+<img alt="_images/86c1abe3d39b84ce881690d678da3d4fa157f3681ac8b0d1d9f5ff3c0af5840a.png" src="_images/86c1abe3d39b84ce881690d678da3d4fa157f3681ac8b0d1d9f5ff3c0af5840a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1161,10 +1163,10 @@ IS:  3.009583091310905 0.05891988810224354
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>893
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>897
 </pre></div>
 </div>
-<img alt="_images/bd2b7e8762bf0514d751e6dae8dae011d8ef7b9ecdad1780faac031d82b75b40.png" src="_images/bd2b7e8762bf0514d751e6dae8dae011d8ef7b9ecdad1780faac031d82b75b40.png" />
+<img alt="_images/6cec5cf81f1a5d19ca9621b9709e1e036b9fd4196e7b7b6c0eeee1cdb2afd98a.png" src="_images/6cec5cf81f1a5d19ca9621b9709e1e036b9fd4196e7b7b6c0eeee1cdb2afd98a.png" />
 </div>
 </div>
 </section>

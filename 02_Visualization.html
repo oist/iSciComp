@@ -195,6 +195,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04_Matrix.html">4. Vectors and Matrices</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="04_Matrix_EigenValue.html">Real and Complex Eigenvalues</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="04_Matrix_Ex.html">4. Vectors and Matrices: Exercise</a></li>
 </ul>
 </details></li>
@@ -529,7 +531,7 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1067d8110&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1116d4500&gt;]
 </pre></div>
 </div>
 <img alt="_images/0dc49133d7b1ed24aeeea624e82af0598160b718458ed7b978e69d52965d7b83.png" src="_images/0dc49133d7b1ed24aeeea624e82af0598160b718458ed7b978e69d52965d7b83.png" />
@@ -550,7 +552,7 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1067f2390&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1117811c0&gt;]
 </pre></div>
 </div>
 <img alt="_images/ce89eca5912d1d9e2c96a09ca2cdaa799ea307ef3dee08253653708aa88a0504.png" src="_images/ce89eca5912d1d9e2c96a09ca2cdaa799ea307ef3dee08253653708aa88a0504.png" />
@@ -572,8 +574,8 @@ The Matplotlib gallery (<a class="reference external" href="http://matplotlib.or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1068f8710&gt;,
- &lt;matplotlib.lines.Line2D at 0x1068f8740&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1117f8bf0&gt;,
+ &lt;matplotlib.lines.Line2D at 0x1117f8c20&gt;]
 </pre></div>
 </div>
 <img alt="_images/4f4bc0e1085e68685abe147866b9113d0d3b50852e44aa6d053b6f7c15cf5db9.png" src="_images/4f4bc0e1085e68685abe147866b9113d0d3b50852e44aa6d053b6f7c15cf5db9.png" />
@@ -800,14 +802,14 @@ You can control the default font size by <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([  3.,  20.,  85., 185., 227., 212., 154.,  78.,  28.,   8.]),
- array([-3.19151173, -2.55416762, -1.91682352, -1.27947941, -0.6421353 ,
-        -0.00479119,  0.63255291,  1.26989702,  1.90724113,  2.54458524,
-         3.18192934]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 12.,  29.,  83., 177., 239., 201., 140.,  78.,  27.,  14.]),
+ array([-2.74008233, -2.1808272 , -1.62157207, -1.06231694, -0.50306181,
+         0.05619333,  0.61544846,  1.17470359,  1.73395872,  2.29321386,
+         2.85246899]),
  &lt;BarContainer object of 10 artists&gt;)
 </pre></div>
 </div>
-<img alt="_images/9f83257c2ba73ee71a1c87694830aed309711ac56022a7394886ab3ab5450cd3.png" src="_images/9f83257c2ba73ee71a1c87694830aed309711ac56022a7394886ab3ab5450cd3.png" />
+<img alt="_images/684779def12eb93007922cfe5bcfabfa6be76d8fe848e17be9d3736e57574b6c.png" src="_images/684779def12eb93007922cfe5bcfabfa6be76d8fe848e17be9d3736e57574b6c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -817,17 +819,17 @@ You can control the default font size by <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([  2.,   1.,   8.,  12.,  39.,  46.,  85., 100., 115., 112., 110.,
-        102., 103.,  51.,  43.,  35.,  20.,   8.,   7.,   1.]),
- array([-3.19151173, -2.87283968, -2.55416762, -2.23549557, -1.91682352,
-        -1.59815146, -1.27947941, -0.96080736, -0.6421353 , -0.32346325,
-        -0.00479119,  0.31388086,  0.63255291,  0.95122497,  1.26989702,
-         1.58856908,  1.90724113,  2.22591318,  2.54458524,  2.86325729,
-         3.18192934]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([  2.,  10.,   8.,  21.,  31.,  52.,  75., 102., 124., 115., 118.,
+         83.,  83.,  57.,  47.,  31.,  19.,   8.,  10.,   4.]),
+ array([-2.74008233, -2.46045477, -2.1808272 , -1.90119964, -1.62157207,
+        -1.3419445 , -1.06231694, -0.78268937, -0.50306181, -0.22343424,
+         0.05619333,  0.33582089,  0.61544846,  0.89507602,  1.17470359,
+         1.45433116,  1.73395872,  2.01358629,  2.29321386,  2.57284142,
+         2.85246899]),
  &lt;BarContainer object of 20 artists&gt;)
 </pre></div>
 </div>
-<img alt="_images/5c1f1df32cd17cc24058fd96a47c5fb12cf9955ff33550381f2efb4d7f2fa0ef.png" src="_images/5c1f1df32cd17cc24058fd96a47c5fb12cf9955ff33550381f2efb4d7f2fa0ef.png" />
+<img alt="_images/94e06fa369920ddccea024d6c6b8e125b660cd416490cd7cd68ce42c042b57c7.png" src="_images/94e06fa369920ddccea024d6c6b8e125b660cd416490cd7cd68ce42c042b57c7.png" />
 </div>
 </div>
 </section>
@@ -876,13 +878,13 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     alpha = None
     animated = False
     axes = [&lt;Axes: &gt;]
-    children = [&lt;matplotlib.patches.Rectangle object at 0x10687de...
+    children = [&lt;matplotlib.patches.Rectangle object at 0x1116f32...
     clip_box = None
     clip_on = True
     clip_path = None
     constrained_layout = False
     constrained_layout_pads = (None, None, None, None)
-    default_bbox_extra_artists = [&lt;Axes: &gt;, &lt;matplotlib.spines.Spine object at 0x10...
+    default_bbox_extra_artists = [&lt;Axes: &gt;, &lt;matplotlib.spines.Spine object at 0x11...
     dpi = 100.0
     edgecolor = (1.0, 1.0, 1.0, 1.0)
     facecolor = (1.0, 1.0, 1.0, 1.0)
@@ -955,12 +957,12 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     axes_locator = None
     axisbelow = line
     box_aspect = None
-    children = [&lt;matplotlib.lines.Line2D object at 0x10707caa0&gt;, ...
+    children = [&lt;matplotlib.lines.Line2D object at 0x111f73530&gt;, ...
     clip_box = None
     clip_on = True
     clip_path = None
     data_ratio = 1.3355391378951056
-    default_bbox_extra_artists = [&lt;matplotlib.spines.Spine object at 0x106948560&gt;, ...
+    default_bbox_extra_artists = [&lt;matplotlib.spines.Spine object at 0x111c91d60&gt;, ...
     facecolor or fc = (1.0, 1.0, 1.0, 1.0)
     figure = Figure(640x480)
     forward_navigation_events = auto
@@ -981,8 +983,8 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
     position = Bbox(x0=0.125, y0=0.10999999999999999, x1=0.9, y1=...
     rasterization_zorder = None
     rasterized = False
-    shared_x_axes = &lt;matplotlib.cbook.GrouperView object at 0x106aa423...
-    shared_y_axes = &lt;matplotlib.cbook.GrouperView object at 0x10687db5...
+    shared_x_axes = &lt;matplotlib.cbook.GrouperView object at 0x1117b9c1...
+    shared_y_axes = &lt;matplotlib.cbook.GrouperView object at 0x111c6952...
     sketch_params = None
     snap = None
     subplotspec = GridSpec(1, 1)[0:1, 0:1]
@@ -1042,10 +1044,10 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1070d66f0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x111ff43b0&gt;]
 </pre></div>
 </div>
-<img alt="_images/ddc33a3a2a5e0e006522b38660d31e219ba1d37282eebbc64c74804be53ba899.png" src="_images/ddc33a3a2a5e0e006522b38660d31e219ba1d37282eebbc64c74804be53ba899.png" />
+<img alt="_images/ff6f84283eeead6daf1d13ad2a658fb28b0c168210c1e48e490b779996a1971f.png" src="_images/ff6f84283eeead6daf1d13ad2a658fb28b0c168210c1e48e490b779996a1971f.png" />
 </div>
 </div>
 <p>By <code class="docutils literal notranslate"><span class="pre">scatterplot(</span> <span class="pre">)</span></code> you can specify the size and the color of each point to visualize higher dimension information.</p>
@@ -1060,10 +1062,10 @@ You can use <code class="docutils literal notranslate"><span class="pre">gcf()</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1070b1df0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x111b0a4e0&gt;
 </pre></div>
 </div>
-<img alt="_images/2b3816e0580194576214dcf5463d7c376cede83e7d156f02e274b8b072d58762.png" src="_images/2b3816e0580194576214dcf5463d7c376cede83e7d156f02e274b8b072d58762.png" />
+<img alt="_images/c50c1cb3508f75d15c8e80758d1815eb538ff0a7b728db65a38f4d9cff380aed.png" src="_images/c50c1cb3508f75d15c8e80758d1815eb538ff0a7b728db65a38f4d9cff380aed.png" />
 </div>
 </div>
 </section>
@@ -1120,7 +1122,7 @@ Y = [[-3. -3. -3. -3. -3. -3. -3. -3. -3.]
  [-12.  -9.  -6.  -3.   0.   3.   6.   9.  12.]]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x106bb2e70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1120aebd0&gt;
 </pre></div>
 </div>
 <img alt="_images/e50b433c7bbe8fb9edabdd2d4433d104e1404edfca328e71f0d608a6d410269d.png" src="_images/e50b433c7bbe8fb9edabdd2d4433d104e1404edfca328e71f0d608a6d410269d.png" />
@@ -1135,7 +1137,7 @@ Y = [[-3. -3. -3. -3. -3. -3. -3. -3. -3.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x107220ad0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x111b0b320&gt;
 </pre></div>
 </div>
 <img alt="_images/ab3c48730c6ccd0e002202b17d7a94dc375e646bcd024a83a39561470be5eac5.png" src="_images/ab3c48730c6ccd0e002202b17d7a94dc375e646bcd024a83a39561470be5eac5.png" />
@@ -1191,7 +1193,7 @@ Y = [[-3. -3. -3. -3. -3. -3. -3. -3. -3.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x107342420&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x11226c650&gt;
 </pre></div>
 </div>
 <img alt="_images/bdc5ebf5c232e1c4043bd6fb929b47548e9a597590a4e228e0ccf72b582cd3b4.png" src="_images/bdc5ebf5c232e1c4043bd6fb929b47548e9a597590a4e228e0ccf72b582cd3b4.png" />

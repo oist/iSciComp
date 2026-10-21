@@ -1,0 +1,785 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Real and Complex Eigenvalues &#8212; Introduction to Scientific Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '04_Matrix_EigenValue';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Vectors and Matrices: Exercise" href="04_Matrix_Ex.html" />
+    <link rel="prev" title="4. Vectors and Matrices" href="04_Matrix.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="iSciComp.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/SC_logo.png" class="logo__image only-light" alt="Introduction to Scientific Computing - Home"/>
+    <script>document.write(`<img src="_static/SC_logo.png" class="logo__image only-dark" alt="Introduction to Scientific Computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="iSciComp.html">
+                    Introduction to Scientific Computing
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_Introduction.html">1. Introduction to Python</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="02_Visualization.html">2. Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_3D.html">3D Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_Animation.html">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_Ex.html">2. Visualization: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="03_Function.html">3. Functions and Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="03_Function_Ex.html">3. Functions and Classes: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="04_Matrix.html">4. Vectors and Matrices</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Real and Complex Eigenvalues</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="04_Matrix_Ex.html">4. Vectors and Matrices: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="05_Iteration.html">5. Iterative Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="05_Iteration_Ex.html">5. Iterative Computation: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="06_ODE.html">6. Ordinary Differential Equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="06_ODE_Ex.html">6. Ordinary Differential Equations: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="07_PDE.html">7. Partial Differential Equations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="07_PDE_Ex.html">7. Partial Differential Equations: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="08_Optimization.html">8. Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="08_Optimization_Ex.html">8. Optimization: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="09_Stochastic.html">9. Stochastic Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="09_Stochastic_Ex.html">9. Stochastic Methods: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="10_Management.html">10. Software Management</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_Git.html">Version Control System: Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_GitHub.html">Collaborative Development: GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Management_Ex.html">10. Software Management: Exercise</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Solutions.html">Sample Solutions of Exercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_Introduction_Sol.html">1. Introduction to Python: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_Visualization_Sol.html">2. Visualization: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_Function_Sol.html">3. Functions and Classes: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_Matrix_Sol.html">4. Vectors and Matrices: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_Iteration_Sol.html">5. Iterative Computation: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_ODE_Sol.html">6. Ordinary Differential Equations: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_PDE_Sol.html">7. Partial Differential Equations: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_Optimization_Sol.html">8. Optimization: Exercise Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_Stochastic_Sol.html">9. Stochastic Methods: Exercise Solutions</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/oist/iSciComp/master?urlpath=tree/04_Matrix_EigenValue.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/oist/iSciComp/blob/master/04_Matrix_EigenValue.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/oist/iSciComp" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/04_Matrix_EigenValue.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Real and Complex Eigenvalues</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Real and Complex Eigenvalues</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalues-of-a-2x2-matrix">Eigenvalues of a 2x2 matrix</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-eigenvalues">Real eigenvalues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-eigenvalues">Complex eigenvalues</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="real-and-complex-eigenvalues">
+<h1>Real and Complex Eigenvalues<a class="headerlink" href="#real-and-complex-eigenvalues" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[ % Latex macros
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\p}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\b}[1]{\boldsymbol{#1}}
+\newcommand{\w}{\boldsymbol{w}}
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\y}{\boldsymbol{y}}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eigenvalues-of-a-2x2-matrix">
+<h1>Eigenvalues of a 2x2 matrix<a class="headerlink" href="#eigenvalues-of-a-2x2-matrix" title="Link to this heading">#</a></h1>
+<p>Let us take the simplest and the most important case of 2 by 2 matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} A = \pmatrix{a &amp; b \\ c &amp; d}. \end{split}\]</div>
+<p>We can analytically derive the eigenvalues from</p>
+<div class="math notranslate nohighlight">
+\[ \det (A - \lambda I) = (a-\lambda)(d-\lambda) - bc = 0 \]</div>
+<p>as</p>
+<div class="math notranslate nohighlight">
+\[ \lambda = \frac{a+d}{2} \pm \sqrt{\frac{(a-d)^2}{4}+ bc}. \]</div>
+<p>The corresponding eigenvectors are not unique, but given by, for example,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \b{x} = \mat{b \\ \lambda - a}. \end{split}\]</div>
+<section id="real-eigenvalues">
+<h2>Real eigenvalues<a class="headerlink" href="#real-eigenvalues" title="Link to this heading">#</a></h2>
+<p>When <span class="math notranslate nohighlight">\(\frac{(a-d)^2}{4}+ bc \ge 0\)</span>, <span class="math notranslate nohighlight">\(A\)</span> has two real eigenvalues
+<span class="math notranslate nohighlight">\(\{\lambda_1, \lambda_2\}\)</span>
+with corresponding eigenvectors
+<span class="math notranslate nohighlight">\(\{ \b{v}_1, \b{v}_2 \}\)</span></p>
+<p>The movement of a point <span class="math notranslate nohighlight">\(\b{x}\)</span> by <span class="math notranslate nohighlight">\(A\)</span> as
+<span class="math notranslate nohighlight">\(A\b{x}, A^2\b{x}, A^3\b{x},...\)</span> is composed of movements in the directions of the eigenvectors <span class="math notranslate nohighlight">\(\{ \b{v}_1, \b{v}_2 \}\)</span>.
+It is convergent if <span class="math notranslate nohighlight">\(|\lambda_i|&lt;1\)</span>
+and divergent if  <span class="math notranslate nohighlight">\(|\lambda_i|&gt;1.\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take a 2x2 matrix</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="c1"># check the eigenvalues and eigenvectors</span>
+<span class="n">L</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L =&quot;</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;V = &quot;</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+<span class="c1"># take a point and see how it moves</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">7</span>  <span class="c1"># steps</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">K</span><span class="p">))</span>
+<span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">x</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span>  <span class="c1"># x_{k+1} = A x_k</span>
+<span class="c1"># plot the trajectory</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">);</span>
+<span class="c1"># In the eigenspace</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">K</span><span class="p">))</span>
+<span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">@</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># map to eigenspace</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">y</span><span class="p">[:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="o">*</span><span class="n">y</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span>  <span class="c1"># z_{k+1} = L z_k</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r+-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;v1&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">);</span>
+<span class="c1"># Convert back to the original space</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">xv</span> <span class="o">=</span> <span class="p">(</span><span class="n">V</span> <span class="o">@</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">xv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>  <span class="c1"># adjust the space</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L = [2.  0.5]
+V =  [[ 0.70710678 -0.4472136 ]
+ [ 0.70710678  0.89442719]]
+</pre></div>
+</div>
+<img alt="_images/f2b86488a6f22f99fc35243230a4740700347caa1ac03feb6f28313bdaa2bd24.png" src="_images/f2b86488a6f22f99fc35243230a4740700347caa1ac03feb6f28313bdaa2bd24.png" />
+</div>
+</div>
+</section>
+<section id="complex-eigenvalues">
+<h2>Complex eigenvalues<a class="headerlink" href="#complex-eigenvalues" title="Link to this heading">#</a></h2>
+<p>When <span class="math notranslate nohighlight">\(\frac{(a-d)^2}{4}+ bc &lt; 0\)</span>, <span class="math notranslate nohighlight">\(A\)</span> has a pair of complex eigenvalues</p>
+<div class="math notranslate nohighlight">
+\[ \lambda_1 = \alpha + i\beta \mbox{ and } \lambda_2 = \alpha - i\beta \]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[ \alpha = \frac{a+d}{2} \mbox{ and } \beta^2 = -\frac{(a-d)^2}{4}- bc \]</div>
+<p>with corresponding eigenvectors</p>
+<div class="math notranslate nohighlight">
+\[ V = (\b{v}_1, \b{v}_2) = (\b{u}+i\b{w}, \b{u}-i\b{w}).\]</div>
+<p>By eigendecomposition
+<span class="math notranslate nohighlight">\( A = V \Lambda V^{-1}, \)</span>
+a point <span class="math notranslate nohighlight">\(\b{x}\)</span> is converted to points in a complex plane and multiplied by a complex eigenvalue, which means rotation and scaling.
+Points in the complex plane are then converted back in a real vector space by multiplication with <span class="math notranslate nohighlight">\(V\)</span>.</p>
+<p>To see the rotation and scaling more explicitly, we can represent <span class="math notranslate nohighlight">\(\Lambda=\mat{\alpha+i\beta &amp; 0 \\ 0 &amp; \alpha-i\beta}\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[\Lambda = U R U^{-1}\]</div>
+<p>where <span class="math notranslate nohighlight">\(R\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} R = \mat{\alpha &amp; -\beta \\ \beta &amp; \alpha}
+ = \mat{r\cos\theta &amp; -r\sin\theta \\ r\sin\theta &amp; r\cos\theta }.\end{split}\]</div>
+<p>Here <span class="math notranslate nohighlight">\(r=|\lambda|=\sqrt{\alpha^2+\beta^2}\)</span> is the scaling factor and <span class="math notranslate nohighlight">\(\theta\)</span> is the angle of rotation.</p>
+<p>We can choose <span class="math notranslate nohighlight">\(U\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} U = \frac{1}{2}\mat{1 &amp; i \\ 1 &amp; -i} \end{split}\]</div>
+<p>such that
+<span class="math notranslate nohighlight">\(VU = (\b{u}, -\b{w})\)</span>.</p>
+<p>Then we have another decomposition of <span class="math notranslate nohighlight">\(A\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} A = V \Lambda V^{-1}
+ = V URU^{-1} V^{-1}
+ = (\b{u}, -\b{w}) \mat{r\cos\theta &amp; -r\sin\theta \\ r\sin\theta &amp; r\cos\theta} (\b{u}, -\b{w})^{-1} \end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take a 2x2 matrix</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]])</span>
+<span class="c1"># check the eigenvalues and eigenvectors</span>
+<span class="n">L</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L =&quot;</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;V = &quot;</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+<span class="c1"># take a point and see how it moves</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">7</span>  <span class="c1"># steps</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">K</span><span class="p">))</span>
+<span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">x</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span>  <span class="c1"># x_{k+1} = A x_k</span>
+<span class="c1"># plot the trajectory</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">);</span>
+<span class="c1"># In the eigenspace</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">K</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="n">z</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">@</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">z</span><span class="p">[:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="o">*</span><span class="n">z</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span>  <span class="c1"># z_{k+1} = L z_k</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="s1">&#39;r+-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="s1">&#39;m+-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Real&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Imag&quot;</span><span class="p">);</span>
+<span class="c1"># In the cos-sin space</span>
+<span class="n">VU</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">V</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="o">-</span><span class="n">V</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">]</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="o">-</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">],</span> <span class="p">[</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R =&quot;</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;VU =&quot;</span><span class="p">,</span> <span class="n">VU</span><span class="p">)</span> 
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">K</span><span class="p">))</span>
+<span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">VU</span><span class="p">)</span> <span class="o">@</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">y</span><span class="p">[:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span> <span class="o">@</span> <span class="n">y</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span>  <span class="c1"># y_{k+1} = R y_k</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;g*-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;u&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;-w&quot;</span><span class="p">);</span>
+<span class="c1"># Convert back to the original space</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">xc</span> <span class="o">=</span> <span class="p">(</span><span class="n">V</span> <span class="o">@</span> <span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
+<span class="n">xr</span> <span class="o">=</span> <span class="n">VU</span> <span class="o">@</span> <span class="n">y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">xr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xr</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;g*&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">xc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]);</span>  <span class="c1"># fit in extra width</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L = [0.75+0.96824584j 0.75-0.96824584j]
+V =  [[0.70710678+0.j        0.70710678-0.j       ]
+ [0.1767767 -0.6846532j 0.1767767 +0.6846532j]]
+R = [[ 0.75       -0.96824584]
+ [ 0.96824584  0.75      ]]
+VU = [[ 0.70710678 -0.        ]
+ [ 0.1767767   0.6846532 ]]
+</pre></div>
+</div>
+<img alt="_images/65616d8cd12a300227d755903e3849484beb2bcea56bb491b07e85a20ecf17b5.png" src="_images/65616d8cd12a300227d755903e3849484beb2bcea56bb491b07e85a20ecf17b5.png" />
+</div>
+</div>
+<p>The trajectory in the complex space or the <span class="math notranslate nohighlight">\((\b{u},-\b{w})\)</span> space is a regular spirals, which is mapped to a skewed spiral in the original space.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_Matrix.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">4. Vectors and Matrices</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_Matrix_Ex.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">4. Vectors and Matrices: Exercise</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Real and Complex Eigenvalues</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalues-of-a-2x2-matrix">Eigenvalues of a 2x2 matrix</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-eigenvalues">Real eigenvalues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-eigenvalues">Complex eigenvalues</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kenji Doya
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

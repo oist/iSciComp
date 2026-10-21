@@ -193,6 +193,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04_Matrix.html">4. Vectors and Matrices</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="04_Matrix_EigenValue.html">Real and Complex Eigenvalues</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="04_Matrix_Ex.html">4. Vectors and Matrices: Exercise</a></li>
 </ul>
 </details></li>
@@ -600,9 +602,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AUTO_MERGE      description     index           MERGE_HEAD      <span class=" -Color -Color-Blue">objects</span>/
-COMMIT_EDITMSG  HEAD            <span class=" -Color -Color-Blue">info</span>/           MERGE_MODE      ORIG_HEAD
-config          <span class=" -Color -Color-Blue">hooks</span>/          <span class=" -Color -Color-Blue">logs</span>/           MERGE_MSG       <span class=" -Color -Color-Blue">refs</span>/
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>COMMIT_EDITMSG  HEAD            <span class=" -Color -Color-Blue">info</span>/           ORIG_HEAD
+config          <span class=" -Color -Color-Blue">hooks</span>/          <span class=" -Color -Color-Blue">logs</span>/           <span class=" -Color -Color-Blue">refs</span>/
+description     index           <span class=" -Color -Color-Blue">objects</span>/
 </pre></div>
 </div>
 </div>
@@ -616,15 +618,11 @@ config          <span class=" -Color -Color-Blue">hooks</span>/          <span c
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch main
-All conflicts fixed but you are still merging.
-  (use &quot;git commit&quot; to conclude merge)
-
-Changes to be committed:
-	<span class=" -Color -Color-Green">modified:   gcell.py</span>
-
 Untracked files:
   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
 	<span class=" -Color -Color-Red">__pycache__/</span>
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
 </pre></div>
 </div>
 </div>
@@ -644,17 +642,11 @@ Untracked files:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch main
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All conflicts fixed but you are still merging.
-  (use &quot;git commit&quot; to conclude merge)
-
-Changes to be committed:
-	<span class=" -Color -Color-Green">modified:   gcell.py</span>
-
 Untracked files:
   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
 	<span class=" -Color -Color-Red">__pycache__/</span>
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
 </pre></div>
 </div>
 </div>
@@ -668,22 +660,12 @@ Untracked files:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[main 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>96cb22c] initial version
- Committer: Kenji Doya &lt;doya@starfishM4-4.local&gt;
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch main
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+	<span class=" -Color -Color-Red">__pycache__/</span>
 
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch main
@@ -755,7 +737,9 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch main
-Untracked files:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Untracked files:
   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
 	<span class=" -Color -Color-Red">__pycache__/</span>
 
@@ -950,7 +934,7 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3f8806b9c48531dc4e075728ce49398dc403192681596162153b6aee2f31085b.png" src="_images/3f8806b9c48531dc4e075728ce49398dc403192681596162153b6aee2f31085b.png" />
+<img alt="_images/9435913605e5ee081478a6aaade2b78f4ea405ed43582acadd2d53ba333424d5.png" src="_images/9435913605e5ee081478a6aaade2b78f4ea405ed43582acadd2d53ba333424d5.png" />
 </div>
 </div>
 <p>Then <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>.</p>
