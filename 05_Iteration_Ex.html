@@ -451,7 +451,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-method-in-n-dimension">1. Newton’s method in n dimension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-method">1. Newton’s method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bifurcation-and-chaos">2. Bifurcation and Chaos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-call-and-fractal">3. Recursive call and fractal</a></li>
 </ul>
@@ -486,135 +486,11 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="newton-s-method-in-n-dimension">
-<h2>1. Newton’s method in n dimension<a class="headerlink" href="#newton-s-method-in-n-dimension" title="Link to this heading">#</a></h2>
-<p>Newton’s method can be generalized for <span class="math notranslate nohighlight">\(n\)</span> dimensional vector <span class="math notranslate nohighlight">\(x \in \Re^n\)</span> and <span class="math notranslate nohighlight">\(n\)</span> dimensional function <span class="math notranslate nohighlight">\(f(x)={\bf0} \in \Re^n\)</span> as</p>
-<div class="math notranslate nohighlight">
-\[ x_{k+1} = x_k - J(x_k)^{-1}f(x_k) \]</div>
-<p>where <span class="math notranslate nohighlight">\(J(x)\)</span> is the <em>Jacobian matrix</em></p>
-<div class="math notranslate nohighlight">
-\[\begin{split} J(x) = \mat{\p{f_1}{x_1} &amp; \cdots &amp; \p{f_1}{x_n}\\
-    \vdots &amp; &amp; \vdots\\
-    \p{f_n}{x_1} &amp; \cdots &amp; \p{f_n}{x_n}} \end{split}\]</div>
+<section id="newton-s-method">
+<h2>1. Newton’s method<a class="headerlink" href="#newton-s-method" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Define a function that computes</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[\begin{split} f(x) = 
-    \left(\begin{array}{c} a_0 + a_1 x_1^2 + a_2 x_2^2\\
-    b_0 + b_1 x_1 + b_2 x_2\end{array}\right)
-\end{split}\]</div>
-<p>and its Jacobian.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">deriv</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;y[0] = a[0] + a[1]*x[0]**2 + a[2]*x[1]**2\\</span>
-<span class="sd">    y[1] = b[0] + b[1]*x[0] + b[2]*x[1]</span>
-<span class="sd">    also return the Jacobian if derive==True&quot;&quot;&quot;</span>
-    <span class="n">y0</span> <span class="o">=</span> 
-    <span class="n">y1</span> <span class="o">=</span> 
-    <span class="k">if</span> <span class="n">deriv</span><span class="p">:</span>
-        <span class="n">J</span> <span class="o">=</span> 
-        
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">J</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-    <span class="n">y0</span> <span class="o">=</span>
-         <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ol class="arabic simple" start="2">
-<li><p>Consider the case of <span class="math notranslate nohighlight">\(a = [-1, 1, 1]\)</span> and <span class="math notranslate nohighlight">\(b = [-1, 1, 2]\)</span> and visualize parabollic and linear surfaces.</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> notebook
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">XY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">])</span>  <span class="c1"># (2,25,25) array</span>
-<span class="n">Z</span> <span class="o">=</span> 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ol class="arabic simple" start="3">
-<li><p>Implement Newton’s method for vectors.</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">maxstep</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Newton&#39;s method. </span>
-<span class="sd">        f: should also return Jacobian matrix</span>
-<span class="sd">        x0: initial guess</span>
-<span class="sd">        *args: parameter for f(x,*args)</span>
-<span class="sd">        target: accuracy target&quot;&quot;&quot;</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>  <span class="c1"># dimension</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">maxstep</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">maxstep</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">maxstep</span><span class="p">):</span>
-        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">J</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-        <span class="k">if</span>   <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
-            <span class="k">break</span>  <span class="c1"># converged!</span>
-        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> 
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;did not coverge in&#39;</span><span class="p">,</span> <span class="n">maxstep</span><span class="p">,</span> <span class="s1">&#39;steps.&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ol class="arabic simple" start="4">
-<li><p>Test how it works from different initial guesses.</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ol class="arabic simple" start="5">
-<li><p>Test it with any other function of your interest.</p></li>
+<li><p>Define a function of your interest and find the solutions for <span class="math notranslate nohighlight">\(f(x)=0\)</span> by Newton’s method and quasi Newton’s method.</p></li>
+<li><p>Define m functions in m dimensional space (e.g. m=2) and find solutions for f_i(\b{x})=\b{0}$</p></li>
 </ol>
 </section>
 <section id="bifurcation-and-chaos">
@@ -626,18 +502,7 @@ document.write(`
 <p>Let us consider the logistic map</p>
 <div class="math notranslate nohighlight">
 \[ x_{k+1} = a x_k(1 - x_k) \]</div>
-<ol class="arabic simple">
-<li><p>Plot <span class="math notranslate nohighlight">\(x_{k+1}=ax_k(1-x_k)\)</span> along with <span class="math notranslate nohighlight">\(x_{k+1}=x_k\)</span> for <span class="math notranslate nohighlight">\(a=0.5, 2, 3.3\)</span>.</p></li>
-</ol>
-<p>What are the fixed points of these maps?</p>
-<ol class="arabic simple" start="2">
-<li><p>A fixed point is said to be “stable” when nearby values of <span class="math notranslate nohighlight">\(x_k\)</span> also converge to the fixed point after applying <span class="math notranslate nohighlight">\(f\)</span> many times; it’s said to be “unstable” when nearby values of <span class="math notranslate nohighlight">\(x_k\)</span> diverge from it.</p></li>
-</ol>
-<p>Draw “cobweb plots” on top of each of the previous plots to visualize trajectories.
-Try several different initial values of <span class="math notranslate nohighlight">\(x_k\)</span>.</p>
-<p>Are the fixed points you found stable or unstable?</p>
-<p>How is the stability related to the slope (derivative) of <span class="math notranslate nohighlight">\(f(x_k)=ax_k(1-x_k)\)</span> at the fixed point?</p>
-<p>3: optional) A <em>bifurcation diagram</em> is a plot of trajectories versus a parameter.<br />
+<p>A <em>bifurcation diagram</em> is a plot of trajectories versus a parameter.<br />
 draw the bifurcation diagram for parameter <span class="math notranslate nohighlight">\(a\)</span> <span class="math notranslate nohighlight">\((1 \le a \le 4)\)</span>, like below:<br />
 <img alt="bifurcation" src="_images/bifurcation.png" /></p>
 <p>Hint:</p>
@@ -718,7 +583,7 @@ draw the bifurcation diagram for parameter <span class="math notranslate nohighl
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-method-in-n-dimension">1. Newton’s method in n dimension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-method">1. Newton’s method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bifurcation-and-chaos">2. Bifurcation and Chaos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-call-and-fractal">3. Recursive call and fractal</a></li>
 </ul>
