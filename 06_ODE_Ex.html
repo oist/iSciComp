@@ -595,10 +595,10 @@ document.write(`
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p>Run a simulation by <code class="docutils literal notranslate"><span class="pre">odeint()</span></code> and show the trajectory as (t, y(t))</p></li>
+<li><p>Run simulations with different initial conditions by <code class="docutils literal notranslate"><span class="pre">odeint()</span></code> and show the trajectories as (t, y(t))</p></li>
 </ol>
 <ol class="arabic simple" start="3">
-<li><p>Show the trajectory in the 2D state space <span class="math notranslate nohighlight">\((\theta, \omega)\)</span></p></li>
+<li><p>Show the trajectories in the 2D state space <span class="math notranslate nohighlight">\((\theta, \omega)\)</span></p></li>
 </ol>
 <p>Option) Implement a nonlinear system with time-dependent input, such as a forced pendulum:</p>
 <div class="math notranslate nohighlight">
@@ -615,7 +615,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[ \frac{dw}{dt} = \phi (v + a - bw) \]</div>
 <ol class="arabic simple">
-<li><p>Implement a function and see how the behaviors at different input current <span class="math notranslate nohighlight">\(I\)</span>.</p></li>
+<li><p>Implement a function and visulaize the solutions at different input current <span class="math notranslate nohighlight">\(I\)</span>.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -654,6 +654,9 @@ document.write(`
 </div>
 </div>
 <ol class="arabic simple" start="2">
+<li><p>Draw the nullclines <span class="math notranslate nohighlight">\(\frac{dv}{dt} = 0\)</span> and <span class="math notranslate nohighlight">\(\frac{dw}{dt} = 0\)</span>, and overlay with the solution trajectories.</p></li>
+</ol>
+<ol class="arabic simple" start="3">
 <li><p>Draw a <em>bifurcation diagram</em> showing the max-min of <span class="math notranslate nohighlight">\(v\)</span> for different values of <span class="math notranslate nohighlight">\(I\)</span>.</p></li>
 </ol>
 </section>
